@@ -1,0 +1,24 @@
+{
+  "name": "indeygo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "installFrontend": "cd frontend && npm i && cd ..",
+    "installBackend": "cd backend && npm i",
+    "install": "npm run installFrontend && npm run installBackend",
+    "build": "cd frontend && npm run build",
+    "start": "node backend/server.js",
+    "dev": "nodemon backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeraldwilks/indeygo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jeraldwilks/indeygo/issues"
+  },
+  "homepage": "https://github.com/jeraldwilks/indeygo#readme"
+}

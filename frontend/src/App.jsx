@@ -3,7 +3,7 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
-  return <React.Fragment>Hello World!</React.Fragment>;
+  return <>Hello World!</>;
 }
 
 export default App;

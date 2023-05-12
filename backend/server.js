@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
+import path from "path";
 
 dotenv.config();
 
@@ -11,5 +12,7 @@ app.listen(PORT, () => console.log(`Listening on ${PORT}`));
 
 await mongoose.connect(process.env.MONGO_URL);
 console.log("Connected to MongoDB");
-
-app.get("*", (req, res) => res.send("<h1>Hello World</h1>"));
+app.use(express.static(path.join(path.resolve(), "frontend/dist")));
+app.get("*", (req, res) =>
+  res.sendFile(path.join(path.resolve(), "frontend/dist/index.html"))
+);
