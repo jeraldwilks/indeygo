@@ -3,7 +3,7 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
-  return <>Hello World!</>;
+  return <>Hello InceptionU!</>;
 }
 
 export default App;
