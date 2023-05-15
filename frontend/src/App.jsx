@@ -1,12 +1,15 @@
 import { useState } from "react";
 
 import "./App.css";
+import ResponsiveAppBar from "./components/ResponsiveAppBar";
 
 function App() {
-  return <>
-  <div>primrose</div>
-  Hello InceptionU!
-  </>;
+  return (
+    <>
+      <ResponsiveAppBar />
+      Hello InceptionU!
+    </>
+  );
 }
 
 export default App;
