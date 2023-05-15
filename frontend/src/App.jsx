@@ -1,14 +1,19 @@
-import { useState } from "react";
-import { Outlet } from 'react-router-dom'
 import "./App.css";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import HomePage from "./Pages/HomePage";
+import ProductsPage from "./Pages/ProductsPage";
 import ResponsiveAppBar from "./components/ResponsiveAppBar";
 
 function App() {
   return (
-    <>
-      <Outlet/>
-      Hello InceptionU!
-    </>
+    <div className="fullscreen">
+      <ResponsiveAppBar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/products" element={<ProductsPage />} />
+      </Routes>
+    </div>
   );
 }
 
