@@ -5,10 +5,10 @@ import ResponsiveAppBar from "./components/ResponsiveAppBar";
 
 function App() {
   return (
-    <>
+    <div className="fullscreen">
       <ResponsiveAppBar />
       Hello InceptionU!
-    </>
+    </div>
   );
 }
 
