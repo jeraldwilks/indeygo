@@ -11,7 +11,7 @@ function App() {
       <ResponsiveAppBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/products" element={<ProductsPage />} />
+        <Route path="/Products" element={<ProductsPage />} />
       </Routes>
     </div>
   );
