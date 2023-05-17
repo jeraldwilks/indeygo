@@ -7,6 +7,7 @@ import ResponsiveAppBar from "./components/ResponsiveAppBar";
 import ErrorPage from "./Pages/ErrorPage";
 import RegisterPage from "./components/RegisterPage";
 import LoginPage from "./components/LoginPage";
+import StickyFooter from "./Pages/Footer";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/Login" element={<LoginPage />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
+      <StickyFooter/>
     </div>
   );
 }
