@@ -14,8 +14,8 @@ import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import { Link } from "react-router-dom";
 
-const pages = ["Products", "About Us", "FAQ", "Blog", "Contact Us", "Registration"];
-const settings = ["Profile", "Account", "Dashboard", "Registration"];
+const pages = ["Products", "About Us", "FAQ", "Blog", "Contact", "Registration"];
+const settings = ["Profile", "Account", "Dashboard", "Login"];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
