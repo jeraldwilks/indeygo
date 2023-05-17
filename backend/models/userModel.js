@@ -1,7 +1,7 @@
 import bcrypt from "bcrypt";
 import mongoose from "mongoose";
 
-const userSchema = mongoose.userSchema({
+const userSchema = mongoose.Schema({
   email: {
     required: true,
     unique: true,
@@ -45,7 +45,6 @@ export const createUser = async (newUser) => {
       ...newUser,
       password: hashedPassword,
     });
-    createdUser.save();
     return createdUser;
   } catch (error) {
     if (error.code === 11000) {
