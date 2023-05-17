@@ -1,13 +1,14 @@
 import "./App.css";
-import React from "react";
-import { Routes, Route } from "react-router-dom";
-import HomePage from "./Pages/HomePage";
-import ProductsPage from "./Pages/ProductsPage"; 
-import ResponsiveAppBar from "./components/ResponsiveAppBar";
+import ContactPage from "./Pages/ContactPage";
 import ErrorPage from "./Pages/ErrorPage";
-import RegisterPage from "./components/RegisterPage";
-import LoginPage from "./components/LoginPage";
-import StickyFooter from "./Pages/Footer";
+import HomePage from "./Pages/HomePage";
+import LoginPage from "./Pages/LoginPage";
+import ProductsPage from "./Pages/ProductsPage"; 
+import StickyFooter from "./components/Footer";
+import React from "react";
+import RegisterPage from "./Pages/RegisterPage";
+import ResponsiveAppBar from "./components/ResponsiveAppBar";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
@@ -15,10 +16,11 @@ function App() {
       <ResponsiveAppBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="*" element={<ErrorPage />} />
+        <Route path="/Contact" element={<ContactPage />} />
+        <Route path="/Login" element={<LoginPage />} />
         <Route path="/Products" element={<ProductsPage />} />
         <Route path="/Registration" element={<RegisterPage />} />
-        <Route path="/Login" element={<LoginPage />} />
-        <Route path="*" element={<ErrorPage />} />
       </Routes>
       <StickyFooter/>
     </div>
