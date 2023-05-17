@@ -4,7 +4,7 @@ import ErrorPage from "./Pages/ErrorPage";
 import ForgotPasswordPage from "./Pages/ForgotPasswordPage";
 import HomePage from "./Pages/HomePage";
 import LoginPage from "./Pages/LoginPage";
-import ProductsPage from "./Pages/ProductsPage"; 
+import ProductsPage from "./Pages/ProductsPage";
 import StickyFooter from "./components/Footer";
 import React from "react";
 import RegisterPage from "./Pages/RegisterPage";
@@ -19,12 +19,12 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="*" element={<ErrorPage />} />
         <Route path="/Contact" element={<ContactPage />} />
-        <Route path="/ForgotPassword" element={<ForgotPasswordPage/>}/>
+        <Route path="/ForgotPassword" element={<ForgotPasswordPage />} />
         <Route path="/Login" element={<LoginPage />} />
         <Route path="/Products" element={<ProductsPage />} />
-        <Route path="/Registration" element={<RegisterPage />} />
+        <Route path="/Register" element={<RegisterPage />} />
       </Routes>
-      <StickyFooter/>
+      <StickyFooter />
     </div>
   );
 }
