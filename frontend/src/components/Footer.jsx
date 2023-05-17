@@ -10,10 +10,11 @@ function Copyright() {
     <Typography variant="body2" color="text.secondary">
       {'Copyright © '}
       <Link color="inherit" href="/">
-        Indeygo
+      Indeygo Fundraising
       </Link>{' '}
       {new Date().getFullYear()}
-      {'.'}
+      {'. '}
+      All Rights Reserved
     </Typography>
   );
 }

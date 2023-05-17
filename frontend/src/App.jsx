@@ -1,6 +1,7 @@
 import "./App.css";
 import ContactPage from "./Pages/ContactPage";
 import ErrorPage from "./Pages/ErrorPage";
+import ForgotPasswordPage from "./Pages/ForgotPasswordPage";
 import HomePage from "./Pages/HomePage";
 import LoginPage from "./Pages/LoginPage";
 import ProductsPage from "./Pages/ProductsPage"; 
@@ -18,6 +19,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="*" element={<ErrorPage />} />
         <Route path="/Contact" element={<ContactPage />} />
+        <Route path="/ForgotPassword" element={<ForgotPasswordPage/>}/>
         <Route path="/Login" element={<LoginPage />} />
         <Route path="/Products" element={<ProductsPage />} />
         <Route path="/Registration" element={<RegisterPage />} />

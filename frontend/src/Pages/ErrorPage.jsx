@@ -7,7 +7,7 @@ export default function ErrorPage() {
   return (
     <div id="error-page">
       <h1>Error!</h1>
-      <p>Return to whence you came from. </p>
+      <p>Bad Gateway! </p>
       <p>{/* <i>{error.statusText || error.message}</i> */}</p>
     </div>
   );
