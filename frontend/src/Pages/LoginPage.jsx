@@ -92,10 +92,10 @@ export default function LoginPage() {
               id="password"
               autoComplete="current-password"
             />
-            <FormControlLabel
+            {/* <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
-            />
+            /> */}
             <Button
               type="submit"
               fullWidth
@@ -111,7 +111,7 @@ export default function LoginPage() {
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="/Registration" variant="body2">
+                <Link href="/Register" variant="body2">
                   {"Don't have an account? Register"}
                 </Link>
               </Grid>

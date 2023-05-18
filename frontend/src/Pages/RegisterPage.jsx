@@ -11,29 +11,42 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import { useState } from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import LoginPage from './LoginPage';
+import { useAuth } from "../providers/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="/">
-        Indeygo
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
 
 const theme = createTheme();
 
 export default function RegisterPage() {
-  const handleSubmit = (event) => {
+  const { register } = useAuth();
+  const navigate = useNavigate();
+  const [errorMessage, setErrorMessage] = useState('');
+
+  
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+    const firstName = data.get("firstName");
+    const lastName = data.get("lastName");
+    const email = data.get("email");
+    const phoneNumber = data.get("phoneNumber");
+    const password = data.get("password");
+    const success = await register(firstName, lastName, email, phoneNumber, password);
+console.log(success);
+    if (success) {
+    }
+  //     navigate(-1); // Registration successful, navigate to desired page
+  //   } else {
+  //     setErrorMessage("User registration failed"); // Display error message
+  //   }
+  // };
+
+    
     console.log({
+      firstName: data.get('firstName'),
+      lastName: data.get('lastName'),
       email: data.get('email'),
       phoneNumber: data.get('phoneNumber'),
       password: data.get('password'),
@@ -139,5 +152,18 @@ export default function RegisterPage() {
         <Copyright sx={{ mt: 5 }} />
       </Container>
     </ThemeProvider>
+  );
+}
+
+function Copyright(props) {
+  return (
+    <Typography variant="body2" color="text.secondary" align="center" {...props}>
+      {'Copyright © '}
+      <Link color="inherit" href="/">
+        Indeygo
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
   );
 }

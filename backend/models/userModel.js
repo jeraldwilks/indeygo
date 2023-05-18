@@ -2,15 +2,7 @@ import bcrypt from "bcrypt";
 import mongoose from "mongoose";
 
 const userSchema = mongoose.Schema({
-  email: {
-    required: true,
-    unique: true,
-    type: String,
-  },
-  password: {
-    required: true,
-    type: String,
-  },
+  
   firstName: {
     required: true,
     type: String,
@@ -19,10 +11,20 @@ const userSchema = mongoose.Schema({
     required: true,
     type: String,
   },
+  email: {
+    required: true,
+    unique: true,
+    type: String,
+  }, 
   phoneNumber: {
     required: true,
     type: String,
   },
+  password: {
+    required: true,
+    type: String,
+  },
+ 
   userType: {
     type: String,
     enum: ["admin", "organizer", "fundraiser"],
