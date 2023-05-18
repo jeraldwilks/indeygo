@@ -20,20 +20,11 @@ const theme = createTheme();
 export default function LoginPage() {
   const { login } = useAuth();
   const navigate = useNavigate();
-  // const handleLogin = async (e) => {
-  //   e.preventDefault();
-  //   const isValid = await login(username, password);
-  //   if (!isValid) {
-  //     setErrorMessage("Incorrect username or password");
-  //   } else {
-  //     navigate(-1);
-  //   }
-  // };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    const email = data.get("email");
+    const email = data.get("email").toLowerCase();
     const password = data.get("password");
     const isValid = await login(email, password);
     if (!isValid) {
@@ -41,11 +32,6 @@ export default function LoginPage() {
     } else {
       navigate(-1);
     }
-
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
   };
 
   return (

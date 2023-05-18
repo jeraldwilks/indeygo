@@ -45,19 +45,6 @@ export default function RegisterPage() {
     } else {
       alert(success);
     }
-    //     navigate(-1); // Registration successful, navigate to desired page
-    //   } else {
-    //     setErrorMessage("User registration failed"); // Display error message
-    //   }
-    // };
-
-    // console.log({
-    //   firstName: data.get("firstName"),
-    //   lastName: data.get("lastName"),
-    //   email: data.get("email"),
-    //   phoneNumber: data.get("phoneNumber"),
-    //   password: data.get("password"),
-    // });
   };
 
   return (
