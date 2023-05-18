@@ -46,13 +46,25 @@ const AuthProvider = (props) => {
     getUser();
   }, []);
 
-  const register = async (firstName, lastName, email, phoneNumber, password) => {
+  const register = async (
+    firstName,
+    lastName,
+    email,
+    phoneNumber,
+    password
+  ) => {
     const response = await fetch("/api/user/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ firstName, lastName, email, phoneNumber, password }),
+      body: JSON.stringify({
+        firstName,
+        lastName,
+        email,
+        phoneNumber,
+        password,
+      }),
     });
 
     if (response.ok) {
@@ -60,11 +72,9 @@ const AuthProvider = (props) => {
       setUser(userData);
       return true;
     } else {
-      setUser(null);
-      return false;
+      return await response.text();
     }
   };
-
 
   const contextValue = {
     logout,

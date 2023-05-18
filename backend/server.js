@@ -9,12 +9,14 @@ import { userRouter } from "./routes/userRouter.js";
 dotenv.config();
 
 const PORT = process.env.PORT || 4001;
+const SECRET = process.env.SECRET;
 const app = express();
 app.use(express.json());
 app.use(
   session({
     // change to environment variable
-    secret: "keyboard cat",
+    // secret: "keyboard cat",
+    secret: SECRET,
     resave: false,
     saveUninitialized: false,
   })

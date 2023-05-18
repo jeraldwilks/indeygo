@@ -9,6 +9,7 @@ import StickyFooter from "./components/Footer";
 import React from "react";
 import RegisterPage from "./Pages/RegisterPage";
 import ResponsiveAppBar from "./components/ResponsiveAppBar";
+import DashboardPage from "./Pages/DashboardPage";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path="/Login" element={<LoginPage />} />
         <Route path="/Products" element={<ProductsPage />} />
         <Route path="/Register" element={<RegisterPage />} />
+        <Route path="/Dashboard" element={<DashboardPage />} />
       </Routes>
       <StickyFooter />
     </div>
