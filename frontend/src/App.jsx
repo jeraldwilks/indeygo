@@ -10,6 +10,7 @@ import React from "react";
 import RegisterPage from "./Pages/RegisterPage";
 import ResponsiveAppBar from "./components/ResponsiveAppBar";
 import DashboardPage from "./Pages/DashboardPage";
+import Logout from "./components/Logout";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route path="/Products" element={<ProductsPage />} />
         <Route path="/Register" element={<RegisterPage />} />
         <Route path="/Dashboard" element={<DashboardPage />} />
+        <Route path="/Logout" element={<Logout />} />
       </Routes>
       <StickyFooter />
     </div>
