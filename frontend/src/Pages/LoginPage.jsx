@@ -20,6 +20,7 @@ const theme = createTheme();
 export default function LoginPage() {
   const { login } = useAuth();
   const navigate = useNavigate();
+  
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -29,8 +30,11 @@ export default function LoginPage() {
     const isValid = await login(email, password);
     if (!isValid) {
       setErrorMessage("Incorrect username or password");
+
     } else {
       navigate(-1);
+      alert("Login Successful!");
+      navigate("/Dashboard");
     }
   };
 
