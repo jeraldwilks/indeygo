@@ -24,7 +24,12 @@ const userSchema = mongoose.Schema({
     required: true,
     type: String,
   },
- 
+  allowExtraEmails: {
+    required: true,
+    type: Boolean,
+    default: false,
+  },
+
   userType: {
     type: String,
     enum: ["admin", "organizer", "fundraiser"],

@@ -30,7 +30,6 @@ export default function LoginPage() {
     const isValid = await login(email, password);
     if (!isValid) {
       setErrorMessage("Incorrect username or password");
-
     } else {
       navigate(-1);
       alert("Login Successful!");

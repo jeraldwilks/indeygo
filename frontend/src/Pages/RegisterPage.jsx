@@ -31,12 +31,14 @@ export default function RegisterPage() {
     const email = data.get("email");
     const phoneNumber = data.get("phoneNumber");
     const password = data.get("password");
+    const allowExtraEmails = data.get("allowExtraEmails");
     const success = await register(
       firstName,
       lastName,
       email.toLowerCase(),
       phoneNumber,
-      password
+      password,
+      allowExtraEmails
     );
 
     if (success === true) {
@@ -127,7 +129,7 @@ export default function RegisterPage() {
               <Grid item xs={12}>
                 <FormControlLabel
                   control={
-                    <Checkbox value="allowExtraEmails" color="primary" />
+                    <Checkbox required value="allowExtraEmails" color="primary" />
                   }
                   label="I want to receive Fundraising updates via email."
                 />
