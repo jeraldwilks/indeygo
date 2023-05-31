@@ -2,7 +2,6 @@ import bcrypt from "bcrypt";
 import mongoose from "mongoose";
 
 const userSchema = mongoose.Schema({
-  
   firstName: {
     required: true,
     type: String,
@@ -15,7 +14,7 @@ const userSchema = mongoose.Schema({
     required: true,
     unique: true,
     type: String,
-  }, 
+  },
   phoneNumber: {
     required: true,
     type: String,
@@ -29,10 +28,10 @@ const userSchema = mongoose.Schema({
     type: Boolean,
     default: false,
   },
-
-  userType: {
-    type: String,
-    enum: ["admin", "organizer", "fundraiser"],
+  isAdmin: {
+    required: true,
+    type: Boolean,
+    default: false,
   },
   fundraisers: [
     {
