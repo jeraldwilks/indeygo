@@ -55,6 +55,7 @@ export const createUser = async (newUser) => {
     const createdUser = await UserModel.create({
       ...newUser,
       password: hashedPassword,
+      isAdmin: false,
     });
     return createdUser;
   } catch (error) {
