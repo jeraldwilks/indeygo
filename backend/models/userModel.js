@@ -51,11 +51,11 @@ const UserModel = mongoose.model("User", userSchema);
 
 export const createUser = async (newUser) => {
   try {
+    newUser.isAdmin = false;
     const hashedPassword = bcrypt.hashSync(newUser.password, 10);
     const createdUser = await UserModel.create({
       ...newUser,
       password: hashedPassword,
-      isAdmin: false,
     });
     return createdUser;
   } catch (error) {
