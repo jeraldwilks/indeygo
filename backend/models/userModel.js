@@ -33,13 +33,6 @@ const userSchema = mongoose.Schema({
     type: Boolean,
     default: false,
   },
-  fundraisers: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Fundraiser",
-      required: false,
-    },
-  ],
   createdOn: {
     type: Date,
     immutable: true,
