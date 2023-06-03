@@ -5,6 +5,10 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import path from "path";
 import { userRouter } from "./routes/userRouter.js";
+import { participantRouter } from "./routes/participantRouter.js";
+import { purchaserRouter } from "./routes/purchaserRouter.js";
+import { organizationRouter } from "./routes/organizationRouter.js";
+import { fundraiserRouter } from "./routes/fundraiserRouter.js";
 
 dotenv.config();
 
@@ -27,8 +31,13 @@ app.listen(PORT, () => console.log(`Listening on ${PORT}`));
 
 await mongoose.connect(process.env.MONGO_URL);
 console.log("Connected to MongoDB");
+
 app.use(express.static(path.join(path.resolve(), "frontend/dist")));
 app.use("/api/user", userRouter);
+app.use("/api/participant", participantRouter);
+app.use("/api/purchaser", purchaserRouter);
+app.use("/api/organization", organizationRouter);
+app.use("/api/fundraiser", fundraiserRouter);
 
 app.get("*", (req, res) =>
   res.sendFile(path.join(path.resolve(), "frontend/dist/index.html"))

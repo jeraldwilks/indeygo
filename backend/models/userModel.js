@@ -23,11 +23,6 @@ const userSchema = mongoose.Schema({
     required: true,
     type: String,
   },
-  allowExtraEmails: {
-    required: true,
-    type: Boolean,
-    default: false,
-  },
   isAdmin: {
     required: true,
     type: Boolean,
@@ -40,7 +35,7 @@ const userSchema = mongoose.Schema({
   },
 });
 
-const UserModel = mongoose.model("User", userSchema);
+export const UserModel = mongoose.model("User", userSchema);
 
 export const createUser = async (newUser) => {
   try {
