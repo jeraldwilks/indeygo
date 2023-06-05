@@ -9,6 +9,9 @@ import { participantRouter } from "./routes/participantRouter.js";
 import { purchaserRouter } from "./routes/purchaserRouter.js";
 import { organizationRouter } from "./routes/organizationRouter.js";
 import { fundraiserRouter } from "./routes/fundraiserRouter.js";
+import { productTypeRouter } from "./routes/productTypeRouter.js";
+import { productRouter } from "./routes/productRouter.js";
+import { salesRouter } from "./routes/salesRouter.js";
 
 dotenv.config();
 
@@ -38,6 +41,9 @@ app.use("/api/participant", participantRouter);
 app.use("/api/purchaser", purchaserRouter);
 app.use("/api/organization", organizationRouter);
 app.use("/api/fundraiser", fundraiserRouter);
+app.use("/api/productType", productTypeRouter);
+app.use("/api/product", productRouter);
+app.use("/api/sales", salesRouter);
 
 app.get("*", (req, res) =>
   res.sendFile(path.join(path.resolve(), "frontend/dist/index.html"))
