@@ -46,6 +46,10 @@ const AuthProvider = (props) => {
     getUser();
   }, []);
 
+  const isAdmin = () => {
+    return user.isAdmin;
+  };
+
   const register = async (
     firstName,
     lastName,
@@ -82,6 +86,7 @@ const AuthProvider = (props) => {
     user,
     loading,
     register,
+    isAdmin,
   };
 
   return (

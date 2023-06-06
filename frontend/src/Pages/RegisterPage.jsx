@@ -37,8 +37,8 @@ export default function RegisterPage() {
       lastName,
       email.toLowerCase(),
       phoneNumber,
-      password,
-      allowExtraEmails
+      password
+      // allowExtraEmails
     );
 
     if (success === true) {
