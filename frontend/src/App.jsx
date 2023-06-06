@@ -12,6 +12,7 @@ import ResponsiveAppBar from "./components/ResponsiveAppBar";
 import DashboardPage from "./Pages/DashboardPage";
 import Logout from "./components/Logout";
 import { Routes, Route } from "react-router-dom";
+import Authenticated from "./components/Authenticated";
 
 function App() {
   return (
@@ -25,7 +26,14 @@ function App() {
         <Route path="/Login" element={<LoginPage />} />
         <Route path="/Products" element={<ProductsPage />} />
         <Route path="/Register" element={<RegisterPage />} />
-        <Route path="/Dashboard" element={<DashboardPage />} />
+        <Route
+          path="/Dashboard"
+          element={
+            <Authenticated>
+              <DashboardPage />
+            </Authenticated>
+          }
+        />
         <Route path="/Logout" element={<Logout />} />
       </Routes>
       <StickyFooter />
