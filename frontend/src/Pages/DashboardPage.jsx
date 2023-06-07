@@ -4,8 +4,8 @@ import { Navigate } from "react-router-dom";
 import AdminDashboardPage from "./AdminDashboardPage";
 
 const DashboardPage = () => {
-  const { isAdmin } = useAuth();
-  if (isAdmin()) {
+  const { user } = useAuth();
+  if (user.isAdmin) {
     return <AdminDashboardPage />;
   }
   return <div>Dashboard Page</div>;

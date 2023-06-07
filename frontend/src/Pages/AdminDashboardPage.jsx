@@ -1,7 +1,9 @@
 import React from "react";
+import AdminDrawer from "../components/AdminDrawer";
+import AdminProductType from "../components/AdminProductType";
 
 const AdminDashboardPage = () => {
-  return <div>Admin Dashboard Page</div>;
+  return <AdminProductType />;
 };
 
 export default AdminDashboardPage;
