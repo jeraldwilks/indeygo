@@ -1,5 +1,5 @@
 import React from "react";
-import AdminDrawer from "../components/AdminDrawer";
+
 import AdminProductType from "../components/AdminProductType";
 
 const AdminDashboardPage = () => {
