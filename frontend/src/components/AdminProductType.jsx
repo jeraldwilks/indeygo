@@ -3,8 +3,8 @@ import React, { useState } from "react";
 
 const AdminProductType = () => {
   const [name, setName] = useState("");
-  const [quantityDesc, setQuantityDesc] = useState("");
-  const [caseSize, setCaseSize] = useState("");
+  // const [quantityDesc, setQuantityDesc] = useState("");
+  const [caseSize, setCaseSize] = useState(1);
   const [priceTierMin, setPriceTierMin] = useState([1]);
 
   const addTier = () => {
@@ -52,14 +52,14 @@ const AdminProductType = () => {
           required
           onChange={(e) => setName(e.target.value)}
         />
-        <TextField
+        {/* <TextField
           type="text"
           variant="outlined"
           label="Description of Sell Quantity"
           name="quantityDesc"
           required
           onChange={(e) => setQuantityDesc(e.target.value)}
-        />
+        /> */}
         <TextField
           type="number"
           variant="outlined"
@@ -78,7 +78,7 @@ const AdminProductType = () => {
                 variant="outlined"
                 label="Tier 1"
                 name="priceTierMin"
-                defaultValue={priceTierMin[index]}
+                defaultValue={caseSize}
                 onChange={(e) => updateFieldChanged(index, e.target.value)}
                 required
               />

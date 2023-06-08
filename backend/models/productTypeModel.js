@@ -5,10 +5,6 @@ const productTypeSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  quantityDesc: {
-    type: String,
-    required: false,
-  },
   caseSize: {
     type: Number,
     required: true,
