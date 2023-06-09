@@ -20,10 +20,6 @@ const ResetPasswordPage = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    // console.log({
-    //   email: data.get("email"),
-    //   password: data.get("password"),
-    // });
     let password = data.get("password");
     let secondPassword = data.get("password2");
     if (password != secondPassword) {
