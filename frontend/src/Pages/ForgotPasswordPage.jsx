@@ -11,35 +11,46 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-function Copyright(props) {
-  return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}
-    >
-      {"Copyright © "}
-      <Link color="inherit" href="/">
-        Indeygo Fundraising
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {". "}
-      All Rights Reserved
-    </Typography>
-  );
-}
-
 const theme = createTheme();
 
+const validateEmail = (email) => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
+
+
 export default function ForgotPasswordPage() {
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
+    console.log("Submit button clicked");
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+    const email = data.get("email").toLowerCase();
+    const isValid = await validateEmail (email);
+    if (!isValid) {
+      alert("Incorrect email");
+    } else {
+      const requestData = { email };
+console.log(requestData);
+    try {
+      const response = await fetch("/api/user/forgotpassword", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(requestData),
+      });
+
+      if (response.ok) {
+        alert("Password reset email has been sent!");
+      } else {
+        const errorData = await response.json();
+        alert(errorData.message);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("An error occurred. Please try again.");
+    }
+    }
   };
 
   return (
@@ -58,7 +69,7 @@ export default function ForgotPasswordPage() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Change Password
+            Request Password Reset
           </Typography>
           <Box
             component="form"
@@ -70,21 +81,11 @@ export default function ForgotPasswordPage() {
               margin="normal"
               required
               fullWidth
-              name="password"
-              label="New Password"
-              type="password"
-              id="password"
-              autoComplete="new-password"
-            />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Rewrite New Password"
-              type="password"
-              id="password"
-              autoComplete="new-password"
+              id="email"
+              label="Email Address"
+              name="email"
+              autoComplete="email"
+              autoFocus
             />
 
             <Button
@@ -93,18 +94,17 @@ export default function ForgotPasswordPage() {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Set New Password
+              Request Password Reset
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="/Registration" variant="body2">
+                <Link href="/Register" variant="body2">
                   {"Don't have an account? Register"}
                 </Link>
               </Grid>
             </Grid>
           </Box>
         </Box>
-        {/* <Copyright sx={{ mt: 8, mb: 4 }} /> */}
       </Container>
     </ThemeProvider>
   );
