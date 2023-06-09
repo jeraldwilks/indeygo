@@ -84,9 +84,9 @@ userRouter.post("/forgotpassword", async (req, res) => {
     .save()
     .then((user) => {
       // send email
-
-      //comment out below line before production
-      req.headers.host = "localhost:5555";
+      if (process.env.SERVER == "dev") {
+        req.headers.host = "localhost:5555";
+      }
       let link =
         "http://" +
         req.headers.host +
