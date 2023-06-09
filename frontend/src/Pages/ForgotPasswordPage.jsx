@@ -21,6 +21,7 @@ const validateEmail = (email) => {
 
 
 export default function ForgotPasswordPage() {
+  const navigate = useNavigate();
   const handleSubmit = async (event) => {
     console.log("Submit button clicked");
     event.preventDefault();
@@ -43,6 +44,7 @@ console.log(requestData);
 
       if (response.ok) {
         alert("Password reset email has been sent!");
+      navigate("/Dashboard");
       } else {
         const errorData = await response.json();
         alert(errorData.message);
