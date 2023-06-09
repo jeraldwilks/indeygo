@@ -109,14 +109,12 @@ userRouter.post("/forgotpassword", async (req, res) => {
         });
       });
     })
-    .catch((err) => res.status(500).json({ message: err.message }))
-
     .catch((err) => res.status(500).json({ message: err.message }));
 });
 
 userRouter.post("/resetpassword", async (req, res) => {
   let user = await UserModel.findOne({
-    resetPasswordToken: req.params.token,
+    resetPasswordToken: req.body.token,
     resetPasswordExpires: { $gt: Date.now() },
   });
 
@@ -132,38 +130,26 @@ userRouter.post("/resetpassword", async (req, res) => {
   user.resetPasswordExpires = undefined;
 
   // Save
-  user.save((err) => {
-    if (err) return res.status(500).json({ message: err.message });
+  try {
+    user.save();
+  } catch (error) {
+    res.status(500).json({ message: err.message });
+  }
 
-    // send email
-    const mailOptions = {
-      to: user.email,
-      from: process.env.FROM_EMAIL,
-      subject: "Your password has been changed",
-      text: `Hi ${user.firstName} \n 
+  // user.save().catch((err) => res.status(500).json({ message: err.message }));
+
+  // send email
+  const mailOptions = {
+    to: user.email,
+    from: process.env.FROM_EMAIL,
+    subject: "Your password has been changed",
+    text: `Hi ${user.firstName} \n 
               This is a confirmation that the password for your account ${user.email} has just been changed.\n`,
-    };
+  };
 
-    sgMail.send(mailOptions, (error, result) => {
-      if (error) return res.status(500).json({ message: error.message });
+  sgMail.send(mailOptions, (error, result) => {
+    if (error) return res.status(500).json({ message: error.message });
 
-      res.status(200).json({ message: "Your password has been updated." });
-    });
+    res.status(200).json({ message: "Your password has been updated." });
   });
 });
-
-// const msg = {
-//   to: "jerald@wilks.pro", // Change to your recipient
-//   from: "jerald@wilks.pro", // Change to your verified sender
-//   subject: "Sending with SendGrid is Fun",
-//   text: "and easy to do anywhere, even with Node.js",
-//   html: "<strong>and easy to do anywhere, even with Node.js</strong>",
-// };
-// sgMail
-//   .send(msg)
-//   .then(() => {
-//     console.log("Email sent");
-//   })
-//   .catch((error) => {
-//     console.error(error);
-//   });

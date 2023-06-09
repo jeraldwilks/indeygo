@@ -28,7 +28,7 @@ export default function LoginPage() {
     const password = data.get("password");
     const isValid = await login(email, password);
     if (!isValid) {
-      setErrorMessage("Incorrect username or password");
+      alert("Incorrect username or password");
     } else {
       // navigate(-1);
       // await alert("Login Successful!");

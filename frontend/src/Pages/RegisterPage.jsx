@@ -42,7 +42,7 @@ export default function RegisterPage() {
     );
 
     if (success === true) {
-      alert("Successfully Registered!");
+      await alert("Successfully Registered!");
       navigate("/Dashboard");
     } else {
       alert(success);

@@ -10,20 +10,39 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const theme = createTheme();
 
 const ResetPasswordPage = () => {
+  const navigate = useNavigate();
   const { token } = useParams();
-  console.log(token);
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+    // console.log({
+    //   email: data.get("email"),
+    //   password: data.get("password"),
+    // });
+    let password = data.get("password");
+    let secondPassword = data.get("password2");
+    if (password != secondPassword) {
+      alert("Passwords do not match!");
+    } else {
+      const data = await fetch("/api/user/resetpassword", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          password,
+          token,
+        }),
+      });
+      let response = await data.json();
+      await alert(response.message);
+      navigate("/login");
+    }
   };
 
   return (
@@ -64,10 +83,10 @@ const ResetPasswordPage = () => {
               margin="normal"
               required
               fullWidth
-              name="password"
+              name="password2"
               label="Rewrite New Password"
               type="password"
-              id="password"
+              id="password2"
               autoComplete="new-password"
             />
 
