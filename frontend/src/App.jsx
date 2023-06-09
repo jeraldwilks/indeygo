@@ -13,6 +13,7 @@ import DashboardPage from "./Pages/DashboardPage";
 import Logout from "./components/Logout";
 import { Routes, Route } from "react-router-dom";
 import Authenticated from "./components/Authenticated";
+import ResetPasswordPage from "./Pages/ResetPasswordPage";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/Login" element={<LoginPage />} />
         <Route path="/Products" element={<ProductsPage />} />
         <Route path="/Register" element={<RegisterPage />} />
+        <Route path="/ResetPassword/:token" element={<ResetPasswordPage />} />
         <Route
           path="/Dashboard"
           element={

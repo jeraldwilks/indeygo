@@ -4,7 +4,7 @@ import React, { useState } from "react";
 const AdminProductType = () => {
   const [name, setName] = useState("");
   // const [quantityDesc, setQuantityDesc] = useState("");
-  const [caseSize, setCaseSize] = useState(1);
+  const [caseSize, setCaseSize] = useState();
   const [priceTierMin, setPriceTierMin] = useState([1]);
 
   const addTier = () => {
@@ -32,7 +32,7 @@ const AdminProductType = () => {
       },
       body: JSON.stringify({
         name,
-        quantityDesc,
+        // quantityDesc,
         caseSize,
         priceTierMin,
       }),
@@ -78,7 +78,7 @@ const AdminProductType = () => {
                 variant="outlined"
                 label="Tier 1"
                 name="priceTierMin"
-                defaultValue={caseSize}
+                defaultValue={priceTierMin[index]}
                 onChange={(e) => updateFieldChanged(index, e.target.value)}
                 required
               />

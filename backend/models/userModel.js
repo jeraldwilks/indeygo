@@ -1,5 +1,6 @@
 import bcrypt from "bcrypt";
 import mongoose from "mongoose";
+import crypto from "crypto";
 
 const userSchema = mongoose.Schema({
   firstName: {
@@ -33,9 +34,15 @@ const userSchema = mongoose.Schema({
     immutable: true,
     default: () => Date.now(),
   },
+  resetPasswordToken: {
+    type: String,
+    required: false,
+  },
+  resetPasswordExpires: {
+    type: Date,
+    required: false,
+  },
 });
-
-export const UserModel = mongoose.model("User", userSchema);
 
 export const createUser = async (newUser) => {
   try {
@@ -63,3 +70,10 @@ export const verifyPassword = async (email, password) => {
     return null;
   }
 };
+
+userSchema.methods.generatePasswordReset = function () {
+  this.resetPasswordToken = crypto.randomBytes(20).toString("hex");
+  this.resetPasswordExpires = Date.now() + 3600000; //expires in an hour
+};
+
+export const UserModel = mongoose.model("User", userSchema);
