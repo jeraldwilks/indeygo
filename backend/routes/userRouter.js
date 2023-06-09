@@ -65,7 +65,6 @@ userRouter.post("/", async (req, res) => {
 });
 
 userRouter.post("/forgotpassword", async (req, res) => {
-  console.log("Here");
   let user = await UserModel.findOne({ email: req.body.email });
 
   if (!user)
