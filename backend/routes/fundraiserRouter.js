@@ -1,9 +1,9 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
-const Fundraiser = require('../models/fundraiserModel');
+import Fundraiser from '../models/fundraiserModel.js';
 
 // Create a new fundraiser
-router.post('/', async (req, res) => {
+router.post('/api/fundraiser', async (req, res) => {
   try {
     // Extract the form data from the request body
     const {
@@ -12,7 +12,9 @@ router.post('/', async (req, res) => {
       startDate,
       endDate,
       fundraiserAmount,
-      expectedProfit
+      expectedProfit,
+      orderDate,
+      deliveryDate
     } = req.body;
 
     // Create a new fundraiser object
@@ -22,7 +24,9 @@ router.post('/', async (req, res) => {
       startDate,
       endDate,
       fundraiserAmount,
-      expectedProfit
+      expectedProfit,
+      orderDate,
+      deliveryDate
     });
 
     // Save the fundraiser to the database
@@ -35,4 +39,4 @@ router.post('/', async (req, res) => {
   }
 });
 
-module.exports = router;
+export { router as fundraiserRouter };

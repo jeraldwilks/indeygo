@@ -13,6 +13,7 @@ import DashboardPage from "./Pages/DashboardPage";
 import Logout from "./components/Logout";
 import { Routes, Route } from "react-router-dom";
 import Authenticated from "./components/Authenticated";
+import FundraisingPage from "./Pages/FundraisingPage"
 
 function App() {
   return (
@@ -20,8 +21,9 @@ function App() {
       <ResponsiveAppBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="*" element={<ErrorPage />} />
+       <Route path="*" element={<ErrorPage />} />
         <Route path="/Contact" element={<ContactPage />} />
+        <Route path="/Start Fundraising" element={<FundraisingPage />} />
         <Route path="/ForgotPassword" element={<ForgotPasswordPage />} />
         <Route path="/Login" element={<LoginPage />} />
         <Route path="/Products" element={<ProductsPage />} />

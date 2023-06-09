@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const fundraiserSchema = new mongoose.Schema({
   organizationName: {
@@ -9,11 +9,11 @@ const fundraiserSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  startDate: {
+  orderDate: {
     type: Date,
     required: true
   },
-  endDate: {
+  deliveryDate: {
     type: Date,
     required: true
   },
@@ -29,4 +29,4 @@ const fundraiserSchema = new mongoose.Schema({
 
 const Fundraiser = mongoose.model('Fundraiser', fundraiserSchema);
 
-module.exports = Fundraiser;
+export default Fundraiser;
