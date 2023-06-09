@@ -1,10 +1,8 @@
-import * as React from "react";
+import React from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
@@ -12,27 +10,34 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { useAuth } from "../providers/AuthProvider";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const theme = createTheme();
 
-export default function LoginPage() {
-  const { login } = useAuth();
+const ResetPasswordPage = () => {
   const navigate = useNavigate();
-
+  const { token } = useParams();
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    const email = data.get("email").toLowerCase();
-    const password = data.get("password");
-    const isValid = await login(email, password);
-    if (!isValid) {
-      alert("Incorrect username or password");
+    let password = data.get("password");
+    let secondPassword = data.get("password2");
+    if (password != secondPassword) {
+      alert("Passwords do not match!");
     } else {
-      // navigate(-1);
-      // await alert("Login Successful!");
-      navigate("/Dashboard");
+      const data = await fetch("/api/user/resetpassword", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          password,
+          token,
+        }),
+      });
+      let response = await data.json();
+      await alert(response.message);
+      navigate("/login");
     }
   };
 
@@ -52,7 +57,7 @@ export default function LoginPage() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Login
+            Change Password
           </Typography>
           <Box
             component="form"
@@ -64,49 +69,44 @@ export default function LoginPage() {
               margin="normal"
               required
               fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
-              autoFocus
+              name="password"
+              label="New Password"
+              type="password"
+              id="password"
+              autoComplete="new-password"
             />
             <TextField
               margin="normal"
               required
               fullWidth
-              name="password"
-              label="Password"
+              name="password2"
+              label="Rewrite New Password"
               type="password"
-              id="password"
-              autoComplete="current-password"
+              id="password2"
+              autoComplete="new-password"
             />
-            {/* <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            /> */}
+
             <Button
               type="submit"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Login
+              Set New Password
             </Button>
-            <Grid container>
-              <Grid item xs>
-                <Link href="ForgotPassword" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
+            <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="/Register" variant="body2">
+                <Link href="/Registration" variant="body2">
                   {"Don't have an account? Register"}
                 </Link>
               </Grid>
             </Grid>
           </Box>
         </Box>
+        {/* <Copyright sx={{ mt: 8, mb: 4 }} /> */}
       </Container>
     </ThemeProvider>
   );
-}
+};
+
+export default ResetPasswordPage;

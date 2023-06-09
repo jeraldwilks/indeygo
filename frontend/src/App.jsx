@@ -13,6 +13,9 @@ import DashboardPage from "./Pages/DashboardPage";
 import Logout from "./components/Logout";
 import Inquiry from "./components/Inquiry";
 import { Routes, Route } from "react-router-dom";
+import Authenticated from "./components/Authenticated";
+import ResetPasswordPage from "./Pages/ResetPasswordPage";
+import FundraisingPage from "./Pages/FundraisingPage";
 
 function App() {
   return (
@@ -22,11 +25,20 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="*" element={<ErrorPage />} />
         <Route path="/Contact" element={<ContactPage />} />
+        <Route path="/Start Fundraising" element={<FundraisingPage />} />
         <Route path="/ForgotPassword" element={<ForgotPasswordPage />} />
         <Route path="/Login" element={<LoginPage />} />
         <Route path="/Products" element={<ProductsPage />} />
         <Route path="/Register" element={<RegisterPage />} />
-        <Route path="/Dashboard" element={<DashboardPage />} />
+        <Route path="/ResetPassword/:token" element={<ResetPasswordPage />} />
+        <Route
+          path="/Dashboard"
+          element={
+            <Authenticated>
+              <DashboardPage />
+            </Authenticated>
+          }
+        />
         <Route path="/Logout" element={<Logout />} />
         <Route path="/Info" element={<Inquiry/>} />
       </Routes>
