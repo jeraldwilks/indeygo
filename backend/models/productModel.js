@@ -14,10 +14,6 @@ const productSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  quantityDesc: {
-    type: String,
-    required: false,
-  },
   sellQuantity: {
     type: String,
     required: true,

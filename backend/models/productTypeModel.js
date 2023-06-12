@@ -9,6 +9,10 @@ const productTypeSchema = mongoose.Schema({
     type: Number,
     required: true,
   },
+  quantityDesc: {
+    type: String,
+    required: false,
+  },
   priceTierMin: [
     {
       type: Number,
