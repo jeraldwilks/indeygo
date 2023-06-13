@@ -26,6 +26,7 @@ function App() {
         <Route path="*" element={<ErrorPage />} />
         <Route path="/Contact" element={<ContactPage />} />
         <Route path="/Start Fundraising" element={<FundraisingPage />} />
+        <Route path="/More Info" element={<Inquiry />} />
         <Route path="/ForgotPassword" element={<ForgotPasswordPage />} />
         <Route path="/Login" element={<LoginPage />} />
         <Route path="/Products" element={<ProductsPage />} />
@@ -40,7 +41,7 @@ function App() {
           }
         />
         <Route path="/Logout" element={<Logout />} />
-        <Route path="/Info" element={<Inquiry/>} />
+        {/* <Route path="/Info" element={<Inquiry/>} /> */}
       </Routes>
       <StickyFooter />
     </div>

@@ -77,7 +77,7 @@ const Inquiry = () => {
 
   return (
     <>
-    <form>
+    <form >
     {/* <ThemeProvider theme={customTheme(outerTheme)}> */}
       <div>Inquiry Form</div>
 
