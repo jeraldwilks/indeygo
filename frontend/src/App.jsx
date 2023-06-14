@@ -11,7 +11,7 @@ import RegisterPage from "./Pages/RegisterPage";
 import ResponsiveAppBar from "./components/ResponsiveAppBar";
 import DashboardPage from "./Pages/DashboardPage";
 import Logout from "./components/Logout";
-import Inquiry from "./components/Inquiry";
+import InquiryPage from "./Pages/InquiryPage";
 import { Routes, Route } from "react-router-dom";
 import Authenticated from "./components/Authenticated";
 import ResetPasswordPage from "./Pages/ResetPasswordPage";
@@ -26,7 +26,7 @@ function App() {
         <Route path="*" element={<ErrorPage />} />
         <Route path="/Contact" element={<ContactPage />} />
         <Route path="/Start Fundraising" element={<FundraisingPage />} />
-        <Route path="/More Info" element={<Inquiry />} />
+        <Route path="/More Info" element={<InquiryPage />} />
         <Route path="/ForgotPassword" element={<ForgotPasswordPage />} />
         <Route path="/Login" element={<LoginPage />} />
         <Route path="/Products" element={<ProductsPage />} />
