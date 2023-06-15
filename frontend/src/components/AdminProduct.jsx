@@ -9,6 +9,14 @@ import {
 } from "@mui/material";
 import { pink } from "@mui/material/colors";
 import React, { useEffect, useState } from "react";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import CssBaseline from "@mui/material/CssBaseline";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import Grid from "@mui/material/Grid";
+
+
+const theme = createTheme();
 
 const AdminProduct = () => {
   const [productType, setProductType] = useState("");
@@ -45,6 +53,17 @@ const AdminProduct = () => {
 
   return (
     <>
+    <ThemeProvider theme={theme}>
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <Box
+          sx={{
+            marginTop: 8,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
       <FormControl>
         <FormLabel>Add a New Product</FormLabel>
         <br />
@@ -68,6 +87,8 @@ const AdminProduct = () => {
             </MenuItem>
           ))}
         </Select>
+        <br/>
+        <Grid item xs={12}>
         <TextField
           type="text"
           variant="outlined"
@@ -76,6 +97,7 @@ const AdminProduct = () => {
           required
           onChange={(e) => setName(e.target.value)}
         />
+        </Grid>
         <TextField
           type="text"
           variant="outlined"
@@ -110,6 +132,9 @@ const AdminProduct = () => {
 
         <Button onClick={submitForm}>Click</Button>
       </FormControl>
+      </Box>
+    </Container> 
+    </ThemeProvider> 
     </>
   );
 };
