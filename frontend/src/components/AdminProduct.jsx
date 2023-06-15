@@ -130,7 +130,9 @@ const AdminProduct = () => {
             />
           ))}
 
-        <Button onClick={submitForm}>Click</Button>
+        <Button onClick={submitForm}>
+          Click
+        </Button>
       </FormControl>
       </Box>
     </Container> 

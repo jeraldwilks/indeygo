@@ -6,7 +6,7 @@ import AdminProduct from "../components/AdminProduct";
 const AdminDashboardPage = () => {
   return (
     <>
-      {/* <AdminProductType /> */}
+      <AdminProductType />
       <br />
       <br />
       <AdminProduct />
