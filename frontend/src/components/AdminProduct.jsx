@@ -26,6 +26,23 @@ const AdminProduct = () => {
     getProductTypes();
   }, []);
 
+  const submitForm = async () => {
+    const response = await fetch("/api/product/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        productType,
+        name,
+        description,
+        sellPrice,
+        wholesalePrices,
+      }),
+    });
+    alert(await response.text());
+  };
+
   return (
     <>
       <FormControl>
@@ -91,7 +108,7 @@ const AdminProduct = () => {
             />
           ))}
 
-        <Button onClick={() => console.log(productType)}>Click</Button>
+        <Button onClick={submitForm}>Click</Button>
       </FormControl>
     </>
   );
