@@ -1,6 +1,14 @@
 import { Button, FormControl, FormLabel, TextField } from "@mui/material";
 import React, { useState } from "react";
 
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import CssBaseline from "@mui/material/CssBaseline";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import Grid from "@mui/material/Grid";
+
+
+const theme = createTheme();
 const AdminProductType = () => {
   const [name, setName] = useState("");
   const [quantityDesc, setQuantityDesc] = useState("");
@@ -43,6 +51,17 @@ const AdminProductType = () => {
 
   return (
     <FormControl>
+      <ThemeProvider theme={theme}>
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <Box
+          sx={{
+            marginTop: 8,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
       <FormLabel>Add a New Product Type</FormLabel>
       <TextField
         type="text"
@@ -100,9 +119,22 @@ const AdminProductType = () => {
           )}
         </React.Fragment>
       ))}
-      <Button onClick={addTier}>Add Tier</Button>
+      <Button onClick={addTier}
+      type="submit"
+      fullWidth
+      variant="contained"
+      sx={{ mt: 3, mb: 2 }}
+      >Add Tier</Button>
 
-      <Button onClick={submitForm}>Add Product Type</Button>
+      <Button onClick={submitForm}
+      type="submit"
+      fullWidth
+      variant="contained"
+      sx={{ mt: 3, mb: 2 }}
+      >Add Product Type</Button>
+      </Box>
+    </Container> 
+    </ThemeProvider>
     </FormControl>
   );
 };
