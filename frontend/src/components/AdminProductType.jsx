@@ -52,7 +52,7 @@ const AdminProductType = () => {
   };
 
   return (
-    <FormControl sx={{ width: '50ch' }}>
+    
       <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
@@ -71,8 +71,7 @@ const AdminProductType = () => {
       </Avatar>
       <Typography component="h1" variant="h5">Add a New Product Type</Typography>
       <br/>
-      <Grid container spacing={2}>
-      <Grid item xs={12}>
+      <FormControl sx={{ width: '50ch' }}>
       <TextField
         type="text"
         variant="outlined"
@@ -81,8 +80,8 @@ const AdminProductType = () => {
         required
         onChange={(e) => setName(e.target.value)}
       />
-      </Grid>
-      <Grid item xs={12}>
+     <br/>
+    
       <TextField
         type="text"
         variant="outlined"
@@ -92,8 +91,6 @@ const AdminProductType = () => {
         required
         onChange={(e) => setQuantityDesc(e.target.value)}
       />
-      </Grid>
-      <Grid item xs={12}>
       <TextField
         type="number"
         variant="outlined"
@@ -103,10 +100,10 @@ const AdminProductType = () => {
         onChange={(e) => setCaseSize(e.target.value)}
       />
       
-      </Grid>
-      <FormLabel>Minimum Values for Pricing Tiers:</FormLabel>
+      
+      <FormLabel>Minimum Quantity Per Tiers:</FormLabel>
       {priceTierMin.map((tier, index) => (
-        <Grid item xs={12} >
+        
         <React.Fragment key={"PricingTier" + index}>
           {index === 0 ? (
             <TextField
@@ -120,8 +117,8 @@ const AdminProductType = () => {
               required
             />
           ) : (
-      
-          
+         <>
+         <br/>
             <TextField
               type="number"
               variant="outlined"
@@ -132,23 +129,28 @@ const AdminProductType = () => {
               required
               helperText="Specify the minimum number of items sold to get this pricing tier"
             />
-           
+           </>
             
           )}
           {priceTierMin.length > 1 && index != 0 && (
             
-            <Button onClick={() => removeTier(index)}>Remove Tier</Button>
+            <Button onClick={() => removeTier(index)}
+            type="submit"
+              color="error"
+              variant="text"
+              sx={{ mt: 3, mb: 2 }}
+            >Remove Tier
+            </Button>
           )}
         </React.Fragment> 
-        </Grid>
+       
       ))}
-
-      </Grid>
     
       <Button onClick={addTier}
       type="submit"
       fullWidth
-      variant="contained"
+      color="success"
+      variant="text"
       sx={{ mt: 3, mb: 2 }}
       >Add Tier</Button>
 
@@ -158,10 +160,11 @@ const AdminProductType = () => {
       variant="contained"
       sx={{ mt: 3, mb: 2 }}
       >Add Product Type</Button>
+      </FormControl>
       </Box>
     </Container> 
     </ThemeProvider>
-    </FormControl>
+    
   );
 };
 
