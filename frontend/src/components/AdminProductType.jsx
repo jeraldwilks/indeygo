@@ -52,7 +52,7 @@ const AdminProductType = () => {
   };
 
   return (
-    <FormControl>
+    <FormControl sx={{ width: '50ch' }}>
       <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
@@ -106,7 +106,7 @@ const AdminProductType = () => {
       </Grid>
       <FormLabel>Minimum Values for Pricing Tiers:</FormLabel>
       {priceTierMin.map((tier, index) => (
-        <Grid item xs={12}>
+        <Grid item xs={12} >
         <React.Fragment key={"PricingTier" + index}>
           {index === 0 ? (
             <TextField

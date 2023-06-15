@@ -8,12 +8,15 @@ import {
   Button,
 } from "@mui/material";
 import { pink } from "@mui/material/colors";
+import Avatar from "@mui/material/Avatar";
 import React, { useEffect, useState } from "react";
+import BakeryDiningOutlinedIcon from '@mui/icons-material/BakeryDiningOutlined';
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import CssBaseline from "@mui/material/CssBaseline";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+
 
 const theme = createTheme();
 
@@ -68,22 +71,25 @@ const AdminProduct = () => {
               flexDirection: "column",
               alignItems: "center",
             }}
-          >
-            <FormControl>
-              <FormLabel>Add a New Product</FormLabel>
+          ><Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+            <BakeryDiningOutlinedIcon />
+          </Avatar>
+            <FormControl sx={{ width: '50ch' }}>
+              <Typography component="h1" variant="h5">Add a New Product</Typography>
               <br />
-              <InputLabel id="ProductType-label">Product Type</InputLabel>
+              <FormControl>
+              <InputLabel id="Product Type">Product Type</InputLabel>
               <Select
                 labelId="ProductType-label"
                 id="ProductType"
                 value={productType}
-                // label="Product Type"
+                label="Product Type"
                 onChange={(e) => {
                   setProductType(e.target.value);
                 }}
                 required
               >
-                {availableProductTypes.map((availableProductType) => (
+                 {availableProductTypes.map((availableProductType) => (
                   <MenuItem
                     key={availableProductType.name}
                     value={availableProductType}
@@ -92,8 +98,8 @@ const AdminProduct = () => {
                   </MenuItem>
                 ))}
               </Select>
+              </FormControl>
               <br />
-              <Grid item xs={12}>
                 <TextField
                   type="text"
                   variant="outlined"
@@ -102,7 +108,7 @@ const AdminProduct = () => {
                   required
                   onChange={(e) => setName(e.target.value)}
                 />
-              </Grid>
+             <br/>
               <TextField
                 type="text"
                 variant="outlined"
@@ -111,6 +117,8 @@ const AdminProduct = () => {
                 required
                 onChange={(e) => setDescription(e.target.value)}
               />
+              <br/>
+
               <TextField
                 type="number"
                 variant="outlined"
@@ -137,7 +145,12 @@ const AdminProduct = () => {
                   />
                 ))}
 
-              <Button onClick={submitForm}>Add Product</Button>
+              <Button onClick={submitForm}
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+              >Add Product</Button>
             </FormControl>
           </Box>
         </Container>
