@@ -11,7 +11,8 @@ const AdminDashboardPage = ({
   collapsed,
   toggled,
   handleToggleSidebar, 
-  handleCollapsedChange
+  handleCollapsedChange,
+  page
 }) => {
 
 
@@ -35,9 +36,12 @@ const AdminDashboardPage = ({
    </Menu>
    </Sidebar>
 {/* <AdminProductType /> */}
-      <br />
-      <br />
-      {/* <AdminProduct /> */}
+      <div>
+        {
+          page === "admin-product" &&
+      <AdminProduct />
+        }
+      </div>
     </>
   );
 };

@@ -36,13 +36,12 @@ function App() {
           path="/Dashboard"
           element={
             <Authenticated>
-              <DashboardPage />
+              <DashboardPage page= "Dashboard" /> 
             </Authenticated>
           }
         />
-            {/* <Route  index element={<AdminProduct />} /> */}
-            <Route path="/admin-product" element={<AdminProduct />} />
-            <Route path="/admin-product-type" element={<AdminProductType/>} />
+             <Route path="/admin-product" element={<DashboardPage page ="admin-product" />} />
+            <Route path="/admin-product-type" element={<DashboardPage page ="admin-product-type"/>} />
         <Route path="/Logout" element={<Logout />} />
       </Routes>
       <StickyFooter />
