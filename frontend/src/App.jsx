@@ -40,7 +40,7 @@ function App() {
             </Authenticated>
           }
         />
-            <Route  index element={<AdminProduct />} />
+            {/* <Route  index element={<AdminProduct />} /> */}
             <Route path="/admin-product" element={<AdminProduct />} />
             <Route path="/admin-product-type" element={<AdminProductType/>} />
         <Route path="/Logout" element={<Logout />} />
