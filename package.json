@@ -20,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/jeraldwilks/indeygo/issues"
   },
-  "homepage": "https://github.com/jeraldwilks/indeygo#readme"
+  "homepage": "https://github.com/jeraldwilks/indeygo#readme",
+  "dependencies": {
+    "react-icons": "^4.9.0",
+    "react-pro-sidebar": "^1.1.0-alpha.1"
+  }
 }

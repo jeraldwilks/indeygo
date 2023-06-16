@@ -1,20 +1,22 @@
 import "./App.css";
+import AdminProductType from "./components/AdminProductType";
+import AdminProduct from "./components/AdminProduct";
+import Authenticated from "./components/Authenticated";
 import ContactPage from "./Pages/ContactPage";
+import DashboardPage from "./Pages/DashboardPage";
 import ErrorPage from "./Pages/ErrorPage";
 import ForgotPasswordPage from "./Pages/ForgotPasswordPage";
+import FundraisingPage from "./Pages/FundraisingPage";
 import HomePage from "./Pages/HomePage";
 import LoginPage from "./Pages/LoginPage";
+import Logout from "./components/Logout";
 import ProductsPage from "./Pages/ProductsPage";
-import StickyFooter from "./components/Footer";
 import React from "react";
 import RegisterPage from "./Pages/RegisterPage";
-import ResponsiveAppBar from "./components/ResponsiveAppBar";
-import DashboardPage from "./Pages/DashboardPage";
-import Logout from "./components/Logout";
-import { Routes, Route } from "react-router-dom";
-import Authenticated from "./components/Authenticated";
 import ResetPasswordPage from "./Pages/ResetPasswordPage";
-import FundraisingPage from "./Pages/FundraisingPage";
+import ResponsiveAppBar from "./components/ResponsiveAppBar";
+import { Routes, Route } from "react-router-dom";
+import StickyFooter from "./components/Footer";
 
 function App() {
   return (
