@@ -44,8 +44,6 @@ import React, { useEffect } from 'react';
     //   );
 
 
-      
-
 const WufooForm = () => {
   useEffect(() => {
     var z1c352v60vltnnj;
