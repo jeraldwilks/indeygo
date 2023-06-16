@@ -129,6 +129,7 @@ const AdminProduct = () => {
               />
               {productType != [] &&
                 productType.priceTierMin.map((priceTier, index) => (
+                  <><br/>
                   <TextField
                     key={"tier" + index}
                     type="number"
@@ -142,7 +143,7 @@ const AdminProduct = () => {
                             productType.caseSize)
                     }
                     onChange={(e) => updateFieldChanged(index, e.target.value)}
-                  />
+                  /></>
                 ))}
 
               <Button onClick={submitForm}

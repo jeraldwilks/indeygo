@@ -26,12 +26,12 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="*" element={<ErrorPage />} />
         <Route path="/Contact" element={<ContactPage />} />
-        <Route path="/Start Fundraising" element={<FundraisingPage />} />
         <Route path="/ForgotPassword" element={<ForgotPasswordPage />} />
         <Route path="/Login" element={<LoginPage />} />
         <Route path="/Products" element={<ProductsPage />} />
         <Route path="/Register" element={<RegisterPage />} />
         <Route path="/ResetPassword/:token" element={<ResetPasswordPage />} />
+        <Route path="/Start Fundraising" element={<FundraisingPage />} />
         <Route
           path="/Dashboard"
           element={
@@ -40,6 +40,9 @@ function App() {
             </Authenticated>
           }
         />
+            <Route  index element={<AdminProduct />} />
+            <Route path="/admin-product" element={<AdminProduct />} />
+            <Route path="/admin-product-type" element={<AdminProductType/>} />
         <Route path="/Logout" element={<Logout />} />
       </Routes>
       <StickyFooter />

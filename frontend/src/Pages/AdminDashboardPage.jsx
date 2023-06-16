@@ -24,16 +24,20 @@ const AdminDashboardPage = ({
       breakPoint="md"
     >
       <Menu iconShape="circle">
-
-      
       <MenuItem icon={<FaTachometerAlt />}>Dashboard</MenuItem>
+      <MenuItem icon={<FaGem />}>
+            <Link to="/admin-product-type">Product Type</Link>
+          </MenuItem>
+          <MenuItem icon={<FaList />}>
+            <Link to="/admin-product">Product</Link>
+          </MenuItem>
       
    </Menu>
    </Sidebar>
-<AdminProductType />
+{/* <AdminProductType /> */}
       <br />
       <br />
-      <AdminProduct />
+      {/* <AdminProduct /> */}
     </>
   );
 };
