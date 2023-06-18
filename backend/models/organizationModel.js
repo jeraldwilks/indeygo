@@ -13,7 +13,6 @@ const organizationSchema = mongoose.Schema({
   groupType: {
     type: String,
     required: true,
-    enum: ["Sports", "School", "Community", "Youth"],
   },
   address: {
     type: String,

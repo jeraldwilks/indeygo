@@ -10,13 +10,12 @@ import {
 import { pink } from "@mui/material/colors";
 import Avatar from "@mui/material/Avatar";
 import React, { useEffect, useState } from "react";
-import BakeryDiningOutlinedIcon from '@mui/icons-material/BakeryDiningOutlined';
+import BakeryDiningOutlinedIcon from "@mui/icons-material/BakeryDiningOutlined";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import CssBaseline from "@mui/material/CssBaseline";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
-
 
 const theme = createTheme();
 
@@ -71,44 +70,47 @@ const AdminProduct = () => {
               flexDirection: "column",
               alignItems: "center",
             }}
-          ><Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-            <BakeryDiningOutlinedIcon />
-          </Avatar>
-            <FormControl sx={{ width: '50ch' }}>
-              <Typography component="h1" variant="h5">Add a New Product</Typography>
+          >
+            <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+              <BakeryDiningOutlinedIcon />
+            </Avatar>
+            <FormControl sx={{ width: "50ch" }}>
+              <Typography component="h1" variant="h5">
+                Add a New Product
+              </Typography>
               <br />
               <FormControl>
-              <InputLabel id="Product Type">Product Type</InputLabel>
-              <Select
-                labelId="ProductType-label"
-                id="ProductType"
-                value={productType}
-                label="Product Type"
-                onChange={(e) => {
-                  setProductType(e.target.value);
-                }}
-                required
-              >
-                 {availableProductTypes.map((availableProductType) => (
-                  <MenuItem
-                    key={availableProductType.name}
-                    value={availableProductType}
-                  >
-                    {availableProductType.name}
-                  </MenuItem>
-                ))}
-              </Select>
+                <InputLabel id="ProductType-label">Product Type</InputLabel>
+                <Select
+                  labelId="ProductType-label"
+                  id="ProductType"
+                  value={productType}
+                  label="Product Type"
+                  onChange={(e) => {
+                    setProductType(e.target.value);
+                  }}
+                  required
+                >
+                  {availableProductTypes.map((availableProductType) => (
+                    <MenuItem
+                      key={availableProductType.name}
+                      value={availableProductType}
+                    >
+                      {availableProductType.name}
+                    </MenuItem>
+                  ))}
+                </Select>
               </FormControl>
               <br />
-                <TextField
-                  type="text"
-                  variant="outlined"
-                  label="Product Name"
-                  name="name"
-                  required
-                  onChange={(e) => setName(e.target.value)}
-                />
-             <br/>
+              <TextField
+                type="text"
+                variant="outlined"
+                label="Product Name"
+                name="name"
+                required
+                onChange={(e) => setName(e.target.value)}
+              />
+              <br />
               <TextField
                 type="text"
                 variant="outlined"
@@ -117,7 +119,7 @@ const AdminProduct = () => {
                 required
                 onChange={(e) => setDescription(e.target.value)}
               />
-              <br/>
+              <br />
 
               <TextField
                 type="number"
@@ -129,29 +131,36 @@ const AdminProduct = () => {
               />
               {productType != [] &&
                 productType.priceTierMin.map((priceTier, index) => (
-                  <><br/>
-                  <TextField
-                    key={"tier" + index}
-                    type="number"
-                    variant="outlined"
-                    label={"Tier " + (index + 1) + " Price"}
-                    helperText={
-                      index + 1 === productType.priceTierMin.length
-                        ? priceTier + " or more"
-                        : "Up to " +
-                          (productType.priceTierMin[index + 1] -
-                            productType.caseSize)
-                    }
-                    onChange={(e) => updateFieldChanged(index, e.target.value)}
-                  /></>
+                  <>
+                    <br />
+                    <TextField
+                      key={"tier" + index}
+                      type="number"
+                      variant="outlined"
+                      label={"Tier " + (index + 1) + " Price"}
+                      helperText={
+                        index + 1 === productType.priceTierMin.length
+                          ? priceTier + " or more"
+                          : "Up to " +
+                            (productType.priceTierMin[index + 1] -
+                              productType.caseSize)
+                      }
+                      onChange={(e) =>
+                        updateFieldChanged(index, e.target.value)
+                      }
+                    />
+                  </>
                 ))}
 
-              <Button onClick={submitForm}
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-              >Add Product</Button>
+              <Button
+                onClick={submitForm}
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+              >
+                Add Product
+              </Button>
             </FormControl>
           </Box>
         </Container>
