@@ -29,17 +29,22 @@ const AdminDashboardPage = ({
       <MenuItem icon={<FaGem />}>
             <Link to="/admin-product-type">Product Type</Link>
           </MenuItem>
-          <MenuItem icon={<FaList />}>
+          <MenuItem icon={<FaList />} onClick={<></>}>
             <Link to="/admin-product">Product</Link>
           </MenuItem>
       
    </Menu>
    </Sidebar>
-{/* <AdminProductType /> */}
       <div>
         {
           page === "admin-product" &&
       <AdminProduct />
+        }
+      </div>
+      <div>
+        {
+          page === "admin-product-type" &&
+      <AdminProductType />
         }
       </div>
     </>
