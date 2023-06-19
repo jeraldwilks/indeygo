@@ -15,8 +15,6 @@ import React from "react";
 import RegisterPage from "./Pages/RegisterPage";
 import ResetPasswordPage from "./Pages/ResetPasswordPage";
 import ResponsiveAppBar from "./components/ResponsiveAppBar";
-import DashboardPage from "./Pages/DashboardPage";
-import Logout from "./components/Logout";
 import InquiryPage from "./Pages/InquiryPage";
 import { Routes, Route } from "react-router-dom";
 import StickyFooter from "./components/Footer";
