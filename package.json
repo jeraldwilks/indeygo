@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/jeraldwilks/indeygo/issues"
   },
-  "homepage": "https://github.com/jeraldwilks/indeygo#readme"
+  "homepage": "https://github.com/jeraldwilks/indeygo#readme",
+  "dependencies": {
+    "date-fns": "^2.30.0"
+  }
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -13,30 +13,60 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
+import MenuItem from "@mui/material/MenuItem";
 import CookieIcon from "@mui/icons-material/Cookie";
 
-export default function FundraisingPage() {
+function FundraisingPage() {
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState("");
+  const [organizations, setOrganizations] = useState([]);
+  const [deliveryAddress, setDeliveryAddress] = useState("");
+  const [productTypes, setProductTypes] = useState([]);
+  const [selectedProductTypes, setSelectedProductTypes] = useState([]);
+  const [organization, setOrganization] = useState("");
+  const [amountRaised, setAmountRaised] = useState("");
+  const [fundraiserName, setFundraiserName] = useState("");
+
+  useEffect(() => {
+    // Fetch active organizations for the user
+    fetch("/api/organizations")
+      .then((response) => response.json())
+      .then((data) => {
+        setOrganizations(data);
+        if (data.length === 0) {
+          alert("Please create an organization first.");
+          navigate("/CreateOrganization");
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching organizations:", error);
+        setErrorMessage("Failed to fetch organizations");
+      });
+
+    // Fetch active product types
+    fetch("/api/productTypes")
+      .then((response) => response.json())
+      .then((data) => {
+        setProductTypes(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching product types:", error);
+        setErrorMessage("Failed to fetch product types");
+      });
+  }, []);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    const name = data.get("name");
     const user = data.get("user");
-    const organization = data.get("organization");
-    const productTypes = data.getAll("productTypes");
+    const organization = data.get("organisation");
     const numberOfParticipants = data.get("numberOfParticipants");
     const fundraiserTarget = data.get("fundraiserTarget");
-    const deliveryAddress = data.get("deliveryAddress");
-    const deliveryCity = data.get("deliveryCity");
-    const deliveryProvince = data.get("deliveryProvince");
-    const deliveryPostalCode = data.get("deliveryPostalCode");
     const startDate = data.get("startDate");
     const endDate = data.get("endDate");
     const orderDate = data.get("orderDate");
     const deliveryDate = data.get("deliveryDate");
-    const isActive = data.get("isActive");
+    const isActive = true;
 
     try {
       const response = await fetch("/api/fundraiser", {
@@ -45,16 +75,14 @@ export default function FundraisingPage() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          name,
+          name: fundraiserName,
           user,
           organization,
-          productTypes,
+          productTypes: selectedProductTypes,
           numberOfParticipants,
           fundraiserTarget,
+          amountRaised,
           deliveryAddress,
-          deliveryCity,
-          deliveryProvince,
-          deliveryPostalCode,
           startDate,
           endDate,
           orderDate,
@@ -75,6 +103,29 @@ export default function FundraisingPage() {
       console.error("Error creating fundraiser:", error);
       setErrorMessage("Failed to register fundraiser");
     }
+  };
+
+  const handleProductTypeChange = (event) => {
+    const { value, checked } = event.target;
+    if (checked) {
+      setSelectedProductTypes((prevSelectedProductTypes) => [
+        ...prevSelectedProductTypes,
+        value,
+      ]);
+    } else {
+      setSelectedProductTypes((prevSelectedProductTypes) =>
+        prevSelectedProductTypes.filter((productType) => productType !== value)
+      );
+    }
+  };
+
+  const handleOrganizationChange = (event) => {
+    const { value } = event.target;
+    const selectedOrganization = organizations.find((org) => org._id === value);
+    if (selectedOrganization) {
+      setDeliveryAddress(selectedOrganization.address);
+    }
+    setOrganization(value);
   };
 
   const theme = createTheme();
@@ -103,28 +154,30 @@ export default function FundraisingPage() {
                 <TextField
                   required
                   fullWidth
-                  id="name"
-                  label="Name"
-                  name="name"
+                  id="fundraiserName"
+                  label="Fundraiser Name"
+                  name="fundraiserName"
+                  value={fundraiserName}
+                  onChange={(e) => setFundraiserName(e.target.value)}
                 />
               </Grid>
               <Grid item xs={12}>
                 <TextField
                   required
                   fullWidth
-                  id="user"
-                  label="User"
-                  name="user"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  id="organization"
-                  label="Organization"
-                  name="organization"
-                />
+                  id="organisation"
+                  label="Organisation"
+                  name="organisation"
+                  select
+                  value={organization}
+                  onChange={handleOrganizationChange}
+                >
+                  {organizations.map((org) => (
+                    <MenuItem key={org._id} value={org._id}>
+                      {org.name}
+                    </MenuItem>
+                  ))}
+                </TextField>
               </Grid>
               <Grid item xs={12}>
                 <TextField
@@ -136,6 +189,20 @@ export default function FundraisingPage() {
                   helperText="Enter multiple product types separated by commas"
                 />
               </Grid>
+              {productTypes.map((productType) => (
+                <Grid item xs={12} key={productType._id}>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        value={productType._id}
+                        color="primary"
+                        onChange={handleProductTypeChange}
+                      />
+                    }
+                    label={productType.name}
+                  />
+                </Grid>
+              ))}
               <Grid item xs={12}>
                 <TextField
                   required
@@ -158,100 +225,102 @@ export default function FundraisingPage() {
                 <TextField
                   required
                   fullWidth
+                  id="amountRaised"
+                  label="Amount Raised"
+                  name="amountRaised"
+                  value={amountRaised}
+                  onChange={(e) => setAmountRaised(e.target.value)}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
                   id="deliveryAddress"
                   label="Delivery Address"
                   name="deliveryAddress"
+                  value={deliveryAddress}
+                  onChange={(e) => setDeliveryAddress(e.target.value)}
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12} sm={6}>
                 <TextField
                   required
                   fullWidth
-                  id="deliveryCity"
-                  label="Delivery City"
-                  name="deliveryCity"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  id="deliveryProvince"
-                  label="Delivery Province"
-                  name="deliveryProvince"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  id="deliveryPostalCode"
-                  label="Delivery Postal Code"
-                  name="deliveryPostalCode"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="startDate"
-                  label="Start Date"
-                  type="date"
                   id="startDate"
+                  label="Start Date"
+                  name="startDate"
+                  type="date"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12} sm={6}>
                 <TextField
                   required
                   fullWidth
-                  name="endDate"
-                  label="End Date"
-                  type="date"
                   id="endDate"
+                  label="End Date"
+                  name="endDate"
+                  type="date"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12} sm={6}>
                 <TextField
                   required
                   fullWidth
-                  name="orderDate"
-                  label="Order Date"
-                  type="date"
                   id="orderDate"
+                  label="Order Date"
+                  name="orderDate"
+                  type="date"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={12} sm={6}>
                 <TextField
                   required
                   fullWidth
-                  name="deliveryDate"
-                  label="Delivery Date"
-                  type="date"
                   id="deliveryDate"
+                  label="Delivery Date"
+                  name="deliveryDate"
+                  type="date"
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
                 />
               </Grid>
               <Grid item xs={12}>
                 <FormControlLabel
-                  control={<Checkbox value="true" color="primary" />}
+                  control={<Checkbox value="isActive" color="primary" />}
                   label="Is Active"
                   name="isActive"
                 />
               </Grid>
             </Grid>
-            <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
-              Start Fundraising
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+            >
+              Register
             </Button>
+            {errorMessage && (
+              <Typography component="p" variant="body2" color="error">
+                {errorMessage}
+              </Typography>
+            )}
           </Box>
         </Box>
-        <Typography variant="body2" color="text.secondary" align="center" sx={{ mt: 5 }}>
-          {"© "}
-          <Link color="inherit" href="/">
-            Indeygo
-          </Link>{" "}
-          {new Date().getFullYear()}
-          {"."}
-        </Typography>
       </Container>
     </ThemeProvider>
   );
 }
+
+export default FundraisingPage;
