@@ -26,10 +26,12 @@ function FundraisingPage() {
   const [organization, setOrganization] = useState("");
   const [amountRaised, setAmountRaised] = useState("");
   const [fundraiserName, setFundraiserName] = useState("");
+  const [manualOrganization, setManualOrganization] = useState("");
+  const [selectedOrganization, setSelectedOrganization] = useState("");
 
   useEffect(() => {
     // Fetch active organizations for the user
-    fetch("/api/organizations")
+    fetch("/api/organization") // Update the route path here
       .then((response) => response.json())
       .then((data) => {
         setOrganizations(data);
@@ -44,7 +46,7 @@ function FundraisingPage() {
       });
 
     // Fetch active product types
-    fetch("/api/productTypes")
+    fetch("/api/productType") // Update the route path here
       .then((response) => response.json())
       .then((data) => {
         setProductTypes(data);
@@ -70,6 +72,7 @@ function FundraisingPage() {
 
     try {
       const response = await fetch("/api/fundraiser", {
+        // Update the route path here
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -77,7 +80,7 @@ function FundraisingPage() {
         body: JSON.stringify({
           name: fundraiserName,
           user,
-          organization,
+          organization: selectedOrganization || manualOrganization,
           productTypes: selectedProductTypes,
           numberOfParticipants,
           fundraiserTarget,
@@ -101,6 +104,7 @@ function FundraisingPage() {
       }
     } catch (error) {
       console.error("Error creating fundraiser:", error);
+      console.log('eroor')
       setErrorMessage("Failed to register fundraiser");
     }
   };
@@ -121,11 +125,19 @@ function FundraisingPage() {
 
   const handleOrganizationChange = (event) => {
     const { value } = event.target;
-    const selectedOrganization = organizations.find((org) => org._id === value);
-    if (selectedOrganization) {
-      setDeliveryAddress(selectedOrganization.address);
+    if (value === "manual") {
+      setSelectedOrganization("");
+    } else {
+      const selectedOrganization = organizations.find((org) => org._id === value);
+      if (selectedOrganization) {
+        setDeliveryAddress(selectedOrganization.address);
+      }
+      setSelectedOrganization(value);
     }
-    setOrganization(value);
+  };
+
+  const handleManualOrganizationChange = (event) => {
+    setManualOrganization(event.target.value);
   };
 
   const theme = createTheme();
@@ -169,40 +181,50 @@ function FundraisingPage() {
                   label="Organisation"
                   name="organisation"
                   select
-                  value={organization}
+                  value={selectedOrganization || manualOrganization}
                   onChange={handleOrganizationChange}
                 >
+                  <MenuItem disabled value="">
+                    Select an Organization
+                  </MenuItem>
                   {organizations.map((org) => (
                     <MenuItem key={org._id} value={org._id}>
                       {org.name}
                     </MenuItem>
                   ))}
+                  <MenuItem value="manual">Enter Manually</MenuItem>
                 </TextField>
               </Grid>
+              {selectedOrganization === "" && (
+                <Grid item xs={12}>
+                  <TextField
+                    required
+                    fullWidth
+                    id="manualOrganization"
+                    label="Enter Organization Name"
+                    name="manualOrganization"
+                    value={manualOrganization}
+                    onChange={handleManualOrganizationChange}
+                  />
+                </Grid>
+              )}
               <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  id="productTypes"
-                  label="Product Types"
-                  name="productTypes"
-                  helperText="Enter multiple product types separated by commas"
-                />
-              </Grid>
-              {productTypes.map((productType) => (
-                <Grid item xs={12} key={productType._id}>
+                <Typography variant="subtitle1">Product Types</Typography>
+                {productTypes.map((productType) => (
                   <FormControlLabel
+                    key={productType._id}
                     control={
                       <Checkbox
-                        value={productType._id}
-                        color="primary"
+                        checked={selectedProductTypes.includes(productType._id)}
                         onChange={handleProductTypeChange}
+                        name="productTypes"
+                        value={productType._id}
                       />
                     }
                     label={productType.name}
                   />
-                </Grid>
-              ))}
+                ))}
+              </Grid>
               <Grid item xs={12}>
                 <TextField
                   required
@@ -221,17 +243,7 @@ function FundraisingPage() {
                   name="fundraiserTarget"
                 />
               </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  id="amountRaised"
-                  label="Amount Raised"
-                  name="amountRaised"
-                  value={amountRaised}
-                  onChange={(e) => setAmountRaised(e.target.value)}
-                />
-              </Grid>
+             
               <Grid item xs={12}>
                 <TextField
                   required
@@ -293,13 +305,6 @@ function FundraisingPage() {
                   InputLabelProps={{
                     shrink: true,
                   }}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <FormControlLabel
-                  control={<Checkbox value="isActive" color="primary" />}
-                  label="Is Active"
-                  name="isActive"
                 />
               </Grid>
             </Grid>
