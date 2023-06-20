@@ -17,6 +17,7 @@ import ResetPasswordPage from "./Pages/ResetPasswordPage";
 import ResponsiveAppBar from "./components/ResponsiveAppBar";
 import { Routes, Route } from "react-router-dom";
 import StickyFooter from "./components/Footer";
+import SalePage from "./Pages/SalePage";
 
 function App() {
   return (
@@ -33,6 +34,14 @@ function App() {
         <Route path="/ResetPassword/:token" element={<ResetPasswordPage />} />
         <Route path="/Start Fundraising" element={<FundraisingPage />} />
         <Route
+          path="/Sale"
+          element={
+            <Authenticated>
+              <SalePage />
+            </Authenticated>
+          }
+        />
+        <Route
           path="/Dashboard"
           element={
             <Authenticated>
@@ -40,6 +49,7 @@ function App() {
             </Authenticated>
           }
         />
+
         <Route
           path="/admin-product"
           element={<DashboardPage page="admin-product" />}
