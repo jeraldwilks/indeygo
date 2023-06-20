@@ -31,7 +31,14 @@ function App() {
         <Route path="/Products" element={<ProductsPage />} />
         <Route path="/Register" element={<RegisterPage />} />
         <Route path="/ResetPassword/:token" element={<ResetPasswordPage />} />
-        <Route path="/Start Fundraising" element={<FundraisingPage />} />
+        <Route
+          path="/Start Fundraising"
+          element={
+            <Authenticated>
+              <FundraisingPage />
+            </Authenticated>
+          }
+        />
         <Route
           path="/Dashboard"
           element={
