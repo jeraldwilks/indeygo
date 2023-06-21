@@ -76,6 +76,14 @@ function FundraisingPage() {
     getProductTypes();
   }, []);
 
+  const changeOrganization = (org) => {
+    setOrganization(org);
+    setDeliveryAddress(org.address);
+    setDeliveryCity(org.city);
+    setDeliveryProvince(org.province);
+    setDeliveryPostalCode(org.postalCode);
+  };
+
   const submitForm = async () => {
     try {
       const response = await fetch("/api/fundraiser", {
@@ -168,7 +176,7 @@ function FundraisingPage() {
                       label="Organization"
                       name="organization"
                       value={organization}
-                      onChange={(e) => setOrganization(e.target.value)}
+                      onChange={(e) => changeOrganization(e.target.value)}
                     >
                       {availableOrganizations.map((org) => (
                         <MenuItem key={org._id} value={org}>
