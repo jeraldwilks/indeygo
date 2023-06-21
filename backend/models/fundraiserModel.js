@@ -1,6 +1,11 @@
 import mongoose from 'mongoose';
 
 const fundraiserSchema = new mongoose.Schema({
+
+  fundraiserName: {
+    type: String,
+    required: true  
+  },
   organizationName: {
     type: String,
     required: true
@@ -17,11 +22,8 @@ const fundraiserSchema = new mongoose.Schema({
     type: Date,
     required: true
   },
-  fundraiserAmount: {
-    type: Number,
-    required: true
-  },
-  expectedProfit: {
+ 
+  fundraiserTarget: {
     type: Number,
     required: true
   }

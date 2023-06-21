@@ -15,6 +15,8 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
 import MenuItem from "@mui/material/MenuItem";
 import CookieIcon from "@mui/icons-material/Cookie";
+import { ListItemText } from "@mui/material";
+
 
 function FundraisingPage() {
   const navigate = useNavigate();
@@ -23,15 +25,15 @@ function FundraisingPage() {
   const [deliveryAddress, setDeliveryAddress] = useState("");
   const [productTypes, setProductTypes] = useState([]);
   const [selectedProductTypes, setSelectedProductTypes] = useState([]);
-  const [organization, setOrganization] = useState("");
-  const [amountRaised, setAmountRaised] = useState("");
+
   const [fundraiserName, setFundraiserName] = useState("");
-  const [manualOrganization, setManualOrganization] = useState("");
   const [selectedOrganization, setSelectedOrganization] = useState("");
+  const [numberOfParticipants, setNumberOfParticipants] = useState("");
+  const [fundraiserTarget, setFundraiserTarget] = useState("");
 
   useEffect(() => {
     // Fetch active organizations for the user
-    fetch("/api/organization") // Update the route path here
+    fetch("/api/organization")
       .then((response) => response.json())
       .then((data) => {
         setOrganizations(data);
@@ -46,7 +48,7 @@ function FundraisingPage() {
       });
 
     // Fetch active product types
-    fetch("/api/productType") // Update the route path here
+    fetch("/api/productType")
       .then((response) => response.json())
       .then((data) => {
         setProductTypes(data);
@@ -62,8 +64,6 @@ function FundraisingPage() {
     const data = new FormData(event.currentTarget);
     const user = data.get("user");
     const organization = data.get("organisation");
-    const numberOfParticipants = data.get("numberOfParticipants");
-    const fundraiserTarget = data.get("fundraiserTarget");
     const startDate = data.get("startDate");
     const endDate = data.get("endDate");
     const orderDate = data.get("orderDate");
@@ -72,7 +72,6 @@ function FundraisingPage() {
 
     try {
       const response = await fetch("/api/fundraiser", {
-        // Update the route path here
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -80,11 +79,10 @@ function FundraisingPage() {
         body: JSON.stringify({
           name: fundraiserName,
           user,
-          organization: selectedOrganization || manualOrganization,
+          organization: selectedOrganization,
           productTypes: selectedProductTypes,
           numberOfParticipants,
           fundraiserTarget,
-          amountRaised,
           deliveryAddress,
           startDate,
           endDate,
@@ -104,40 +102,50 @@ function FundraisingPage() {
       }
     } catch (error) {
       console.error("Error creating fundraiser:", error);
-      console.log('eroor')
+      console.log("error");
       setErrorMessage("Failed to register fundraiser");
     }
   };
 
   const handleProductTypeChange = (event) => {
-    const { value, checked } = event.target;
-    if (checked) {
-      setSelectedProductTypes((prevSelectedProductTypes) => [
-        ...prevSelectedProductTypes,
-        value,
-      ]);
+    const { value } = event.target;
+    const selectedIndex = selectedProductTypes.indexOf(value);
+    let newSelectedProductTypes = [];
+
+    if (selectedIndex === -1) {
+      newSelectedProductTypes = [...selectedProductTypes, value];
     } else {
-      setSelectedProductTypes((prevSelectedProductTypes) =>
-        prevSelectedProductTypes.filter((productType) => productType !== value)
+      newSelectedProductTypes = selectedProductTypes.filter(
+        (type) => type !== value
       );
     }
+
+    setSelectedProductTypes(newSelectedProductTypes);
   };
 
   const handleOrganizationChange = (event) => {
     const { value } = event.target;
-    if (value === "manual") {
-      setSelectedOrganization("");
-    } else {
-      const selectedOrganization = organizations.find((org) => org._id === value);
-      if (selectedOrganization) {
-        setDeliveryAddress(selectedOrganization.address);
-      }
-      setSelectedOrganization(value);
+    const selectedOrganization = organizations.find((org) => org._id === value);
+    if (selectedOrganization) {
+      setDeliveryAddress(selectedOrganization.address);
+    }
+    setSelectedOrganization(value);
+  };
+
+  const handleNumberOfParticipantsChange = (event) => {
+    const value = event.target.value;
+    // Only allow numbers
+    if (/^\d+$/.test(value) || value === "") {
+      setNumberOfParticipants(value);
     }
   };
 
-  const handleManualOrganizationChange = (event) => {
-    setManualOrganization(event.target.value);
+  const handleFundraiserTargetChange = (event) => {
+    const value = event.target.value;
+    // Only allow numbers
+    if (/^\d+$/.test(value) || value === "") {
+      setFundraiserTarget(value);
+    }
   };
 
   const theme = createTheme();
@@ -181,7 +189,7 @@ function FundraisingPage() {
                   label="Organisation"
                   name="organisation"
                   select
-                  value={selectedOrganization || manualOrganization}
+                  value={selectedOrganization}
                   onChange={handleOrganizationChange}
                 >
                   <MenuItem disabled value="">
@@ -192,38 +200,28 @@ function FundraisingPage() {
                       {org.name}
                     </MenuItem>
                   ))}
-                  <MenuItem value="manual">Enter Manually</MenuItem>
                 </TextField>
               </Grid>
-              {selectedOrganization === "" && (
-                <Grid item xs={12}>
-                  <TextField
-                    required
-                    fullWidth
-                    id="manualOrganization"
-                    label="Enter Organization Name"
-                    name="manualOrganization"
-                    value={manualOrganization}
-                    onChange={handleManualOrganizationChange}
-                  />
-                </Grid>
-              )}
               <Grid item xs={12}>
-                <Typography variant="subtitle1">Product Types</Typography>
-                {productTypes.map((productType) => (
-                  <FormControlLabel
-                    key={productType._id}
-                    control={
-                      <Checkbox
-                        checked={selectedProductTypes.includes(productType._id)}
-                        onChange={handleProductTypeChange}
-                        name="productTypes"
-                        value={productType._id}
-                      />
-                    }
-                    label={productType.name}
-                  />
-                ))}
+                <TextField
+                  required
+                  fullWidth
+                  id="productType"
+                  label="Product Type"
+                  name="productType"
+                  select
+                  multiple
+                  value={selectedProductTypes}
+                  onChange={handleProductTypeChange}
+                  renderValue={(selected) => selected.join(", ")}
+                >
+                  {productTypes.map((productType) => (
+                    <MenuItem key={productType._id} value={productType._id}>
+                      <Checkbox checked={selectedProductTypes.includes(productType._id)} />
+                      {productType.name}
+                    </MenuItem>
+                  ))}
+                </TextField>
               </Grid>
               <Grid item xs={12}>
                 <TextField
@@ -232,6 +230,8 @@ function FundraisingPage() {
                   id="numberOfParticipants"
                   label="Number of Participants"
                   name="numberOfParticipants"
+                  value={numberOfParticipants}
+                  onChange={handleNumberOfParticipantsChange}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -241,9 +241,11 @@ function FundraisingPage() {
                   id="fundraiserTarget"
                   label="Fundraiser Target"
                   name="fundraiserTarget"
+                  value={fundraiserTarget}
+                  onChange={handleFundraiserTargetChange}
                 />
               </Grid>
-             
+
               <Grid item xs={12}>
                 <TextField
                   required
