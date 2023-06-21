@@ -340,7 +340,7 @@ function FundraisingPage() {
               </Grid>
             </Grid>
             <Button
-              onClick={() => console.log(organization)}
+              onClick={submitForm}
               type="submit"
               fullWidth
               variant="contained"
