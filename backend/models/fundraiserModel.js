@@ -1,34 +1,69 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
-const fundraiserSchema = new mongoose.Schema({
-
-  fundraiserName: {
+const fundraiserSchema = mongoose.Schema({
+  name: {
     type: String,
-    required: true  
+    require: true,
   },
-  organizationName: {
-    type: String,
-    required: true
+  organization: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Organization",
+    required: true,
+  },
+  productTypes: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "ProductTypes",
+      required: true,
+    },
+  ],
+  numberOfParticipants: {
+    type: Number,
+    required: true,
+  },
+  fundraiserTarget: {
+    type: Number,
+    required: true,
   },
   deliveryAddress: {
     type: String,
-    required: true
+    required: true,
+  },
+  deliveryCity: {
+    type: String,
+    required: true,
+  },
+  deliveryProvince: {
+    type: String,
+    required: true,
+  },
+  deliveryPostalCode: {
+    type: String,
+    required: true,
+  },
+  startDate: {
+    type: Date,
+    required: true,
+  },
+  endDate: {
+    type: Date,
+    required: true,
   },
   orderDate: {
     type: Date,
-    required: true
+    required: true,
   },
   deliveryDate: {
     type: Date,
-    required: true
+    required: true,
   },
- 
-  fundraiserTarget: {
+  isActive: {
+    type: Boolean,
+    default: true,
+  },
+  fundsRaised: {
     type: Number,
-    required: true
-  }
+  },
 });
 
-const Fundraiser = mongoose.model('Fundraiser', fundraiserSchema);
-
-export default Fundraiser;
+export const fundraiserModel = mongoose.model("Fundraiser", fundraiserSchema);
