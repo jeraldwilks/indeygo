@@ -19,6 +19,7 @@ import InquiryPage from "./Pages/InquiryPage";
 import { Routes, Route } from "react-router-dom";
 import StickyFooter from "./components/Footer";
 import Wufooform from "./Pages/Wufooform";
+import AdminProductEditor from "./components/AdminProductEditor";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
         <Route path="/Register" element={<RegisterPage />} />
         <Route path="/ResetPassword/:token" element={<ResetPasswordPage />} />
         <Route path="/Start Fundraising" element={<FundraisingPage />} />
+        {/* <Route path="/editor" element={<AdminProductEditor />} /> */}
         <Route
           path="/Dashboard"
           element={
@@ -54,6 +56,14 @@ function App() {
         />
         <Route path="/Logout" element={<Logout />} />
         {/* <Route path="/Info" element={<Inquiry/>} /> */}
+        <Route
+          path="/admin-product-edit"
+          element={<DashboardPage page="admin-product-edit" />}
+        />
+        <Route
+          path="/admin-product-type-edit"
+          element={<DashboardPage page="admin-product-type-edit" />}
+        />
       </Routes>
       <StickyFooter />
     </div>

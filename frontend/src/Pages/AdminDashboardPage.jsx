@@ -13,6 +13,7 @@ import {
   FaRegLaughWink,
   FaHeart,
 } from "react-icons/fa";
+import AdminProductEditor from "../components/AdminProductEditor";
 
 const AdminDashboardPage = ({
   collapsed,
@@ -37,12 +38,22 @@ const AdminDashboardPage = ({
           <MenuItem icon={<FaList />}>
             <Link to="/admin-product">Product</Link>
           </MenuItem>
+          <MenuItem icon={<FaList />}>
+            <Link to="/admin-product-edit">Edit Product</Link>
+          </MenuItem>
+          <MenuItem icon={<FaList />}>
+            <Link to="/admin-product-type-edit">Edit Product Type</Link>
+          </MenuItem>
+
         </Menu>
       </Sidebar>
       {/* <AdminProductType /> */}
       <div>
         {page === "admin-product" && <AdminProduct />}
         {page === "admin-product-type" && <AdminProductType />}
+        {page === "admin-product-edit" && <AdminProductEditor />}
+        {page === "admin-product-type-edit" && <AdminProductEditor />}
+        
       </div>
     </>
   );

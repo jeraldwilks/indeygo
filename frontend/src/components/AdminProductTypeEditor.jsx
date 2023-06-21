@@ -10,10 +10,9 @@ import Grid from "@mui/material/Grid";
 import IcecreamOutlinedIcon from '@mui/icons-material/IcecreamOutlined';
 import Typography from "@mui/material/Typography";
 
-
 const theme = createTheme();
 
-const AdminProductType = () => {
+const AdminProductTypeEditor = () => {
   const [name, setName] = useState("");
   const [quantityDesc, setQuantityDesc] = useState("");
   const [caseSize, setCaseSize] = useState();
@@ -167,6 +166,7 @@ const AdminProductType = () => {
     </ThemeProvider>
     
   );
-};
 
-export default AdminProductType;
+}
+
+export default AdminProductTypeEditor
