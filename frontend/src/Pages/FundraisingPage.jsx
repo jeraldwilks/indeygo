@@ -5,14 +5,12 @@ import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { Form, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import MenuItem from "@mui/material/MenuItem";
 import CookieIcon from "@mui/icons-material/Cookie";
 import {
@@ -382,6 +380,7 @@ function FundraisingPage() {
                   label="Delivery Date"
                   name="deliveryDate"
                   type="date"
+                  helperText="Delivery date should within 10-14 days from order date."
                   onChange={(e) => setDeliveryDate(e.target.value)}
                   InputLabelProps={{
                     shrink: true,
