@@ -379,6 +379,7 @@ function FundraisingPage() {
                   label="Delivery Date"
                   name="deliveryDate"
                   type="date"
+                  helperText="Delivery date should within 10-14 days from order date."
                   onChange={(e) => setDeliveryDate(e.target.value)}
                   InputLabelProps={{
                     shrink: true,
