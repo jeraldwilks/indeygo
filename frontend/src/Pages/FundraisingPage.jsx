@@ -51,7 +51,8 @@ function FundraisingPage() {
   useEffect(() => {
     // Fetch active organizations for the user
     const getOrganizations = async () => {
-      const response = await fetch("api/organization");
+      const url = "api/organization?user=" + user._id;
+      const response = await fetch(url);
       const data = await response.json();
       if (data.length === 0) {
         alert("Please create an organization first.");
@@ -67,7 +68,7 @@ function FundraisingPage() {
     };
     // Must add code to only get active product types
     const getProductTypes = async () => {
-      const response = await fetch("api/productType");
+      const response = await fetch("api/productType?isActive=true");
       const data = await response.json();
       setAvailableProductTypes(data);
     };
@@ -261,15 +262,64 @@ function FundraisingPage() {
                 />
               </Grid>
               <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  id="deliveryProvince"
-                  label="Delivery Province"
-                  name="deliveryProvince"
-                  value={deliveryProvince}
-                  onChange={(e) => setDeliveryProvince(e.target.value)}
-                />
+                <FormControl fullWidth>
+                  <InputLabel id="province-select-label" required>
+                    Province
+                  </InputLabel>
+                  <Select
+                    labelId="province-select-label"
+                    id="deliveryProvince"
+                    value={deliveryProvince}
+                    label="Delivery Province"
+                    onChange={(e) => setDeliveryProvince(e.target.value)}
+                  >
+                    <MenuItem key="Alberta" value="Alberta">
+                      Alberta
+                    </MenuItem>
+                    <MenuItem key="British Columbia" value="British Columbia">
+                      British Columbia
+                    </MenuItem>
+                    <MenuItem key="Manitoba" value="Manitoba">
+                      Manitoba
+                    </MenuItem>
+                    <MenuItem key="New Brunswick" value="New Brunswick">
+                      New Brunswick
+                    </MenuItem>
+                    <MenuItem
+                      key="Newfoundland and Labrador"
+                      value="Newfoundland and Labrador"
+                    >
+                      Newfoundland and Labrador
+                    </MenuItem>
+                    <MenuItem
+                      key="Northwest Territories"
+                      value="Northwest Territories"
+                    >
+                      Northwest Territories
+                    </MenuItem>
+                    <MenuItem key="Nova Scotia" value="Nova Scotia">
+                      Nova Scotia
+                    </MenuItem>
+                    <MenuItem key="Ontario" value="Ontario">
+                      Ontario
+                    </MenuItem>
+                    <MenuItem
+                      key="Prince Edward Island"
+                      value="Prince Edward Island"
+                    >
+                      Prince Edward Island
+                    </MenuItem>
+                    <MenuItem key="Quebec" value="Quebec">
+                      Quebec
+                    </MenuItem>
+                    <MenuItem key="Saskatchewan" value="Saskatchewan">
+                      Saskatchewan
+                    </MenuItem>
+                    <MenuItem key="Yukon" value="Yukon">
+                      Yukon
+                    </MenuItem>
+                  </Select>
+                </FormControl>
               </Grid>
               <Grid item xs={12}>
                 <TextField

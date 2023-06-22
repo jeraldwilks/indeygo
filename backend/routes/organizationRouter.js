@@ -5,7 +5,9 @@ export const organizationRouter = express.Router();
 
 organizationRouter.get("/", async (req, res) => {
   try {
-    const foundOrganizations = await OrganizationModel.find(req.body);
+    console.log(req.query);
+    const foundOrganizations = await OrganizationModel.find(req.query);
+    console.log(foundOrganizations);
     res.send(foundOrganizations);
   } catch (error) {
     console.log(error.message);
