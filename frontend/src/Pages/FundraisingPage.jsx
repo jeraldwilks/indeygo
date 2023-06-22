@@ -5,14 +5,12 @@ import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { Form, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import MenuItem from "@mui/material/MenuItem";
 import CookieIcon from "@mui/icons-material/Cookie";
 import {
@@ -20,7 +18,6 @@ import {
   FormGroup,
   FormLabel,
   InputLabel,
-  ListItemText,
   Select,
 } from "@mui/material";
 import { useAuth } from "../providers/AuthProvider";
@@ -66,7 +63,7 @@ function FundraisingPage() {
         setDeliveryPostalCode(data[0].postalCode);
       }
     };
-    // Must add code to only get active product types
+
     const getProductTypes = async () => {
       const response = await fetch("api/productType?isActive=true");
       const data = await response.json();
