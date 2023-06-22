@@ -57,7 +57,14 @@ function App() {
             </Authenticated>
           }
         />
-
+        <Route
+          path="/Sale"
+          element={
+            <Authenticated>
+              <SalePage />
+            </Authenticated>
+          }
+        />
         <Route
           path="/admin-product"
           element={<DashboardPage page="admin-product" />}
