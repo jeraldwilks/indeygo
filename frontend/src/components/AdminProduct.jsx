@@ -7,7 +7,6 @@ import {
   Select,
   Button,
 } from "@mui/material";
-import { pink } from "@mui/material/colors";
 import Avatar from "@mui/material/Avatar";
 import React, { useEffect, useState } from "react";
 import BakeryDiningOutlinedIcon from "@mui/icons-material/BakeryDiningOutlined";
