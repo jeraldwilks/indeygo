@@ -25,18 +25,19 @@ const AdminProductEditor = () => {
   const [productType, setProductType] = useState("");
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  const [sellPrice, setSellPrice] = useState(1);
+  const [sellPrice, setSellPrice] = useState("");
+
   const [wholesalePrices, setWholesalePrices] = useState([]);
   const [availableProductTypes, setAvailableProductTypes] = useState([]);
 
   const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
-    const getProductTypes = async () => {
-      const response = await fetch("api/productType");
+    const getProductDetails = async () => {
+      const response = await fetch("/api/product");
       setAvailableProductTypes(await response.json());
     };
-    getProductTypes();
+    getProductDetails();
   }, []);
 
   const updateFieldChanged = (index, value) => {
@@ -48,7 +49,7 @@ const AdminProductEditor = () => {
   // const response = await fetch("/api/product?productType=7498439849384398")
 
   const updateProduct = async () => {
-    const response = await fetch("/api/product/", {
+    const response = await fetch("/api/productType", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -64,34 +65,6 @@ const AdminProductEditor = () => {
     });
     alert(await response.text());
   };
-
-  // //Deactivate Product
-
-  // const deactivateProduct = async (_id) => {
-  //   try {
-  //     // Make a request to the backend API to deactivate the product
-  //     const response = await fetch("/api/product/deactivate", {
-  //       method: "PATCH",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify({
-  //        _id: "648b6f6e7864f3039f571bfc", // Passing information to back end
-  //         isActive: "false", // setting value to false
-  //       }),
-  //     });
-  //     if (response.ok) {
-  //       // Handle successful deactivation
-  //       alert("Product deactivated successfully.");
-  //     } else {
-  //       // Handle deactivation failure
-  //       alert("Failed to deactivate product.");
-  //     }
-  //   } catch (error) {
-  //     // Handle any errors that occurred during the deactivation process
-  //     console.error("Error deactivating product:", error);
-  //   }
-  // };
 
   return (
     <>
@@ -155,7 +128,6 @@ const AdminProductEditor = () => {
                 onChange={(e) => setDescription(e.target.value)}
               />
               <br />
-
               <TextField
                 type="number"
                 variant="outlined"
@@ -186,10 +158,8 @@ const AdminProductEditor = () => {
                     />
                   </>
                 ))}
-
-             
               <FormControl>
-                Is the product  Active
+                Is the product Active
                 <Checkbox onClick={(e) => setIsActive(e.target.checked)} />
               </FormControl>
               <Button
@@ -201,7 +171,6 @@ const AdminProductEditor = () => {
               >
                 Update Product
               </Button>
-
             </FormControl>
           </Box>
         </Container>
@@ -211,3 +180,4 @@ const AdminProductEditor = () => {
 };
 
 export default AdminProductEditor;
+
