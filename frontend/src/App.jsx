@@ -48,6 +48,10 @@ function App() {
           path="/admin-product-type"
           element={<DashboardPage page="admin-product-type" />}
         />
+        <Route
+          path="/OrganizationPage"
+          element={<DashboardPage page="OrganizationPage" />}
+        />
         <Route path="/Logout" element={<Logout />} />
       </Routes>
       <StickyFooter />

@@ -1,51 +1,62 @@
-import AdminProductType from "../components/AdminProductType";
-import AdminProduct from "../components/AdminProduct";
-import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
 import {
-  FaUser,
   FaAngleDoubleLeft,
   FaAngleDoubleRight,
   FaTachometerAlt,
   FaGem,
   FaList,
-  FaRegLaughWink,
-  FaHeart,
 } from "react-icons/fa";
+import AdminProductType from "../components/AdminProductType";
+import AdminProduct from "../components/AdminProduct";
 
-const AdminDashboardPage = ({
-  collapsed,
-  toggled,
-  handleToggleSidebar,
-  handleCollapsedChange,
-  page,
-}) => {
+const AdminDashboardPage = ({ page }) => {
+  const [collapsed, setCollapsed] = useState(false);
+  const [toggled, setToggled] = useState(false);
+
+  const handleToggleSidebar = () => {
+    setToggled(!toggled);
+  };
+
+  const handleCollapsedChange = () => {
+    setCollapsed(!collapsed);
+  };
+
   return (
     <>
       <Sidebar
         collapsed={collapsed}
         toggled={toggled}
         onToggle={handleToggleSidebar}
-        breakPoint="md"
       >
         <Menu iconShape="circle">
+          {collapsed ? (
+            <MenuItem
+              icon={<FaAngleDoubleRight />}
+              onClick={handleCollapsedChange}
+            />
+          ) : (
+            <MenuItem
+              suffix={<FaAngleDoubleLeft />}
+              onClick={handleCollapsedChange}
+            />
+          )}
+
           <MenuItem icon={<FaTachometerAlt />}>Dashboard</MenuItem>
-          <MenuItem icon={<FaGem />}>
-            <Link to="/admin-product-type">Product Type</Link>
-          </MenuItem>
-          <MenuItem icon={<FaList />} onClick={<></>}>
-            <Link to="/admin-product">Product</Link>
-          </MenuItem>
+          <Link to="/admin-product-type">
+            <MenuItem icon={<FaGem />}>Product Type</MenuItem>
+          </Link>
+          <Link to="/admin-product">
+            <MenuItem icon={<FaList />}>Product</MenuItem>
+          </Link>
         </Menu>
       </Sidebar>
       <div>
         {page === "admin-product" && <AdminProduct />}
         {page === "admin-product-type" && <AdminProductType />}
       </div>
-      <div>
-        
-      </div>
+      <div></div>
     </>
   );
 };
