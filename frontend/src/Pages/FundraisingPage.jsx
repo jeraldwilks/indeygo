@@ -48,7 +48,7 @@ function FundraisingPage() {
   useEffect(() => {
     // Fetch active organizations for the user
     const getOrganizations = async () => {
-      const url = "api/organization?user=" + user._id;
+      const url = "api/organization?isActive=true&user=" + user._id;
       const response = await fetch(url);
       const data = await response.json();
       if (data.length === 0) {
