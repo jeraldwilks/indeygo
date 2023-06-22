@@ -1,42 +1,24 @@
-import express from 'express';
-const router = express.Router();
-import Fundraiser from '../models/fundraiserModel.js';
+import express from "express";
+import { fundraiserModel } from "../models/fundraiserModel.js";
 
-// Create a new fundraiser
-router.post('/api/fundraiser', async (req, res) => {
+export const fundraiserRouter = express.Router();
+
+fundraiserRouter.get("/", async (req, res) => {
   try {
-    // Extract the form data from the request body
-    const {
-      organizationName,
-      deliveryAddress,
-      startDate,
-      endDate,
-      fundraiserAmount,
-      expectedProfit,
-      orderDate,
-      deliveryDate
-    } = req.body;
-
-    // Create a new fundraiser object
-    const newFundraiser = new Fundraiser({
-      organizationName,
-      deliveryAddress,
-      startDate,
-      endDate,
-      fundraiserAmount,
-      expectedProfit,
-      orderDate,
-      deliveryDate
-    });
-
-    // Save the fundraiser to the database
-    const savedFundraiser = await newFundraiser.save();
-
-    res.status(201).json(savedFundraiser);
+    const foundFundraisers = await fundraiserModel.find(req.query);
+    res.send(foundFundraisers);
   } catch (error) {
-    console.error('Error creating fundraiser:', error);
-    res.status(500).json({ error: 'Failed to create fundraiser' });
+    console.log(error.message);
+    res.status(500).send(error.message);
   }
 });
 
-export { router as fundraiserRouter };
+fundraiserRouter.post("/", async (req, res) => {
+  try {
+    const createdFundraiser = await fundraiserModel.create(req.body);
+    res.send(createdFundraiser);
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).send(error.message);
+  }
+});

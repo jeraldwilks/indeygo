@@ -18,6 +18,7 @@ import ResponsiveAppBar from "./components/ResponsiveAppBar";
 import { Routes, Route } from "react-router-dom";
 import StickyFooter from "./components/Footer";
 import SalePage from "./Pages/SalePage";
+import OrganizationPage from "./Pages/OrganizationPage";
 
 function App() {
   return (
@@ -32,12 +33,19 @@ function App() {
         <Route path="/Products" element={<ProductsPage />} />
         <Route path="/Register" element={<RegisterPage />} />
         <Route path="/ResetPassword/:token" element={<ResetPasswordPage />} />
-        <Route path="/Start Fundraising" element={<FundraisingPage />} />
         <Route
-          path="/Sale"
+          path="/Fundraiser"
           element={
             <Authenticated>
-              <SalePage />
+              <FundraisingPage />
+            </Authenticated>
+          }
+        />
+        <Route
+          path="/Organization"
+          element={
+            <Authenticated>
+              <OrganizationPage />
             </Authenticated>
           }
         />

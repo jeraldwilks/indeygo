@@ -14,8 +14,13 @@
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.13.0",
+    "@mui/x-date-pickers": "^6.7.0",
+    "dayjs": "^1.11.8",
     "react": "^18.2.0",
+    "react-canvas-confetti": "^1.4.0",
+    "react-confetti": "^6.1.0",
     "react-dom": "^18.2.0",
+    "react-dom-confetti": "^0.2.0",
     "react-icons": "^4.9.0",
     "react-pro-sidebar": "^1.1.0-alpha.1",
     "react-router-dom": "^6.11.1"
