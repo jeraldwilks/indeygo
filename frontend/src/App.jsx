@@ -18,6 +18,7 @@ import ResponsiveAppBar from "./components/ResponsiveAppBar";
 import InquiryPage from "./Pages/InquiryPage";
 import { Routes, Route } from "react-router-dom";
 import StickyFooter from "./components/Footer";
+import OrganizationPage from "./Pages/OrganizationPage";
 import Wufooform from "./Pages/Wufooform";
 import AdminProductEditor from "./components/AdminProductEditor";
 
@@ -36,8 +37,22 @@ function App() {
         <Route path="/Products" element={<ProductsPage />} />
         <Route path="/Register" element={<RegisterPage />} />
         <Route path="/ResetPassword/:token" element={<ResetPasswordPage />} />
-        <Route path="/Start Fundraising" element={<FundraisingPage />} />
-        {/* <Route path="/editor" element={<AdminProductEditor />} /> */}
+        <Route
+          path="/Fundraiser"
+          element={
+            <Authenticated>
+              <FundraisingPage />
+            </Authenticated>
+          }
+        />
+        <Route
+          path="/Organization"
+          element={
+            <Authenticated>
+              <OrganizationPage />
+            </Authenticated>
+          }
+        />
         <Route
           path="/Dashboard"
           element={

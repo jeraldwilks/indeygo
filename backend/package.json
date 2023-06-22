@@ -20,6 +20,8 @@
     "express-session": "^1.17.3",
     "mongoose": "^7.1.1",
     "passport": "^0.6.0",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "react-confetti": "^6.1.0",
+    "react-dom-confetti": "^0.2.0"
   }
 }
