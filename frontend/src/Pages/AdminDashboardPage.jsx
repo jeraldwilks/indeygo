@@ -52,7 +52,7 @@ const AdminDashboardPage = ({
         {page === "admin-product" && <AdminProduct />}
         {page === "admin-product-type" && <AdminProductType />}
         {page === "admin-product-edit" && <AdminProductEditor />}
-        {page === "admin-product-type-edit" && <AdminProductEditor />}
+        {page === "admin-product-type-edit" && <AdminProductTypeEditor />}
         
       </div>
     </>

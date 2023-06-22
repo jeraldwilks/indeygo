@@ -29,10 +29,11 @@ productRouter.patch("/", async (req, res) => {
     const productId = req.body._id;
     delete req.body._id;
     
-    const updatedProduct = await ProductModel.findByIdAndUpdate(productId,req.body,{new: true });
+    const updatedProduct = await ProductModel.create(req.body);
     res.send(updatedProduct);
   } catch (error) {
     console.log(error.message);
     res.status(500).send(error.message);
   }
 });
+

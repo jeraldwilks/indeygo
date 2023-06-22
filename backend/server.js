@@ -49,6 +49,7 @@ app.use("/api/sales", salesRouter);
 app.use("/api/inquiry",formRouter);
 
 
+
 app.get("*", (req, res) =>
   res.sendFile(path.join(path.resolve(), "frontend/dist/index.html"))
 );
