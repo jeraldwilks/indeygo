@@ -42,14 +42,21 @@ const AdminDashboardPage = ({ page }) => {
               onClick={handleCollapsedChange}
             />
           )}
-
-          <MenuItem icon={<FaTachometerAlt />}>Dashboard</MenuItem>
-          <Link to="/admin-product-type">
-            <MenuItem icon={<FaGem />}>Product Type</MenuItem>
+          <Link to="/dashboard">
+          <MenuItem icon={<FaTachometerAlt />}>
+            Dashboard
+            </MenuItem>
           </Link>
-          <Link to="/admin-product">
-            <MenuItem icon={<FaList />}>Product</MenuItem>
-          </Link>
+            <Link to="/admin-product-type">
+          <MenuItem icon={<FaGem />}>
+              Product Type
+          </MenuItem>
+              </Link>
+            <Link to="/admin-product">
+          <MenuItem icon={<FaList />}>
+              Product
+          </MenuItem>
+            </Link>
         </Menu>
       </Sidebar>
       <div>
