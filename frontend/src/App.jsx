@@ -1,6 +1,4 @@
 import "./App.css";
-import AdminProductType from "./components/AdminProductType";
-import AdminProduct from "./components/AdminAddProduct";
 import Authenticated from "./components/Authenticated";
 import ContactPage from "./Pages/ContactPage";
 import DashboardPage from "./Pages/DashboardPage";
