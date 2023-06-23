@@ -18,7 +18,7 @@ import Typography from "@mui/material/Typography";
 
 const theme = createTheme();
 
-const AdminProduct = () => {
+const AdminAddProduct = () => {
   const [productType, setProductType] = useState("");
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -168,4 +168,4 @@ const AdminProduct = () => {
   );
 };
 
-export default AdminProduct;
+export default AdminAddProduct;

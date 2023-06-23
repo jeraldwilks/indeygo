@@ -90,6 +90,7 @@ function FundraisingPage() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
+          user,
           name,
           organization,
           productTypes,
@@ -216,6 +217,7 @@ function FundraisingPage() {
                 <TextField
                   required
                   fullWidth
+                  type="number"
                   id="numberOfParticipants"
                   label="Number of Participants"
                   name="numberOfParticipants"

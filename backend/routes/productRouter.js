@@ -5,7 +5,7 @@ export const productRouter = express.Router();
 
 productRouter.get("/", async (req, res) => {
   try {
-    const foundProducts = await ProductModel.find(req.body);
+    const foundProducts = await ProductModel.find(req.query);
     res.send(foundProducts);
   } catch (error) {
     console.log(error.message);

@@ -1,6 +1,6 @@
 import "./App.css";
 import AdminProductType from "./components/AdminProductType";
-import AdminProduct from "./components/AdminProduct";
+import AdminProduct from "./components/AdminAddProduct";
 import Authenticated from "./components/Authenticated";
 import ContactPage from "./Pages/ContactPage";
 import DashboardPage from "./Pages/DashboardPage";
@@ -66,8 +66,16 @@ function App() {
           }
         />
         <Route
-          path="/admin-product"
-          element={<DashboardPage page="admin-product" />}
+          path="/admin-add-product"
+          element={<DashboardPage page="admin-add-product" />}
+        />
+        <Route
+          path="/admin-edit-product/:id"
+          element={<DashboardPage page="admin-edit-product/:id" />}
+        />
+        <Route
+          path="/admin-products"
+          element={<DashboardPage page="admin-products" />}
         />
         <Route
           path="/admin-product-type"

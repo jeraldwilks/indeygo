@@ -9,7 +9,9 @@ import {
   FaList,
 } from "react-icons/fa";
 import AdminProductType from "../components/AdminProductType";
-import AdminProduct from "../components/AdminProduct";
+import AdminAddProduct from "../components/AdminAddProduct";
+import AdminProducts from "../components/AdminProducts";
+import AdminEditProduct from "../components/AdminEditProduct";
 
 const AdminDashboardPage = ({ page }) => {
   const [collapsed, setCollapsed] = useState(false);
@@ -43,24 +45,23 @@ const AdminDashboardPage = ({ page }) => {
             />
           )}
           <Link to="/dashboard">
-          <MenuItem icon={<FaTachometerAlt />}>
-            Dashboard
-            </MenuItem>
+            <MenuItem icon={<FaTachometerAlt />}>Dashboard</MenuItem>
           </Link>
-            <Link to="/admin-product-type">
-          <MenuItem icon={<FaGem />}>
-              Product Type
-          </MenuItem>
-              </Link>
-            <Link to="/admin-product">
-          <MenuItem icon={<FaList />}>
-              Product
-          </MenuItem>
-            </Link>
+          <Link to="/admin-product-type">
+            <MenuItem icon={<FaGem />}>Product Type</MenuItem>
+          </Link>
+          <Link to="/admin-product">
+            <MenuItem icon={<FaList />}>Product</MenuItem>
+          </Link>
+          <Link to="/admin-products">
+            <MenuItem icon={<FaList />}>Products</MenuItem>
+          </Link>
         </Menu>
       </Sidebar>
       <div>
-        {page === "admin-product" && <AdminProduct />}
+        {page === "admin-add-product" && <AdminAddProduct />}
+        {page === "admin-products" && <AdminProducts />}
+        {page === "admin-edit-product/:id" && <AdminEditProduct />}
         {page === "admin-product-type" && <AdminProductType />}
       </div>
       <div></div>

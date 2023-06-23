@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useAuth } from "../providers/AuthProvider";
-import { FormControl, InputLabel, Select, Typography } from "@mui/material";
+import {
+  Button,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  TextField,
+  Typography,
+} from "@mui/material";
 
 const SalePage = () => {
   const { user } = useAuth();
@@ -11,25 +19,37 @@ const SalePage = () => {
   const [fundraiser, setFundraiser] = useState();
   const [name, setName] = useState();
   const [phoneNumber, setPhoneNumber] = useState();
-  const [products, setProducts] = useState();
-  const [quantities, setQuantities] = useState();
+  const [products, setProducts] = useState([]);
+  const [quantities, setQuantities] = useState([]);
 
-  //   useEffect(() => {
-  //     const getFundraisers = async () => {
-  //       const response = await fetch("api/fundraiser", {
-  //         method: "GET",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //         body: JSON.stringify({
-  //           user,
-  //         }),
-  //       });
-  //       setFundraisers(await response.json());
-  //       setFundraiser(fundraisers[0]);
-  //     };
-  //     getFundraisers();
-  //   }, []);
+  useEffect(() => {
+    const getFundraisers = async () => {
+      const url = "api/fundraiser?isActive=true&user=" + user._id;
+      const response = await fetch(url);
+      const data = await response.json();
+      if (data.length === 0) {
+        alert("Please create a fundraiser first.");
+        navigate("/Fundraiser");
+      } else {
+        setFundraisers(data);
+        setFundraiser(data[0]);
+        for (const prodType of data[0].productTypes) {
+          const url = "api/product?isActive=true&productType=" + prodType;
+          const response = await fetch(url);
+          const productData = await response.json();
+          for (const prod of productData) {
+            setProducts((prevArray) => [...prevArray, productData]);
+            setQuantities((prevArray) => [...prevArray, 0]);
+          }
+        }
+      }
+    };
+
+    // const getProducts = async () => {
+    //   const url = "api/products?isActive=true&"
+    // }
+    getFundraisers();
+  }, []);
 
   //   useEffect(() => {
   //     const getProducts = async () => {
@@ -73,7 +93,7 @@ const SalePage = () => {
         <Select
           labelId="Fundraiser-label"
           id="Fundraiser"
-          value={fundraiser.name}
+          value={fundraiser}
           label="Fundraiser"
           onChange={(e) => {
             setFundraiser(e.target.value);
@@ -105,6 +125,8 @@ const SalePage = () => {
           onChange={(e) => setPhoneNumber(e.target.value)}
         />
       </FormControl>
+      <br />
+      <Button onClick={() => console.log(products)}>Press</Button>
     </FormControl>
   );
 };
