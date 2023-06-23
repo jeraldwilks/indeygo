@@ -12,10 +12,13 @@ import AdminProductType from "../components/AdminProductType";
 import AdminAddProduct from "../components/AdminAddProduct";
 import AdminProducts from "../components/AdminProducts";
 import AdminEditProduct from "../components/AdminEditProduct";
+import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 const AdminDashboardPage = ({ page }) => {
   const [collapsed, setCollapsed] = useState(false);
   const [toggled, setToggled] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(true);
 
   const handleToggleSidebar = () => {
     setToggled(!toggled);
@@ -53,15 +56,10 @@ const AdminDashboardPage = ({ page }) => {
           <Link to="/admin-product">
             <MenuItem icon={<FaList />}>Product</MenuItem>
           </Link>
-          <Link to="/admin-products">
-            <MenuItem icon={<FaList />}>Products</MenuItem>
-          </Link>
         </Menu>
       </Sidebar>
       <div>
-        {page === "admin-add-product" && <AdminAddProduct />}
-        {page === "admin-products" && <AdminProducts />}
-        {page === "admin-edit-product/:id" && <AdminEditProduct />}
+        {page === "admin-product" && <AdminProduct />}
         {page === "admin-product-type" && <AdminProductType />}
       </div>
       <div></div>
