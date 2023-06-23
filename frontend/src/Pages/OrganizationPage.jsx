@@ -11,7 +11,7 @@ import {
 import Avatar from "@mui/material/Avatar";
 import React, { useState } from "react";
 import { useAuth } from "../providers/AuthProvider";
-import BakeryDiningOutlinedIcon from "@mui/icons-material/BakeryDiningOutlined";
+import AddBusinessIcon from '@mui/icons-material/AddBusiness';
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -65,7 +65,7 @@ const OrganizationPage = () => {
             }}
           >
             <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-              <BakeryDiningOutlinedIcon />
+              <AddBusinessIcon />
             </Avatar>
             <FormControl sx={{ width: "50ch" }}>
               <Typography component="h1" variant="h5">

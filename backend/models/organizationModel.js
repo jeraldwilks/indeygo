@@ -30,6 +30,10 @@ const organizationSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  isActive: {
+    type: Boolean,
+    default: true,
+  },
 });
 
 export const OrganizationModel = mongoose.model(

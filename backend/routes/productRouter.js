@@ -23,17 +23,18 @@ productRouter.post("/", async (req, res) => {
   }
 });
 
-// Added to edit product details
 productRouter.patch("/", async (req, res) => {
   try {
     const productId = req.body._id;
     delete req.body._id;
-    
-    const updatedProduct = await ProductModel.create(req.body);
+
+    const updatedProduct = await ProductModel.findByIdAndUpdate(
+      productId,
+      req.body
+    );
     res.send(updatedProduct);
   } catch (error) {
     console.log(error.message);
     res.status(500).send(error.message);
   }
 });
-

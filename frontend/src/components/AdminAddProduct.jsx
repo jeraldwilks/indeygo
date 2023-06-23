@@ -7,7 +7,6 @@ import {
   Select,
   Button,
 } from "@mui/material";
-import { pink } from "@mui/material/colors";
 import Avatar from "@mui/material/Avatar";
 import React, { useEffect, useState } from "react";
 import BakeryDiningOutlinedIcon from "@mui/icons-material/BakeryDiningOutlined";
@@ -19,7 +18,7 @@ import Typography from "@mui/material/Typography";
 
 const theme = createTheme();
 
-const AdminProduct = () => {
+const AdminAddProduct = () => {
   const [productType, setProductType] = useState("");
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -131,10 +130,9 @@ const AdminProduct = () => {
               />
               {productType != [] &&
                 productType.priceTierMin.map((priceTier, index) => (
-                  <>
+                  <React.Fragment key={"tier" + index}>
                     <br />
                     <TextField
-                      key={"tier" + index}
                       type="number"
                       variant="outlined"
                       label={"Tier " + (index + 1) + " Price"}
@@ -149,7 +147,7 @@ const AdminProduct = () => {
                         updateFieldChanged(index, e.target.value)
                       }
                     />
-                  </>
+                  </React.Fragment>
                 ))}
 
               <Button
@@ -169,4 +167,4 @@ const AdminProduct = () => {
   );
 };
 
-export default AdminProduct;
+export default AdminAddProduct;

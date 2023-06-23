@@ -18,7 +18,6 @@ import {
   FormGroup,
   FormLabel,
   InputLabel,
-  ListItemText,
   Select,
 } from "@mui/material";
 import { useAuth } from "../providers/AuthProvider";
@@ -49,7 +48,7 @@ function FundraisingPage() {
   useEffect(() => {
     // Fetch active organizations for the user
     const getOrganizations = async () => {
-      const url = "api/organization?user=" + user._id;
+      const url = "api/organization?isActive=true&user=" + user._id;
       const response = await fetch(url);
       const data = await response.json();
       if (data.length === 0) {
@@ -64,7 +63,7 @@ function FundraisingPage() {
         setDeliveryPostalCode(data[0].postalCode);
       }
     };
-    // Must add code to only get active product types
+
     const getProductTypes = async () => {
       const response = await fetch("api/productType?isActive=true");
       const data = await response.json();
@@ -91,6 +90,7 @@ function FundraisingPage() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
+          user,
           name,
           organization,
           productTypes,
@@ -217,6 +217,7 @@ function FundraisingPage() {
                 <TextField
                   required
                   fullWidth
+                  type="number"
                   id="numberOfParticipants"
                   label="Number of Participants"
                   name="numberOfParticipants"
@@ -380,7 +381,7 @@ function FundraisingPage() {
                   label="Delivery Date"
                   name="deliveryDate"
                   type="date"
-                  helperText="Delivery date should within 10-14 days from order date."
+                  helperText="Delivery date should be 10-14 days from order date."
                   onChange={(e) => setDeliveryDate(e.target.value)}
                   InputLabelProps={{
                     shrink: true,

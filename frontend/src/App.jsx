@@ -1,6 +1,4 @@
 import "./App.css";
-import AdminProductType from "./components/AdminProductType";
-import AdminProduct from "./components/AdminProduct";
 import Authenticated from "./components/Authenticated";
 import ContactPage from "./Pages/ContactPage";
 import DashboardPage from "./Pages/DashboardPage";
@@ -18,6 +16,7 @@ import ResponsiveAppBar from "./components/ResponsiveAppBar";
 import InquiryPage from "./Pages/InquiryPage";
 import { Routes, Route } from "react-router-dom";
 import StickyFooter from "./components/Footer";
+import SalePage from "./Pages/SalePage";
 import OrganizationPage from "./Pages/OrganizationPage";
 import Wufooform from "./Pages/Wufooform";
 import AdminProductEditor from "./components/AdminProductEditor";
@@ -62,12 +61,32 @@ function App() {
           }
         />
         <Route
-          path="/admin-product"
-          element={<DashboardPage page="admin-product" />}
+          path="/Sale"
+          element={
+            <Authenticated>
+              <SalePage />
+            </Authenticated>
+          }
+        />
+        <Route
+          path="/admin-add-product"
+          element={<DashboardPage page="admin-add-product" />}
+        />
+        <Route
+          path="/admin-edit-product/:id"
+          element={<DashboardPage page="admin-edit-product/:id" />}
+        />
+        <Route
+          path="/admin-products"
+          element={<DashboardPage page="admin-products" />}
         />
         <Route
           path="/admin-product-type"
           element={<DashboardPage page="admin-product-type" />}
+        />
+        <Route
+          path="/OrganizationPage"
+          element={<DashboardPage page="OrganizationPage" />}
         />
         <Route path="/Logout" element={<Logout />} />
         {/* <Route path="/Info" element={<Inquiry/>} /> */}
