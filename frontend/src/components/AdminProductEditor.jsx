@@ -34,11 +34,27 @@ const AdminProductEditor = () => {
 
   useEffect(() => {
     const getProductDetails = async () => {
-      const response = await fetch("/api/product");
-      setAvailableProductTypes(await response.json());
+      try {
+        const response = await fetch("api/productType");
+        console.log(response)
+        const data = await response.json();
+        console.log("at data")
+        console.log(data)
+        setAvailableProductTypes(data);
+        console.log(setAvailableProductTypes)
+        if (data.length > 0) {
+          setName(data.name);
+          setDescription(data.description);
+          setSellPrice(data.sellPrice);
+        }
+      } catch (error) {
+        console.error("Error fetching product details:", error);
+      }
     };
+  
     getProductDetails();
   }, []);
+  
 
   const updateFieldChanged = (index, value) => {
     let newArr = [...wholesalePrices];
