@@ -10,10 +10,13 @@ import {
 } from "react-icons/fa";
 import AdminProductType from "../components/AdminProductType";
 import AdminProduct from "../components/AdminProduct";
+import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 const AdminDashboardPage = ({ page }) => {
   const [collapsed, setCollapsed] = useState(false);
   const [toggled, setToggled] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(true);
 
   const handleToggleSidebar = () => {
     setToggled(!toggled);
@@ -25,45 +28,66 @@ const AdminDashboardPage = ({ page }) => {
 
   return (
     <>
-      <Sidebar
-        collapsed={collapsed}
-        toggled={toggled}
-        onToggle={handleToggleSidebar}
-      >
-        <Menu iconShape="circle">
-          {collapsed ? (
-            <MenuItem
-              icon={<FaAngleDoubleRight />}
-              onClick={handleCollapsedChange}
-            />
-          ) : (
-            <MenuItem
-              suffix={<FaAngleDoubleLeft />}
-              onClick={handleCollapsedChange}
-            />
-          )}
-          <Link to="/dashboard">
-          <MenuItem icon={<FaTachometerAlt />}>
-            Dashboard
-            </MenuItem>
-          </Link>
-            <Link to="/admin-product-type">
-          <MenuItem icon={<FaGem />}>
-              Product Type
-          </MenuItem>
-              </Link>
-            <Link to="/admin-product">
-          <MenuItem icon={<FaList />}>
-              Product
-          </MenuItem>
-            </Link>
-        </Menu>
-      </Sidebar>
-      <div>
-        {page === "admin-product" && <AdminProduct />}
-        {page === "admin-product-type" && <AdminProductType />}
+      <div style={{ display: sidebarOpen ? "flex" : "block" }}>
+        {!sidebarOpen && (
+          <div
+            onClick={() => setSidebarOpen(true)}
+            style={{
+              width: "10%",
+              color: "blue",
+              position: "absolute",
+              top: 64,
+            }}
+          >
+            <ArrowDropDownIcon />
+          </div>
+        )}
+        {sidebarOpen && (
+          <Sidebar
+            collapsed={collapsed}
+            toggled={toggled}
+            onToggle={handleToggleSidebar}
+          >
+            <div
+              onClick={() => setSidebarOpen(!sidebarOpen)}
+              style={{ width: "100%", color: "blue" }}
+            >
+              {sidebarOpen && <ArrowDropUpIcon />}
+              {!sidebarOpen && <ArrowDropDownIcon />}
+            </div>
+            {sidebarOpen && (
+              <>
+                <Menu iconShape="circle">
+                  {collapsed ? (
+                    <MenuItem
+                      icon={<FaAngleDoubleRight />}
+                      onClick={handleCollapsedChange}
+                    />
+                  ) : (
+                    <MenuItem
+                      suffix={<FaAngleDoubleLeft />}
+                      onClick={handleCollapsedChange}
+                    />
+                  )}
+                  <Link to="/dashboard">
+                    <MenuItem icon={<FaTachometerAlt />}>Dashboard</MenuItem>
+                  </Link>
+                  <Link to="/admin-product-type">
+                    <MenuItem icon={<FaGem />}>Product Type</MenuItem>
+                  </Link>
+                  <Link to="/admin-product">
+                    <MenuItem icon={<FaList />}>Product</MenuItem>
+                  </Link>
+                </Menu>
+              </>
+            )}
+          </Sidebar>
+        )}
+        <div style={{ flex: 1 }}>
+          {page === "admin-product" && <AdminProduct />}
+          {page === "admin-product-type" && <AdminProductType />}
+        </div>
       </div>
-      <div></div>
     </>
   );
 };

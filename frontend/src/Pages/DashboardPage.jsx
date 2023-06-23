@@ -32,6 +32,7 @@ const DashboardPage = ({ page }) => {
   }
   return (
     <>
+    <div style={{ display: "flex" }}>
       <Sidebar
       collapsed={collapsed}
       toggled={toggled}
@@ -60,7 +61,9 @@ const DashboardPage = ({ page }) => {
           {/* Add more menu items as needed */}
         </Menu>
       </Sidebar>
-      <div>{page === "OrganizationPage" && <OrganizationPage />}</div>
+      <div style={{ flex: 1 }}>{page === "OrganizationPage" && <OrganizationPage />}
+      </div>
+      </div>
     </>
   );
   // <OrganizationPage />;
