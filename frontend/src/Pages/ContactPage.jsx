@@ -1,5 +1,9 @@
+import Avatar from "@mui/material/Avatar";
+import CallSharpIcon from '@mui/icons-material/CallSharp';
 import React, { useState } from "react";
-import { TextField, Button, Typography, Grid, Box } from "@mui/material";
+import { Container, CssBaseline, TextField, Button, Typography, Grid, Box, createTheme, ThemeProvider } from "@mui/material";
+
+const theme = createTheme();
 
 const validateEmail = (email) => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -44,6 +48,9 @@ const ContactPage = () => {
   };
 
   return (
+    <ThemeProvider theme={theme}>
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
     <Box sx={{ height: "100vh" }}>
       <Grid
         container
@@ -53,8 +60,17 @@ const ContactPage = () => {
         sx={{ height: "100%" }}
       >
         <Grid item xs={12} md={4}>
-          <Box sx={{ p: 2 }}>
-            <Typography variant="h4" align="center" mb={2}>
+          <Box 
+          sx={{
+            marginTop: 8,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}>
+            <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+            <CallSharpIcon />
+          </Avatar>
+            <Typography component="h1" variant="h5">
               Contact Us
             </Typography>
             <form onSubmit={handleSubmit}>
@@ -97,7 +113,7 @@ const ContactPage = () => {
                     multiline
                     rows={4}
                   />
-                  <Button variant="contained" type="submit" sx={{ mt: 2 }}>
+                  <Button fullWidth variant="contained" type="submit" sx={{ mt: 2 }}>
                     Submit
                   </Button>
                 </Grid>
@@ -107,6 +123,8 @@ const ContactPage = () => {
         </Grid>
       </Grid>
     </Box>
+    </Container>
+    </ThemeProvider>
   );
 };
 
