@@ -85,7 +85,7 @@ const AdminDashboardPage = ({ page }) => {
           </Sidebar>
         )}
         <div>
-          <h1> Admin Dashboard</h1>
+          <h2> Admin Dashboard</h2>
           {page === "admin-products" && <AdminProducts />}
           {page === "admin-add-product" && <AdminAddProduct />}
           {page === "admin-edit-product/:id" && <AdminEditProduct />}

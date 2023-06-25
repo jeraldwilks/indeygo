@@ -14,7 +14,7 @@ import {
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import BakeryDiningOutlinedIcon from "@mui/icons-material/BakeryDiningOutlined";
+import EditSharpIcon from '@mui/icons-material/EditSharp';
 import Typography from "@mui/material/Typography";
 
 const theme = createTheme();
@@ -90,7 +90,7 @@ const AdminEditProduct = () => {
             }}
           >
             <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-              <BakeryDiningOutlinedIcon />
+              <EditSharpIcon/>
             </Avatar>
             <FormControl sx={{ width: "50ch" }}>
               <Typography component="h1" variant="h5">
