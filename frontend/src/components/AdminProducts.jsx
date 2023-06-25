@@ -85,7 +85,7 @@ const AdminProducts = () => {
   return (
     <div>
       <ThemeProvider theme={theme}>
-        <Container component="main" sx={{ width: "55%" }}>
+        <Container component="main" sx={{ width: "45%" }}>
           <CssBaseline />
           <Box
             sx={{
