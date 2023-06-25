@@ -1,8 +1,11 @@
+import AddIcon from "@mui/icons-material/Add";
 import AdminAddProduct from "../components/AdminAddProduct";
 import AdminEditProduct from "../components/AdminEditProduct";
 import AdminProducts from "../components/AdminProducts";
 import AdminProductType from "../components/AdminProductType";
-import DragHandleSharpIcon from '@mui/icons-material/DragHandleSharp';
+import DragHandleSharpIcon from "@mui/icons-material/DragHandleSharp";
+import InventorySharpIcon from "@mui/icons-material/InventorySharp";
+import LogoutIcon from "@mui/icons-material/Logout";
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
@@ -10,8 +13,6 @@ import {
   FaAngleDoubleLeft,
   FaAngleDoubleRight,
   FaTachometerAlt,
-  FaGem,
-  FaList,
 } from "react-icons/fa";
 
 const AdminDashboardPage = ({ page }) => {
@@ -34,10 +35,10 @@ const AdminDashboardPage = ({ page }) => {
           <div
             onClick={() => setSidebarOpen(true)}
             style={{
-              width: "10%",
-              color: "blue",
+              width: "4.55%",
+              color: "black",
               position: "absolute",
-              top: 64,
+              top: 68,
             }}
           >
             <DragHandleSharpIcon />
@@ -51,7 +52,7 @@ const AdminDashboardPage = ({ page }) => {
           >
             <div
               onClick={() => setSidebarOpen(!sidebarOpen)}
-              style={{ width: "100%", color: "blue" }}
+              style={{ width: "100%", color: "black" }}
             >
               {sidebarOpen && <DragHandleSharpIcon />}
               {!sidebarOpen && <DragHandleSharpIcon />}
@@ -70,22 +71,47 @@ const AdminDashboardPage = ({ page }) => {
                       onClick={handleCollapsedChange}
                     />
                   )}
-                  <Link to="/Dashboard">
+                  <hr></hr>
+                  <Link
+                    to="/Dashboard"
+                    style={{
+                      color: "black",
+                    }}
+                  >
                     <MenuItem icon={<FaTachometerAlt />}>Dashboard</MenuItem>
                   </Link>
-                  <Link to="/admin-product-type">
-                    <MenuItem icon={<FaGem />}>Product Type</MenuItem>
+                  <Link
+                    to="/admin-product-type"
+                    style={{
+                      color: "black",
+                    }}
+                  >
+                    <MenuItem icon={<AddIcon />}>Product Type</MenuItem>
                   </Link>
-                  <Link to="/admin-products">
-                    <MenuItem icon={<FaList />}>Products</MenuItem>
+                  <Link
+                    to="/admin-products"
+                    style={{
+                      color: "black",
+                    }}
+                  >
+                    <MenuItem icon={<InventorySharpIcon />}>Products</MenuItem>
+                  </Link>
+                  <hr></hr>
+                  <Link
+                    to="/Logout"
+                    style={{
+                      color: "black",
+                    }}
+                  >
+                    <MenuItem icon={<LogoutIcon />}>Logout</MenuItem>
                   </Link>
                 </Menu>
               </>
             )}
           </Sidebar>
         )}
-        <div>
-          <h1> Admin Dashboard</h1>
+        <div style={{ flex: 1 }}>
+          {/* <h2> Admin Dashboard</h2> */}
           {page === "admin-products" && <AdminProducts />}
           {page === "admin-add-product" && <AdminAddProduct />}
           {page === "admin-edit-product/:id" && <AdminEditProduct />}
