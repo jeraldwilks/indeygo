@@ -1,6 +1,5 @@
 import AdminDashboardPage from "./AdminDashboardPage";
-import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import DragHandleSharpIcon from '@mui/icons-material/DragHandleSharp';
 import OrganizationPage from "./OrganizationPage";
 import React, { useState } from "react";
 import { useAuth } from "../providers/AuthProvider";
@@ -44,7 +43,7 @@ const DashboardPage = ({ page }) => {
               top: 64,
             }}
           >
-            <ArrowDropDownIcon />
+            <DragHandleSharpIcon />
           </div>
         )}
         {sidebarOpen && (
@@ -57,8 +56,8 @@ const DashboardPage = ({ page }) => {
               onClick={() => setSidebarOpen(!sidebarOpen)}
               style={{ width: "100%", color: "blue" }}
             >
-              {sidebarOpen && <ArrowDropUpIcon />}
-              {!sidebarOpen && <ArrowDropDownIcon />}
+              {sidebarOpen && <DragHandleSharpIcon />}
+              {!sidebarOpen && <DragHandleSharpIcon />}
             </div>
           {sidebarOpen && (
               <>

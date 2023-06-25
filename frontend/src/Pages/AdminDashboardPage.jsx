@@ -2,8 +2,7 @@ import AdminAddProduct from "../components/AdminAddProduct";
 import AdminEditProduct from "../components/AdminEditProduct";
 import AdminProducts from "../components/AdminProducts";
 import AdminProductType from "../components/AdminProductType";
-import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import DragHandleSharpIcon from '@mui/icons-material/DragHandleSharp';
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
@@ -41,7 +40,7 @@ const AdminDashboardPage = ({ page }) => {
               top: 64,
             }}
           >
-            <ArrowDropDownIcon />
+            <DragHandleSharpIcon />
           </div>
         )}
         {sidebarOpen && (
@@ -54,8 +53,8 @@ const AdminDashboardPage = ({ page }) => {
               onClick={() => setSidebarOpen(!sidebarOpen)}
               style={{ width: "100%", color: "blue" }}
             >
-              {sidebarOpen && <ArrowDropUpIcon />}
-              {!sidebarOpen && <ArrowDropDownIcon />}
+              {sidebarOpen && <DragHandleSharpIcon />}
+              {!sidebarOpen && <DragHandleSharpIcon />}
             </div>
             {sidebarOpen && (
               <>
