@@ -116,6 +116,8 @@ const AdminDashboardPage = ({ page }) => {
           {page === "admin-add-product" && <AdminAddProduct />}
           {page === "admin-edit-product/:id" && <AdminEditProduct />}
           {page === "admin-product-type" && <AdminProductType />}
+          {page === "admin-product-edit" && <AdminProductEditor />}
+        {page === "admin-product-type-edit" && <AdminProductTypeEditor />}
         </div>
       </div>
     </>

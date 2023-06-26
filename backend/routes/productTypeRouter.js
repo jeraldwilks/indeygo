@@ -22,3 +22,19 @@ productTypeRouter.post("/", async (req, res) => {
     res.status(500).send(error.message);
   }
 });
+
+//Patch request for product type router
+
+productTypeRouter.patch("/", async (req, res) => {
+  try {
+    const productId = req.body._id;
+    delete req.body._id;
+    const updateProductType = await ProductTypeModel.findByIdAndUpdate(productId,req.body);
+   
+//  console.log(updateProductType);
+    res.send(updateProductType);
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).send(error.message);
+  }
+});

@@ -18,6 +18,8 @@ import { useNavigate } from "react-router-dom";
 
 const theme = createTheme();
 
+
+
 export default function RegisterPage() {
   const { register } = useAuth();
   const navigate = useNavigate();

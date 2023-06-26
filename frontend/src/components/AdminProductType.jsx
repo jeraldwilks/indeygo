@@ -10,6 +10,7 @@ import AddIcon from "@mui/icons-material/Add";
 import Typography from "@mui/material/Typography";
 
 const theme = createTheme();
+
 const AdminProductType = () => {
   const [name, setName] = useState("");
   const [quantityDesc, setQuantityDesc] = useState("");
