@@ -153,31 +153,28 @@ userRouter.post("/resetpassword", async (req, res) => {
   });
 });
 
-
-
-dotenv.config();
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+// dotenv.config();
+// sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 userRouter.post("/sendEmail", (req, res) => {
   const jsonData = req.body;
   console.log(jsonData);
-  res.send('Received JSON Data successfully');
-  
+  res.send("Received JSON Data successfully");
+
   const mailOptions = {
     to: process.env.FROM_EMAIL,
-    from: user.email,
+    from: req.body.email,
     subject: "Contact Us:",
     text: `
     
-    First Name: ${req.body.firstName || ""}\n 
-    Last Name: ${req.body.lastName || ""}\n
+    Name: ${req.body.Name || ""}\n
     Email: ${req.body.email || ""}\n
     Message: ${req.body.message || ""}\n
-    `
+    `,
   };
-  
+
   sgMail
-    .send(mailDetails)
+    .send(mailOptions)
     .then(() => {
       console.log("Email sent successfully");
       res.json({ message: "Email sent successfully" });
