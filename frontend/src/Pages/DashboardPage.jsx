@@ -11,8 +11,6 @@ import {
   FaAngleDoubleLeft,
   FaAngleDoubleRight,
   FaTachometerAlt,
-  FaGem,
-  FaList,
 } from "react-icons/fa";
 
 const DashboardPage = ({ page }) => {
