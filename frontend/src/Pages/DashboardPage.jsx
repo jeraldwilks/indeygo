@@ -1,8 +1,11 @@
-import AddIcon from "@mui/icons-material/Add";
+import AddBusinessIcon from "@mui/icons-material/AddBusiness";
 import AdminDashboardPage from "./AdminDashboardPage";
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import DragHandleSharpIcon from "@mui/icons-material/DragHandleSharp";
 import OrganizationPage from "./OrganizationPage";
 import React, { useState } from "react";
+import ReceiptIcon from '@mui/icons-material/Receipt';
 import LogoutIcon from "@mui/icons-material/Logout";
 import { useAuth } from "../providers/AuthProvider";
 import { Link } from "react-router-dom";
@@ -78,52 +81,35 @@ const DashboardPage = ({ page }) => {
                     />
                   )}
                   <hr></hr>
-                  {/* <Link
-                    to="/Dashboard"
-                    style={{
-                      color: "black",
-                    }}
-                  > */}
                   <MenuItem
                     icon={<FaTachometerAlt />}
                     component={<Link to="/Dashboard" />}
                   >
                     Dashboard
                   </MenuItem>
-                  {/* </Link>
-                  <Link
-                    to="/Organization"
-                    style={{
-                      color: "black",
-                    }}
-                  > */}
+
                   <MenuItem
-                    icon={<AddIcon />}
+                    icon={<AddBusinessIcon />}
                     component={<Link to="/Organization" />}
                   >
                     Organizations
                   </MenuItem>
-                  {/* </Link> */}
+
                   <MenuItem
-                    icon={<AddIcon />}
+                    icon={<AttachMoneyIcon />}
                     component={<Link to="/Fundraiser" />}
                   >
                     Fundraisers
                   </MenuItem>
-                  <MenuItem icon={<AddIcon />} component={<Link to="/Sale" />}>
+                  <MenuItem
+                    icon={<ReceiptIcon />}
+                    component={<Link to="/Sale" />}
+                  >
                     Sales
                   </MenuItem>
                   <hr></hr>
-                  {/* <Link
-                    to="/Logout"
-                    style={{
-                      color: "black",
-                    }}
-                  > */}
+            
                   <MenuItem icon={<LogoutIcon />}>Logout</MenuItem>
-                  {/* </Link> */}
-
-                  {/* Add more menu items as needed */}
                 </Menu>
               </>
             )}

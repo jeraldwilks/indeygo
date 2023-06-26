@@ -31,35 +31,13 @@ function App() {
         <Route path="/Products" element={<ProductsPage />} />
         <Route path="/Register" element={<RegisterPage />} />
         <Route path="/ResetPassword/:token" element={<ResetPasswordPage />} />
-        <Route
-          path="/Fundraiser"
-          element={
-            <Authenticated>
-              <FundraisingPage />
-            </Authenticated>
-          }
-        />
-        <Route
-          path="/Organization"
-          element={
-            <Authenticated>
-              <OrganizationPage />
-            </Authenticated>
-          }
-        />
+
+        
         <Route
           path="/Dashboard"
           element={
             <Authenticated>
               <DashboardPage page="Dashboard" />
-            </Authenticated>
-          }
-        />
-        <Route
-          path="/Sale"
-          element={
-            <Authenticated>
-              <SalePage />
             </Authenticated>
           }
         />
@@ -79,9 +57,17 @@ function App() {
           path="/admin-product-type"
           element={<DashboardPage page="admin-product-type" />}
         />
+          <Route
+            path="/Fundraiser"
+            element={<DashboardPage page="Fundraiser" />}
+          />
         <Route
           path="/Organization"
           element={<DashboardPage page="Organization" />}
+        />
+        <Route
+          path="/Sale"
+          element={<DashboardPage page="Sale" />}
         />
         <Route path="/Logout" element={<Logout />} />
       </Routes>
