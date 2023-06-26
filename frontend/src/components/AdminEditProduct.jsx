@@ -11,10 +11,12 @@ import {
   InputLabel,
   Select,
   MenuItem,
+  Checkbox,
+  FormControlLabel,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import EditSharpIcon from '@mui/icons-material/EditSharp';
+import EditSharpIcon from "@mui/icons-material/EditSharp";
 import Typography from "@mui/material/Typography";
 
 const theme = createTheme();
@@ -26,6 +28,7 @@ const AdminEditProduct = () => {
   const [description, setDescription] = useState("");
   const [sellPrice, setSellPrice] = useState(1);
   const [wholesalePrices, setWholesalePrices] = useState([]);
+  const [isActive, setIsActive] = useState(true);
   const [availableProductTypes, setAvailableProductTypes] = useState([]);
   const [productType, setProductType] = useState("");
 
@@ -42,6 +45,7 @@ const AdminEditProduct = () => {
       setDescription(data[0].description);
       setSellPrice(data[0].sellPrice);
       setWholesalePrices(data[0].wholesalePrices);
+      setIsActive(data[0].isActive);
       const ind = typeData.findIndex((item) => {
         return item._id === data[0].productType;
       });
@@ -71,6 +75,7 @@ const AdminEditProduct = () => {
         description,
         sellPrice,
         wholesalePrices,
+        isActive,
       }),
     });
     alert(await response.text());
@@ -90,7 +95,7 @@ const AdminEditProduct = () => {
             }}
           >
             <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-              <EditSharpIcon/>
+              <EditSharpIcon />
             </Avatar>
             <FormControl sx={{ width: "50ch" }}>
               <Typography component="h1" variant="h5">
@@ -173,6 +178,15 @@ const AdminEditProduct = () => {
                     />
                   </>
                 ))}
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    onChange={(e) => setIsActive(e.target.checked)}
+                    checked={isActive}
+                  />
+                }
+                label="Active Product"
+              />
 
               <Button
                 onClick={submitForm}
