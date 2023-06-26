@@ -156,27 +156,61 @@ userRouter.post("/resetpassword", async (req, res) => {
 
 
 
+// userRouter.post("/sendEmail", (req, res) => {
+//   const { name, email, message } = req.body;
+
+//   // Email content
+//   const mailOptions = {
+//     to: process.env.TO_EMAIL,
+//     from: user.email,
+//     subject: "New Contact Form Submission",
+//     html: `
+//       <h3>New Contact Form Submission</h3>
+//       <p>Name: ${name}</p>
+//       <p>Email: ${email}</p>
+//       <p>Message: ${message}</p>
+//     `,
+//   };
+
+//   // Send the email using SendGrid
+//   sgMail
+//     .send(mailOptions)
+//     .then(() => {
+//       console.log("Email sent");
+//       res.json({ message: "Email sent successfully" });
+//     })
+//     .catch((error) => {
+//       console.error("Error sending email:", error);
+//       res.status(500).json({ error: "Error sending email" });
+//     });
+// });
+
+
+dotenv.config();
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
 userRouter.post("/sendEmail", (req, res) => {
-  const { name, email, message } = req.body;
-
-  // Email content
+  const jsonData = req.body;
+  console.log(jsonData);
+  res.send('Received JSON Data successfully');
+  
   const mailOptions = {
-    to: process.env.TO_EMAIL,
+    to: process.env.FROM_EMAIL,
     from: user.email,
-    subject: "New Contact Form Submission",
-    html: `
-      <h3>New Contact Form Submission</h3>
-      <p>Name: ${name}</p>
-      <p>Email: ${email}</p>
-      <p>Message: ${message}</p>
-    `,
+    subject: "Contact Us:",
+    text: `
+    
+    First Name: ${req.body.firstName || ""}\n 
+    Last Name: ${req.body.lastName || ""}\n
+    Email: ${req.body.email || ""}\n
+    Message: ${req.body.message || ""}\n
+    `
   };
-
-  // Send the email using SendGrid
+  
   sgMail
-    .send(mailOptions)
+    .send(mailDetails)
     .then(() => {
-      console.log("Email sent");
+      console.log("Email sent successfully");
       res.json({ message: "Email sent successfully" });
     })
     .catch((error) => {
