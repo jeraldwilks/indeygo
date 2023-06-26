@@ -46,7 +46,7 @@ const ContactPage = () => {
 
       if (response.ok) {
         alert("Your message has been sent!");
-        // Handle any necessary redirects or state updates
+        window.location.reload();
       } else {
         const errorData = await response.json();
         alert(errorData.error);
