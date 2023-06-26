@@ -157,10 +157,9 @@ const AdminEditProduct = () => {
               />
               {productType != [] &&
                 productType.priceTierMin.map((priceTier, index) => (
-                  <>
+                  <React.Fragment key={"tier" + index}>
                     <br />
                     <TextField
-                      key={"tier" + index}
                       type="number"
                       variant="outlined"
                       value={wholesalePrices[index]}
@@ -176,7 +175,7 @@ const AdminEditProduct = () => {
                         updateFieldChanged(index, e.target.value)
                       }
                     />
-                  </>
+                  </React.Fragment>
                 ))}
               <FormControlLabel
                 control={
