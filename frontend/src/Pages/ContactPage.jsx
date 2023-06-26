@@ -1,7 +1,17 @@
 import Avatar from "@mui/material/Avatar";
-import CallSharpIcon from '@mui/icons-material/CallSharp';
+import CallSharpIcon from "@mui/icons-material/CallSharp";
 import React, { useState } from "react";
-import { Container, CssBaseline, TextField, Button, Typography, Grid, Box, createTheme, ThemeProvider } from "@mui/material";
+import {
+  Container,
+  CssBaseline,
+  TextField,
+  Button,
+  Typography,
+  Grid,
+  Box,
+  createTheme,
+  ThemeProvider,
+} from "@mui/material";
 
 const theme = createTheme();
 
@@ -51,41 +61,29 @@ const ContactPage = () => {
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
-    <Box sx={{ height: "100vh" }}>
-      <Grid
-        container
-        direction="column"
-        alignItems="center"
-        justifyContent="center"
-        sx={{ height: "100%" }}
-      >
-        <Grid item xs={12} md={4}>
-          <Box 
+        <Box
           sx={{
             marginTop: 8,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-          }}>
-            <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+          }}
+        >
+          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
             <CallSharpIcon />
           </Avatar>
-            <Typography component="h1" variant="h5">
-              Contact Us
-            </Typography>
-            <form onSubmit={handleSubmit}>
-              <Grid container spacing={2}>
-                <Grid item xs={12} md={6}>
-                  <Box sx={{ display: "flex", justifyContent: "center" }}>
-                    {/* <img
-                      src=
-                      alt="Contact"
-                      style={{ maxWidth: "100%" }}
-                    /> */}
-                  </Box>
-                </Grid>
-                <Grid item xs={12} md={6}>
-                  <TextField
+          <Typography component="h1" variant="h5">
+            Contact Us
+          </Typography>
+          <Box
+            component="form"
+            noValidate
+            onSubmit={handleSubmit}
+            sx={{ mt: 3 }}
+          >
+            {/* <Grid container spacing={2}> */}
+              <Grid item xs={12} sm={6}>
+              <TextField
                     fullWidth
                     label="Name"
                     value={name}
@@ -113,17 +111,14 @@ const ContactPage = () => {
                     multiline
                     rows={4}
                   />
-                  <Button fullWidth variant="contained" type="submit" sx={{ mt: 2 }}>
+                  <Button variant="contained" type="submit" sx={{ mt: 2 }}>
                     Submit
                   </Button>
-                </Grid>
               </Grid>
-            </form>
+            {/* </Grid> */}
           </Box>
-        </Grid>
-      </Grid>
-    </Box>
-    </Container>
+        </Box>
+      </Container>
     </ThemeProvider>
   );
 };
