@@ -155,37 +155,6 @@ userRouter.post("/resetpassword", async (req, res) => {
 
 
 
-
-// userRouter.post("/sendEmail", (req, res) => {
-//   const { name, email, message } = req.body;
-
-//   // Email content
-//   const mailOptions = {
-//     to: process.env.TO_EMAIL,
-//     from: user.email,
-//     subject: "New Contact Form Submission",
-//     html: `
-//       <h3>New Contact Form Submission</h3>
-//       <p>Name: ${name}</p>
-//       <p>Email: ${email}</p>
-//       <p>Message: ${message}</p>
-//     `,
-//   };
-
-//   // Send the email using SendGrid
-//   sgMail
-//     .send(mailOptions)
-//     .then(() => {
-//       console.log("Email sent");
-//       res.json({ message: "Email sent successfully" });
-//     })
-//     .catch((error) => {
-//       console.error("Error sending email:", error);
-//       res.status(500).json({ error: "Error sending email" });
-//     });
-// });
-
-
 dotenv.config();
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
