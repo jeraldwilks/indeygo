@@ -1,4 +1,4 @@
-import AddIcon from "@mui/icons-material/Add";
+import AddBusinessIcon from "@mui/icons-material/Add";
 import AdminDashboardPage from "./AdminDashboardPage";
 import DragHandleSharpIcon from "@mui/icons-material/DragHandleSharp";
 import OrganizationPage from "./OrganizationPage";
@@ -92,7 +92,7 @@ const DashboardPage = ({ page }) => {
                       color: "black",
                     }}
                   >
-                    <SidebarMenuItem icon={<AddIcon />}>
+                    <SidebarMenuItem icon={<AddBusinessIcon />}>
                       Organization
                     </SidebarMenuItem>
                   </Link>
