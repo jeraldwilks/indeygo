@@ -80,8 +80,8 @@ function App() {
           element={<DashboardPage page="admin-product-type" />}
         />
         <Route
-          path="/OrganizationPage"
-          element={<DashboardPage page="OrganizationPage" />}
+          path="/Organization"
+          element={<DashboardPage page="Organization" />}
         />
         <Route path="/Logout" element={<Logout />} />
       </Routes>

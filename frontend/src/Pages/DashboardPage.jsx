@@ -6,7 +6,7 @@ import React, { useState } from "react";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { useAuth } from "../providers/AuthProvider";
 import { Link } from "react-router-dom";
-import { Sidebar, Menu, MenuItem as SidebarMenuItem } from "react-pro-sidebar";
+import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
 import {
   FaAngleDoubleLeft,
   FaAngleDoubleRight,
@@ -14,6 +14,8 @@ import {
   FaGem,
   FaList,
 } from "react-icons/fa";
+import SalePage from "./SalePage";
+import FundraisingPage from "./FundraisingPage";
 
 const DashboardPage = ({ page }) => {
   const [collapsed, setCollapsed] = useState(false);
@@ -65,47 +67,62 @@ const DashboardPage = ({ page }) => {
               <>
                 <Menu iconShape="circle">
                   {collapsed ? (
-                    <SidebarMenuItem
+                    <MenuItem
                       icon={<FaAngleDoubleRight />}
                       onClick={handleCollapsedChange}
                     />
                   ) : (
-                    <SidebarMenuItem
+                    <MenuItem
                       suffix={<FaAngleDoubleLeft />}
                       onClick={handleCollapsedChange}
                     />
                   )}
                   <hr></hr>
-                  <Link
+                  {/* <Link
                     to="/Dashboard"
                     style={{
                       color: "black",
                     }}
+                  > */}
+                  <MenuItem
+                    icon={<FaTachometerAlt />}
+                    component={<Link to="/Dashboard" />}
                   >
-                    <SidebarMenuItem icon={<FaTachometerAlt />}>
-                      Dashboard
-                    </SidebarMenuItem>
-                  </Link>
+                    Dashboard
+                  </MenuItem>
+                  {/* </Link>
                   <Link
-                    to="/OrganizationPage"
+                    to="/Organization"
                     style={{
                       color: "black",
                     }}
+                  > */}
+                  <MenuItem
+                    icon={<AddIcon />}
+                    component={<Link to="/Organization" />}
                   >
-                    <SidebarMenuItem icon={<AddIcon />}>
-                      Organization
-                    </SidebarMenuItem>
-                  </Link>
+                    Organizations
+                  </MenuItem>
+                  {/* </Link> */}
+                  <MenuItem
+                    icon={<AddIcon />}
+                    component={<Link to="/Fundraiser" />}
+                  >
+                    Fundraisers
+                  </MenuItem>
+                  <MenuItem icon={<AddIcon />} component={<Link to="/Sale" />}>
+                    Sales
+                  </MenuItem>
                   <hr></hr>
-                  <Link
+                  {/* <Link
                     to="/Logout"
                     style={{
                       color: "black",
                     }}
-                  >
-                    <SidebarMenuItem icon={<LogoutIcon />}>Logout</SidebarMenuItem>
-                  </Link>
-                  
+                  > */}
+                  <MenuItem icon={<LogoutIcon />}>Logout</MenuItem>
+                  {/* </Link> */}
+
                   {/* Add more menu items as needed */}
                 </Menu>
               </>
@@ -113,7 +130,9 @@ const DashboardPage = ({ page }) => {
           </Sidebar>
         )}
         <div style={{ flex: 1 }}>
-          {page === "OrganizationPage" && <OrganizationPage />}
+          {page === "Organization" && <OrganizationPage />}
+          {page === "Sale" && <SalePage />}
+          {page === "Fundraiser" && <FundraisingPage />}
         </div>
       </div>
     </>
