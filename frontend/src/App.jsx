@@ -32,7 +32,6 @@ function App() {
         <Route path="/Register" element={<RegisterPage />} />
         <Route path="/ResetPassword/:token" element={<ResetPasswordPage />} />
 
-        
         <Route
           path="/Dashboard"
           element={
@@ -47,27 +46,51 @@ function App() {
         />
         <Route
           path="/admin-edit-product/:id"
-          element={<DashboardPage page="admin-edit-product/:id" />}
+          element={
+            <Authenticated>
+              <DashboardPage page="admin-edit-product/:id" />
+            </Authenticated>
+          }
         />
         <Route
           path="/admin-products"
-          element={<DashboardPage page="admin-products" />}
+          element={
+            <Authenticated>
+              <DashboardPage page="admin-products" />
+            </Authenticated>
+          }
         />
         <Route
           path="/admin-product-type"
-          element={<DashboardPage page="admin-product-type" />}
+          element={
+            <Authenticated>
+              <DashboardPage page="admin-product-type" />
+            </Authenticated>
+          }
         />
-          <Route
-            path="/Fundraiser"
-            element={<DashboardPage page="Fundraiser" />}
-          />
+        <Route
+          path="/Fundraiser"
+          element={
+            <Authenticated>
+              <DashboardPage page="Fundraiser" />
+            </Authenticated>
+          }
+        />
         <Route
           path="/Organization"
-          element={<DashboardPage page="Organization" />}
+          element={
+            <Authenticated>
+              <DashboardPage page="Organization" />
+            </Authenticated>
+          }
         />
         <Route
           path="/Sale"
-          element={<DashboardPage page="Sale" />}
+          element={
+            <Authenticated>
+              <DashboardPage page="Sale" />
+            </Authenticated>
+          }
         />
         <Route path="/Logout" element={<Logout />} />
       </Routes>
