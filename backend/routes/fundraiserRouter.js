@@ -1,11 +1,13 @@
 import express from "express";
-import { fundraiserModel } from "../models/fundraiserModel.js";
+import { FundraiserModel } from "../models/fundraiserModel.js";
 
 export const fundraiserRouter = express.Router();
 
 fundraiserRouter.get("/", async (req, res) => {
   try {
-    const foundFundraisers = await fundraiserModel.find(req.query);
+    const foundFundraisers = await FundraiserModel.find(req.query).populate(
+      "productTypes"
+    );
     res.send(foundFundraisers);
   } catch (error) {
     console.log(error.message);
@@ -15,7 +17,7 @@ fundraiserRouter.get("/", async (req, res) => {
 
 fundraiserRouter.post("/", async (req, res) => {
   try {
-    const createdFundraiser = await fundraiserModel.create(req.body);
+    const createdFundraiser = await FundraiserModel.create(req.body);
     res.send(createdFundraiser);
   } catch (error) {
     console.log(error.message);

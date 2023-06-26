@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const fundraiserSchema = mongoose.Schema({
+const FundraiserSchema = mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
@@ -18,7 +18,7 @@ const fundraiserSchema = mongoose.Schema({
   productTypes: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "ProductTypes",
+      ref: "ProductType",
       required: true,
     },
   ],
@@ -71,4 +71,4 @@ const fundraiserSchema = mongoose.Schema({
   },
 });
 
-export const fundraiserModel = mongoose.model("Fundraiser", fundraiserSchema);
+export const FundraiserModel = mongoose.model("Fundraiser", FundraiserSchema);
