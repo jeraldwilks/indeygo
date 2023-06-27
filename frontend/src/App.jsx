@@ -33,7 +33,6 @@ function App() {
         <Route path="/Wufooform" element={<Wufooform />} />
         <Route path="/ForgotPassword" element={<ForgotPasswordPage />} />
         <Route path="/Login" element={<LoginPage />} />
-        <Route path="/Products" element={<ProductsTypePage />} />
         <Route path="/ProductType" element={<ProductsPage />} />
         <Route path="/Register" element={<RegisterPage />} />
         <Route path="/ResetPassword/:token" element={<ResetPasswordPage />} />
@@ -69,6 +68,9 @@ function App() {
             </Authenticated>
           }
         />
+
+        {/* Routes for Admin Products */}
+
         <Route
           path="/admin-add-product"
           element={<DashboardPage page="admin-add-product" />}
@@ -81,10 +83,23 @@ function App() {
           path="/admin-products"
           element={<DashboardPage page="admin-products" />}
         />
+        {/* Routes for Admin Product Type */}
+
+        <Route
+          path="/admin-add-product-type"
+          element={<DashboardPage page="admin-product-type" />}
+        />
+        <Route
+          path="/admin-edit-product-type"
+          element={<DashboardPage page="admin-product-type" />}
+        />
         <Route
           path="/admin-product-type"
           element={<DashboardPage page="admin-product-type" />}
         />
+
+
+
         <Route
           path="/OrganizationPage"
           element={<DashboardPage page="OrganizationPage" />}

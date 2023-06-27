@@ -1,3 +1,7 @@
+//Original
+
+
+
 import Avatar from "@mui/material/Avatar";
 import {
   Button,
@@ -20,7 +24,7 @@ import Typography from "@mui/material/Typography";
 
 const theme = createTheme();
 
-const AdminProductType = () => {
+const AdminAddProductType = () => {
 
 
   const [name, setName] = useState("");
@@ -183,4 +187,4 @@ const AdminProductType = () => {
   );
 };
 
-export default AdminProductType;
+export default AdminAddProductType;
