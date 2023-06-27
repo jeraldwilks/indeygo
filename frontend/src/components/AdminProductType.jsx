@@ -24,8 +24,8 @@ const AdminProductType = () => {
   const navigate = useNavigate();
 
   const [availableProductTypes, setAvailableProductTypes] = useState([]);
-  const [productType, setProductType] = useState("");
-  const [products, setProducts] = useState([]);
+//   const [productType, setProductType] = useState("");
+//   const [products, setProducts] = useState([]);
 
 
 
@@ -93,7 +93,8 @@ useEffect(() => {
 
   return (
 
-<div>
+ <div>
+<FormControl>
 <ThemeProvider theme={theme}>
         <Container component="main" sx={{ width: "100%" }}>
           <CssBaseline />
@@ -121,6 +122,7 @@ useEffect(() => {
             alignItems: "center",
           }}
         >
+            
           <Typography component="h1" variant="h5">
             Product Types
           </Typography>
@@ -141,15 +143,21 @@ useEffect(() => {
         <Button onClick={() => navigate("/admin-add-product-type")}>
                 Add New Product Type
               </Button>
-              </Box>
+             
 
               </Box>
+              
+              </Box>
               </Container>
+              
              </ThemeProvider> 
+             </FormControl>
     </div>
     
   );
 };
 
 
-export default AdminProductType;
+export default AdminProductType; 
+
+

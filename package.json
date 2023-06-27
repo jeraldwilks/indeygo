@@ -26,5 +26,8 @@
     "react-canvas-confetti": "^1.4.0",
     "react-confetti": "^6.1.0",
     "react-dom-confetti": "^0.2.0"
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.22.5"
   }
 }

@@ -87,11 +87,11 @@ function App() {
 
         <Route
           path="/admin-add-product-type"
-          element={<DashboardPage page="admin-product-type" />}
+          element={<DashboardPage page="admin-add-product-type" />}
         />
         <Route
           path="/admin-edit-product-type"
-          element={<DashboardPage page="admin-product-type" />}
+          element={<DashboardPage page="admin-edit-product-type" />}
         />
         <Route
           path="/admin-product-type"
