@@ -1,10 +1,19 @@
 import Avatar from "@mui/material/Avatar";
-import { Button, FormControl, FormLabel, TextField } from "@mui/material";
-import React, { useState } from "react";
+import {
+  Button,
+  FormControl,
+  FormLabel,
+  TextField,
+  InputLabel,
+  MenuItem,
+  Select,
+} from "@mui/material";
+import React, { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import CssBaseline from "@mui/material/CssBaseline";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import InventorySharpIcon from "@mui/icons-material/InventorySharp";
 import Grid from "@mui/material/Grid";
 import AddIcon from "@mui/icons-material/Add";
 import Typography from "@mui/material/Typography";
@@ -12,6 +21,8 @@ import Typography from "@mui/material/Typography";
 const theme = createTheme();
 
 const AdminProductType = () => {
+
+
   const [name, setName] = useState("");
   const [quantityDesc, setQuantityDesc] = useState("");
   const [caseSize, setCaseSize] = useState();

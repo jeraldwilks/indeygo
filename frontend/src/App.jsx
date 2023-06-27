@@ -33,7 +33,8 @@ function App() {
         <Route path="/Wufooform" element={<Wufooform />} />
         <Route path="/ForgotPassword" element={<ForgotPasswordPage />} />
         <Route path="/Login" element={<LoginPage />} />
-        <Route path="/Products" element={<ProductsPage />} />
+        <Route path="/Products" element={<ProductsTypePage />} />
+        <Route path="/ProductType" element={<ProductsPage />} />
         <Route path="/Register" element={<RegisterPage />} />
         <Route path="/ResetPassword/:token" element={<ResetPasswordPage />} />
         <Route
