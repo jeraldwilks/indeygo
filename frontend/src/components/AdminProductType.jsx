@@ -93,8 +93,24 @@ useEffect(() => {
 
   return (
 
-<>
 <div>
+<ThemeProvider theme={theme}>
+        <Container component="main" sx={{ width: "100%" }}>
+          <CssBaseline />
+          <Box
+            sx={{
+              marginTop: 3,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+              <InventorySharpIcon />
+            </Avatar>
+
+
+
       <Container component="main" maxWidth="string">
         <CssBaseline />
         <Box
@@ -122,14 +138,16 @@ useEffect(() => {
       </Container>
       
     <Box sx={{ m: 20, display: "flex", justifyContent: "center" }}>
-        <Button
-        
-        onClick={() => navigate("/admin-add-product-type")}>
-                Add New Product
+        <Button onClick={() => navigate("/admin-add-product-type")}>
+                Add New Product Type
               </Button>
               </Box>
+
+              </Box>
+              </Container>
+             </ThemeProvider> 
     </div>
-    </>
+    
   );
 };
 
