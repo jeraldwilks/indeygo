@@ -1,17 +1,22 @@
-import AddBusinessIcon from "@mui/icons-material/Add";
+import AddBusinessIcon from "@mui/icons-material/AddBusiness";
 import AdminDashboardPage from "./AdminDashboardPage";
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import DragHandleSharpIcon from "@mui/icons-material/DragHandleSharp";
 import OrganizationPage from "./OrganizationPage";
 import React, { useState } from "react";
+import ReceiptIcon from '@mui/icons-material/Receipt';
 import LogoutIcon from "@mui/icons-material/Logout";
 import { useAuth } from "../providers/AuthProvider";
 import { Link } from "react-router-dom";
-import { Sidebar, Menu, MenuItem as SidebarMenuItem } from "react-pro-sidebar";
+import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
 import {
   FaAngleDoubleLeft,
   FaAngleDoubleRight,
   FaTachometerAlt,
 } from "react-icons/fa";
+import SalePage from "./SalePage";
+import FundraisingPage from "./FundraisingPage";
 
 const DashboardPage = ({ page }) => {
   const [collapsed, setCollapsed] = useState(false);
@@ -63,55 +68,55 @@ const DashboardPage = ({ page }) => {
               <>
                 <Menu iconShape="circle">
                   {collapsed ? (
-                    <SidebarMenuItem
+                    <MenuItem
                       icon={<FaAngleDoubleRight />}
                       onClick={handleCollapsedChange}
                     />
                   ) : (
-                    <SidebarMenuItem
+                    <MenuItem
                       suffix={<FaAngleDoubleLeft />}
                       onClick={handleCollapsedChange}
                     />
                   )}
                   <hr></hr>
-                  <Link
-                    to="/Dashboard"
-                    style={{
-                      color: "black",
-                    }}
+                  <MenuItem
+                    icon={<FaTachometerAlt />}
+                    component={<Link to="/Dashboard" />}
                   >
-                    <SidebarMenuItem icon={<FaTachometerAlt />}>
-                      Dashboard
-                    </SidebarMenuItem>
-                  </Link>
-                  <Link
-                    to="/OrganizationPage"
-                    style={{
-                      color: "black",
-                    }}
+                    Dashboard
+                  </MenuItem>
+
+                  <MenuItem
+                    icon={<AddBusinessIcon />}
+                    component={<Link to="/Organization" />}
                   >
-                    <SidebarMenuItem icon={<AddBusinessIcon />}>
-                      Organization
-                    </SidebarMenuItem>
-                  </Link>
+                    Organizations
+                  </MenuItem>
+
+                  <MenuItem
+                    icon={<AttachMoneyIcon />}
+                    component={<Link to="/Fundraiser" />}
+                  >
+                    Fundraisers
+                  </MenuItem>
+                  <MenuItem
+                    icon={<ReceiptIcon />}
+                    component={<Link to="/Sale" />}
+                  >
+                    Sales
+                  </MenuItem>
                   <hr></hr>
-                  <Link
-                    to="/Logout"
-                    style={{
-                      color: "black",
-                    }}
-                  >
-                    <SidebarMenuItem icon={<LogoutIcon />}>Logout</SidebarMenuItem>
-                  </Link>
-                  
-                  {/* Add more menu items as needed */}
+            
+                  <MenuItem icon={<LogoutIcon />}>Logout</MenuItem>
                 </Menu>
               </>
             )}
           </Sidebar>
         )}
         <div style={{ flex: 1 }}>
-          {page === "OrganizationPage" && <OrganizationPage />}
+          {page === "Organization" && <OrganizationPage />}
+          {page === "Sale" && <SalePage />}
+          {page === "Fundraiser" && <FundraisingPage />}
         </div>
       </div>
     </>
