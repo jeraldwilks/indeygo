@@ -38,7 +38,7 @@ const DashboardPage = ({ page }) => {
   return (
     <>
       <div style={{ display: sidebarOpen ? "flex" : "block" }}>
-        {!sidebarOpen && (
+        {/* {!sidebarOpen && (
           <div
             onClick={() => setSidebarOpen(true)}
             style={{
@@ -51,20 +51,20 @@ const DashboardPage = ({ page }) => {
             <DragHandleSharpIcon />
           </div>
         )}
-        {sidebarOpen && (
+        {sidebarOpen && ( */}
           <Sidebar
             collapsed={collapsed}
             toggled={toggled}
             onToggle={handleToggleSidebar}
           >
-            <div
+            {/* <div
               onClick={() => setSidebarOpen(!sidebarOpen)}
               style={{ width: "100%", color: "black" }}
             >
               {sidebarOpen && <DragHandleSharpIcon />}
               {!sidebarOpen && <DragHandleSharpIcon />}
-            </div>
-            {sidebarOpen && (
+            </div> */}
+            {/* {sidebarOpen && ( */}
               <>
                 <Menu iconShape="circle">
                   {collapsed ? (
@@ -110,9 +110,9 @@ const DashboardPage = ({ page }) => {
                   <MenuItem icon={<LogoutIcon />}>Logout</MenuItem>
                 </Menu>
               </>
-            )}
+            {/* )} */}
           </Sidebar>
-        )}
+        {/* )} */}
         <div style={{ flex: 1 }}>
           {page === "Organization" && <OrganizationPage />}
           {page === "Sale" && <SalePage />}
