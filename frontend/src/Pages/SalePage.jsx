@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useAuth } from "../providers/AuthProvider";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+import ReceiptIcon from "@mui/icons-material/Receipt";
 import {
+  Avatar,
+  Box,
   Button,
+  Container,
   FormControl,
   InputLabel,
   MenuItem,
@@ -9,6 +15,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+const theme = createTheme();
 
 const SalePage = () => {
   const { user } = useAuth();
@@ -86,48 +93,73 @@ const SalePage = () => {
   };
 
   return (
-    <FormControl>
-      <Typography>Add a New Sale</Typography>
-      <FormControl>
-        <InputLabel>Fundraiser:</InputLabel>
-        <Select
-          labelId="Fundraiser-label"
-          id="Fundraiser"
-          value={fundraiser}
-          label="Fundraiser"
-          onChange={(e) => {
-            setFundraiser(e.target.value);
+    <ThemeProvider theme={theme}>
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <Box
+          sx={{
+            marginTop: 8,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
           }}
-          required
         >
-          {fundraisers.map((selectedFundraiser) => (
-            <MenuItem key={selectedFundraiser.name} value={selectedFundraiser}>
-              {selectedFundraiser.name}
-            </MenuItem>
-          ))}
-        </Select>
-        <br />
-        <TextField
-          type="text"
-          variant="outlined"
-          label="Seller's Name"
-          name="name"
-          required
-          onChange={(e) => setName(e.target.value)}
-        />
-        <br />
-        <TextField
-          type="text"
-          variant="outlined"
-          label="Seller's Phone Number"
-          name="phoneNumber"
-          required
-          onChange={(e) => setPhoneNumber(e.target.value)}
-        />
-      </FormControl>
-      <br />
-      <Button onClick={() => console.log(products)}>Press</Button>
-    </FormControl>
+          <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+            <ReceiptIcon />
+          </Avatar>
+
+          <Typography component="h1" variant="h5">
+            Add a New Sale
+          </Typography>
+          <br />
+          <FormControl>
+            <InputLabel>Fundraiser:</InputLabel>
+
+            <Select
+              labelId="Fundraiser-label"
+              id="Fundraiser"
+              value={fundraiser}
+              label="Fundraiser"
+              onChange={(e) => {
+                setFundraiser(e.target.value);
+              }}
+              required
+            >
+              {fundraisers.map((selectedFundraiser) => (
+                <MenuItem
+                  key={selectedFundraiser.name}
+                  value={selectedFundraiser}
+                >
+                  {selectedFundraiser.name}
+                </MenuItem>
+              ))}
+            </Select>
+            <br />
+            <TextField
+              type="text"
+              variant="outlined"
+              label="Seller's Name"
+              name="name"
+              required
+              onChange={(e) => setName(e.target.value)}
+            />
+            <br />
+            <TextField
+              type="text"
+              variant="outlined"
+              label="Seller's Phone Number"
+              name="phoneNumber"
+              required
+              onChange={(e) => setPhoneNumber(e.target.value)}
+            />
+          </FormControl>
+          <br />
+          <Button variant="contained" onClick={() => console.log(products)} sx={{ mt: 3, mb: 2 }}>
+            Press
+          </Button>
+        </Box>
+      </Container>
+    </ThemeProvider>
   );
 };
 
