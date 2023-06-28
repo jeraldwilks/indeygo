@@ -90,15 +90,13 @@ function App() {
           element={<DashboardPage page="admin-add-product-type" />}
         />
         <Route
-          path="/admin-edit-product-type"
-          element={<DashboardPage page="admin-edit-product-type" />}
+          path="/admin-edit-product-type/:id"
+          element={<DashboardPage page="admin-edit-product-type/:id" />}
         />
         <Route
           path="/admin-product-type"
           element={<DashboardPage page="admin-product-type" />}
         />
-
-
 
         <Route
           path="/OrganizationPage"
