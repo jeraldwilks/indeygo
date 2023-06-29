@@ -36,22 +36,7 @@ function App() {
         <Route path="/ProductType" element={<ProductsPage />} />
         <Route path="/Register" element={<RegisterPage />} />
         <Route path="/ResetPassword/:token" element={<ResetPasswordPage />} />
-        <Route
-          path="/Fundraiser"
-          element={
-            <Authenticated>
-              <FundraisingPage />
-            </Authenticated>
-          }
-        />
-        <Route
-          path="/Organization"
-          element={
-            <Authenticated>
-              <OrganizationPage />
-            </Authenticated>
-          }
-        />
+
         <Route
           path="/Dashboard"
           element={
@@ -61,27 +46,24 @@ function App() {
           }
         />
         <Route
-          path="/Sale"
-          element={
-            <Authenticated>
-              <SalePage />
-            </Authenticated>
-          }
-        />
-
-        {/* Routes for Admin Products */}
-
-        <Route
           path="/admin-add-product"
           element={<DashboardPage page="admin-add-product" />}
         />
         <Route
           path="/admin-edit-product/:id"
-          element={<DashboardPage page="admin-edit-product/:id" />}
+          element={
+            <Authenticated>
+              <DashboardPage page="admin-edit-product/:id" />
+            </Authenticated>
+          }
         />
         <Route
           path="/admin-products"
-          element={<DashboardPage page="admin-products" />}
+          element={
+            <Authenticated>
+              <DashboardPage page="admin-products" />
+            </Authenticated>
+          }
         />
         {/* Routes for Admin Product Type */}
 
@@ -95,14 +77,37 @@ function App() {
         />
         <Route
           path="/admin-product-type"
-          element={<DashboardPage page="admin-product-type" />}
+          element={
+            <Authenticated>
+              <DashboardPage page="admin-product-type" />
+            </Authenticated>
+          }
         />
 
         <Route
-          path="/OrganizationPage"
-          element={<DashboardPage page="OrganizationPage" />}
+          path="/FundraisingPage"
+          element={
+            <Authenticated>
+              <DashboardPage page="FundraisingPage" />
+            </Authenticated>
+          }
         />
-        <Route path="/Logout" element={<Logout />} />
+        <Route
+          path="/OrganizationPage"
+          element={
+            <Authenticated>
+              <DashboardPage page="OrganizationPage" />
+            </Authenticated>
+          }
+        />
+        <Route
+          path="/SalePage"
+          element={
+            <Authenticated>
+              <DashboardPage page="SalePage" />
+            </Authenticated>
+          }
+        />
         {/* <Route path="/Info" element={<Inquiry/>} /> */}
         <Route
           path="/admin-product-edit"
@@ -112,6 +117,7 @@ function App() {
           path="/admin-product-type-edit"
           element={<DashboardPage page="admin-product-type-edit" />}
         />
+        <Route path="/Logout" element={<Logout />} />
       </Routes>
       <StickyFooter />
     </div>

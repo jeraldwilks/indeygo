@@ -1,19 +1,22 @@
-import AddIcon from "@mui/icons-material/Add";
+import AddBusinessIcon from "@mui/icons-material/AddBusiness";
 import AdminDashboardPage from "./AdminDashboardPage";
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import DragHandleSharpIcon from "@mui/icons-material/DragHandleSharp";
 import OrganizationPage from "./OrganizationPage";
 import React, { useState } from "react";
+import ReceiptIcon from '@mui/icons-material/Receipt';
 import LogoutIcon from "@mui/icons-material/Logout";
 import { useAuth } from "../providers/AuthProvider";
 import { Link } from "react-router-dom";
-import { Sidebar, Menu, MenuItem as SidebarMenuItem } from "react-pro-sidebar";
+import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
 import {
   FaAngleDoubleLeft,
   FaAngleDoubleRight,
   FaTachometerAlt,
-  FaGem,
-  FaList,
 } from "react-icons/fa";
+import SalePage from "./SalePage";
+import FundraisingPage from "./FundraisingPage";
 
 const DashboardPage = ({ page }) => {
   const [collapsed, setCollapsed] = useState(false);
@@ -35,7 +38,7 @@ const DashboardPage = ({ page }) => {
   return (
     <>
       <div style={{ display: sidebarOpen ? "flex" : "block" }}>
-        {!sidebarOpen && (
+        {/* {!sidebarOpen && (
           <div
             onClick={() => setSidebarOpen(true)}
             style={{
@@ -48,72 +51,74 @@ const DashboardPage = ({ page }) => {
             <DragHandleSharpIcon />
           </div>
         )}
-        {sidebarOpen && (
+        {sidebarOpen && ( */}
           <Sidebar
             collapsed={collapsed}
             toggled={toggled}
             onToggle={handleToggleSidebar}
           >
-            <div
+            {/* <div
               onClick={() => setSidebarOpen(!sidebarOpen)}
               style={{ width: "100%", color: "black" }}
             >
               {sidebarOpen && <DragHandleSharpIcon />}
               {!sidebarOpen && <DragHandleSharpIcon />}
-            </div>
-            {sidebarOpen && (
+            </div> */}
+            {/* {sidebarOpen && ( */}
               <>
                 <Menu iconShape="circle">
                   {collapsed ? (
-                    <SidebarMenuItem
+                    <MenuItem
                       icon={<FaAngleDoubleRight />}
                       onClick={handleCollapsedChange}
                     />
                   ) : (
-                    <SidebarMenuItem
+                    <MenuItem
                       suffix={<FaAngleDoubleLeft />}
                       onClick={handleCollapsedChange}
                     />
                   )}
                   <hr></hr>
-                  <Link
-                    to="/Dashboard"
-                    style={{
-                      color: "black",
-                    }}
+                  <MenuItem
+                    icon={<FaTachometerAlt />}
+                    component={<Link to="/Dashboard" />}
                   >
-                    <SidebarMenuItem icon={<FaTachometerAlt />}>
-                      Dashboard
-                    </SidebarMenuItem>
-                  </Link>
-                  <Link
-                    to="/OrganizationPage"
-                    style={{
-                      color: "black",
-                    }}
+                    Dashboard
+                  </MenuItem>
+
+                  <MenuItem
+                    icon={<AddBusinessIcon />}
+                    component={<Link to="/OrganizationPage" />}
                   >
-                    <SidebarMenuItem icon={<AddIcon />}>
-                      Organization
-                    </SidebarMenuItem>
-                  </Link>
+                    Organizations
+                  </MenuItem>
+
+                  <MenuItem
+                    icon={<AttachMoneyIcon />}
+                    component={<Link to="/FundraisingPage" />}
+                  >
+                    Fundraisers
+                  </MenuItem>
+                  <MenuItem
+                    icon={<ReceiptIcon />}
+                    component={<Link to="/SalePage" />}
+                  >
+                    Sales
+                  </MenuItem>
                   <hr></hr>
-                  <Link
-                    to="/Logout"
-                    style={{
-                      color: "black",
-                    }}
-                  >
-                    <SidebarMenuItem icon={<LogoutIcon />}>Logout</SidebarMenuItem>
-                  </Link>
-                  
-                  {/* Add more menu items as needed */}
+            
+                  <MenuItem icon={<LogoutIcon /> } 
+                  component = {<Link to="/Logout"/>}
+                  >Logout</MenuItem>
                 </Menu>
               </>
-            )}
+            {/* )} */}
           </Sidebar>
-        )}
+        {/* )} */}
         <div style={{ flex: 1 }}>
           {page === "OrganizationPage" && <OrganizationPage />}
+          {page === "SalePage" && <SalePage />}
+          {page === "FundraisingPage" && <FundraisingPage />}
         </div>
       </div>
     </>
