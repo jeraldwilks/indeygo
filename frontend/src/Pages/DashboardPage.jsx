@@ -62,34 +62,39 @@ const DashboardPage = ({ page }) => {
                 Dashboard
               </MenuItem>
 
-              <MenuItem
-                icon={<AddBusinessIcon />}
-                component={<Link to="/Organization" />}
-              >
-                Organizations
-              </MenuItem>
+                  <MenuItem
+                    icon={<AddBusinessIcon />}
+                    component={<Link to="/OrganizationPage" />}
+                  >
+                    Organizations
+                  </MenuItem>
 
-              <MenuItem
-                icon={<AttachMoneyIcon />}
-                component={<Link to="/Fundraiser" />}
-              >
-                Fundraisers
-              </MenuItem>
-              <MenuItem icon={<ReceiptIcon />} component={<Link to="/Sale" />}>
-                Sales
-              </MenuItem>
-              <hr></hr>
-
-              <MenuItem icon={<LogoutIcon />} component={<Link to="/logout" />}>
-                Logout
-              </MenuItem>
-            </Menu>
-          </>
-        </Sidebar>
+                  <MenuItem
+                    icon={<AttachMoneyIcon />}
+                    component={<Link to="/FundraisingPage" />}
+                  >
+                    Fundraisers
+                  </MenuItem>
+                  <MenuItem
+                    icon={<ReceiptIcon />}
+                    component={<Link to="/SalePage" />}
+                  >
+                    Sales
+                  </MenuItem>
+                  <hr></hr>
+            
+                  <MenuItem icon={<LogoutIcon /> } 
+                  component = {<Link to="/Logout"/>}
+                  >Logout</MenuItem>
+                </Menu>
+              </>
+            {/* )} */}
+          </Sidebar>
+        {/* )} */}
         <div style={{ flex: 1 }}>
-          {page === "Organization" && <OrganizationPage />}
-          {page === "Sale" && <SalePage />}
-          {page === "Fundraiser" && <FundraisingPage />}
+          {page === "OrganizationPage" && <OrganizationPage />}
+          {page === "SalePage" && <SalePage />}
+          {page === "FundraisingPage" && <FundraisingPage />}
         </div>
       </div>
     </>

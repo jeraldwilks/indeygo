@@ -12,6 +12,8 @@ import { fundraiserRouter } from "./routes/fundraiserRouter.js";
 import { productTypeRouter } from "./routes/productTypeRouter.js";
 import { productRouter } from "./routes/productRouter.js";
 import { salesRouter } from "./routes/salesRouter.js";
+import { formRouter } from "./routes/formRouter.js";
+
 
 dotenv.config();
 
@@ -44,6 +46,9 @@ app.use("/api/fundraiser", fundraiserRouter);
 app.use("/api/productType", productTypeRouter);
 app.use("/api/product", productRouter);
 app.use("/api/sales", salesRouter);
+app.use("/api/inquiry",formRouter);
+
+
 
 app.get("*", (req, res) =>
   res.sendFile(path.join(path.resolve(), "frontend/dist/index.html"))

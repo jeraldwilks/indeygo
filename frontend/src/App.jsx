@@ -13,10 +13,13 @@ import React from "react";
 import RegisterPage from "./Pages/RegisterPage";
 import ResetPasswordPage from "./Pages/ResetPasswordPage";
 import ResponsiveAppBar from "./components/ResponsiveAppBar";
+import InquiryPage from "./Pages/InquiryPage";
 import { Routes, Route } from "react-router-dom";
 import StickyFooter from "./components/Footer";
 import SalePage from "./Pages/SalePage";
 import OrganizationPage from "./Pages/OrganizationPage";
+import Wufooform from "./Pages/Wufooform";
+import AdminProductEditor from "./components/AdminProductEditor";
 
 function App() {
   return (
@@ -26,9 +29,11 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="*" element={<ErrorPage />} />
         <Route path="/Contact" element={<ContactPage />} />
+        <Route path="/More Info" element={<InquiryPage />} />
+        <Route path="/Wufooform" element={<Wufooform />} />
         <Route path="/ForgotPassword" element={<ForgotPasswordPage />} />
         <Route path="/Login" element={<LoginPage />} />
-        <Route path="/Products" element={<ProductsPage />} />
+        <Route path="/ProductType" element={<ProductsPage />} />
         <Route path="/Register" element={<RegisterPage />} />
         <Route path="/ResetPassword/:token" element={<ResetPasswordPage />} />
 
@@ -60,6 +65,16 @@ function App() {
             </Authenticated>
           }
         />
+        {/* Routes for Admin Product Type */}
+
+        <Route
+          path="/admin-add-product-type"
+          element={<DashboardPage page="admin-add-product-type" />}
+        />
+        <Route
+          path="/admin-edit-product-type/:id"
+          element={<DashboardPage page="admin-edit-product-type/:id" />}
+        />
         <Route
           path="/admin-product-type"
           element={
@@ -68,29 +83,39 @@ function App() {
             </Authenticated>
           }
         />
+
         <Route
-          path="/Fundraiser"
+          path="/FundraisingPage"
           element={
             <Authenticated>
-              <DashboardPage page="Fundraiser" />
+              <DashboardPage page="FundraisingPage" />
             </Authenticated>
           }
         />
         <Route
-          path="/Organization"
+          path="/OrganizationPage"
           element={
             <Authenticated>
-              <DashboardPage page="Organization" />
+              <DashboardPage page="OrganizationPage" />
             </Authenticated>
           }
         />
         <Route
-          path="/Sale"
+          path="/SalePage"
           element={
             <Authenticated>
-              <DashboardPage page="Sale" />
+              <DashboardPage page="SalePage" />
             </Authenticated>
           }
+        />
+        {/* <Route path="/Info" element={<Inquiry/>} /> */}
+        <Route
+          path="/admin-product-edit"
+          element={<DashboardPage page="admin-product-edit" />}
+        />
+        <Route
+          path="/admin-product-type-edit"
+          element={<DashboardPage page="admin-product-type-edit" />}
         />
         <Route path="/Logout" element={<Logout />} />
       </Routes>
