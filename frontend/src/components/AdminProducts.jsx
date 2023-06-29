@@ -136,14 +136,6 @@ const AdminProducts = () => {
                   getRowId={(row) => row._id}
                   rows={products}
                   columns={columns}
-                  initialState={{
-                    pagination: {
-                      paginationModel: {
-                        pageSize: 5,
-                      },
-                    },
-                  }}
-                  pageSizeOptions={[5]}
                 />
               </Box>
               <Button onClick={() => navigate("/admin-add-product")}>

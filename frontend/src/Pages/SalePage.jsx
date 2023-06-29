@@ -13,60 +13,41 @@ import {
 const SalePage = () => {
   const { user } = useAuth();
   const [fundraisers, setFundraisers] = useState([]);
-  const [productTypes, setProductTypes] = useState([]);
-  const [availableProducts, setAvailableProducts] = useState([]);
 
   const [fundraiser, setFundraiser] = useState();
-  const [name, setName] = useState();
-  const [phoneNumber, setPhoneNumber] = useState();
+  const [name, setName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [products, setProducts] = useState([]);
-  const [quantities, setQuantities] = useState([]);
+  const [availableProducts, setAvailableProducts] = useState([]);
 
   useEffect(() => {
-    const getFundraisers = async () => {
+    const initialLoad = async () => {
       const url = "api/fundraiser?isActive=true&user=" + user._id;
-      const response = await fetch(url);
-      const data = await response.json();
-      if (data.length === 0) {
+      const fundraiserResponse = await fetch(url);
+      const fundraiserData = await fundraiserResponse.json();
+      if (fundraiserData.length === 0) {
         alert("Please create a fundraiser first.");
         navigate("/Fundraiser");
       } else {
-        setFundraisers(data);
-        setFundraiser(data[0]);
-        for (const prodType of data[0].productTypes) {
-          const url = "api/product?isActive=true&productType=" + prodType;
-          const response = await fetch(url);
-          const productData = await response.json();
-          for (const prod of productData) {
-            setProducts((prevArray) => [...prevArray, productData]);
-            setQuantities((prevArray) => [...prevArray, 0]);
-          }
-        }
+        setFundraisers(fundraiserData);
+        setFundraiser(fundraiserData[0]);
       }
     };
-
-    // const getProducts = async () => {
-    //   const url = "api/products?isActive=true&"
-    // }
-    getFundraisers();
+    initialLoad();
   }, []);
 
-  //   useEffect(() => {
-  //     const getProducts = async () => {
-  //       setProductTypes(fundraiser.productTypes);
-  //       const response = await fetch("api/product", {
-  //         method: "GET",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //         body: JSON.stringify({
-  //           productTypes,
-  //         }),
-  //       });
-  //       setAvailableProducts(await response.json());
-  //     };
-  //     getProducts();
-  //   }, [fundraiser]);
+  useEffect(() => {
+    const loadProduct = async () => {
+      const productURL =
+        "api/product/findByFundraiser?fundraiser=" + fundraiser._id;
+      const productResponse = await fetch(productURL);
+      const productData = await productResponse.json();
+      setAvailableProducts(productData);
+    };
+    if (fundraiser) {
+      loadProduct();
+    }
+  }, [fundraiser]);
 
   const submitForm = async () => {
     const response = await fetch("/api/sales/", {
@@ -79,33 +60,53 @@ const SalePage = () => {
         name,
         phoneNumber,
         products,
-        quantities,
       }),
     });
     alert(await response.text());
   };
 
+  const changeQuantity = (id, qty, price) => {
+    const index = products.map((x) => x.product).indexOf(id);
+    console.log(index);
+    if (index === -1) {
+      setProducts((prevArray) => [
+        ...prevArray,
+        { product: id, quantity: qty, price: price },
+      ]);
+    } else {
+      let newArray = products;
+      newArray[index].quantity = qty;
+      setProducts(newArray);
+    }
+  };
+
   return (
-    <FormControl>
-      <Typography>Add a New Sale</Typography>
+    fundraiser &&
+    availableProducts && (
       <FormControl>
-        <InputLabel>Fundraiser:</InputLabel>
-        <Select
-          labelId="Fundraiser-label"
-          id="Fundraiser"
-          value={fundraiser}
-          label="Fundraiser"
-          onChange={(e) => {
-            setFundraiser(e.target.value);
-          }}
-          required
-        >
-          {fundraisers.map((selectedFundraiser) => (
-            <MenuItem key={selectedFundraiser.name} value={selectedFundraiser}>
-              {selectedFundraiser.name}
-            </MenuItem>
-          ))}
-        </Select>
+        <Typography>Add a New Sale</Typography>
+        <FormControl>
+          <InputLabel id="Fundraiser-label">Fundraiser:</InputLabel>
+          <Select
+            labelId="Fundraiser-label"
+            id="Fundraiser"
+            value={fundraiser}
+            label="Fundraiser"
+            onChange={(e) => {
+              setFundraiser(e.target.value);
+            }}
+            required
+          >
+            {fundraisers.map((selectedFundraiser) => (
+              <MenuItem
+                key={selectedFundraiser.name}
+                value={selectedFundraiser}
+              >
+                {selectedFundraiser.name}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
         <br />
         <TextField
           type="text"
@@ -124,10 +125,27 @@ const SalePage = () => {
           required
           onChange={(e) => setPhoneNumber(e.target.value)}
         />
+        <br />
+        <ul>
+          {availableProducts.map((product) => (
+            <li key={product._id}>
+              {product.productType.name} - {product.name} -{" "}
+              <TextField
+                type="number"
+                variant="outlined"
+                label="Quantity:"
+                name="quantity"
+                onChange={(e) =>
+                  changeQuantity(product._id, e.target.value, product.sellPrice)
+                }
+              />
+            </li>
+          ))}
+        </ul>
+        <br />
+        <Button onClick={submitForm}>Submit Sale</Button>
       </FormControl>
-      <br />
-      <Button onClick={() => console.log(products)}>Press</Button>
-    </FormControl>
+    )
   );
 };
 

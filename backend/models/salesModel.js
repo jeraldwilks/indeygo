@@ -6,29 +6,29 @@ const salesSchema = mongoose.Schema({
     ref: "Fundraiser",
     required: true,
   },
-  participant: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Participant",
+  name: {
+    type: String,
     required: true,
   },
-  purchaser: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Purchaser",
-    required: true,
-  },
-  product: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Product",
-    required: true,
-  },
-  quantity: {
+  phoneNumber: {
     type: Number,
     required: true,
   },
-  price: {
-    type: Number,
-    required: true,
-  },
+  products: [
+    {
+      product: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Product",
+      },
+      quantity: {
+        type: Number,
+      },
+      price: {
+        type: Number,
+        required: true,
+      },
+    },
+  ],
 });
 
 export const SalesModel = mongoose.model("Sales", salesSchema);
