@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useAuth } from "../providers/AuthProvider";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+import ReceiptIcon from "@mui/icons-material/Receipt";
 import {
+  Avatar,
+  Box,
   Button,
+  Container,
   FormControl,
   InputLabel,
   MenuItem,
@@ -9,6 +15,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+const theme = createTheme();
 
 const SalePage = () => {
   const { user } = useAuth();
