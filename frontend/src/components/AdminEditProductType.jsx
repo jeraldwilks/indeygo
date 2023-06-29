@@ -27,10 +27,9 @@ const AdminEditProductType = () => {
   const [name, setName] = useState("");
   const [caseSize, setCaseSize] = useState("");
   const [quantityDesc, setQuantityDesc] = useState("");
+  const [isActive, setIsActive] = useState("");
   const [priceTierMin, setPriceTierMin] = useState([]);
 
-  // const [availableProductTypes, setAvailableProductTypes] = useState([]);
-  // const [productType, setProductType] = useState("");
 
   useEffect(() => {
     const initialLoad = async () => {
@@ -45,6 +44,7 @@ const AdminEditProductType = () => {
       setName(typeData[0].name);
       setCaseSize(typeData[0].caseSize);
       setQuantityDesc(typeData[0].quantityDesc);
+      setIsActive(typeData[0].isActive);
       setPriceTierMin(typeData[0].priceTierMin);
 
     };
@@ -70,6 +70,7 @@ const AdminEditProductType = () => {
         caseSize,
         quantityDesc,
         priceTierMin,
+        isActive,
       }),
     });
     alert(await response.text());
@@ -98,9 +99,6 @@ const AdminEditProductType = () => {
               <br />
 
 
-
-      
-
               <TextField
                 type="text"
                 variant="outlined"
@@ -122,6 +120,16 @@ const AdminEditProductType = () => {
               />
               <br />
 
+              <TextField
+                type="text"
+                variant="outlined"
+                label="Is Active"
+                name="isActive"
+                value={isActive}
+                required
+                onChange={(e) => setIsActive(e.target.value)}
+              />
+              <br />
               <TextField
                 type="text"
                 variant="outlined"
