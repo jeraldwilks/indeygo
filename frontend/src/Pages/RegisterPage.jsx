@@ -114,7 +114,7 @@ export default function RegisterPage() {
                   id="phoneNumber"
                   label="Phone Number"
                   name="phoneNumber"
-                  autoComplete="phoneNumber"
+                  autoComplete="tel"
                 />
               </Grid>
               <Grid item xs={12}>

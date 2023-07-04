@@ -88,7 +88,6 @@ const AdminDashboardPage = ({ page }) => {
           {page === "admin-add-product-type" && <AdminAddProductType />}
           {page === "admin-edit-product-type/:id" && <AdminEditProductType />}
           {page === "admin-product-type" && <AdminProductType />}
-
         </div>
       </div>
     </>
