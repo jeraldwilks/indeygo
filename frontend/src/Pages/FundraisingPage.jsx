@@ -1,4 +1,4 @@
-import PaidIcon from '@mui/icons-material/Paid';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -13,7 +13,6 @@ import Typography from "@mui/material/Typography";
 import React, { useState, useEffect } from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
-
 import {
   FormControl,
   FormGroup,
@@ -144,8 +143,8 @@ function FundraisingPage() {
             alignItems: "center",
           }}
         >
-          <Avatar color="action">
-            <PaidIcon color="action" />
+          <Avatar >
+            <AttachMoneyIcon />
           </Avatar>
           <FormControl sx={{ width: "50ch" }}>
             <Typography component="h1" variant="h5">
