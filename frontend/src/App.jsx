@@ -112,15 +112,6 @@ function App() {
             </Authenticated>
           }
         />
-        {/* <Route path="/Info" element={<Inquiry/>} /> */}
-        <Route
-          path="/admin-product-edit"
-          element={<DashboardPage page="admin-product-edit" />}
-        />
-        <Route
-          path="/admin-product-type-edit"
-          element={<DashboardPage page="admin-product-type-edit" />}
-        />
         <Route path="/Logout" element={<Logout />} />
       </Routes>
       <StickyFooter />
