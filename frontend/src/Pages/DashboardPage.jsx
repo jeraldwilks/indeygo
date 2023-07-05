@@ -14,7 +14,7 @@ import {
   FaTachometerAlt,
 } from "react-icons/fa";
 import SalesPage from "./SalesPage";
-import AddSalePage from "./AddSalePage";
+import AddSalePage from "./SalePage";
 import FundraisingPage from "./FundraisingPage";
 
 const DashboardPage = ({ page }) => {
@@ -65,14 +65,14 @@ const DashboardPage = ({ page }) => {
 
               <MenuItem
                 icon={<AddBusinessIcon />}
-                component={<Link to="/OrganizationPage" />}
+                component={<Link to="/organizations" />}
               >
                 Organizations
               </MenuItem>
 
               <MenuItem
                 icon={<AttachMoneyIcon />}
-                component={<Link to="/Fundraiser" />}
+                component={<Link to="/fundraisers" />}
               >
                 Fundraisers
               </MenuItem>
@@ -88,9 +88,10 @@ const DashboardPage = ({ page }) => {
           </>
         </Sidebar>
         <div style={{ flex: 1 }}>
-          {page === "Organization" && <OrganizationPage />}
-          {page === "Sale" && <SalePage />}
-          {page === "Fundraiser" && <FundraisingPage />}
+          {page === "organizations" && <OrganizationPage />}
+          {page === "sales" && <SalesPage />}
+          {page === "add-sale" && <AddSalePage />}
+          {page === "fundraisers" && <FundraisingPage />}
         </div>
       </div>
     </>
