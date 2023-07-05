@@ -19,7 +19,7 @@ import StickyFooter from "./components/Footer";
 import SalePage from "./Pages/SalePage";
 import OrganizationPage from "./Pages/OrganizationPage";
 import Wufooform from "./Pages/Wufooform";
-import AdminProductEditor from "./components/AdminProductEditor";
+
 
 function App() {
   return (
