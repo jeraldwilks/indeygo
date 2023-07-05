@@ -1,15 +1,14 @@
 import React from "react";
-import ImageCarousel from "../components/carousel/ImageCarousel.jsx";
-
+import "../styling/homePage.css"
+import ImageCarousel from "../components/ImageCarousel.jsx"
 const HomePage = () => {
-
   return(
+
     <>
-  <div >
   <ImageCarousel/>
-  </div>
+  <div class="home">Insert content here</div>;
   </>
-  );
+  ) 
 };
 
 export default HomePage;
