@@ -14,7 +14,7 @@ import {
   FaTachometerAlt,
 } from "react-icons/fa";
 import SalesPage from "./SalesPage";
-import AddSalePage from "./SalePage";
+import AddSalePage from "./AddSalePage";
 import FundraisingPage from "./FundraisingPage";
 
 const DashboardPage = ({ page }) => {
