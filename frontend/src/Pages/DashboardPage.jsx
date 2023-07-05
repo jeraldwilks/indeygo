@@ -65,7 +65,7 @@ const DashboardPage = ({ page }) => {
 
               <MenuItem
                 icon={<AddBusinessIcon />}
-                component={<Link to="/Organization" />}
+                component={<Link to="/OrganizationPage" />}
               >
                 Organizations
               </MenuItem>
@@ -89,8 +89,7 @@ const DashboardPage = ({ page }) => {
         </Sidebar>
         <div style={{ flex: 1 }}>
           {page === "Organization" && <OrganizationPage />}
-          {page === "sales" && <SalesPage />}
-          {page === "add-sale" && <AddSalePage />}
+          {page === "Sale" && <SalePage />}
           {page === "Fundraiser" && <FundraisingPage />}
         </div>
       </div>
