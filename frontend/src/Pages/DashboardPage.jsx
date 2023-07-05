@@ -13,13 +13,14 @@ import {
   FaAngleDoubleRight,
   FaTachometerAlt,
 } from "react-icons/fa";
-import SalePage from "./SalePage";
+import SalesPage from "./SalesPage";
+import AddSalePage from "./AddSalePage";
 import FundraisingPage from "./FundraisingPage";
 
 const DashboardPage = ({ page }) => {
   const [collapsed, setCollapsed] = useState(false);
   const [toggled, setToggled] = useState(false);
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  // const [sidebarOpen, setSidebarOpen] = useState(true);
 
   const handleToggleSidebar = () => {
     setToggled(!toggled);
@@ -75,7 +76,7 @@ const DashboardPage = ({ page }) => {
               >
                 Fundraisers
               </MenuItem>
-              <MenuItem icon={<ReceiptIcon />} component={<Link to="/Sale" />}>
+              <MenuItem icon={<ReceiptIcon />} component={<Link to="/sales" />}>
                 Sales
               </MenuItem>
               <hr></hr>
@@ -88,7 +89,8 @@ const DashboardPage = ({ page }) => {
         </Sidebar>
         <div style={{ flex: 1 }}>
           {page === "Organization" && <OrganizationPage />}
-          {page === "Sale" && <SalePage />}
+          {page === "sales" && <SalesPage />}
+          {page === "add-sale" && <AddSalePage />}
           {page === "Fundraiser" && <FundraisingPage />}
         </div>
       </div>

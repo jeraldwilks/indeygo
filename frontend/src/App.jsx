@@ -15,7 +15,7 @@ import ResetPasswordPage from "./Pages/ResetPasswordPage";
 import ResponsiveAppBar from "./components/ResponsiveAppBar";
 import { Routes, Route } from "react-router-dom";
 import StickyFooter from "./components/Footer";
-import SalePage from "./Pages/SalePage";
+import SalesPage from "./Pages/SalesPage";
 import OrganizationPage from "./Pages/OrganizationPage";
 
 function App() {
@@ -85,10 +85,18 @@ function App() {
           }
         />
         <Route
-          path="/Sale"
+          path="/sales"
           element={
             <Authenticated>
-              <DashboardPage page="Sale" />
+              <DashboardPage page="sales" />
+            </Authenticated>
+          }
+        />
+        <Route
+          path="/add-sale"
+          element={
+            <Authenticated>
+              <DashboardPage page="AddSale" />
             </Authenticated>
           }
         />
