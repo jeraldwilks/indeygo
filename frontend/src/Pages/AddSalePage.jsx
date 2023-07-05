@@ -74,7 +74,6 @@ const SalePage = () => {
 
   const changeQuantity = (id, qty, price) => {
     const index = products.map((x) => x.product).indexOf(id);
-    console.log(index);
     if (index === -1) {
       setProducts((prevArray) => [
         ...prevArray,
