@@ -68,12 +68,13 @@ const SalesPage = () => {
   }, [fundraiser]);
 
   const columns = [
-    { field: "name", headerName: "Name", width: 150 },
-    { field: "phoneNumber", headerName: "Phone Number", width: 150 },
-    { field: "qty", headerName: "Items Sold", width: 100 },
-    { field: "totalSales", headerName: "Total $", width: 100 },
+    { field: "name", headerName: "Name", width: 200 },
+    { field: "phoneNumber", headerName: "Phone Number", width: 200 },
+    { field: "qty", headerName: "Items Sold", width: 200 },
+    { field: "totalSales", headerName: "Total $", width: 200, valueFormatter: (params) => `$${params.value}` },
     {
       field: "Edit",
+      width:100,
       renderCell: (cellValues) => {
         return (
           <Button
