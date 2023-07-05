@@ -6,14 +6,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import InventorySharpIcon from "@mui/icons-material/InventorySharp";
 import Typography from "@mui/material/Typography";
 import React, { useEffect, useState } from "react";
-import {
-  InputLabel,
-  MenuItem,
-  FormControl,
-  Select,
-  Button,
-  Box,
-} from "@mui/material";
+import { FormControl, Button, Box } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { DataGrid } from "@mui/x-data-grid";
 import { useNavigate } from "react-router-dom";
@@ -24,8 +17,6 @@ const AdminProductType = () => {
   const navigate = useNavigate();
 
   const [availableProductTypes, setAvailableProductTypes] = useState([]);
-    const [productType, setProductType] = useState("");
-    const [products, setProducts] = useState([]);
 
   useEffect(() => {
     const getProductTypes = async () => {
@@ -53,11 +44,6 @@ const AdminProductType = () => {
       field: "quantityDesc",
       headerName: "Quantity Description",
       width: 300,
-    },
-    {
-      field: "isActive",
-      headerName: "Product Active",
-      width: 100,
     },
 
     {
