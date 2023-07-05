@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import {
   FormControl,
+  FormControlLabel,
   Avatar,
   Box,
   Container,
@@ -12,9 +13,7 @@ import {
   createTheme,
   TextField,
   Button,
-  InputLabel,
-  Select,
-  MenuItem,
+  Checkbox,
   Typography,
 } from "@mui/material";
 import EditSharpIcon from "@mui/icons-material/EditSharp";
@@ -27,21 +26,19 @@ const AdminEditProductType = () => {
   const [name, setName] = useState("");
   const [caseSize, setCaseSize] = useState("");
   const [quantityDesc, setQuantityDesc] = useState("");
-  const [isActive, setIsActive] = useState("");
+  const [isActive, setIsActive] = useState(true);
   const [priceTierMin, setPriceTierMin] = useState([]);
-
 
   useEffect(() => {
     const initialLoad = async () => {
-      const typeResponse = await fetch("/api/productType?_id=" +id);
+      const typeResponse = await fetch("/api/productType?_id=" + id);
       const typeData = await typeResponse.json();
-  
+
       setName(typeData[0].name);
       setCaseSize(typeData[0].caseSize);
       setQuantityDesc(typeData[0].quantityDesc);
       setIsActive(typeData[0].isActive);
       setPriceTierMin(typeData[0].priceTierMin);
-
     };
 
     initialLoad();
@@ -93,7 +90,6 @@ const AdminEditProductType = () => {
               </Typography>
               <br />
 
-
               <TextField
                 type="text"
                 variant="outlined"
@@ -102,7 +98,7 @@ const AdminEditProductType = () => {
                 value={name}
                 required
                 onChange={(e) => setName(e.target.value)}
-              /> 
+              />
               <br />
               <TextField
                 type="text"
@@ -114,17 +110,6 @@ const AdminEditProductType = () => {
                 onChange={(e) => setCaseSize(e.target.value)}
               />
               <br />
-
-              <TextField
-                type="text"
-                variant="outlined"
-                label="Is Active"
-                name="isActive"
-                value={isActive}
-                required
-                onChange={(e) => setIsActive(e.target.value)}
-              />
-              <br />
               <TextField
                 type="text"
                 variant="outlined"
@@ -134,6 +119,8 @@ const AdminEditProductType = () => {
                 value={quantityDesc}
                 onChange={(e) => setQuantityDesc(e.target.value)}
               />
+              <br />
+
               {priceTierMin &&
                 priceTierMin.map((priceTier, index) => (
                   <>
@@ -147,9 +134,7 @@ const AdminEditProductType = () => {
                       helperText={
                         index + 1 === priceTierMin.length
                           ? priceTier + " or more"
-                          : "Up to " +
-                            (priceTierMin[index + 1] -
-                              caseSize)
+                          : "Up to " + (priceTierMin[index + 1] - caseSize)
                       }
                       onChange={(e) =>
                         updateFieldChanged(index, e.target.value)
@@ -157,6 +142,17 @@ const AdminEditProductType = () => {
                     />
                   </>
                 ))}
+
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    onChange={(e) => setIsActive(e.target.checked)}
+                    checked={isActive}
+                  />
+                }
+                label="Active Product"
+              />
+              <br />
 
               <Button
                 onClick={submitForm}
