@@ -49,6 +49,18 @@ const SalesPage = () => {
         "/api/sales?fundraiser=" + fundraiser._id
       );
       const salesData = await salesResponse.json();
+      //   console.log(salesData);
+      for (const sale in salesData) {
+        let qty = 0;
+        let totalSales = 0;
+        for (const product of salesData[sale].products) {
+          qty += product.quantity;
+          totalSales += product.quantity * product.price;
+        }
+        salesData[sale].qty = qty;
+        salesData[sale].totalSales = totalSales;
+      }
+      console.log(salesData);
       setSales(salesData);
     };
     if (fundraiser) {
@@ -58,6 +70,9 @@ const SalesPage = () => {
 
   const columns = [
     { field: "name", headerName: "Name", width: 150 },
+    { field: "phoneNumber", headerName: "Phone Number", width: 150 },
+    { field: "qty", headerName: "Items Sold", width: 100 },
+    { field: "totalSales", headerName: "Total $", width: 100 },
     {
       field: "Edit",
       renderCell: (cellValues) => {
