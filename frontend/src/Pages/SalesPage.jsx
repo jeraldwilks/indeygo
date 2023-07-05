@@ -60,7 +60,6 @@ const SalesPage = () => {
         salesData[sale].qty = qty;
         salesData[sale].totalSales = totalSales;
       }
-      console.log(salesData);
       setSales(salesData);
     };
     if (fundraiser) {
