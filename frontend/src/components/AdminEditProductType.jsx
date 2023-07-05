@@ -35,12 +35,7 @@ const AdminEditProductType = () => {
     const initialLoad = async () => {
       const typeResponse = await fetch("/api/productType?_id=" +id);
       const typeData = await typeResponse.json();
-      console.log(typeData);
-      console.log("typedata");
-
-
-     
-
+  
       setName(typeData[0].name);
       setCaseSize(typeData[0].caseSize);
       setQuantityDesc(typeData[0].quantityDesc);
