@@ -37,7 +37,7 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="fixed" sx={{ backgroundColor: "#0B4D83", marginBottom: "4rem", height: 120, paddingTop: "1.5rem",}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
@@ -51,9 +51,12 @@ function ResponsiveAppBar() {
               display: { xs: "none", md: "flex" },
               fontFamily: "monospace",
               fontWeight: 700,
-              letterSpacing: ".3rem",
+              letterSpacing: ".9rem",
               color: "inherit",
               textDecoration: "none",
+              
+              marginRight: "4rem",
+              marginLeft: "3rem",
             }}
           >
             InDeygo
@@ -121,7 +124,13 @@ function ResponsiveAppBar() {
               <Link to={page} key={page}>
                 <Button
                   onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: "white", display: "block" }}
+                  sx={{
+                    my: 2,
+                    color: "white",
+                    display: "block",
+                    marginRight: "6rem",
+                    marginLeft: "6rem",
+                  }}
                 >
                   {page}
                 </Button>
@@ -132,7 +141,7 @@ function ResponsiveAppBar() {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="" />
+                <Avatar alt="" src="" />
               </IconButton>
             </Tooltip>
             <Menu
