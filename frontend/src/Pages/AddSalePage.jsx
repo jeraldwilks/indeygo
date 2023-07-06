@@ -111,18 +111,19 @@ const SalePage = () => {
 
             <Grid container spacing={2}>
               <Grid item xs={19}>
-                <FormControl>
+                <FormControl fullWidth>
                   <InputLabel id="Fundraiser-label">Fundraiser:</InputLabel>
                   <Select
-                    labelId="Fundraiser-label"
+                    displayEmpty
+                    required
                     id="Fundraiser"
-                    value={fundraiser}
                     label="Fundraiser"
-                    fullWidth
+                    labelId="Fundraiser-label"
+                    name="Fundraiser"
+                    value={fundraiser}
                     onChange={(e) => {
                       setFundraiser(e.target.value);
                     }}
-                    required
                   >
                     {fundraisers.map((selectedFundraiser) => (
                       <MenuItem
