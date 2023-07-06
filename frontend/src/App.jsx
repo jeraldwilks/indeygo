@@ -4,7 +4,6 @@ import ContactPage from "./Pages/ContactPage";
 import DashboardPage from "./Pages/DashboardPage";
 import ErrorPage from "./Pages/ErrorPage";
 import ForgotPasswordPage from "./Pages/ForgotPasswordPage";
-import FundraisingPage from "./Pages/FundraisingPage";
 import HomePage from "./Pages/HomePage";
 import LoginPage from "./Pages/LoginPage";
 import Logout from "./components/Logout";
@@ -16,10 +15,7 @@ import ResponsiveAppBar from "./components/ResponsiveAppBar";
 import InquiryPage from "./Pages/InquiryPage";
 import { Routes, Route } from "react-router-dom";
 import StickyFooter from "./components/Footer";
-import SalePage from "./Pages/SalePage";
-import OrganizationPage from "./Pages/OrganizationPage";
 import Wufooform from "./Pages/Wufooform";
-import AdminProductEditor from "./components/AdminProductEditor";
 
 function App() {
   return (
@@ -85,37 +81,44 @@ function App() {
         />
 
         <Route
-          path="/FundraisingPage"
+          path="/fundraisers"
           element={
             <Authenticated>
-              <DashboardPage page="FundraisingPage" />
+              <DashboardPage page="fundraisers" />
             </Authenticated>
           }
         />
         <Route
-          path="/OrganizationPage"
+          path="/organizations"
           element={
             <Authenticated>
-              <DashboardPage page="OrganizationPage" />
+              <DashboardPage page="organizations" />
             </Authenticated>
           }
         />
         <Route
-          path="/SalePage"
+          path="/sales"
           element={
             <Authenticated>
-              <DashboardPage page="SalePage" />
+              <DashboardPage page="sales" />
             </Authenticated>
           }
         />
-        {/* <Route path="/Info" element={<Inquiry/>} /> */}
         <Route
-          path="/admin-product-edit"
-          element={<DashboardPage page="admin-product-edit" />}
+          path="/add-sale"
+          element={
+            <Authenticated>
+              <DashboardPage page="add-sale" />
+            </Authenticated>
+          }
         />
         <Route
-          path="/admin-product-type-edit"
-          element={<DashboardPage page="admin-product-type-edit" />}
+          path="/edit-sale/:id"
+          element={
+            <Authenticated>
+              <DashboardPage page="edit-sale/:id" />
+            </Authenticated>
+          }
         />
         <Route path="/Logout" element={<Logout />} />
       </Routes>

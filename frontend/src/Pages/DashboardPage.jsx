@@ -13,13 +13,15 @@ import {
   FaAngleDoubleRight,
   FaTachometerAlt,
 } from "react-icons/fa";
-import SalePage from "./SalePage";
+import SalesPage from "./SalesPage";
+import AddSalePage from "./AddSalePage";
 import FundraisingPage from "./FundraisingPage";
+import EditSalePage from "./EditSalePage";
 
 const DashboardPage = ({ page }) => {
   const [collapsed, setCollapsed] = useState(false);
   const [toggled, setToggled] = useState(false);
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  // const [sidebarOpen, setSidebarOpen] = useState(true);
 
   const handleToggleSidebar = () => {
     setToggled(!toggled);
@@ -62,39 +64,36 @@ const DashboardPage = ({ page }) => {
                 Dashboard
               </MenuItem>
 
-                  <MenuItem
-                    icon={<AddBusinessIcon />}
-                    component={<Link to="/OrganizationPage" />}
-                  >
-                    Organizations
-                  </MenuItem>
+              <MenuItem
+                icon={<AddBusinessIcon />}
+                component={<Link to="/organizations" />}
+              >
+                Organizations
+              </MenuItem>
 
-                  <MenuItem
-                    icon={<AttachMoneyIcon />}
-                    component={<Link to="/FundraisingPage" />}
-                  >
-                    Fundraisers
-                  </MenuItem>
-                  <MenuItem
-                    icon={<ReceiptIcon />}
-                    component={<Link to="/SalePage" />}
-                  >
-                    Sales
-                  </MenuItem>
-                  <hr></hr>
-            
-                  <MenuItem icon={<LogoutIcon /> } 
-                  component = {<Link to="/Logout"/>}
-                  >Logout</MenuItem>
-                </Menu>
-              </>
-            {/* )} */}
-          </Sidebar>
-        {/* )} */}
+              <MenuItem
+                icon={<AttachMoneyIcon />}
+                component={<Link to="/fundraisers" />}
+              >
+                Fundraisers
+              </MenuItem>
+              <MenuItem icon={<ReceiptIcon />} component={<Link to="/sales" />}>
+                Sales
+              </MenuItem>
+              <hr></hr>
+
+              <MenuItem icon={<LogoutIcon />} component={<Link to="/logout" />}>
+                Logout
+              </MenuItem>
+            </Menu>
+          </>
+        </Sidebar>
         <div style={{ flex: 1 }}>
-          {page === "OrganizationPage" && <OrganizationPage />}
-          {page === "SalePage" && <SalePage />}
-          {page === "FundraisingPage" && <FundraisingPage />}
+          {page === "organizations" && <OrganizationPage />}
+          {page === "sales" && <SalesPage />}
+          {page === "add-sale" && <AddSalePage />}
+          {page === "edit-sale/:id" && <EditSalePage />}
+          {page === "fundraisers" && <FundraisingPage />}
         </div>
       </div>
     </>
