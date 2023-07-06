@@ -96,7 +96,7 @@ const SalePage = () => {
           <CssBaseline />
           <Box
             sx={{
-              marginTop: 0,
+              marginTop: 2,
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
