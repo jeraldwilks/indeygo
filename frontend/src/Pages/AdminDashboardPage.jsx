@@ -33,7 +33,7 @@ const AdminDashboardPage = ({ page }) => {
 
   return (
     <>
-      <div style={{ display: "flex"}}>
+      <div style={{ display: "flex", marginTop: 120, }}>
         <Sidebar
           collapsed={collapsed}
           toggled={toggled}
@@ -88,7 +88,6 @@ const AdminDashboardPage = ({ page }) => {
           {page === "admin-add-product-type" && <AdminAddProductType />}
           {page === "admin-edit-product-type/:id" && <AdminEditProductType />}
           {page === "admin-product-type" && <AdminProductType />}
-
         </div>
       </div>
     </>

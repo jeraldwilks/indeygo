@@ -37,7 +37,7 @@ const DashboardPage = ({ page }) => {
   }
   return (
     <>
-      <div style={{ display: "flex" }}>
+      <div style={{ display: "flex",  marginTop: 120, }}>
         <Sidebar
           collapsed={collapsed}
           toggled={toggled}
