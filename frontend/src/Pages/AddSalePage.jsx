@@ -3,6 +3,7 @@ import { useAuth } from "../providers/AuthProvider";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import ReceiptIcon from "@mui/icons-material/Receipt";
+
 import {
   Avatar,
   Box,
@@ -89,68 +90,90 @@ const SalePage = () => {
   return (
     fundraiser &&
     availableProducts && (
-      <FormControl>
-        <Typography>Add a New Sale</Typography>
-        <FormControl>
-          <InputLabel id="Fundraiser-label">Fundraiser:</InputLabel>
-          <Select
-            labelId="Fundraiser-label"
-            id="Fundraiser"
-            value={fundraiser}
-            label="Fundraiser"
-            onChange={(e) => {
-              setFundraiser(e.target.value);
+      <ThemeProvider theme={theme}>
+        <Container component="main" maxWidth="xs">
+          <CssBaseline />
+          <Box
+            sx={{
+              marginTop: 8,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
             }}
-            required
           >
-            {fundraisers.map((selectedFundraiser) => (
-              <MenuItem
-                key={selectedFundraiser.name}
-                value={selectedFundraiser}
+            <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+              <ReceiptIcon />
+            </Avatar>
+            <Typography component="h1" variant="h5">
+              Add a New Sale
+            </Typography>
+            <FormControl>
+              <InputLabel id="Fundraiser-label">Fundraiser:</InputLabel>
+              <Select
+                labelId="Fundraiser-label"
+                id="Fundraiser"
+                value={fundraiser}
+                label="Fundraiser"
+                onChange={(e) => {
+                  setFundraiser(e.target.value);
+                }}
+                required
               >
-                {selectedFundraiser.name}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-        <br />
-        <TextField
-          type="text"
-          variant="outlined"
-          label="Seller's Name"
-          name="name"
-          required
-          onChange={(e) => setName(e.target.value)}
-        />
-        <br />
-        <TextField
-          type="text"
-          variant="outlined"
-          label="Seller's Phone Number"
-          name="phoneNumber"
-          required
-          onChange={(e) => setPhoneNumber(e.target.value)}
-        />
-        <br />
-        <ul>
-          {availableProducts.map((product) => (
-            <li key={product._id}>
-              {product.productType.name} - {product.name} -{" "}
-              <TextField
-                type="number"
-                variant="outlined"
-                label="Quantity:"
-                name="quantity"
-                onChange={(e) =>
-                  changeQuantity(product._id, e.target.value, product.sellPrice)
-                }
-              />
-            </li>
-          ))}
-        </ul>
-        <br />
-        <Button onClick={submitForm}>Submit Sale</Button>
-      </FormControl>
+                {fundraisers.map((selectedFundraiser) => (
+                  <MenuItem
+                    key={selectedFundraiser.name}
+                    value={selectedFundraiser}
+                  >
+                    {selectedFundraiser.name}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+            <br />
+            <TextField
+              type="text"
+              variant="outlined"
+              label="Seller's Name"
+              name="name"
+              required
+              onChange={(e) => setName(e.target.value)}
+            />
+            <br />
+            <TextField
+              type="text"
+              variant="outlined"
+              label="Seller's Phone Number"
+              name="phoneNumber"
+              required
+              onChange={(e) => setPhoneNumber(e.target.value)}
+            />
+            <br />
+            <ul>
+              {availableProducts.map((product) => (
+                <li key={product._id}>
+                  {product.productType.name} - {product.name} -{" "}
+                  <TextField
+                    type="number"
+                    variant="outlined"
+                    label="Quantity:"
+                    name="quantity"
+                    onChange={(e) =>
+                      changeQuantity(
+                        product._id,
+                        e.target.value,
+                        product.sellPrice
+                      )
+                    }
+                  />
+                </li>
+              ))}
+            </ul>
+            <br />
+            <Button variant="contained"
+              sx={{ mt: 1, mb: 2 }} onClick={submitForm}>Submit Sale</Button>
+          </Box>
+        </Container>
+      </ThemeProvider>
     )
   );
 };

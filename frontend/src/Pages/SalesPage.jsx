@@ -135,6 +135,7 @@ const SalesPage = () => {
               )}
               <Box
                 sx={{
+                  diplay: "flex",
                   height: 400,
                   width: "100%",
                   flexDirection: "column",
@@ -145,7 +146,7 @@ const SalesPage = () => {
                   getRowId={(row) => row._id}
                   rows={sales}
                   columns={columns}
-                />
+                  style={{ flex: 1 }}/>
               </Box>
               <Button onClick={() => navigate("/add-sale")}>
                 Add New Sale
