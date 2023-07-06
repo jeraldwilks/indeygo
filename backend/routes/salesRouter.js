@@ -22,3 +22,17 @@ salesRouter.post("/", async (req, res) => {
     res.status(500).send(error.message);
   }
 });
+
+salesRouter.patch("/", async (req, res) => {
+  try {
+    const saleId = req.body._id;
+    delete req.body._id;
+
+    await SalesModel.findByIdAndUpdate(saleId, req.body);
+    const updatedSale = await SalesModel.findById(saleId);
+    res.send(updatedSale);
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).send(error.message);
+  }
+});
