@@ -168,11 +168,11 @@ function FundraisingPage() {
                   {availableOrganizations.length > 0 && (
                     <Select
                       displayEmpty
-                      labelId="organization-label"
                       required
                       fullWidth
                       id="organization"
                       label="Organization"
+                      labelId="organization-label"
                       name="organization"
                       value={organization}
                       onChange={(e) => changeOrganization(e.target.value)}
