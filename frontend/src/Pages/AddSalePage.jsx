@@ -158,9 +158,9 @@ const SalePage = () => {
                 />{" "}
               </Grid>
               <br />
-              <Grid item xs={16}>
                 {availableProducts.map((product) => (
                   <FormControl key={product._id}>
+                    <Grid item xs={16}>
                     {product.productType.name} - {product.name} -{" "}
                     <TextField
                       type="number"
@@ -175,15 +175,14 @@ const SalePage = () => {
                           product.sellPrice
                         )
                       }
-                    />
+                      />
+                      </Grid>
                   </FormControl>
                 ))}
-              </Grid>
-              <br />
               <Button
                 variant="contained"
                 fullWidth
-                sx={{ mt: 2, mb: 2 }}
+                sx={{ mt: 3, mb: 2 }}
                 onClick={submitForm}
               >
                 Submit Sale
