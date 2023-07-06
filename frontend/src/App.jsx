@@ -112,6 +112,14 @@ function App() {
             </Authenticated>
           }
         />
+        <Route
+          path="/edit-sale/:id"
+          element={
+            <Authenticated>
+              <DashboardPage page="edit-sale/:id" />
+            </Authenticated>
+          }
+        />
         <Route path="/Logout" element={<Logout />} />
       </Routes>
       <StickyFooter />

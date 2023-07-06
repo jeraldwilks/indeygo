@@ -152,3 +152,35 @@ userRouter.post("/resetpassword", async (req, res) => {
     res.status(200).json({ message: "Your password has been updated." });
   });
 });
+
+// dotenv.config();
+// sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+
+userRouter.post("/sendEmail", (req, res) => {
+  const jsonData = req.body;
+  console.log(jsonData);
+  res.send("Received JSON Data successfully");
+
+  const mailOptions = {
+    to: process.env.FROM_EMAIL,
+    from: req.body.email,
+    subject: "Contact Us:",
+    text: `
+    
+    Name: ${req.body.Name || ""}\n
+    Email: ${req.body.email || ""}\n
+    Message: ${req.body.message || ""}\n
+    `,
+  };
+
+  sgMail
+    .send(mailOptions)
+    .then(() => {
+      console.log("Email sent successfully");
+      res.json({ message: "Email sent successfully" });
+    })
+    .catch((error) => {
+      console.error("Error sending email:", error);
+      res.status(500).json({ error: "Error sending email" });
+    });
+});
