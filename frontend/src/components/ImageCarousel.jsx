@@ -9,7 +9,7 @@ const ImageCarousel = () => {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 400px;
+  height: 700px;
   padding-top: 20px;
   margin-top: 10%;
   margin-bottom: 10%;
