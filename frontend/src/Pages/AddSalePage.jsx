@@ -96,7 +96,7 @@ const SalePage = () => {
           <CssBaseline />
           <Box
             sx={{
-              marginTop: 8,
+              marginTop: 0,
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -110,7 +110,7 @@ const SalePage = () => {
             </Typography>
 
             <Grid container spacing={2}>
-              <Grid item xs={12}>
+              <Grid item xs={19}>
                 <FormControl>
                   <InputLabel id="Fundraiser-label">Fundraiser:</InputLabel>
                   <Select
@@ -135,7 +135,7 @@ const SalePage = () => {
                   </Select>
                 </FormControl>
               </Grid>
-              <Grid item xs={16}>
+              <Grid item xs={18}>
                 <TextField
                   type="text"
                   variant="outlined"
@@ -158,9 +158,9 @@ const SalePage = () => {
                 />{" "}
               </Grid>
               <br />
-                {availableProducts.map((product) => (
-                  <FormControl key={product._id}>
-                    <Grid item xs={16}>
+              {availableProducts.map((product) => (
+                <FormControl key={product._id}>
+                  <Grid item xs={12}>
                     {product.productType.name} - {product.name} -{" "}
                     <TextField
                       type="number"
@@ -175,10 +175,10 @@ const SalePage = () => {
                           product.sellPrice
                         )
                       }
-                      />
-                      </Grid>
-                  </FormControl>
-                ))}
+                    />
+                  </Grid>
+                </FormControl>
+              ))}
               <Button
                 variant="contained"
                 fullWidth
