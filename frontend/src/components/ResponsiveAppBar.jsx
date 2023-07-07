@@ -42,9 +42,9 @@ function ResponsiveAppBar() {
       position="fixed"
       sx={{
         backgroundColor: "#0B4D83",
-        marginBottom: "2rem",
+        // marginBottom: "1rem",
         height: 70,
-        paddingTop: ".3rem",
+        // paddingTop: ".1rem",
       }}
     >
       <Container maxWidth="xl">
