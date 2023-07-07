@@ -13,6 +13,7 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import { Link } from "react-router-dom";
+import logo from '../assets/logo.jpg';
 
 const pages = ["Products", "About Us", "FAQ", "Contact"];
 const settings = ["Login", "Register", "Dashboard", "Logout"];
@@ -37,10 +38,17 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="fixed" sx={{ backgroundColor: "#0B4D83", marginBottom: "2rem", height: 70, paddingTop: ".3rem",}}>
+    <AppBar
+      position="fixed"
+      sx={{
+        backgroundColor: "#0B4D83",
+        marginBottom: "2rem",
+        height: 70,
+        paddingTop: ".3rem",
+      }}
+    >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
@@ -54,12 +62,18 @@ function ResponsiveAppBar() {
               letterSpacing: ".9rem",
               color: "inherit",
               textDecoration: "none",
-              
+
               marginRight: "4rem",
               marginLeft: "3rem",
             }}
           >
-            InDeygo
+            <Link to="/" key="home">
+              <img
+                src={logo}
+                alt="Logo"
+                style={{ height: 70, marginRight: 8 }} // Adjust the height and margin as needed
+              />
+            </Link>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -100,7 +114,6 @@ function ResponsiveAppBar() {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
@@ -117,7 +130,13 @@ function ResponsiveAppBar() {
               textDecoration: "none",
             }}
           >
-            InDeygo
+            <Link to="/" key="home">
+              <img
+                src={logo}
+                alt="Logo"
+                style={{ height: 70, marginRight: 8 }} // Adjust the height and margin as needed
+              />
+            </Link>
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
