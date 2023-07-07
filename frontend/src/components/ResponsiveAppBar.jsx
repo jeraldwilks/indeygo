@@ -1,32 +1,37 @@
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
+import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import Container from "@mui/material/Container";
+import logo from "../assets/logo.jpg";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import Toolbar from "@mui/material/Toolbar";
+import Tooltip from "@mui/material/Tooltip";
+import YouTubeIcon from "@mui/icons-material/YouTube";
 import { Link } from "react-router-dom";
-import logo from '../assets/logo.jpg';
 
-const pages = ["Products", "About Us", "FAQ", "Contact"];
+const pages = ["Products", "About", "FAQ", "Contact"];
 const settings = ["Login", "Register", "Dashboard", "Logout"];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-
+  const [anchorElAbout, setAnchorElAbout] = React.useState(null);
+  
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
+  };
+
+  const handleOpenAboutMenu = (event) => {
+    setAnchorElAbout(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
@@ -35,6 +40,10 @@ function ResponsiveAppBar() {
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
+  };
+
+  const handleCloseAboutMenu = () => {
+    setAnchorElAbout(null);
   };
 
   return (
@@ -156,6 +165,38 @@ function ResponsiveAppBar() {
               </Link>
             ))}
           </Box>
+
+          <IconButton
+            aria-label="About Us Menu"
+            aria-controls="about-menu"
+            aria-haspopup="true"
+            onClick={handleOpenAboutMenu}
+            color="inherit"
+          >
+            {/* <MoreVertIcon /> */}
+          </IconButton>
+          <Menu
+          href="/about"
+            id="about-menu"
+            anchorEl={anchorElAbout}
+            anchorOrigin={{
+              vertical: "top",
+              horizontal: "right",
+            }}
+            keepMounted
+            transformOrigin={{
+              vertical: "top",
+              horizontal: "right",
+            }}
+            open={Boolean(anchorElAbout)}
+            onClose={handleCloseAboutMenu}
+          >
+            <MenuItem onClick={handleCloseAboutMenu}>Option 1</MenuItem>
+            <MenuItem onClick={handleCloseAboutMenu}>Option 2</MenuItem>
+            <MenuItem onClick={handleCloseAboutMenu}>
+              <Link to="/youtube-channel">YouTube Channel</Link>
+            </MenuItem>
+          </Menu>
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">

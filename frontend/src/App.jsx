@@ -1,4 +1,5 @@
 import "./App.css";
+import AboutPage from "./Pages/AboutPage"
 import Authenticated from "./components/Authenticated";
 import ContactPage from "./Pages/ContactPage";
 import DashboardPage from "./Pages/DashboardPage";
@@ -24,6 +25,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="*" element={<ErrorPage />} />
+        <Route path="/about" element={<AboutPage />} />
         <Route path="/Contact" element={<ContactPage />} />
         <Route path="/More Info" element={<InquiryPage />} />
         <Route path="/Wufooform" element={<Wufooform />} />
