@@ -1,5 +1,5 @@
 import "./App.css";
-import AboutPage from "./Pages/AboutPage"
+import AboutPage from "./Pages/AboutPage";
 import Authenticated from "./components/Authenticated";
 import ContactPage from "./Pages/ContactPage";
 import DashboardPage from "./Pages/DashboardPage";
@@ -9,6 +9,9 @@ import HomePage from "./Pages/HomePage";
 import LoginPage from "./Pages/LoginPage";
 import Logout from "./components/Logout";
 import ProductsPage from "./Pages/ProductsPage";
+import FundraisingInfo from "./Pages/FundraisingInfoPage.jsx";
+import BlogPage from "./Pages/BlogPage.jsx";
+import FAQPage from "./Pages/FAQPage.jsx";
 import React from "react";
 import RegisterPage from "./Pages/RegisterPage";
 import ResetPasswordPage from "./Pages/ResetPasswordPage";
@@ -23,17 +26,25 @@ function App() {
     <div className="fullscreen">
       <ResponsiveAppBar />
       <Routes>
+        {/* Routes  to responsive app bar */}
         <Route path="/" element={<HomePage />} />
-        <Route path="*" element={<ErrorPage />} />
         <Route path="/about" element={<AboutPage />} />
-        <Route path="/Contact" element={<ContactPage />} />
+        <Route path="/Products" element={<ProductsPage />} />
+        <Route path="/FundraisingInfo" element={<FundraisingInfo />} />
+        <Route path="/FAQ" element={<FAQPage />} />
+        <Route path="/Blog" element={<BlogPage />} />
+        <Route path="/Contact" element={<InquiryPage />} />
+
+        <Route path="*" element={<ErrorPage />} />
+        
+        {/* Routes to be configured */}
         <Route path="/More Info" element={<InquiryPage />} />
         <Route path="/Wufooform" element={<Wufooform />} />
-        <Route path="/ForgotPassword" element={<ForgotPasswordPage />} />
+
         <Route path="/Login" element={<LoginPage />} />
-        <Route path="/ProductType" element={<ProductsPage />} />
         <Route path="/Register" element={<RegisterPage />} />
         <Route path="/ResetPassword/:token" element={<ResetPasswordPage />} />
+        <Route path="/ForgotPassword" element={<ForgotPasswordPage />} />
 
         <Route
           path="/Dashboard"

@@ -5,10 +5,13 @@ export default function ErrorPage() {
   // console.error(error);
 
   return (
+    <>
+    <div style={{ marginTop: "100px" }}></div>
     <div id="error-page">
       <h1>Error!</h1>
       <p>Bad Gateway! </p>
       <p>{/* <i>{error.statusText || error.message}</i> */}</p>
     </div>
+    </>
   );
 }

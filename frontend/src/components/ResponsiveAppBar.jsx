@@ -15,14 +15,21 @@ import Tooltip from "@mui/material/Tooltip";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import { Link } from "react-router-dom";
 
-const pages = ["Products", "About", "FAQ", "Contact"];
-const settings = ["Login", "Register", "Dashboard", "Logout"];
+const pages = [
+  "About",
+  "Products",
+  "FundraisingInfo",
+  "FAQ",
+  "Blog",
+  "Contact",
+];
+const settings = ["Login", "Register", "Logout"];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [anchorElAbout, setAnchorElAbout] = React.useState(null);
-  
+
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -72,7 +79,7 @@ function ResponsiveAppBar() {
               color: "inherit",
               textDecoration: "none",
 
-              marginRight: "4rem",
+              marginRight: "5rem",
               marginLeft: "3rem",
             }}
           >
@@ -80,12 +87,12 @@ function ResponsiveAppBar() {
               <img
                 src={logo}
                 alt="Logo"
-                style={{ height: 70, marginRight: 8 }} // Adjust the height and margin as needed
+                style={{ height: 50, marginRight: 8 }} // Adjust the height and margin as needed
               />
             </Link>
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" }}}>
+          <Box sx={{ flexGrow: 0.5, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -176,7 +183,7 @@ function ResponsiveAppBar() {
             {/* <MoreVertIcon /> */}
           </IconButton>
           <Menu
-          href="/about"
+            href="/about"
             id="about-menu"
             anchorEl={anchorElAbout}
             anchorOrigin={{
