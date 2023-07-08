@@ -59,7 +59,7 @@ function ResponsiveAppBar() {
       sx={{
         backgroundColor: "#0B4D83",
         // marginBottom: "1rem",
-        height: 70,
+        height: 100,
         // paddingTop: ".1rem",
       }}
     >
