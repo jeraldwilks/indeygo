@@ -36,11 +36,11 @@ function App() {
         <Route path="/Contact" element={<InquiryPage />} />
 
         <Route path="*" element={<ErrorPage />} />
-        
+
         {/* Routes to be configured */}
-        <Route path="/More Info" element={<InquiryPage />} />
         <Route path="/Wufooform" element={<Wufooform />} />
 
+        {/* Routes  to dropdown menu */}
         <Route path="/Login" element={<LoginPage />} />
         <Route path="/Register" element={<RegisterPage />} />
         <Route path="/ResetPassword/:token" element={<ResetPasswordPage />} />
