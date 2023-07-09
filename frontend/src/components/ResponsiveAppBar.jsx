@@ -21,10 +21,19 @@ const pages = [
   "FAQ",
   "Blog",
   "Contact",
-  
 ];
 
 const settings = ["Login", "Register", "Logout"];
+const fundraisingInfoOptions = [
+  "Fundraising Guide",
+  "How does a Fundraiser work",
+  "Coordinators checklist",
+  "I need more Info",
+  "I am ready to book my fundraiser",
+  "I am ready to submit my final group Bulk Order",
+  "I wish to register for an online store",
+  "Fundraising Profit",
+];
 
 function ResponsiveAppBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -63,7 +72,15 @@ function ResponsiveAppBar() {
               alignItems: "center",
             }}
           >
-            <Link to="/" key="home" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
+            <Link
+              to="/"
+              key="home"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                textDecoration: "none",
+              }}
+            >
               <img
                 src={logo}
                 alt="Logo"
@@ -142,16 +159,7 @@ export default ResponsiveAppBar;
 
 
 
-
-
-
-
-
-
-
-
 // I will delete the below piece of code after consulting with Hikmah: Rini
-
 
 // import * as React from "react";
 // import AppBar from "@mui/material/AppBar";
@@ -397,5 +405,3 @@ export default ResponsiveAppBar;
 //   );
 // }
 // export default ResponsiveAppBar;
-
-
