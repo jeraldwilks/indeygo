@@ -19,8 +19,9 @@ const pages = [
   "Products",
   "FundraisingInfo",
   "FAQ",
-  "Contact",
   "Blog",
+  "Contact",
+  
 ];
 
 const settings = ["Login", "Register", "Logout"];
