@@ -25,30 +25,44 @@ const testimonials = [
   // Add more testimonials as needed
 ];
 
+const carouselStyle = {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  backgroundColor: '#f2f2f2',
+  padding: '20px',
+  marginTop: 100,
+  width: '100%',
+  minHeight: "30vh",
+  fontFamily: 'Roboto, sans-serif',
+};
+
 const CustomerReviewCarousel = () => {
   return (
-    <Box>
-      <Typography variant="h4" align="center" gutterBottom>
-        What Our Customers Are Saying
-      </Typography>
-      <Grid container spacing={4} justifyContent="center">
-        {testimonials.map((testimonial) => (
-          <Grid item key={testimonial.id} xs={12} sm={6} md={4}>
-            <Card variant="outlined" sx={{ height: '100%' }}>
-              <CardContent>
-                <Typography variant="h6" gutterBottom>
-                  {testimonial.name}
-                </Typography>
-                <Typography variant="subtitle1" gutterBottom>
-                  {testimonial.role}
-                </Typography>
-                <Typography variant="body1">{testimonial.quote}</Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
-    </Box>
+    <div style={carouselStyle}>
+      <Box>
+        <Typography variant="h4" align="center" gutterBottom>
+          What Our Customers Are Saying
+        </Typography>
+        <Grid container spacing={4} justifyContent="center">
+          {testimonials.map((testimonial) => (
+            <Grid item key={testimonial.id} xs={12} sm={6} md={4}>
+              <Card variant="outlined" sx={{ height: '150%' }}>
+                <CardContent>
+                  <Typography variant="h6" gutterBottom>
+                    {testimonial.name}
+                  </Typography>
+                  <Typography variant="subtitle1" gutterBottom>
+                    {testimonial.role}
+                  </Typography>
+                  <Typography variant="body1">{testimonial.quote}</Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
+    </div>
   );
 };
 
