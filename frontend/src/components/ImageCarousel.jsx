@@ -9,7 +9,7 @@ import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
 const ImageCarousel = () => {
   const CarouselContainer = styled("div")`
     width: 100%;
-    height:100%;
+    height:400%;
     transform: scale(1);
     transform-origin: center;
     justify-content: center;
@@ -20,15 +20,15 @@ const ImageCarousel = () => {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 400px;
-    padding-top: 20px;
-    margin-top: 20%;
-    margin-bottom: 10%;
-    padding-bottom: 90px;
+    height: 500px;
+    // padding-top: 10px;
+    // margin-top: 10%;
+    // margin-bottom: 10%;
+    // padding-bottom: 10px;
 
     img {
       width: 100%;
-      height: 300%;
+      height: 100%;
       object-fit: cover;
     }
   }`;

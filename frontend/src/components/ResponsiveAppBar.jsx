@@ -69,7 +69,7 @@ function ResponsiveAppBar() {
                 style={{ height: 50, marginRight: 8 }}
               />
             </Link>
-            Indeygo Fundraising
+            <span>Indeygo</span>
           </Typography>
 
           <Box sx={{ flexGrow: 1 }}>
