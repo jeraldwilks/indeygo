@@ -80,10 +80,9 @@ export default function StickyFooter() {
               <li>(1-877-INDEYGO)</li>
               <li style={contactInfoStyle}>Address</li>
               <li>Indeygo Fundraising</li>
-              <li>P.O. Box 8346 Canmore,</li>
-              <li>Alberta Canada,</li>
-              <li>T1W 2V1</li>
-              <li style={contactInfoStyle}>E-mail</li>
+              <li>P.O. Box 8346,</li>
+              <li>Canmore, AB T1W 2V1</li>
+              <li style={contactInfoStyle}>Email</li>
               <li>info@indeygo.com</li>
             </ul>
             <div style={IconStyle}>

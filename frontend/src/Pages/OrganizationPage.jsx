@@ -10,8 +10,7 @@ import {
 } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 import React, { useState } from "react";
-import { useAuth } from "../providers/AuthProvider";
-import AddBusinessIcon from '@mui/icons-material/AddBusiness';
+import AddBusinessIcon from "@mui/icons-material/AddBusiness";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -23,8 +22,6 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 const theme = createTheme();
 
 const OrganizationPage = () => {
-  const { user } = useAuth();
-
   const [name, setName] = useState("");
   const [groupType, setGroupType] = useState("");
   const [address, setAddress] = useState("");
@@ -39,7 +36,6 @@ const OrganizationPage = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        user,
         name,
         groupType,
         address,
