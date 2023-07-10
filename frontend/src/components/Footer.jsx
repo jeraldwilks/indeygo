@@ -10,7 +10,8 @@ import { TfiTwitter, TfiInstagram } from "react-icons/tfi";
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="text.secondary">
+
+    <Typography variant="body2"  style={{ color: 'white' }}>
       {"Copyright © "}
       <Link color="inherit" href="/">
         Indeygo Fundraising
@@ -62,6 +63,7 @@ export default function StickyFooter() {
 
   return (
     <>
+    <Box>
       <Box
         sx={{
           display: "flex",
@@ -78,20 +80,31 @@ export default function StickyFooter() {
               <li>(1-877-INDEYGO)</li>
               <li style={contactInfoStyle}>Address</li>
               <li>Indeygo Fundraising</li>
-              <li>P.O. Box 8346 Canmore,</li>
-              <li>Alberta Canada,</li>
-              <li>T1W 2V1</li>
-              <li style={contactInfoStyle}>E-mail</li>
+              <li>P.O. Box 8346,</li>
+              <li>Canmore, AB T1W 2V1</li>
+              <li style={contactInfoStyle}>Email</li>
               <li>info@indeygo.com</li>
             </ul>
             <div style={IconStyle}>
-              <a style={IconStyle} href="https://www.facebook.com/indeygofundraising" target="_blank">
+              <a
+                style={IconStyle}
+                href="https://www.facebook.com/indeygofundraising"
+                target="_blank"
+              >
                 <CiFacebook />
               </a>
-              <a style={IconStyle} href="https://twitter.com/indeygo" target="_blank">
+              <a
+                style={IconStyle}
+                href="https://twitter.com/indeygo"
+                target="_blank"
+              >
                 <TfiTwitter />
               </a>
-              <a style={IconStyle} href="https://www.instagram.com/indeygofundraising/" target="_blank">
+              <a
+                style={IconStyle}
+                href="https://www.instagram.com/indeygofundraising/"
+                target="_blank"
+              >
                 <TfiInstagram />
               </a>
               <a style={IconStyle} href="">
@@ -139,17 +152,19 @@ export default function StickyFooter() {
             py: 3,
             px: 2,
             mt: "auto",
-            backgroundColor: (theme) =>
-              theme.palette.mode === "light"
-                ? theme.palette.grey[200]
-                : theme.palette.grey[800],
+
+            backgroundColor: "#0B4D83",
+            // marginBottom: "1rem",
+            height: 100,
+            // paddingTop: ".1rem",
           }}
         >
           <Container maxWidth="sm">
-            <Typography variant="body1">Indeygo Fundraising.</Typography>
+            <Typography variant="body1"style={{ color: 'white' }}>Indeygo Fundraising.</Typography>
             <Copyright />
           </Container>
         </Box>
+      </Box>
       </Box>
     </>
   );

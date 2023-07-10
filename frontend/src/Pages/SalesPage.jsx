@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import { useAuth } from "../providers/AuthProvider";
 import { useEffect } from "react";
 import {
   Avatar,
@@ -29,8 +28,6 @@ const SalesPage = () => {
   const [fundraiser, setFundraiser] = useState();
   const [sales, setSales] = useState([]);
 
-  // const { user } = useAuth();
-
   useEffect(() => {
     const loadData = async () => {
       const fundraiserResponse = await fetch("/api/fundraiser?isActive=true");
@@ -47,7 +44,6 @@ const SalesPage = () => {
         "/api/sales?fundraiser=" + fundraiser._id
       );
       const salesData = await salesResponse.json();
-      //   console.log(salesData);
       for (const sale in salesData) {
         let qty = 0;
         let totalSales = 0;
@@ -68,11 +64,11 @@ const SalesPage = () => {
   const columns = [
     { field: "name", headerName: "Name", width: 200 },
     { field: "phoneNumber", headerName: "Phone Number", width: 200 },
-    { field: "qty", headerName: "Items Sold", width: 200 },
+    { field: "qty", headerName: "Items Sold", width: 100 },
     {
       field: "totalSales",
-      headerName: "Total $",
-      width: 200,
+      headerName: "Total Sold",
+      width: 100,
       valueFormatter: (params) => `$${params.value}`,
     },
     {
