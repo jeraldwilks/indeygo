@@ -9,7 +9,7 @@ import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
 const ImageCarousel = () => {
   const CarouselContainer = styled("div")`
     width: 100%;
-    height:400%;
+    height:82%;
     transform: scale(1);
     transform-origin: center;
     justify-content: center;

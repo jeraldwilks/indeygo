@@ -1,4 +1,3 @@
-
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -51,6 +50,7 @@ function ResponsiveAppBar() {
       position="fixed"
       sx={{
         backgroundColor: "#0B4D83",
+        marginBottom: "1rem",
       }}
     >
       <Container maxWidth="xl">
@@ -61,7 +61,9 @@ function ResponsiveAppBar() {
             component="a"
             href="/"
             sx={{
+              mr: 2,
               flexGrow: 1,
+              display: { xs: "none", md: "flex" },
               fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".9rem",
@@ -141,7 +143,12 @@ function ResponsiveAppBar() {
             >
               {settings.map((setting) => (
                 <Link to={setting.toLowerCase()} key={setting}>
-                  <MenuItem onClick={handleClose}>{setting}</MenuItem>
+                  <MenuItem
+                    onClick={handleClose}
+                    sx={{ "&:hover": { backgroundColor: "yellow" } }}
+                  >
+                    {setting}
+                  </MenuItem>
                 </Link>
               ))}
             </Menu>
@@ -153,11 +160,6 @@ function ResponsiveAppBar() {
 }
 
 export default ResponsiveAppBar;
-
-
-
-
-
 
 // I will delete the below piece of code after consulting with Hikmah: Rini
 

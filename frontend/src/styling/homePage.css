@@ -1,5 +1,72 @@
-.home{
-    margin-top: 20%;
-    height: 100vh;
-    background-color: rgb(242, 244, 243);
+.home {
+  /* margin-top: 9%; */
+  /* height: 200vh; */
+  font-family: "Montserrat", Sans-serif;
+  background-color: rgba(198, 225, 248, 0.112);
+}
+h1 {
+  color: #0b4d83;
+}
+p {
+  color: #565555;
+}
+ol {
+  list-style: none;
+  color: #0b4d83;
+}
+.container {
+  padding-top: 1%;
+  height: 39vh;
+  background-color: #9a9a9a41;
+}
+
+.listStyle {
+  text-decoration: "none";
+}
+
+.icon {
+  font-size: 3em;
+  color: #0b4d83;
+  animation: spin 7s infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.text {
+  margin-top: 8%;
+  color: #0b4d83;
+}
+:hover.text {
+  color: #f7e86a;
+}
+.learn-more-button {
+  height: 7vh;
+  background-color: #f7e86a;
+  animation: pulse 9s infinite;
+}
+:hover.learn-more-button {
+  background-color: #0b4d83;
+  border-color: #9a9a9a41;
+  box-shadow: 0 0 10px #9a9a9a41, 0 0 20px yellow;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    color: #0b4d83;
+  }
+  50% {
+    transform: scale(1.2);
+    color: #0b4d83;
+  }
+  100% {
+    transform: scale(1);
+    color: #0b4d83;
+  }
 }
