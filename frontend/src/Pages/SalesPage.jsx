@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../providers/AuthProvider";
+// import { useAuth } from "../providers/AuthProvider";
 import { useEffect } from "react";
 import {
   Avatar,
@@ -29,13 +29,11 @@ const SalesPage = () => {
   const [fundraiser, setFundraiser] = useState();
   const [sales, setSales] = useState([]);
 
-  const { user } = useAuth();
+  // const { user } = useAuth();
 
   useEffect(() => {
     const loadData = async () => {
-      const fundraiserResponse = await fetch(
-        "/api/fundraiser?isActive=true&user=" + user._id
-      );
+      const fundraiserResponse = await fetch("/api/fundraiser?isActive=true");
       const fundraiserData = await fundraiserResponse.json();
       setFundraisers(fundraiserData);
       setFundraiser(fundraiserData[0]);
@@ -71,10 +69,15 @@ const SalesPage = () => {
     { field: "name", headerName: "Name", width: 200 },
     { field: "phoneNumber", headerName: "Phone Number", width: 200 },
     { field: "qty", headerName: "Items Sold", width: 200 },
-    { field: "totalSales", headerName: "Total $", width: 200, valueFormatter: (params) => `$${params.value}` },
+    {
+      field: "totalSales",
+      headerName: "Total $",
+      width: 200,
+      valueFormatter: (params) => `$${params.value}`,
+    },
     {
       field: "Edit",
-      width:100,
+      width: 100,
       renderCell: (cellValues) => {
         return (
           <Button
@@ -146,7 +149,8 @@ const SalesPage = () => {
                   getRowId={(row) => row._id}
                   rows={sales}
                   columns={columns}
-                  style={{ flex: 1 }}/>
+                  style={{ flex: 1 }}
+                />
               </Box>
               <Button onClick={() => navigate("/add-sale")}>
                 Add New Sale
