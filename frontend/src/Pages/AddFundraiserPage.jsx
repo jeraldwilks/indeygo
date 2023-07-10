@@ -21,7 +21,7 @@ import {
   Select,
 } from "@mui/material";
 
-function FundraisingPage() {
+function AddFundraiserPage() {
   const [name, setName] = useState("");
   const [organization, setOrganization] = useState("");
   const [productTypes, setProductTypes] = useState([]);
@@ -45,7 +45,7 @@ function FundraisingPage() {
   useEffect(() => {
     // Fetch active organizations for the user
     const getOrganizations = async () => {
-      const url = "api/organization?isActive=true";
+      const url = "/api/organization?isActive=true";
       const response = await fetch(url);
       const data = await response.json();
       if (data.length === 0) {
@@ -62,7 +62,7 @@ function FundraisingPage() {
     };
 
     const getProductTypes = async () => {
-      const response = await fetch("api/productType?isActive=true");
+      const response = await fetch("/api/productType?isActive=true");
       const data = await response.json();
       setAvailableProductTypes(data);
     };
@@ -406,4 +406,4 @@ function FundraisingPage() {
   );
 }
 
-export default FundraisingPage;
+export default AddFundraiserPage;

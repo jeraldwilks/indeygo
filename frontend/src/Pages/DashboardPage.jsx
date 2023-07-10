@@ -15,13 +15,14 @@ import {
 } from "react-icons/fa";
 import SalesPage from "./SalesPage";
 import AddSalePage from "./AddSalePage";
-import FundraisingPage from "./FundraisingPage";
 import EditSalePage from "./EditSalePage";
+import AddFundraiserPage from "./AddFundraiserPage";
+import FundraisersPage from "./FundraisersPage";
+import EditFundraiserPage from "./EditFundraiserPage";
 
 const DashboardPage = ({ page }) => {
   const [collapsed, setCollapsed] = useState(false);
   const [toggled, setToggled] = useState(false);
-  // const [sidebarOpen, setSidebarOpen] = useState(true);
 
   const handleToggleSidebar = () => {
     setToggled(!toggled);
@@ -37,7 +38,7 @@ const DashboardPage = ({ page }) => {
   }
   return (
     <>
-      <div style={{ display: "flex",  marginTop: 120, }}>
+      <div style={{ display: "flex", marginTop: 120 }}>
         <Sidebar
           collapsed={collapsed}
           toggled={toggled}
@@ -93,7 +94,9 @@ const DashboardPage = ({ page }) => {
           {page === "sales" && <SalesPage />}
           {page === "add-sale" && <AddSalePage />}
           {page === "edit-sale/:id" && <EditSalePage />}
-          {page === "fundraisers" && <FundraisingPage />}
+          {page === "fundraisers" && <FundraisersPage />}
+          {page === "add-fundraiser" && <AddFundraiserPage />}
+          {page === "edit-fundraiser/:id" && <EditFundraiserPage />}
         </div>
       </div>
     </>

@@ -9,7 +9,6 @@ organizationRouter.get("/", isAuthenticated, async (req, res) => {
     let searchQuery = req.query;
     searchQuery.user = req.user._id;
     const foundOrganizations = await OrganizationModel.find(searchQuery);
-    console.log(foundOrganizations);
     res.send(foundOrganizations);
   } catch (error) {
     console.log(error.message);
