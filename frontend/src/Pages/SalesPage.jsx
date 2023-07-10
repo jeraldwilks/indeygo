@@ -44,7 +44,6 @@ const SalesPage = () => {
         "/api/sales?fundraiser=" + fundraiser._id
       );
       const salesData = await salesResponse.json();
-      //   console.log(salesData);
       for (const sale in salesData) {
         let qty = 0;
         let totalSales = 0;
