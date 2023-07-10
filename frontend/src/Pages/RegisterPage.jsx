@@ -57,7 +57,7 @@ export default function RegisterPage() {
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 40,
+            marginTop: 20,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
