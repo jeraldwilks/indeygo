@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useAuth } from "../providers/AuthProvider";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import ReceiptIcon from "@mui/icons-material/Receipt";
@@ -20,9 +19,7 @@ import {
 const theme = createTheme();
 
 const SalePage = () => {
-  const { user } = useAuth();
   const [fundraisers, setFundraisers] = useState([]);
-
   const [fundraiser, setFundraiser] = useState();
   const [name, setName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -31,7 +28,7 @@ const SalePage = () => {
 
   useEffect(() => {
     const initialLoad = async () => {
-      const url = "api/fundraiser?isActive=true&user=" + user._id;
+      const url = "api/fundraiser?isActive=true";
       const fundraiserResponse = await fetch(url);
       const fundraiserData = await fundraiserResponse.json();
       if (fundraiserData.length === 0) {

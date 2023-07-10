@@ -1,4 +1,4 @@
-import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -20,7 +20,6 @@ import {
   InputLabel,
   Select,
 } from "@mui/material";
-import { useAuth } from "../providers/AuthProvider";
 
 function FundraisingPage() {
   const [name, setName] = useState("");
@@ -43,12 +42,10 @@ function FundraisingPage() {
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState("");
 
-  const { user } = useAuth();
-
   useEffect(() => {
     // Fetch active organizations for the user
     const getOrganizations = async () => {
-      const url = "api/organization?isActive=true&user=" + user._id;
+      const url = "api/organization?isActive=true";
       const response = await fetch(url);
       const data = await response.json();
       if (data.length === 0) {
@@ -90,7 +87,6 @@ function FundraisingPage() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          user,
           name,
           organization,
           productTypes,
@@ -143,7 +139,7 @@ function FundraisingPage() {
             alignItems: "center",
           }}
         >
-          <Avatar >
+          <Avatar>
             <AttachMoneyIcon />
           </Avatar>
           <FormControl sx={{ width: "50ch" }}>

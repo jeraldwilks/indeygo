@@ -1,9 +1,10 @@
 import express from "express";
 import { SalesModel } from "../models/salesModel.js";
+import { isAuthenticated } from "../middleware/isAuthenticated.js";
 
 export const salesRouter = express.Router();
 
-salesRouter.get("/", async (req, res) => {
+salesRouter.get("/", isAuthenticated, async (req, res) => {
   try {
     const foundSales = await SalesModel.find(req.query);
     res.send(foundSales);
@@ -13,7 +14,7 @@ salesRouter.get("/", async (req, res) => {
   }
 });
 
-salesRouter.post("/", async (req, res) => {
+salesRouter.post("/", isAuthenticated, async (req, res) => {
   try {
     const createdSale = await SalesModel.create(req.body);
     res.send(createdSale);
@@ -23,7 +24,7 @@ salesRouter.post("/", async (req, res) => {
   }
 });
 
-salesRouter.patch("/", async (req, res) => {
+salesRouter.patch("/", isAuthenticated, async (req, res) => {
   try {
     const saleId = req.body._id;
     delete req.body._id;

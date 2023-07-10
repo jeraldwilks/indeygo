@@ -1,6 +1,7 @@
 import express from "express";
 import { ProductModel } from "../models/productModel.js";
 import { FundraiserModel } from "../models/fundraiserModel.js";
+import { isAuthenticated } from "../middleware/isAuthenticated.js";
 
 export const productRouter = express.Router();
 
@@ -30,25 +31,17 @@ productRouter.get("/findByFundraiser", async (req, res) => {
     }
 
     res.send(productArray);
-
-    // for (const prodType of fundraiserData[0].productTypes) {
-    //   const url = "api/product?isActive=true&productType=" + prodType._id;
-    //   const productResponse = await fetch(url);
-    //   const productData = await productResponse.json();
-
-    //   for (const prod of productData) {
-    //     setProducts((prevArray) => [...prevArray, prod]);
-    //     setQuantities((prevArray) => [...prevArray, 0]);
-    //   }
-    // }
   } catch (error) {
     console.log(error.message);
     res.status(500).send(error.message);
   }
 });
 
-productRouter.post("/", async (req, res) => {
+productRouter.post("/", isAuthenticated, async (req, res) => {
   try {
+    if (req.user.isAdmin === false) {
+      throw new Error("Not Authorized");
+    }
     const createdProduct = await ProductModel.create(req.body);
     res.send(createdProduct);
   } catch (error) {
@@ -57,8 +50,11 @@ productRouter.post("/", async (req, res) => {
   }
 });
 
-productRouter.patch("/", async (req, res) => {
+productRouter.patch("/", isAuthenticated, async (req, res) => {
   try {
+    if (req.user.isAdmin === false) {
+      throw new Error("Not Authorized");
+    }
     const productId = req.body._id;
     delete req.body._id;
 

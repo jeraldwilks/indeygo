@@ -27,7 +27,7 @@ const AdminProducts = () => {
 
   useEffect(() => {
     const getProductTypes = async () => {
-      const response = await fetch("/api/productType");
+      const response = await fetch("/api/productType?isActive=true");
       const data = await response.json();
       setProductType(data[0]);
       setAvailableProductTypes(data);
@@ -50,7 +50,7 @@ const AdminProducts = () => {
   };
 
   const columns = [
-    { field: "name", headerName: "Name", width: 150 },
+    { field: "name", headerName: "Name", width: 200 },
     {
       field: "description",
       headerName: "Description",

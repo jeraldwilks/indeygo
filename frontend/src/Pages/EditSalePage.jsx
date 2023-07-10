@@ -18,7 +18,6 @@ const theme = createTheme();
 
 const EditSalePage = () => {
   const { id } = useParams();
-  // const _id = id;
   const [name, setName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [products, setProducts] = useState([]);
