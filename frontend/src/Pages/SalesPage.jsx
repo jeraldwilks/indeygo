@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import { useAuth } from "../providers/AuthProvider";
 import { useEffect } from "react";
 import {
   Avatar,
@@ -28,8 +27,6 @@ const SalesPage = () => {
   const [fundraisers, setFundraisers] = useState([]);
   const [fundraiser, setFundraiser] = useState();
   const [sales, setSales] = useState([]);
-
-  // const { user } = useAuth();
 
   useEffect(() => {
     const loadData = async () => {
