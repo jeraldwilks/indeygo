@@ -6,7 +6,7 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Toolbar from "@mui/material/Toolbar";
 import { Link } from "react-router-dom";
-import logo from "../assets/logo.jpg";
+// import logo from "../assets/logo.jpg";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import IconButton from "@mui/material/IconButton";
@@ -84,7 +84,7 @@ function ResponsiveAppBar() {
               }}
             >
               <img
-                src={logo}
+                src="Logo.jpg"
                 alt="Logo"
                 style={{ height: 50, marginRight: 8 }}
               />
