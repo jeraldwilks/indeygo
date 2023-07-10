@@ -21,55 +21,69 @@ import { DataGrid } from "@mui/x-data-grid";
 
 const theme = createTheme();
 
-const SalesPage = () => {
+const FundraisersPage = () => {
   const navigate = useNavigate();
 
+  const [organizations, setOrganizations] = useState([]);
+  const [organization, setOrganization] = useState();
   const [fundraisers, setFundraisers] = useState([]);
-  const [fundraiser, setFundraiser] = useState();
-  const [sales, setSales] = useState([]);
 
   useEffect(() => {
     const loadData = async () => {
-      const fundraiserResponse = await fetch("/api/fundraiser?isActive=true");
-      const fundraiserData = await fundraiserResponse.json();
-      setFundraisers(fundraiserData);
-      setFundraiser(fundraiserData[0]);
+      const organizationResponse = await fetch(
+        "/api/organization?isActive=true"
+      );
+      const organizationData = await organizationResponse.json();
+      setOrganizations(organizationData);
+      setOrganization(organizationData[0]);
     };
     loadData();
   }, []);
 
   useEffect(() => {
-    const getSales = async () => {
-      const salesResponse = await fetch(
-        "/api/sales?fundraiser=" + fundraiser._id
+    const getFundraisers = async () => {
+      const fundraiserResponse = await fetch(
+        "/api/fundraiser?isActive=true&organization=" + organization._id
       );
-      const salesData = await salesResponse.json();
-      for (const sale in salesData) {
-        let qty = 0;
-        let totalSales = 0;
-        for (const product of salesData[sale].products) {
-          qty += product.quantity;
-          totalSales += product.quantity * product.price;
-        }
-        salesData[sale].qty = qty;
-        salesData[sale].totalSales = totalSales;
-      }
-      setSales(salesData);
+      const fundraiserData = await fundraiserResponse.json();
+      setFundraisers(fundraiserData);
     };
-    if (fundraiser) {
-      getSales();
+    if (organization) {
+      getFundraisers();
     }
-  }, [fundraiser]);
+  }, [organization]);
 
   const columns = [
     { field: "name", headerName: "Name", width: 200 },
-    { field: "phoneNumber", headerName: "Phone Number", width: 200 },
-    { field: "qty", headerName: "Items Sold", width: 100 },
     {
-      field: "totalSales",
-      headerName: "Total Sold",
+      field: "fundraiserTarget",
+      headerName: "Target",
       width: 100,
       valueFormatter: (params) => `$${params.value}`,
+    },
+    {
+      field: "startDate",
+      headerName: "Start Date",
+      width: 100,
+      valueFormatter: (params) => new Date(params?.value).toLocaleDateString(),
+    },
+    {
+      field: "endDate",
+      headerName: "End Date",
+      width: 100,
+      valueFormatter: (params) => new Date(params?.value).toLocaleDateString(),
+    },
+    {
+      field: "orderDate",
+      headerName: "Order Date",
+      width: 100,
+      valueFormatter: (params) => new Date(params?.value).toLocaleDateString(),
+    },
+    {
+      field: "deliveryDate",
+      headerName: "Delivery Date",
+      width: 100,
+      valueFormatter: (params) => new Date(params?.value).toLocaleDateString(),
     },
     {
       field: "Edit",
@@ -80,7 +94,7 @@ const SalesPage = () => {
             variant="contained"
             color="primary"
             onClick={() => {
-              editSale(cellValues);
+              editFundraiser(cellValues);
             }}
           >
             Edit
@@ -90,9 +104,10 @@ const SalesPage = () => {
     },
   ];
 
-  const editSale = (sale) => {
-    navigate("/edit-sale/" + sale.id);
+  const editFundraiser = (fundraiser) => {
+    navigate("/edit-fundraiser/" + fundraiser.id);
   };
+
   return (
     <div>
       <ThemeProvider theme={theme}>
@@ -110,24 +125,24 @@ const SalesPage = () => {
               <InventorySharpIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
-              Sales
+              Fundraisers
             </Typography>
             <FormControl fullWidth>
-              <InputLabel id="fundraiser-label">Fundraiser</InputLabel>
-              {fundraisers.length > 0 && (
+              <InputLabel id="organization-label">Organization</InputLabel>
+              {organizations.length > 0 && (
                 <Select
-                  labelId="fundraiser-label"
-                  id="Fundraiser"
-                  value={fundraiser}
-                  label="Fundraiser"
+                  labelId="organization-label"
+                  id="Organization"
+                  value={organization}
+                  label="Organization"
                   onChange={(e) => {
-                    setFundraiser(e.target.value);
+                    setOrganization(e.target.value);
                   }}
                   required
                 >
-                  {fundraisers.map((fundraiser) => (
-                    <MenuItem key={fundraiser.name} value={fundraiser}>
-                      {fundraiser.name}
+                  {organizations.map((org) => (
+                    <MenuItem key={org.name} value={org}>
+                      {org.name}
                     </MenuItem>
                   ))}
                 </Select>
@@ -143,13 +158,13 @@ const SalesPage = () => {
               >
                 <DataGrid
                   getRowId={(row) => row._id}
-                  rows={sales}
+                  rows={fundraisers}
                   columns={columns}
                   style={{ flex: 1 }}
                 />
               </Box>
-              <Button onClick={() => navigate("/add-sale")}>
-                Add New Sale
+              <Button onClick={() => navigate("/add-fundraiser")}>
+                Start New Fundraiser
               </Button>
             </FormControl>
           </Box>
@@ -159,4 +174,4 @@ const SalesPage = () => {
   );
 };
 
-export default SalesPage;
+export default FundraisersPage;
