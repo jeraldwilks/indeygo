@@ -30,8 +30,8 @@ const About = () => {
           fundraiser, free of charge.{" "}
         </p3>
         <br />
-        <h3>And about that name…..</h3>
         <br />
+        <h3>And about that name…..</h3>
         <p1>People often ask-how did the name Indeygo come about?</p1>
         <br />
         <p2>
@@ -50,6 +50,7 @@ const About = () => {
           the favourite colour of blue started (aka indigo) which morphed into
           in..di..go…….in..dey..go….. to in-dey-go into the oven!
         </p3>
+        <br />
         <br />
         <h3>Giving Back</h3>
         <p1>
