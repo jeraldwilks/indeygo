@@ -18,6 +18,7 @@ import DropdownMenu from "./DropdownMenu";
 const pages = [
   "About",
   "Products",
+  // { label: "Products", subPages: ["Product 1", "Product 2", "Product 3"] },
   "FundraisingInfo",
   "FAQ",
   "Blog",
