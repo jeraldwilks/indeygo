@@ -68,7 +68,7 @@ function ResponsiveAppBar() {
               fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
-              color: "inherit",
+              color: "#0b4d83",
               textDecoration: "none",
             }}
           >
@@ -111,9 +111,13 @@ function ResponsiveAppBar() {
               }}
             >
               {pages.map((page) => (
-                <Link to={page} key={page}>
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <Link to={page} key={page} >
+                <MenuItem key={page} onClick={handleCloseNavMenu} sx={{
+                      "&:hover": {
+                        backgroundColor: "#F7E86A",
+                      },
+                    }}>
+                  <Typography textAlign="center" sx={{color: "#0b4d83",}}>{page}</Typography>
                 </MenuItem>
               </Link>
               ))}
@@ -132,7 +136,7 @@ function ResponsiveAppBar() {
               fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
-              color: "inherit",
+              color: "#0b4d83",
               textDecoration: "none",
             }}
           >

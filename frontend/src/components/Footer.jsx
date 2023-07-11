@@ -30,7 +30,7 @@ export default function StickyFooter() {
     padding: "20px",
     marginTop: 600,
     width: "100%",
-    fontFamily: "Roboto, Montserrat, sans-serif",
+    fontFamily: "monospace",
   };
 
   const columnStyle = {
@@ -55,10 +55,10 @@ export default function StickyFooter() {
   };
 
   const IconStyle = {
-    justifyContent: "spaceBetween",
+    justifyContent: "spaceAround",
     padding: 2,
     margin: 2,
-    fontSize: 20,
+    fontSize: 14,
     color: "#0B4D83",
   };
 
