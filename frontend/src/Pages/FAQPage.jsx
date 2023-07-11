@@ -142,6 +142,9 @@ const config = {
 
 const FAQPage = () => {
   return (
+    <>
+    <div style={{ marginTop: "100px" }}>
+    </div>
     <div
       style={{
         display: "flex",
@@ -154,6 +157,8 @@ const FAQPage = () => {
         <Faq data={data} styles={styles} config={config} />
       </div>
     </div>
+    
+    </>
   );
 };
 
