@@ -5,7 +5,6 @@ const About = () => {
   return (
     <>
       <div class="about">
-     
         <h3>About Us</h3>
         <br />
         <p1>
@@ -61,14 +60,14 @@ const About = () => {
           groups, animal rescue organizations, along with women’s and children’s
           charities.
         </p1>
-        <br/>
-        <br/>
+        <br />
+        <br />
         <img
           src="https://indeygo.com/wp-content/uploads/2019/08/about-img-solo-1-1024x209.jpg"
           alt="About Us"
           className="about-image"
         />
-        <br/>
+        <br />
 
         <li>Contact us today to organize your fundraiser:</li>
         <li>877-463-3946 (1-877-INDEYGO)</li>
