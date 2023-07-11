@@ -12,7 +12,7 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import { Link } from "react-router-dom";
-import logo from "../assets/logo.jpg";
+// import logo from "../assets/logo.jpg";
 import DropdownMenu from "./DropdownMenu";
 
 const pages = [
@@ -73,7 +73,7 @@ function ResponsiveAppBar() {
           >
             <Link to="/" key="home">
               <img
-                src={logo}
+                src="Logo.jpg"
                 alt="Logo"
                 style={{ height: 60, marginRight: 8 }} // Adjust the height and margin as needed
               />
@@ -137,7 +137,7 @@ function ResponsiveAppBar() {
           >
             <Link to="/" key="home">
               <img
-                src={logo}
+                src="Logo.jpg"
                 alt="Logo"
                 style={{ height: 50, marginRight: 8 }}
               />{" "}
