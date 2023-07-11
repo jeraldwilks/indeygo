@@ -117,7 +117,7 @@ function ResponsiveAppBar() {
               </Link>
               ))}
             </Menu>
-          <DropdownMenu pages={pages} handleClose={handleCloseNavMenu} />
+          {/* <DropdownMenu pages={pages} handleClose={handleCloseNavMenu} /> */}
           </Box>
           <Typography
             variant="h5"
@@ -192,7 +192,7 @@ function ResponsiveAppBar() {
                     onClick={handleCloseUserMenu}
                     sx={{
                       "&:hover": {
-                        backgroundColor: "yellow",
+                        backgroundColor: "#F7E86A",
                       },
                     }}
                   >
