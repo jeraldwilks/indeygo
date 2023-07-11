@@ -102,6 +102,22 @@ function App() {
           }
         />
         <Route
+          path="/add-fundraiser"
+          element={
+            <Authenticated>
+              <DashboardPage page="add-fundraiser" />
+            </Authenticated>
+          }
+        />
+        <Route
+          path="/edit-fundraiser/:id"
+          element={
+            <Authenticated>
+              <DashboardPage page="edit-fundraiser/:id" />
+            </Authenticated>
+          }
+        />
+        <Route
           path="/organizations"
           element={
             <Authenticated>
