@@ -29,7 +29,7 @@ const OrganizationsPage = () => {
       setOrganizations(organizationData);
     };
     loadData();
-  });
+  }, []);
 
   const columns = [
     { field: "name", headerName: "Name", width: 200 },
