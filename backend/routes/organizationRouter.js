@@ -27,3 +27,19 @@ organizationRouter.post("/", isAuthenticated, async (req, res) => {
     res.status(500).send(error.message);
   }
 });
+
+organizationRouter.patch("/", isAuthenticated, async (req, res) => {
+  try {
+    const organizationId = req.body._id;
+    delete req.body._id;
+
+    await OrganizationModel.findByIdAndUpdate(organizationId, req.body);
+    const updatedOrganization = await OrganizationModel.findById(
+      organizationId
+    );
+    res.send(updatedOrganization);
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).send(error.message);
+  }
+});
