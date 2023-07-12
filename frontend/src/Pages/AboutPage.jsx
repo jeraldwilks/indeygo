@@ -5,7 +5,6 @@ const About = () => {
   return (
     <>
       <div class="about">
-     
         <h3>About Us</h3>
         <br />
         <p1>
@@ -31,8 +30,8 @@ const About = () => {
           fundraiser, free of charge.{" "}
         </p3>
         <br />
-        <h3>And about that name…..</h3>
         <br />
+        <h3>And about that name…..</h3>
         <p1>People often ask-how did the name Indeygo come about?</p1>
         <br />
         <p2>
@@ -52,6 +51,7 @@ const About = () => {
           in..di..go…….in..dey..go….. to in-dey-go into the oven!
         </p3>
         <br />
+        <br />
         <h3>Giving Back</h3>
         <p1>
           At Indeygo, one measure of our success is our ability to support
@@ -61,14 +61,14 @@ const About = () => {
           groups, animal rescue organizations, along with women’s and children’s
           charities.
         </p1>
-        <br/>
-        <br/>
+        <br />
+        <br />
         <img
           src="https://indeygo.com/wp-content/uploads/2019/08/about-img-solo-1-1024x209.jpg"
           alt="About Us"
           className="about-image"
         />
-        <br/>
+        <br />
 
         <li>Contact us today to organize your fundraiser:</li>
         <li>877-463-3946 (1-877-INDEYGO)</li>

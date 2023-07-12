@@ -1,5 +1,58 @@
-.about{
-    margin-top: 20%;
+.about {
+  margin-top: 7%;
+  height: 55vh;
+  font-family: "monospace";
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+h3 {
+  color: #0b4d83;
+}
+p1 {
+  color: #403f3f;
+}
+p2 {
+  color: #403f3f;
+}
+p3 {
+  color: #403f3f;
+}
+
+
+@media (max-width: 1380px) {
+  .about {
+    margin-top: 13%;
+    height: 70vh;
+    border-width: 3px;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+}
+@media (max-width: 980px) {
+  .about {
+    margin-top: 13%;
     height: 100vh;
-    background-color: rgb(245, 252, 249);
+    border-width: 3px;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+}
+@media (max-width: 680px) {
+  .about {
+    margin-top: 13%;
+    height: 125vh;
+    border-width: 3px;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+}
+@media (max-width: 500px) {
+  .about {
+    margin-top: 15%;
+    height: 135vh;
+    border-width: 3px;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
 }
