@@ -134,7 +134,7 @@ function App() {
           }
         />
         <Route
-          path="/edit-organization"
+          path="/edit-organization/:id"
           element={
             <Authenticated>
               <DashboardPage page="edit-organization/:id" />
