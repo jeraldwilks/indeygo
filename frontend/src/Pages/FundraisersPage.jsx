@@ -86,6 +86,11 @@ const FundraisersPage = () => {
       valueFormatter: (params) => new Date(params?.value).toLocaleDateString(),
     },
     {
+      field: "isActive",
+      headerName: "Active",
+      width: 100,
+    },
+    {
       field: "Edit",
       width: 100,
       renderCell: (cellValues) => {
@@ -157,6 +162,8 @@ const FundraisersPage = () => {
                 }}
               >
                 <DataGrid
+                  columnVisibilityModel={{ isActive: false }}
+                  sortModel={[{ field: "isActive", sort: "desc" }]}
                   getRowId={(row) => row._id}
                   rows={fundraisers}
                   columns={columns}
