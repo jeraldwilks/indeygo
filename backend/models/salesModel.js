@@ -6,6 +6,12 @@ const salesSchema = mongoose.Schema({
     ref: "Fundraiser",
     required: true,
   },
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    immutable: true,
+    required: true,
+  },
   name: {
     type: String,
     required: true,
