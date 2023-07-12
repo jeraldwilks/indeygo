@@ -126,6 +126,22 @@ function App() {
           }
         />
         <Route
+          path="/add-organization"
+          element={
+            <Authenticated>
+              <DashboardPage page="add-organization" />
+            </Authenticated>
+          }
+        />
+        <Route
+          path="/edit-organization"
+          element={
+            <Authenticated>
+              <DashboardPage page="edit-organization/:id" />
+            </Authenticated>
+          }
+        />
+        <Route
           path="/sales"
           element={
             <Authenticated>

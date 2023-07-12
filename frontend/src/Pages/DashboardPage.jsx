@@ -1,7 +1,6 @@
 import AddBusinessIcon from "@mui/icons-material/AddBusiness";
 import AdminDashboardPage from "./AdminDashboardPage";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
-import OrganizationPage from "./OrganizationPage";
 import React, { useState } from "react";
 import ReceiptIcon from "@mui/icons-material/Receipt";
 import LogoutIcon from "@mui/icons-material/Logout";
@@ -19,6 +18,9 @@ import EditSalePage from "./EditSalePage";
 import AddFundraiserPage from "./AddFundraiserPage";
 import FundraisersPage from "./FundraisersPage";
 import EditFundraiserPage from "./EditFundraiserPage";
+import OrganizationsPage from "./OrganizationsPage";
+import AddOrganizationPage from "./AddOrganizationPage";
+import EditOrganization from "./EditOrganizationPage";
 
 const DashboardPage = ({ page }) => {
   const [collapsed, setCollapsed] = useState(false);
@@ -90,7 +92,9 @@ const DashboardPage = ({ page }) => {
           </>
         </Sidebar>
         <div style={{ flex: 1 }}>
-          {page === "organizations" && <OrganizationPage />}
+          {page === "organizations" && <OrganizationsPage />}
+          {page === "add-organization" && <AddOrganizationPage />}
+          {page === "edit-organization/:id" && <EditOrganization />}
           {page === "sales" && <SalesPage />}
           {page === "add-sale" && <AddSalePage />}
           {page === "edit-sale/:id" && <EditSalePage />}
