@@ -18,11 +18,32 @@ ol {
   padding-top: 1%;
   height: 39vh;
   background-color: #9a9a9a41;
+
 }
 
 .listStyle {
   text-decoration: "none";
 }
+
+.steps {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+  
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.step img {
+  margin-right: 10px;
+}
+
 
 .icon {
   font-size: 3em;

@@ -112,7 +112,7 @@ const SalesPage = () => {
             <Typography component="h1" variant="h5">
               Sales
             </Typography>
-            <FormControl fullWidth>
+            <FormControl>
               <InputLabel id="fundraiser-label">Fundraiser</InputLabel>
               {fundraisers.length > 0 && (
                 <Select
