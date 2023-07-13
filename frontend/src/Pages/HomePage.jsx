@@ -34,41 +34,62 @@ const HomePage = () => {
           <p>Does your group need to raise some cash?</p>
           <p>With Indeygo, It's Easy!</p>
           <ol className="steps">
-            
             <div className="step">
               <li>
-              <div>Step 1</div>
-              <div><img src="./images/step1.png" alt="Step 1" /></div>
-              <div><Button className="listStyle">Contact Us</Button></div>
-              </li>
-            </div>
-          
-            <div className="step">
-              <li>
-              <div>Step 2</div>
-              <div><img src="./images/step2.png" alt="Step 2" /></div>
-              <div><Button className="listStyle">Run Your Fundraiser</Button></div>
+                <div>Step 1</div>
+                <a href="/About">
+                  <div>
+                    <img src="./images/step1.png" alt="Step 1" />
+                  </div>
+                  <div>
+                    <Button className="listStyle">Contact Us</Button>
+                  </div>
+                </a>
               </li>
             </div>
 
             <div className="step">
               <li>
-              <div>Step 3</div>
-              <div><img src="./images/step3.png" alt="Step 3" /></div>
-              <div><Button className="listStyle">Deliver Product</Button></div>
+                <div>Step 2</div>
+                <a href="/FundRaiserInfo">
+                  <div>
+                    <img src="./images/step2.png" alt="Step 2" />
+                  </div>
+                  <div>
+                    <Button className="listStyle">Run Your Fundraiser</Button>
+                  </div>
+                </a>
               </li>
             </div>
 
             <div className="step">
               <li>
-              <div>Step 4</div>
-              <div><img src="./images/step4.png" alt="Step 4" /></div>
-              <div><Button className="listStyle">Count Your Cash</Button></div>
+                <div>Step 3</div>
+                <a href="/About">
+                  <div>
+                    <img src="./images/step3.png" alt="Step 3" />
+                  </div>
+                  <div>
+                    <Button className="listStyle">Deliver Product</Button>
+                  </div>
+                </a>
               </li>
             </div>
-          
+
+            <div className="step">
+              <li>
+                <div>Step 4</div>
+                <a href="/About">
+                  <div>
+                    <img src="./images/step4.png" alt="Step 4" />
+                  </div>
+                  <div>
+                    <Button className="listStyle">Count Your Cash</Button>
+                  </div>
+                </a>
+              </li>
+            </div>
           </ol>
-          
         </div>
       </div>
 

@@ -20,6 +20,7 @@ import InquiryPage from "./Pages/InquiryPage";
 import { Routes, Route } from "react-router-dom";
 import StickyFooter from "./components/Footer";
 import Wufooform from "./Pages/Wufooform";
+import InfoRunFundraiser from "./components/InfoRunFundraiser";
 
 function App() {
   return (
@@ -45,6 +46,9 @@ function App() {
         <Route path="/Register" element={<RegisterPage />} />
         <Route path="/ResetPassword/:token" element={<ResetPasswordPage />} />
         <Route path="/ForgotPassword" element={<ForgotPasswordPage />} />
+
+        {/* Routes to Information Components(Mui Dialog) */}
+        <Route path="/FundRaiserInfo" element={<InfoRunFundraiser />} />
 
         <Route
           path="/Dashboard"
