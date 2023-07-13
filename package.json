@@ -4,8 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "installFrontend": "cd frontend && npm i && cd ..",
-    "installBackend": "cd backend && npm i",
+    "installFrontend": "cd frontend && npm i --omit=dev && cd ..",
+    "installBackend": "cd backend && npm i --omit=dev",
     "install": "npm run installFrontend && npm run installBackend",
     "build": "cd frontend && npm run build",
     "start": "node backend/server.js",
@@ -20,19 +20,5 @@
   "bugs": {
     "url": "https://github.com/jeraldwilks/indeygo/issues"
   },
-  "homepage": "https://github.com/jeraldwilks/indeygo#readme",
-  "dependencies": {
-    "@emotion/react": "^11.11.1",
-    "@emotion/styled": "^11.11.0",
-    "@mui/material": "^5.13.6",
-    "@mui/system": "^5.13.7",
-    "date-fns": "^2.30.0",
-    "react-canvas-confetti": "^1.4.0",
-    "react-confetti": "^6.1.0",
-    "react-dom-confetti": "^0.2.0",
-    "react-router-dom": "^6.14.0"
-  },
-  "devDependencies": {
-    "@babel/preset-react": "^7.22.5"
-  }
+  "homepage": "https://github.com/jeraldwilks/indeygo#readme"
 }

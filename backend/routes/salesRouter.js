@@ -6,7 +6,9 @@ export const salesRouter = express.Router();
 
 salesRouter.get("/", isAuthenticated, async (req, res) => {
   try {
-    const foundSales = await SalesModel.find(req.query);
+    let query = req.query;
+    query.user = req.user._id;
+    const foundSales = await SalesModel.find(query);
     res.send(foundSales);
   } catch (error) {
     console.log(error.message);
@@ -16,7 +18,9 @@ salesRouter.get("/", isAuthenticated, async (req, res) => {
 
 salesRouter.post("/", isAuthenticated, async (req, res) => {
   try {
-    const createdSale = await SalesModel.create(req.body);
+    const newData = req.body;
+    newData.user = req.user._id;
+    const createdSale = await SalesModel.create(newData);
     res.send(createdSale);
   } catch (error) {
     console.log(error.message);
@@ -28,7 +32,6 @@ salesRouter.patch("/", isAuthenticated, async (req, res) => {
   try {
     const saleId = req.body._id;
     delete req.body._id;
-
     await SalesModel.findByIdAndUpdate(saleId, req.body);
     const updatedSale = await SalesModel.findById(saleId);
     res.send(updatedSale);
