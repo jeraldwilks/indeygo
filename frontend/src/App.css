@@ -22,3 +22,12 @@
   overflow: auto;
 }
 
+.active-row {
+  color: #0B4D83;
+  /* Additional styling for active rows */
+}
+
+.inactive-row {
+  color: red;
+  /* Additional styling for inactive rows */
+}

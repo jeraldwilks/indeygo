@@ -80,10 +80,16 @@ const OrganizationsPage = () => {
     navigate("/edit-organization/" + organization.id);
   };
 
+  const getRowClassName = (params) => {
+    const isActive = params.row.isActive;
+
+    return isActive ? "active-row" : "inactive-row";
+  };
+
   return (
     <div>
       <ThemeProvider theme={theme}>
-        <Container component="main" sx={{ width: "75%" }}>
+        <Container component="main" sx={{ width: "85%" }}>
           <CssBaseline />
           <Box
             sx={{
@@ -115,6 +121,7 @@ const OrganizationsPage = () => {
                   rows={organizations}
                   columns={columns}
                   style={{ flex: 1 }}
+                  getRowClassName={getRowClassName}
                 />
               </Box>
               <Button onClick={() => navigate("/add-organization")}>
