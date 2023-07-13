@@ -21,7 +21,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 
 const theme = createTheme();
 
-const OrganizationPage = () => {
+const AddOrganizationPage = () => {
   const [name, setName] = useState("");
   const [groupType, setGroupType] = useState("");
   const [address, setAddress] = useState("");
@@ -212,4 +212,4 @@ const OrganizationPage = () => {
   );
 };
 
-export default OrganizationPage;
+export default AddOrganizationPage;
