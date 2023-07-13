@@ -67,7 +67,7 @@ const InfoRunFundraiser = () => {
 
 export default InfoRunFundraiser;
 
-// The below code is kept to implement a mui dialog box for the above context: I need to sort it during office hours
+// The below code is kept to implement a mui dialog box for the above component: I need to sort it during office hours
 
 // import * as React from 'react';
 // import PropTypes from 'prop-types';
