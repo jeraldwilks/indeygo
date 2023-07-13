@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/jeraldwilks/indeygo/issues"
   },
-  "homepage": "https://github.com/jeraldwilks/indeygo#readme"
+  "homepage": "https://github.com/jeraldwilks/indeygo#readme",
+  "dependencies": {
+    "passport-local": "^1.0.0"
+  }
 }
