@@ -3,6 +3,7 @@ import "../styling/homePage.css";
 import CustomerReviewCarousel from "../components/CustomerReviewCarousel";
 import ImageCarousel from "../components/ImageCarousel.jsx";
 import { FaCanadianMapleLeaf } from "react-icons/fa";
+import { Button } from "@mui/material";
 const HomePage = () => {
   return (
     <>
@@ -32,12 +33,42 @@ const HomePage = () => {
         <div>
           <p>Does your group need to raise some cash?</p>
           <p>With Indeygo, It's Easy!</p>
-          <ol>
-            <li className="listStyle">Step 1 - Contact Us</li>
-            <li>Step 2 - Run Your Fundraiser</li>
-            <li>Step 3 - Deliver Product</li>
-            <li>Step 4 - Count Your Cash</li>
+          <ol className="steps">
+            
+            <div className="step">
+              <li>
+              <div>Step 1</div>
+              <div><img src="./images/step1.png" alt="Step 1" /></div>
+              <div><Button className="listStyle">Contact Us</Button></div>
+              </li>
+            </div>
+          
+            <div className="step">
+              <li>
+              <div>Step 2</div>
+              <div><img src="./images/step2.png" alt="Step 2" /></div>
+              <div><Button className="listStyle">Run Your Fundraiser</Button></div>
+              </li>
+            </div>
+
+            <div className="step">
+              <li>
+              <div>Step 3</div>
+              <div><img src="./images/step3.png" alt="Step 3" /></div>
+              <div><Button className="listStyle">Deliver Product</Button></div>
+              </li>
+            </div>
+
+            <div className="step">
+              <li>
+              <div>Step 4</div>
+              <div><img src="./images/step4.png" alt="Step 4" /></div>
+              <div><Button className="listStyle">Count Your Cash</Button></div>
+              </li>
+            </div>
+          
           </ol>
+          
         </div>
       </div>
 
