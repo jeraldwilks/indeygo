@@ -132,7 +132,7 @@ const FundraisersPage = () => {
             <Typography component="h1" variant="h5">
               Fundraisers
             </Typography>
-            <FormControl fullWidth>
+            <FormControl>
               <InputLabel id="organization-label">Organization</InputLabel>
               {organizations.length > 0 && (
                 <Select
@@ -170,7 +170,11 @@ const FundraisersPage = () => {
                   style={{ flex: 1 }}
                 />
               </Box>
-              <Button onClick={() => navigate("/add-fundraiser")}>
+              <Button
+                variant="outlined"
+                sx={{ mt: 3, mb: 2 }}
+                onClick={() => navigate("/add-fundraiser")}
+              >
                 Start New Fundraiser
               </Button>
             </FormControl>
