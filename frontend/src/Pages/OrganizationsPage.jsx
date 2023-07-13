@@ -42,6 +42,20 @@ const OrganizationsPage = () => {
       field: "isActive",
       headerName: "Active",
       width: 100,
+      renderCell: (params) => {
+        const isActive = params.row.isActive;
+
+        const cellStyle = {
+          color: isActive ? "blue" : "red",
+          /* or background-color: isActive ? "green" : "lightgray" */
+        };
+
+        return (
+          <div style={cellStyle}>
+            {isActive ? "Active" : "Inactive"}
+          </div>
+        );
+      },
     },
     {
       field: "Edit",
