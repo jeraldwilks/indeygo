@@ -24,17 +24,32 @@ const pages = [
   "Blog",
   "Contact",
 ];
-const settings = ["Login", "Register", "Logout"];
+
+
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+  const settings = isLoggedIn ? ["Dashboard", "Logout"] : ["Login", "Register"];
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
+  };
+
+  const handleLogout = () => {
+    // Logout Logic
+    setIsLoggedIn(false);
+    handleCloseUserMenu();
+  };
+
+  const handleLogin = () => {
+    // Login Logic
+    setIsLoggedIn(true);
+    handleCloseUserMenu();
   };
 
   const handleCloseNavMenu = () => {
@@ -54,7 +69,7 @@ function ResponsiveAppBar() {
         height: 60,
         paddingTop: ".3rem",
       }}
-      >
+    >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -92,6 +107,7 @@ function ResponsiveAppBar() {
             >
               <MenuIcon />
             </IconButton>
+            {/* Navbar Display */}
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
@@ -111,18 +127,24 @@ function ResponsiveAppBar() {
               }}
             >
               {pages.map((page) => (
-                <Link to={page} key={page} >
-                <MenuItem key={page} onClick={handleCloseNavMenu} sx={{
+                <Link to={page} key={page}>
+                  <MenuItem
+                    key={page}
+                    onClick={handleCloseNavMenu}
+                    sx={{
                       "&:hover": {
                         backgroundColor: "#F7E86A",
                       },
-                    }}>
-                  <Typography textAlign="center" sx={{color: "#0b4d83",}}>{page}</Typography>
-                </MenuItem>
-              </Link>
+                    }}
+                  >
+                    <Typography textAlign="center" sx={{ color: "#0b4d83" }}>
+                      {page}
+                    </Typography>
+                  </MenuItem>
+                </Link>
               ))}
             </Menu>
-          {/* <DropdownMenu pages={pages} handleClose={handleCloseNavMenu} /> */}
+            {/* <DropdownMenu pages={pages} handleClose={handleCloseNavMenu} /> */}
           </Box>
           <Typography
             variant="h5"
@@ -174,6 +196,8 @@ function ResponsiveAppBar() {
                 <Avatar alt="" src="" />
               </IconButton>
             </Tooltip>
+
+            {/* User Menu/Settings Display */}
             <Menu
               sx={{ mt: "45px" }}
               id="menu-appbar"
@@ -194,7 +218,8 @@ function ResponsiveAppBar() {
                 <Link to={setting} key={setting}>
                   <MenuItem
                     key={setting}
-                    onClick={handleCloseUserMenu}
+                    onClick={setting === "Login" ? handleLogin : handleLogout}
+                    // onClick={handleCloseUserMenu}
                     sx={{
                       "&:hover": {
                         backgroundColor: "#F7E86A",
@@ -217,10 +242,7 @@ function ResponsiveAppBar() {
 export default ResponsiveAppBar;
 
 
-
-
-
-// Rini's old code, replaced with reponsive code - Hikmah 
+// Rini's old code, replaced with reponsive code - Hikmah
 // import * as React from "react";
 // import AppBar from "@mui/material/AppBar";
 // import Box from "@mui/material/Box";
