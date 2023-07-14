@@ -69,6 +69,14 @@ function App() {
           }
         />
         <Route
+          path="/edit-profile"
+          element={
+            <Authenticated>
+              <DashboardPage page="edit-profile" />
+            </Authenticated>
+          }
+        />
+        <Route
           path="/admin-add-product"
           element={<DashboardPage page="admin-add-product" />}
         />
