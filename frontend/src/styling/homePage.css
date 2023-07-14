@@ -23,6 +23,7 @@ ol {
 
 .listStyle {
   text-decoration: "none";
+  
 }
 
 .steps {
@@ -31,8 +32,11 @@ ol {
   padding: 0;
   margin: 0;
   justify-content: center;
+
   
 }
+
+
 
 .step {
   display: flex;

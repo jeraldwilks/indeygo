@@ -4,6 +4,8 @@ import CustomerReviewCarousel from "../components/CustomerReviewCarousel";
 import ImageCarousel from "../components/ImageCarousel.jsx";
 import { FaCanadianMapleLeaf } from "react-icons/fa";
 import { Button } from "@mui/material";
+import Box from "@mui/material/Box";
+
 const HomePage = () => {
   return (
     <>
@@ -34,15 +36,33 @@ const HomePage = () => {
           <p>Does your group need to raise some cash?</p>
           <p>With Indeygo, It's Easy!</p>
           <ol className="steps">
-            <div className="step">
+            <div className="step" >
               <li>
-                <div>Step 1</div>
+                <div style={{ marginBottom: "50px" }}>Step 1</div>
                 <a href="/ContactUsInfo">
-                  <div>
-                    <img src="./images/step1.png" alt="Step 1" />
-                  </div>
-                  <div>
-                    <Button className="listStyle">Contact Us</Button>
+                  <Box
+                    sx={{
+                      border: "5px dotted #0b4d83",
+                      borderRadius: "25px",
+                      p: "8px",
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                    }}
+                  >
+                    <img
+                      src="./images/step1.png"
+                      alt="Step 1"
+                      style={{ width: "150px", height: "150px" }}
+                    />
+                  </Box>
+                  <div style={{ marginTop: "50px" }}>
+                    <Button
+                      className="listStyle"
+                      style={{ backgroundColor: "#0b4d83", color: "white" }}
+                    >
+                      Contact Us
+                    </Button>
                   </div>
                 </a>
               </li>
@@ -50,13 +70,31 @@ const HomePage = () => {
 
             <div className="step">
               <li>
-                <div>Step 2</div>
+                <div style={{ marginBottom: "50px" }}>Step 2</div>
                 <a href="/FundRaiserInfo">
-                  <div>
-                    <img src="./images/step2.png" alt="Step 2" />
-                  </div>
-                  <div>
-                    <Button className="listStyle">Run Your Fundraiser</Button>
+                  <Box
+                    sx={{
+                      border: "5px dotted #0b4d83",
+                      borderRadius: "25px",
+                      p: "8px",
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                    }}
+                  >
+                    <img
+                      src="./images/step2.png"
+                      alt="Step 2"
+                      style={{ width: "150px", height: "150px" }}
+                    />
+                  </Box>
+                  <div style={{ marginTop: "50px" }}>
+                    <Button
+                      className="listStyle"
+                      style={{ backgroundColor: "#0b4d83", color: "white" }}
+                    >
+                      Run Your Fundraiser
+                    </Button>
                   </div>
                 </a>
               </li>
@@ -64,13 +102,31 @@ const HomePage = () => {
 
             <div className="step">
               <li>
-                <div>Step 3</div>
+                <div style={{ marginBottom: "50px" }}>Step 3</div>
                 <a href="/ProductDeliveryInfo">
-                  <div>
-                    <img src="./images/step3.png" alt="Step 3" />
-                  </div>
-                  <div>
-                    <Button className="listStyle">Deliver Product</Button>
+                  <Box
+                    sx={{
+                      border: "5px dotted #0b4d83",
+                      borderRadius: "25px",
+                      p: "8px",
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                    }}
+                  >
+                    <img
+                      src="./images/step3.png"
+                      alt="Step 3"
+                      style={{ width: "150px", height: "150px" }}
+                    />
+                  </Box>
+                  <div style={{ marginTop: "50px" }}>
+                    <Button
+                      className="listStyle"
+                      style={{ backgroundColor: "#0b4d83", color: "white" }}
+                    >
+                      Deliver Product
+                    </Button>
                   </div>
                 </a>
               </li>
@@ -78,13 +134,31 @@ const HomePage = () => {
 
             <div className="step">
               <li>
-                <div>Step 4</div>
+                <div style={{ marginBottom: "50px" }}>Step 4</div>
                 <a href="/CountCashInfo">
-                  <div>
-                    <img src="./images/step4.png" alt="Step 4" />
-                  </div>
-                  <div>
-                    <Button className="listStyle">Count Your Cash</Button>
+                  <Box
+                    sx={{
+                      border: "5px dotted #0b4d83",
+                      borderRadius: "25px",
+                      p: "8px",
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                    }}
+                  >
+                    <img
+                      src="./images/step4.png"
+                      alt="Step 4"
+                      style={{ width: "150px", height: "150px" }}
+                    />
+                  </Box>
+                  <div style={{ marginTop: "50px" }}>
+                    <Button
+                      className="listStyle"
+                      style={{ backgroundColor: "#0b4d83", color: "white" }}
+                    >
+                      Count Your Cash
+                    </Button>
                   </div>
                 </a>
               </li>
