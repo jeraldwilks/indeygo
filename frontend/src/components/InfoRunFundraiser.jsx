@@ -57,8 +57,9 @@ const InfoRunFundraiser = () => {
           
           <ul>**A comprehensive checklist is available in our Coordinator Info section</ul>
           <br/>
+          <a href="/CoordinatorsChecklistInfo">
           <Button color="primary" variant="contained" style={{ backgroundColor: "#0b4d83" }}>Coordinators Checklist</Button>
-
+          </a>
         </Box>
       </div>
     </>

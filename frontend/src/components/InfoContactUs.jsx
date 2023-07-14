@@ -1,6 +1,8 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import { Button } from "@mui/material";
+import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
+import EmailIcon from '@mui/icons-material/Email';
 
 const InfoContactUs = () => {
   return (
@@ -31,12 +33,16 @@ const InfoContactUs = () => {
         or two product types from our awesome lineup. Ask us about free shipping
         to your area.
       </p>
-      <p>Phone: 1-877-463-3946</p>
-      <p>Email: info@indeygo.com</p>
+      <p><LocalPhoneIcon style={{ verticalAlign: "middle" }} />  Phone: 1-877-463-3946</p>
+      <p><EmailIcon style={{ verticalAlign: "middle" }} />  Email: info@indeygo.com</p>
       <p>Fill out one of our online forms</p>
       <div style={{ display: "flex", gap: "10px" }}>
+      <a href="/Contact">
       <Button variant="contained" style={{ backgroundColor: "#0B4D83" }}>I Need More Info</Button>
+      </a>
+      <a href="/Contact">
       <Button variant="contained" style={{ backgroundColor: "#0B4D83" }}>I'm Ready To Book My Fundraiser</Button>
+      </a>
       </div>
       </Box>
     </div>
