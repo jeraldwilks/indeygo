@@ -65,7 +65,7 @@ const HomePage = () => {
             <div className="step">
               <li>
                 <div>Step 3</div>
-                <a href="/About">
+                <a href="/ProductDeliveryInfo">
                   <div>
                     <img src="./images/step3.png" alt="Step 3" />
                   </div>

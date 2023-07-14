@@ -21,6 +21,7 @@ import { Routes, Route } from "react-router-dom";
 import StickyFooter from "./components/Footer";
 import Wufooform from "./Pages/Wufooform";
 import InfoRunFundraiser from "./components/InfoRunFundraiser";
+import InfoProductDelivery from "./components/InfoProductDelivery";
 
 function App() {
   return (
@@ -48,7 +49,9 @@ function App() {
         <Route path="/ForgotPassword" element={<ForgotPasswordPage />} />
 
         {/* Routes to Information Components(Mui Dialog) */}
+        
         <Route path="/FundRaiserInfo" element={<InfoRunFundraiser />} />
+        <Route path="/ProductDeliveryInfo" element={<InfoProductDelivery />} />
 
         <Route
           path="/Dashboard"
