@@ -37,7 +37,7 @@ const HomePage = () => {
             <div className="step">
               <li>
                 <div>Step 1</div>
-                <a href="/About">
+                <a href="/ContactUsInfo">
                   <div>
                     <img src="./images/step1.png" alt="Step 1" />
                   </div>

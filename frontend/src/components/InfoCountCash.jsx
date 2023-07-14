@@ -30,7 +30,7 @@ const InfoCountCash = () => {
       <p>
         **A comprehensive checklist is available in our Coordinator Info section
       </p>
-      <Button variant="contained">Coordinators Checklist</Button>
+      <Button variant="contained" style={{ backgroundColor: "#0B4D83" }}>Coordinators Checklist</Button>
     </div>
   );
 };

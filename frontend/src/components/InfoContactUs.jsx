@@ -1,8 +1,30 @@
 import React from "react";
+import Box from "@mui/material/Box";
+import { Button } from "@mui/material";
 
 const InfoContactUs = () => {
   return (
-    <div>
+    <>
+    <div
+    style={{
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      height: "100vh",
+    }}
+    >
+        <Box
+          sx={{
+            border: "1px solid #ccc",
+            borderRadius: "4px",
+            padding: "16px",
+            marginBottom: "16px",
+            marginTop: "50px",
+            maxWidth: "500Px",
+            alignItems: "center",
+          }}
+        >
+    
       <h2>Contact Us</h2>
       <p>
         Contact Indeygo to request your order forms. Keep it simple – choose one
@@ -12,9 +34,13 @@ const InfoContactUs = () => {
       <p>Phone: 1-877-463-3946</p>
       <p>Email: info@indeygo.com</p>
       <p>Fill out one of our online forms</p>
-      <Button>I Need More Info</Button>
-      <Button>I'm Ready To Book My Fundraiser</Button>
+      <div style={{ display: "flex", gap: "10px" }}>
+      <Button variant="contained" style={{ backgroundColor: "#0B4D83" }}>I Need More Info</Button>
+      <Button variant="contained" style={{ backgroundColor: "#0B4D83" }}>I'm Ready To Book My Fundraiser</Button>
+      </div>
+      </Box>
     </div>
+    </>
   );
 };
 

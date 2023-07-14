@@ -22,6 +22,7 @@ import StickyFooter from "./components/Footer";
 import Wufooform from "./Pages/Wufooform";
 import InfoRunFundraiser from "./components/InfoRunFundraiser";
 import InfoProductDelivery from "./components/InfoProductDelivery";
+import InfoContactUs from "./components/InfoContactUs";
 
 function App() {
   return (
@@ -52,6 +53,7 @@ function App() {
         
         <Route path="/FundRaiserInfo" element={<InfoRunFundraiser />} />
         <Route path="/ProductDeliveryInfo" element={<InfoProductDelivery />} />
+        <Route path="/ContactUsInfo" element={<InfoContactUs />} />
 
         <Route
           path="/Dashboard"
