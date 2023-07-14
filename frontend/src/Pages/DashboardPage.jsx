@@ -21,6 +21,7 @@ import EditFundraiserPage from "./EditFundraiserPage";
 import OrganizationsPage from "./OrganizationsPage";
 import AddOrganizationPage from "./AddOrganizationPage";
 import EditOrganization from "./EditOrganizationPage";
+import EditProfilePage from "./EditProfilePage";
 
 const DashboardPage = ({ page }) => {
   const [collapsed, setCollapsed] = useState(false);
@@ -101,6 +102,7 @@ const DashboardPage = ({ page }) => {
           {page === "fundraisers" && <FundraisersPage />}
           {page === "add-fundraiser" && <AddFundraiserPage />}
           {page === "edit-fundraiser/:id" && <EditFundraiserPage />}
+          {page === "edit-profile" && <EditProfilePage />}
         </div>
       </div>
     </>

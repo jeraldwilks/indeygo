@@ -6,6 +6,7 @@ import dotenv from "dotenv";
 import sgMail from "@sendgrid/mail";
 import { UserModel } from "../models/userModel.js";
 import bcrypt from "bcrypt";
+import { isAuthenticated } from "../middleware/isAuthenticated.js";
 
 dotenv.config();
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
@@ -64,6 +65,18 @@ userRouter.post("/", async (req, res) => {
   }
 });
 
+userRouter.patch("/", isAuthenticated, async (req, res) => {
+  try {
+    delete req.body.password;
+    await UserModel.findByIdAndUpdate(req.user._id, req.body);
+    const updatedUser = await UserModel.findById(req.user._id);
+    res.send(updatedUser);
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).send(error.message);
+  }
+});
+
 userRouter.post("/forgotpassword", async (req, res) => {
   let user = await UserModel.findOne({ email: req.body.email });
 
@@ -109,6 +122,18 @@ userRouter.post("/forgotpassword", async (req, res) => {
       });
     })
     .catch((err) => res.status(500).json({ message: err.message }));
+});
+
+userRouter.post("/change-password", isAuthenticated, async (req, res) => {
+  let user = await UserModel.findById(req.user._id);
+  const hashedPassword = bcrypt.hashSync(req.body.password, 10);
+  user.password = hashedPassword;
+  try {
+    user.save();
+  } catch (error) {
+    res.status(500).json({ message: err.message });
+  }
+  res.status(200).json({ message: "Your password has been updated." });
 });
 
 userRouter.post("/resetpassword", async (req, res) => {
