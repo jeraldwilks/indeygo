@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -12,20 +13,71 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import { Link } from "react-router-dom";
-// import logo from "../assets/logo.jpg";
-import DropdownMenu from "./DropdownMenu";
+import { NestedDropdown } from "mui-nested-menu";
 
 const pages = [
-  "About",
-  "Products",
-  // { label: "Products", subPages: ["Product 1", "Product 2", "Product 3"] },
-  "FundraisingInfo",
-  "FAQ",
-  "Blog",
-  "Contact",
+  {
+    label: "About",
+    menuItems: [
+      { label: "About 1", callback: () => console.log("About > Submenu 1") },
+      { label: "About 2", callback: () => console.log("About > Submenu 2") },
+      // Add more submenu items as needed
+    ],
+  },
+  {
+    label: "Products",
+    menuItems: [
+      {
+        label: "Products 1",
+        callback: () => console.log("Products > Submenu 1"),
+      },
+      {
+        label: "Products 2",
+        callback: () => console.log("Products > Submenu 2"),
+      },
+      // Add more submenu items as needed
+    ],
+  },
+  {
+    label: "FundraisingInfo",
+    menuItems: [
+      {
+        label: "FundraisingInfo 1",
+        callback: () => console.log("FundraisingInfo > FundraisingInfo 1"),
+      },
+      {
+        label: "FundraisingInfo 2",
+        callback: () => console.log("FundraisingInfo > FundraisingInfo 2"),
+      },
+      // Add more submenu items as needed
+    ],
+  },
+  {
+    label: "FAQ",
+    menuItems: [
+      { label: "Blog", callback: () => console.log("FundraisingInfo > Blog") },
+      {
+        label: "Submenu 2",
+        callback: () => console.log("FundraisingInfo > Submenu 2"),
+      },
+      // Add more submenu items as needed
+    ],
+  },
+  {
+    label: "Contact",
+    menuItems: [
+      {
+        label: "Submenu 1",
+        callback: () => console.log("FundraisingInfo > Submenu 1"),
+      },
+      {
+        label: "Submenu 2",
+        callback: () => console.log("FundraisingInfo > Submenu 2"),
+      },
+      // Add more submenu items as needed
+    ],
+  },
 ];
-
-
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -126,10 +178,22 @@ function ResponsiveAppBar() {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
-                <Link to={page} key={page}>
+              {pages.map((page) => ( 
+                <Link to={page} key={page.label}>
+                  <NestedDropdown
+                  key={page.label}
+                  menuItemsData={{
+                    label: page.label,
+                    items: page.menuItems.map((menuItem) => ({
+                      label: menuItem.label,
+                      callback: menuItem.callback,
+                    })),
+                  }}
+                  anchorEl={anchorElNav}
+                  onClose={handleCloseNavMenu}
+                >
                   <MenuItem
-                    key={page}
+                    key={page.label}
                     onClick={handleCloseNavMenu}
                     sx={{
                       "&:hover": {
@@ -138,13 +202,13 @@ function ResponsiveAppBar() {
                     }}
                   >
                     <Typography textAlign="center" sx={{ color: "#0b4d83" }}>
-                      {page}
+                      {page.label}
                     </Typography>
                   </MenuItem>
-                </Link>
+                </NestedDropdown></Link>
+                
               ))}
             </Menu>
-            {/* <DropdownMenu pages={pages} handleClose={handleCloseNavMenu} /> */}
           </Box>
           <Typography
             variant="h5"
@@ -172,9 +236,23 @@ function ResponsiveAppBar() {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
-              <Link to={page} key={page}>
+              <Link to={page.label} key={page.label}>
+                
+                <NestedDropdown
+                  key={page.label}
+                  menuItemsData={{
+                    label: page.label,
+                    items: page.menuItems.map((menuItem) => ({
+                      label: menuItem.label,
+                      callback: menuItem.callback,
+                    })),
+                  }}
+                  anchorEl={anchorElNav}
+                  onClose={handleCloseNavMenu}
+                >
+                
                 <Button
-                  key={page}
+                  key={page.label}
                   onClick={handleCloseNavMenu}
                   sx={{
                     my: 2,
@@ -184,9 +262,9 @@ function ResponsiveAppBar() {
                     marginRight: "0rem",
                   }}
                 >
-                  {page}
+                  {page.label}
                 </Button>
-              </Link>
+              </NestedDropdown></Link>
             ))}
           </Box>
 
@@ -240,134 +318,3 @@ function ResponsiveAppBar() {
   );
 }
 export default ResponsiveAppBar;
-
-
-// Rini's old code, replaced with reponsive code - Hikmah
-// import * as React from "react";
-// import AppBar from "@mui/material/AppBar";
-// import Box from "@mui/material/Box";
-// import Toolbar from "@mui/material/Toolbar";
-// import IconButton from "@mui/material/IconButton";
-// import Typography from "@mui/material/Typography";
-// import Menu from "@mui/material/Menu";
-// import MenuIcon from "@mui/icons-material/Menu";
-// import Container from "@mui/material/Container";
-// import Avatar from "@mui/material/Avatar";
-// import Button from "@mui/material/Button";
-// import Tooltip from "@mui/material/Tooltip";
-// import MenuItem from "@mui/material/MenuItem";
-// import { Link } from "react-router-dom";
-// import logo from '../assets/logo.jpg';
-
-// const pages = [
-//   "About",
-//   "Products",
-//   "FundraisingInfo",
-//   "FAQ",
-//   "Blog",
-//   "Contact",
-// ];
-// const settings = ["Login", "Register", "Dashboard", "Logout"];
-// function ResponsiveAppBar() {
-//   const [anchorElNav, setAnchorElNav] = React.useState(null);
-//   const [anchorElUser, setAnchorElUser] = React.useState(null);
-//   const handleOpenNavMenu = (event) => {
-//     setAnchorElNav(event.currentTarget);
-//   };
-//   const handleOpenUserMenu = (event) => {
-//     setAnchorElUser(event.currentTarget);
-//   };
-//   const handleCloseNavMenu = () => {
-//     setAnchorElNav(null);
-//   };
-//   const handleCloseUserMenu = () => {
-//     setAnchorElUser(null);
-//   };
-
-//   return (
-//     <AppBar
-//       position="fixed"
-//       sx={{
-//         backgroundColor: "#0B4D83",
-//         marginBottom: "2rem",
-//         height: 70,
-//         paddingTop: ".3rem",
-//       }}
-//     >
-//       <Container maxWidth="xl">
-//         <Toolbar disableGutters>
-//           <Typography variant="h6" noWrap>
-//             <Link to="/" key="home">
-//               <img
-//                 src={logo}
-//                 alt="Logo"
-//                 style={{ height: 70, marginRight: 8 }} // Adjust the height and margin as needed
-//               />
-//             </Link>
-//           </Typography>
-//           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}></Box>{" "}
-//           {/* Close the Box component here */}
-//           <Typography variant="h5" noWrap>
-//             <Link to="/" key="home">
-//               <img
-//                 src={logo}
-//                 alt="Logo"
-//                 style={{ height: 70, marginRight: 8 }} // Adjust the height and margin as needed
-//               />
-//             </Link>
-//           </Typography>
-//           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-//             {pages.map((page) => (
-//               <Link to={page} key={page}>
-//                 <Button
-//                   onClick={handleCloseNavMenu}
-//                   sx={{
-//                     my: 2,
-//                     color: "white",
-//                     display: "block",
-//                     marginRight: "6rem",
-//                     marginLeft: "6rem",
-//                   }}
-//                 >
-//                   {page}
-//                 </Button>
-//               </Link>
-//             ))}
-//           </Box>
-//           <Box sx={{ flexGrow: 0 }}>
-//             <Tooltip title="Open settings">
-//               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-//                 <Avatar alt="" src="" />
-//               </IconButton>
-//             </Tooltip>
-//             <Menu
-//               sx={{ mt: "45px" }}
-//               id="menu-appbar"
-//               anchorEl={anchorElUser}
-//               anchorOrigin={{
-//                 vertical: "top",
-//                 horizontal: "right",
-//               }}
-//               keepMounted
-//               transformOrigin={{
-//                 vertical: "top",
-//                 horizontal: "right",
-//               }}
-//               open={Boolean(anchorElUser)}
-//               onClose={handleCloseUserMenu}
-//             >
-//               {settings.map((setting) => (
-//                 <Link to={setting} key={setting}>
-//                   <MenuItem onClick={handleCloseUserMenu}>
-//                     <Typography textAlign="center">{setting}</Typography>
-//                   </MenuItem>
-//                 </Link>
-//               ))}
-//             </Menu>
-//           </Box>
-//         </Toolbar>
-//       </Container>
-//     </AppBar>
-//   );
-// }
-// export default ResponsiveAppBar;
