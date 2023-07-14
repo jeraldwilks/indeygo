@@ -79,7 +79,7 @@ const HomePage = () => {
             <div className="step">
               <li>
                 <div>Step 4</div>
-                <a href="/About">
+                <a href="/CountCashInfo">
                   <div>
                     <img src="./images/step4.png" alt="Step 4" />
                   </div>

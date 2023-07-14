@@ -23,6 +23,7 @@ import Wufooform from "./Pages/Wufooform";
 import InfoRunFundraiser from "./components/InfoRunFundraiser";
 import InfoProductDelivery from "./components/InfoProductDelivery";
 import InfoContactUs from "./components/InfoContactUs";
+import InfoCountCash from "./components/InfoCountCash";
 
 function App() {
   return (
@@ -51,10 +52,12 @@ function App() {
 
         {/* Routes to Information Components(Mui Dialog) */}
         
+        <Route path="/ContactUsInfo" element={<InfoContactUs />} />
         <Route path="/FundRaiserInfo" element={<InfoRunFundraiser />} />
         <Route path="/ProductDeliveryInfo" element={<InfoProductDelivery />} />
-        <Route path="/ContactUsInfo" element={<InfoContactUs />} />
-
+        <Route path="/CountCashInfo" element={<InfoCountCash />} />
+        
+        
         <Route
           path="/Dashboard"
           element={
