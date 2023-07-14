@@ -20,6 +20,11 @@ import InquiryPage from "./Pages/InquiryPage";
 import { Routes, Route } from "react-router-dom";
 import StickyFooter from "./components/Footer";
 import Wufooform from "./Pages/Wufooform";
+import InfoRunFundraiser from "./components/InfoRunFundraiser";
+import InfoCoordinatorsChecklist from "./components/InfoCoordinatorsChecklist";
+import InfoProductDelivery from "./components/InfoProductDelivery";
+import InfoContactUs from "./components/InfoContactUs";
+import InfoCountCash from "./components/InfoCountCash";
 
 function App() {
   return (
@@ -46,6 +51,15 @@ function App() {
         <Route path="/ResetPassword/:token" element={<ResetPasswordPage />} />
         <Route path="/ForgotPassword" element={<ForgotPasswordPage />} />
 
+        {/* Routes to Information Components(Mui Dialog) */}
+        
+        <Route path="/ContactUsInfo" element={<InfoContactUs />} />
+        <Route path="/FundRaiserInfo" element={<InfoRunFundraiser />} />
+        <Route path="/CoordinatorsChecklistInfo" element={<InfoCoordinatorsChecklist />} />
+        <Route path="/ProductDeliveryInfo" element={<InfoProductDelivery />} />
+        <Route path="/CountCashInfo" element={<InfoCountCash />} />
+        
+        
         <Route
           path="/Dashboard"
           element={
