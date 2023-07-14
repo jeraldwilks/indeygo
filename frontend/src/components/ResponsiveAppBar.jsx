@@ -179,7 +179,7 @@ function ResponsiveAppBar() {
               }}
             >
               {pages.map((page) => ( 
-                <Link to={page} key={page.label}>
+                <Link to={page.label} key={page.label}>
                   <NestedDropdown
                   key={page.label}
                   menuItemsData={{
