@@ -16,13 +16,13 @@ export default function StickyFooter() {
     gap: "10px",
     backgroundColor: "#f2f2f2",
     width: "100%",
-    fontFamily: "monospace",
+    fontFamily: "inherit",
   };
-  
+
   const columnStyle = {
     flex: 1,
     paddingInline: "30px",
-    marginTop: "1px",
+    marginBlock: "5px",
     maxWidth: "250px",
   };
 
@@ -33,7 +33,7 @@ export default function StickyFooter() {
 
   const listItemStyle = {
     fontSize: "12",
-    justifyContent: "right",
+    justifyContent: "left",
     marginBottom: "5px",
     color: "#0B4D83",
   };
@@ -83,14 +83,14 @@ export default function StickyFooter() {
                 style={imageStyle}
               />
               <div style={columnStyle}>
-              <h2 style={headingStyle}>OUR LINKS</h2>
-              <ul style={{ listStyleType: "none", padding: 0, margin: 0 }}>
-                <li style={listItemStyle}>About Us</li>
-                <li style={listItemStyle}>FAQ</li>
-                <li style={listItemStyle}>Blog</li>
-                <li style={listItemStyle}>Contact Us</li>
-              </ul>
-            </div>
+                <h2 style={headingStyle}>OUR LINKS</h2>
+                <ul style={{ listStyleType: "none", padding: 0, margin: 0 }}>
+                  <li style={listItemStyle}>About Us</li>
+                  <li style={listItemStyle}>FAQ</li>
+                  <li style={listItemStyle}>Blog</li>
+                  <li style={listItemStyle}>Contact Us</li>
+                </ul>
+              </div>
             </div>
             <div style={columnStyle}>
               <h2 style={headingStyle}>CONTACT US</h2>

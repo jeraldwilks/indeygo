@@ -1,7 +1,85 @@
 .carousel {
   margin-top: 100px;
-  padding-block: 50px;
-  padding-inline: 30px;
-  gap: 30px;
-  background: linear-gradient(-45deg, #0b4d83, #f2f2f2, #9a9a9a41);
+  flex-wrap: wrap;
+  height: 70vh;
+  padding-block: 30px;
+  padding-inline: 10px;
+  background: radial-gradient(circle, #f2f2f2, #9a9a9a41, #0b4d83);
+  background-size: 200% 400%;
+  animation: gradient 25s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.slick-next {
+  right: 20px;
+  z-index: 1;
+}
+
+.slick-next::before {
+  display: none;
+}
+
+.carousel-container {
+  margin-bottom: 300px; /* Adjust margin-top as needed */
+}
+h1 {
+  text-transform: uppercase;
+  font-size: 4em;
+}
+.cardholder {
+  margin-block: 80px;
+  perspective: 600px;
+}
+.card {
+  width: 300px;
+  height: 300px;
+  border-radius:50%;
+  background-color: transparent;
+  transform: rotateY(55deg);
+  -webkit-box-shadow: -6px 5px 13px 2px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: -6px 5px 13px 2px rgba(0, 0, 0, 0.25);
+  box-shadow: -6px 5px 13px 2px rgba(0, 0, 0, 0.25);
+  transition: all 1s ease;
+  color: transparent;
+}
+
+.card:hover {
+  width: 300px;
+  height: 300px;
+  background-color: transparent;
+  transform: rotateY(0deg);
+  box-shadow: 0px 0px 36px 2px rgba(0, 0, 0, 0.25);
+  color: black;
+}
+.card:hover p {
+  background-color: transparent;
+}
+p.desc {
+  z-index: 999;
+  /* position: absolute; */
+  top: 10px;
+  padding: 10px;
+}
+
+p.desc:hover {
+  color: #120e0e;
+}
+
+.visible {
+  opacity: 1;
+}
+
+.hidden {
+  opacity: 1;
 }

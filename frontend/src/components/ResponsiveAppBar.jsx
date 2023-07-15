@@ -132,7 +132,7 @@ function ResponsiveAppBar() {
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
+              fontFamily: "sans-serif",
               fontWeight: 700,
               letterSpacing: ".3rem",
               color: "#0b4d83",
@@ -178,35 +178,35 @@ function ResponsiveAppBar() {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => ( 
+              {pages.map((page) => (
                 <Link to={page.label} key={page.label}>
                   <NestedDropdown
-                  key={page.label}
-                  menuItemsData={{
-                    label: page.label,
-                    items: page.menuItems.map((menuItem) => ({
-                      label: menuItem.label,
-                      callback: menuItem.callback,
-                    })),
-                  }}
-                  anchorEl={anchorElNav}
-                  onClose={handleCloseNavMenu}
-                >
-                  <MenuItem
                     key={page.label}
-                    onClick={handleCloseNavMenu}
-                    sx={{
-                      "&:hover": {
-                        backgroundColor: "#F7E86A",
-                      },
+                    menuItemsData={{
+                      label: page.label,
+                      items: page.menuItems.map((menuItem) => ({
+                        label: menuItem.label,
+                        callback: menuItem.callback,
+                      })),
                     }}
+                    anchorEl={anchorElNav}
+                    onClose={handleCloseNavMenu}
                   >
-                    <Typography textAlign="center" sx={{ color: "#0b4d83" }}>
-                      {page.label}
-                    </Typography>
-                  </MenuItem>
-                </NestedDropdown></Link>
-                
+                    <MenuItem
+                      key={page.label}
+                      onClick={handleCloseNavMenu}
+                      sx={{
+                        "&:hover": {
+                          backgroundColor: "#F7E86A",
+                        },
+                      }}
+                    >
+                      <Typography textAlign="center" sx={{ color: "#0b4d83" }}>
+                        {page.label}
+                      </Typography>
+                    </MenuItem>
+                  </NestedDropdown>
+                </Link>
               ))}
             </Menu>
           </Box>
@@ -219,7 +219,7 @@ function ResponsiveAppBar() {
               mr: 2,
               display: { xs: "flex", md: "none" },
               flexGrow: 1,
-              fontFamily: "monospace",
+              fontFamily: "sans-serif",
               fontWeight: 700,
               letterSpacing: ".3rem",
               color: "#0b4d83",
@@ -237,7 +237,6 @@ function ResponsiveAppBar() {
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Link to={page.label} key={page.label}>
-                
                 <NestedDropdown
                   key={page.label}
                   menuItemsData={{
@@ -250,21 +249,21 @@ function ResponsiveAppBar() {
                   anchorEl={anchorElNav}
                   onClose={handleCloseNavMenu}
                 >
-                
-                <Button
-                  key={page.label}
-                  onClick={handleCloseNavMenu}
-                  sx={{
-                    my: 2,
-                    color: "white",
-                    display: "block",
-                    marginLeft: "8rem",
-                    marginRight: "0rem",
-                  }}
-                >
-                  {page.label}
-                </Button>
-              </NestedDropdown></Link>
+                  <Button
+                    key={page.label}
+                    onClick={handleCloseNavMenu}
+                    sx={{
+                      my: 2,
+                      color: "white",
+                      display: "block",
+                      marginLeft: "8rem",
+                      marginRight: "0rem",
+                    }}
+                  >
+                    {page.label}
+                  </Button>
+                </NestedDropdown>
+              </Link>
             ))}
           </Box>
 
