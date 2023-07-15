@@ -1,10 +1,19 @@
 import React, { useEffect, useState } from "react";
 import GetStarted from "./GetStarted";
+import {
+  CssBaseline,
+  FormControl,
+  FormGroup,
+  InputLabel,
+  MenuItem,
+  Select,
+} from "@mui/material";
 
 const DashboardContent = () => {
   const [fundraisers, setFundraisers] = useState([]);
   const [fundraiser, setFundraiser] = useState();
   const [sales, setSales] = useState([]);
+  const [topTenSales, setTopTenSales] = useState([]);
 
   useEffect(() => {
     const initialLoad = async () => {
@@ -35,13 +44,60 @@ const DashboardContent = () => {
         salesData[sale].totalSales = totalSales;
       }
       setSales(salesData);
+      salesData.sort((a, b) => b.totalSales - a.totalSales);
+      let newArray = [];
+      for (let i = 0; i < salesData.length && i < 10; i++) {
+        newArray.push(salesData[i]);
+      }
+      setTopTenSales(newArray);
     };
     if (fundraiser) {
       getSales();
     }
   }, [fundraiser]);
 
-  return <div> {fundraiser === undefined && <GetStarted />}</div>;
+  return (
+    <div>
+      {fundraiser === undefined && <GetStarted />}
+      {fundraiser && (
+        <>
+          <CssBaseline />
+          <FormControl>
+            <FormGroup>
+              <InputLabel id="fundraiser-label">Fundraiser</InputLabel>
+              {fundraisers.length > 0 && (
+                <Select
+                  labelId="fundraiser-label"
+                  id="Fundraiser"
+                  value={fundraiser}
+                  label="Fundraiser"
+                  onChange={(e) => {
+                    setFundraiser(e.target.value);
+                  }}
+                  required
+                >
+                  {fundraisers.map((fundraiser) => (
+                    <MenuItem key={fundraiser.name} value={fundraiser}>
+                      {fundraiser.name}
+                    </MenuItem>
+                  ))}
+                </Select>
+              )}
+            </FormGroup>
+          </FormControl>
+          <h2>{fundraiser.organization.name}</h2>
+          <h3>Top Ten Sales</h3>
+          <ol>
+            {topTenSales.map((sale, index) => (
+              <li key={sale._id}>
+                {index + 1}. {sale.name} - ${sale.totalSales}
+              </li>
+            ))}
+          </ol>
+        </>
+      )}
+    </div>
+  );
 };
 
 export default DashboardContent;
