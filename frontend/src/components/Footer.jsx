@@ -13,16 +13,16 @@ export default function StickyFooter() {
     display: "flex",
     flexWrap: "wrap",
     justifyContent: "center",
-    gap: "100px",
+    gap: "10px",
     backgroundColor: "#f2f2f2",
-    marginTop: 300,
     width: "100%",
     fontFamily: "monospace",
   };
-
+  
   const columnStyle = {
     flex: 1,
-    marginBlock: "40px",
+    paddingInline: "30px",
+    marginTop: "1px",
     maxWidth: "250px",
   };
 
@@ -53,6 +53,7 @@ export default function StickyFooter() {
 
   const imageColumnStyle = {
     flex: 1,
+    paddingInline: "10px",
     marginTop: "60px",
     marginRight: "20px",
     maxWidth: "250px",
@@ -165,9 +166,7 @@ export default function StickyFooter() {
               mt: "auto",
 
               backgroundColor: "#0B4D83",
-              // marginBottom: "1rem",
               height: 100,
-              // paddingTop: ".1rem",
             }}
           >
             <Container maxWidth="sm">
