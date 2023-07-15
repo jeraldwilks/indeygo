@@ -8,49 +8,38 @@ import { CiFacebook } from "react-icons/ci";
 import { SlSocialPintarest } from "react-icons/sl";
 import { TfiTwitter, TfiInstagram } from "react-icons/tfi";
 
-function Copyright() {
-  return (
-    <Typography variant="body2" style={{ color: "white" }}>
-      {"Copyright © "}
-      <Link color="inherit" href="/">
-        Indeygo Fundraising
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {". "}
-      All Rights Reserved
-    </Typography>
-  );
-}
-
 export default function StickyFooter() {
   const footerStyle = {
     display: "flex",
-    justifyContent: "space-around",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    gap: "100px",
     backgroundColor: "#f2f2f2",
-    padding: "20px",
-    marginTop: 600,
+    marginTop: 300,
     width: "100%",
     fontFamily: "monospace",
   };
 
   const columnStyle = {
     flex: 1,
-    marginRight: "20px",
+    marginBlock: "40px",
     maxWidth: "250px",
   };
 
   const headingStyle = {
-    fontSize: "16px",
+    fontSize: "18px",
     marginBottom: "10px",
   };
 
   const listItemStyle = {
+    fontSize: "12",
+    justifyContent: "right",
     marginBottom: "5px",
     color: "#0B4D83",
   };
 
   const contactInfoStyle = {
-    marginBottom: "10px",
+    marginBottom: "19px",
     color: "#565555",
   };
 
@@ -62,6 +51,19 @@ export default function StickyFooter() {
     color: "#0B4D83",
   };
 
+  const imageColumnStyle = {
+    flex: 1,
+    marginTop: "60px",
+    marginRight: "20px",
+    maxWidth: "250px",
+    minWidth: "150px",
+  };
+
+  const imageStyle = {
+    maxWidth: "100%",
+    height: "auto",
+  };
+
   return (
     <>
       <Box>
@@ -69,10 +71,26 @@ export default function StickyFooter() {
           sx={{
             display: "flex",
             flexDirection: "column",
-            minHeight: "100vh",
+            minHeight: "10vh",
           }}
         >
           <div style={footerStyle}>
+            <div style={imageColumnStyle}>
+              <img
+                src="primaryLogo.jpg"
+                alt="Secondary Logo"
+                style={imageStyle}
+              />
+              <div style={columnStyle}>
+              <h2 style={headingStyle}>OUR LINKS</h2>
+              <ul style={{ listStyleType: "none", padding: 0, margin: 0 }}>
+                <li style={listItemStyle}>About Us</li>
+                <li style={listItemStyle}>FAQ</li>
+                <li style={listItemStyle}>Blog</li>
+                <li style={listItemStyle}>Contact Us</li>
+              </ul>
+            </div>
+            </div>
             <div style={columnStyle}>
               <h2 style={headingStyle}>CONTACT US</h2>
               <ul style={{ listStyleType: "none", padding: 0, margin: 0 }}>
@@ -113,25 +131,7 @@ export default function StickyFooter() {
                 </a>
               </div>
             </div>
-            <div style={columnStyle}>
-              <h2 style={headingStyle}>OUR LINKS</h2>
-              <ul style={{ listStyleType: "none", padding: 0, margin: 0 }}>
-                <li style={listItemStyle}>About Us</li>
-                <li style={listItemStyle}>FAQ</li>
-                <li style={listItemStyle}>Blog</li>
-                <li style={listItemStyle}>Contact Us</li>
-              </ul>
-            </div>
-            <div style={columnStyle}>
-              <h2 style={headingStyle}>COORDINATOR INFO</h2>
-              <ul style={{ listStyleType: "none", padding: 0, margin: 0 }}>
-                <li style={listItemStyle}>How Does A Fundraiser Work?</li>
-                <li style={listItemStyle}>Coordinators Checklist</li>
-                <li style={listItemStyle}>I Need More Info</li>
-                <li style={listItemStyle}>I Am Ready To Book Fundraiser</li>
-                <li style={listItemStyle}>Complete Order Here</li>
-              </ul>
-            </div>
+
             <div style={columnStyle}>
               <h2 style={headingStyle}>PRODUCTS</h2>
               <ul style={{ listStyleType: "none", padding: 0, margin: 0 }}>
@@ -143,6 +143,16 @@ export default function StickyFooter() {
                 <li style={listItemStyle}>Harvest Bundle Veggies</li>
                 <li style={listItemStyle}>Spring Planters And Herbs</li>
                 <li style={listItemStyle}>Doggie Dough</li>
+              </ul>
+            </div>
+            <div style={columnStyle}>
+              <h2 style={headingStyle}>COORDINATOR INFO</h2>
+              <ul style={{ listStyleType: "none", padding: 0, margin: 0 }}>
+                <li style={listItemStyle}>How Does A Fundraiser Work?</li>
+                <li style={listItemStyle}>Coordinators Checklist</li>
+                <li style={listItemStyle}>I Need More Info</li>
+                <li style={listItemStyle}>I Am Ready To Book Fundraiser</li>
+                <li style={listItemStyle}>Complete Order Here</li>
               </ul>
             </div>
           </div>
@@ -170,5 +180,19 @@ export default function StickyFooter() {
         </Box>
       </Box>
     </>
+  );
+}
+
+function Copyright() {
+  return (
+    <Typography variant="body2" style={{ color: "white" }}>
+      {"Copyright © "}
+      <Link color="inherit" href="/">
+        Indeygo Fundraising
+      </Link>{" "}
+      {new Date().getFullYear()}
+      {". "}
+      All Rights Reserved
+    </Typography>
   );
 }
