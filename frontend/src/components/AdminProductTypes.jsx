@@ -22,19 +22,13 @@ const AdminProductTypes = () => {
     const getProductTypes = async () => {
       const response = await fetch("/api/productType");
       const data = await response.json();
-
-      const formattedProductTypes = data.map((productType) => ({
-        id: productType._id,
-        ...productType,
-      }));
-
-      setAvailableProductTypes(formattedProductTypes);
+      setAvailableProductTypes(data);
     };
     getProductTypes();
   }, []);
 
   const columns = [
-    { field: "name", headerName: "Product Type", width: 150 },
+    { field: "name", headerName: "Product Type", width: 250 },
     {
       field: "caseSize",
       headerName: "Case Size",
@@ -102,6 +96,7 @@ const AdminProductTypes = () => {
                   </Typography>
                   <Box sx={{ height: 300, width: "100%" }}>
                     <DataGrid
+                      getRowId={(row) => row._id}
                       rows={availableProductTypes}
                       columns={columns}
                       pageSize={5}
