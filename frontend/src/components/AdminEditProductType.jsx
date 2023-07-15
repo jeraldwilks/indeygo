@@ -22,12 +22,12 @@ const theme = createTheme();
 
 const AdminEditProductType = () => {
   const { id } = useParams();
-  const _id = id;
   const [name, setName] = useState("");
   const [caseSize, setCaseSize] = useState("");
   const [quantityDesc, setQuantityDesc] = useState("");
+  const [wholesalePrices, setWholesalePrices] = useState([]);
+  const [sellPrice, setSellPrice] = useState("");
   const [isActive, setIsActive] = useState(true);
-  const [priceTierMin, setPriceTierMin] = useState([]);
 
   useEffect(() => {
     const initialLoad = async () => {
@@ -38,18 +38,30 @@ const AdminEditProductType = () => {
       setCaseSize(typeData[0].caseSize);
       setQuantityDesc(typeData[0].quantityDesc);
       setIsActive(typeData[0].isActive);
-      setPriceTierMin(typeData[0].priceTierMin);
+      setWholesalePrices(typeData[0].wholesalePrices);
+      setSellPrice(typeData[0].sellPrice);
     };
 
     initialLoad();
   }, []);
 
-  const updateFieldChanged = (index, value) => {
-    let newArr = [...priceTierMin];
-    newArr[index] = parseFloat(value);
-    setPriceTierMin(newArr);
+  // const updateFieldChanged = (index, value) => {
+  //   let newArr = [...priceTierMin];
+  //   newArr[index] = parseFloat(value);
+  //   setPriceTierMin(newArr);
+  // };
+
+  const updateTierQuantity = (index, value) => {
+    let newArray = [...wholesalePrices];
+    newArray[index].tierMin = parseInt(value);
+    setWholesalePrices(newArray);
   };
 
+  const updateTierPrice = (index, value) => {
+    let newArray = [...wholesalePrices];
+    newArray[index].price = parseFloat(value);
+    setWholesalePrices(newArray);
+  };
   const submitForm = async () => {
     const response = await fetch("/api/productType/", {
       method: "PATCH",
@@ -57,11 +69,12 @@ const AdminEditProductType = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        _id,
+        _id: id,
         name,
         caseSize,
         quantityDesc,
-        priceTierMin,
+        wholesalePrices,
+        sellPrice,
         isActive,
       }),
     });
@@ -121,26 +134,35 @@ const AdminEditProductType = () => {
               />
               <br />
 
-              {priceTierMin &&
-                priceTierMin.map((priceTier, index) => (
-                  <>
+              {wholesalePrices &&
+                wholesalePrices.map((tier, index) => (
+                  <React.Fragment key={"PricingTier" + index}>
                     <br />
                     <TextField
-                      key={"tier" + index}
                       type="number"
                       variant="outlined"
-                      value={priceTierMin[index]}
-                      label={"Tier " + (index + 1) + " Price"}
-                      helperText={
-                        index + 1 === priceTierMin.length
-                          ? priceTier + " or more"
-                          : "Up to " + (priceTierMin[index + 1] - caseSize)
-                      }
+                      value={wholesalePrices[index].tierMin}
+                      label={"Tier " + (index + 1) + " Minimum Quantity"}
+                      helperText="Minimum number of items sold to get this pricing tier"
                       onChange={(e) =>
-                        updateFieldChanged(index, e.target.value)
+                        updateTierQuantity(index, e.target.value)
                       }
                     />
-                  </>
+                    <br />
+                    <TextField
+                      type="number"
+                      variant="outlined"
+                      value={wholesalePrices[index].price}
+                      label={"Tier " + (index + 1) + " Price"}
+                      helperText={
+                        index + 1 === wholesalePrices.length
+                          ? wholesalePrices[index].tierMin + " or more"
+                          : "Up to " +
+                            (wholesalePrices[index + 1].tierMin - caseSize)
+                      }
+                      onChange={(e) => updateTierPrice(index, e.target.value)}
+                    />
+                  </React.Fragment>
                 ))}
 
               <FormControlLabel
