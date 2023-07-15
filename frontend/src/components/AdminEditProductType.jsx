@@ -1,7 +1,7 @@
 //Original
 
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import {
   FormControl,
   FormControlLabel,
@@ -21,6 +21,7 @@ import EditSharpIcon from "@mui/icons-material/EditSharp";
 const theme = createTheme();
 
 const AdminEditProductType = () => {
+  const navigate = useNavigate();
   const { id } = useParams();
   const [name, setName] = useState("");
   const [caseSize, setCaseSize] = useState("");
@@ -44,12 +45,6 @@ const AdminEditProductType = () => {
 
     initialLoad();
   }, []);
-
-  // const updateFieldChanged = (index, value) => {
-  //   let newArr = [...priceTierMin];
-  //   newArr[index] = parseFloat(value);
-  //   setPriceTierMin(newArr);
-  // };
 
   const updateTierQuantity = (index, value) => {
     let newArray = [...wholesalePrices];
@@ -79,6 +74,7 @@ const AdminEditProductType = () => {
       }),
     });
     alert(await response.text());
+    navigate("/admin-product-types");
   };
 
   return (
