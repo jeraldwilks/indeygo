@@ -1,0 +1,7 @@
+.carousel {
+  margin-top: 100px;
+  padding-block: 50px;
+  padding-inline: 30px;
+  gap: 30px;
+  background: linear-gradient(-45deg, #0b4d83, #f2f2f2, #9a9a9a41);
+}
