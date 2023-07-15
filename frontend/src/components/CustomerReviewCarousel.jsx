@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../styling/CustomerReviewCarousel.css";
-import "animate.css";
+// import "animate.css";
 
 const CustomerReviewCarousel = () => {
   const [autoplay, setAutoplay] = React.useState(true);
@@ -51,13 +51,7 @@ const CustomerReviewCarousel = () => {
   return (
     <div class="carousel">
       <div class="carousel-container">
-
-          <Slider
-            {...settings}
-            autoplay={autoplay}
-            autoplaySpeed={1500}
-          >
-
+        <Slider {...settings} autoplay={autoplay} autoplaySpeed={1500}>
           <div class="col-md-3">
             <div class="cardholder">
               <div class="card">
@@ -79,9 +73,8 @@ const CustomerReviewCarousel = () => {
               </div>
             </div>
           </div>
-
-          </Slider>
-        </div>
+        </Slider>
+      </div>
     </div>
   );
 };
