@@ -54,12 +54,7 @@ const AdminProducts = () => {
     {
       field: "description",
       headerName: "Description",
-      width: 300,
-    },
-    {
-      field: "sellPrice",
-      headerName: "Price",
-      width: 40,
+      width: 350,
     },
     {
       field: "Edit",

@@ -22,8 +22,6 @@ const AdminAddProduct = () => {
   const [productType, setProductType] = useState("");
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  const [sellPrice, setSellPrice] = useState(1);
-  const [wholesalePrices, setWholesalePrices] = useState([]);
   const [availableProductTypes, setAvailableProductTypes] = useState([]);
 
   useEffect(() => {
@@ -33,12 +31,6 @@ const AdminAddProduct = () => {
     };
     getProductTypes();
   }, []);
-
-  const updateFieldChanged = (index, value) => {
-    let newArr = [...wholesalePrices];
-    newArr[index] = parseFloat(value);
-    setWholesalePrices(newArr);
-  };
 
   const submitForm = async () => {
     const response = await fetch("/api/product/", {
@@ -50,8 +42,6 @@ const AdminAddProduct = () => {
         productType,
         name,
         description,
-        sellPrice,
-        wholesalePrices,
       }),
     });
     alert(await response.text());
@@ -119,36 +109,6 @@ const AdminAddProduct = () => {
                 onChange={(e) => setDescription(e.target.value)}
               />
               <br />
-
-              <TextField
-                type="number"
-                variant="outlined"
-                label="Consumer Price"
-                name="sellPrice"
-                required
-                onChange={(e) => setSellPrice(e.target.value)}
-              />
-              {productType != [] &&
-                productType.priceTierMin.map((priceTier, index) => (
-                  <React.Fragment key={"tier" + index}>
-                    <br />
-                    <TextField
-                      type="number"
-                      variant="outlined"
-                      label={"Tier " + (index + 1) + " Price"}
-                      helperText={
-                        index + 1 === productType.priceTierMin.length
-                          ? priceTier + " or more"
-                          : "Up to " +
-                            (productType.priceTierMin[index + 1] -
-                              productType.caseSize)
-                      }
-                      onChange={(e) =>
-                        updateFieldChanged(index, e.target.value)
-                      }
-                    />
-                  </React.Fragment>
-                ))}
 
               <Button
                 onClick={submitForm}
