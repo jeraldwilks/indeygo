@@ -166,7 +166,7 @@ export default function StickyFooter() {
               mt: "auto",
 
               backgroundColor: "#0B4D83",
-              height: 100,
+              height: 50,
             }}
           >
             <Container maxWidth="sm">
