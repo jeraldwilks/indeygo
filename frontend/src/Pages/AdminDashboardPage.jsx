@@ -3,7 +3,7 @@ import AdminAddProduct from "../components/AdminAddProduct";
 import AdminEditProduct from "../components/AdminEditProduct";
 import AdminProducts from "../components/AdminProducts";
 
-import AdminProductType from "../components/AdminProductType";
+import AdminProductTypes from "../components/AdminProductTypes";
 import AdminEditProductType from "../components/AdminEditProductType";
 import AdminAddProductType from "../components/AdminAddProductType";
 
@@ -21,7 +21,6 @@ import {
 const AdminDashboardPage = ({ page }) => {
   const [collapsed, setCollapsed] = useState(false);
   const [toggled, setToggled] = useState(false);
-  const [sidebarOpen, setSidebarOpen] = useState(true);
 
   const handleToggleSidebar = () => {
     setToggled(!toggled);
@@ -33,7 +32,7 @@ const AdminDashboardPage = ({ page }) => {
 
   return (
     <>
-      <div style={{ display: "flex", marginTop: 120, }}>
+      <div style={{ display: "flex", marginTop: 120 }}>
         <Sidebar
           collapsed={collapsed}
           toggled={toggled}
@@ -61,7 +60,7 @@ const AdminDashboardPage = ({ page }) => {
               </MenuItem>
               <MenuItem
                 icon={<AddIcon />}
-                component={<Link to="/admin-product-type" />}
+                component={<Link to="/admin-product-types" />}
               >
                 Product Type
               </MenuItem>
@@ -85,9 +84,9 @@ const AdminDashboardPage = ({ page }) => {
           {page === "admin-add-product" && <AdminAddProduct />}
           {page === "admin-edit-product/:id" && <AdminEditProduct />}
 
+          {page === "admin-product-types" && <AdminProductTypes />}
           {page === "admin-add-product-type" && <AdminAddProductType />}
           {page === "admin-edit-product-type/:id" && <AdminEditProductType />}
-          {page === "admin-product-type" && <AdminProductType />}
         </div>
       </div>
     </>

@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom";
 
 const theme = createTheme();
 
-const AdminProductType = () => {
+const AdminProductTypes = () => {
   const navigate = useNavigate();
 
   const [availableProductTypes, setAvailableProductTypes] = useState([]);
@@ -125,4 +125,4 @@ const AdminProductType = () => {
   );
 };
 
-export default AdminProductType;
+export default AdminProductTypes;
