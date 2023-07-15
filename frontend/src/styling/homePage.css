@@ -1,11 +1,12 @@
 .home {
-  font-family: "monospace";
+  font-family: serif;
   background-color: #c6e1f81d;
 }
 h1 {
   color: #0b4d83;
 }
 p {
+  padding-inline: 10px;
   color: #565555;
 }
 ol {
@@ -35,11 +36,7 @@ ol {
 .step {
   display: flex;
   align-items: center;
-  margin-right: 20px;
-}
-
-.step img {
-  margin-right: 10px;
+  margin-inline: 20px;
 }
 
 .icon {
@@ -72,7 +69,7 @@ ol {
 :hover.learn-more-button {
   background-color: #0b4d83;
   border-color: #9a9a9a41;
-  box-shadow: 0 0 10px #9a9a9a41, 0 0 20px yellow;
+  box-shadow: 0 0 10px #9a9a9a41, 0 0 20px #f7e86a;
 }
 
 @keyframes pulse {
