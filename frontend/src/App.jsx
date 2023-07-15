@@ -52,14 +52,16 @@ function App() {
         <Route path="/ForgotPassword" element={<ForgotPasswordPage />} />
 
         {/* Routes to Information Components(Mui Dialog) */}
-        
+
         <Route path="/ContactUsInfo" element={<InfoContactUs />} />
         <Route path="/FundRaiserInfo" element={<InfoRunFundraiser />} />
-        <Route path="/CoordinatorsChecklistInfo" element={<InfoCoordinatorsChecklist />} />
+        <Route
+          path="/CoordinatorsChecklistInfo"
+          element={<InfoCoordinatorsChecklist />}
+        />
         <Route path="/ProductDeliveryInfo" element={<InfoProductDelivery />} />
         <Route path="/CountCashInfo" element={<InfoCountCash />} />
-        
-        
+
         <Route
           path="/Dashboard"
           element={
@@ -99,18 +101,26 @@ function App() {
         {/* Routes for Admin Product Type */}
 
         <Route
+          path="/admin-product-types"
+          element={
+            <Authenticated>
+              <DashboardPage page="admin-product-types" />
+            </Authenticated>
+          }
+        />
+        <Route
           path="/admin-add-product-type"
-          element={<DashboardPage page="admin-add-product-type" />}
+          element={
+            <Authenticated>
+              <DashboardPage page="admin-add-product-type" />
+            </Authenticated>
+          }
         />
         <Route
           path="/admin-edit-product-type/:id"
-          element={<DashboardPage page="admin-edit-product-type/:id" />}
-        />
-        <Route
-          path="/admin-product-type"
           element={
             <Authenticated>
-              <DashboardPage page="admin-product-type" />
+              <DashboardPage page="admin-edit-product-type/:id" />
             </Authenticated>
           }
         />

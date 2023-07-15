@@ -45,7 +45,7 @@ const SalePage = () => {
   useEffect(() => {
     const loadProduct = async () => {
       const productURL =
-        "api/product/findByFundraiser?fundraiser=" + fundraiser._id;
+        "/api/product/findByFundraiser?fundraiser=" + fundraiser._id;
       const productResponse = await fetch(productURL);
       const productData = await productResponse.json();
       setAvailableProducts(productData);
@@ -170,7 +170,7 @@ const SalePage = () => {
                         changeQuantity(
                           product._id,
                           e.target.value,
-                          product.sellPrice
+                          product.productType.sellPrice
                         )
                       }
                     />

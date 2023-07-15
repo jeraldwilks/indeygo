@@ -15,19 +15,17 @@ import {
   FormControlLabel,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import EditSharpIcon from "@mui/icons-material/EditSharp";
 import Typography from "@mui/material/Typography";
 
 const theme = createTheme();
 
 const AdminEditProduct = () => {
+  const navigate = useNavigate();
   const { id } = useParams();
-  const _id = id;
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  const [sellPrice, setSellPrice] = useState(1);
-  const [wholesalePrices, setWholesalePrices] = useState([]);
   const [isActive, setIsActive] = useState(true);
   const [availableProductTypes, setAvailableProductTypes] = useState([]);
   const [productType, setProductType] = useState("");
@@ -43,8 +41,6 @@ const AdminEditProduct = () => {
       const data = await response.json();
       setName(data[0].name);
       setDescription(data[0].description);
-      setSellPrice(data[0].sellPrice);
-      setWholesalePrices(data[0].wholesalePrices);
       setIsActive(data[0].isActive);
       const ind = typeData.findIndex((item) => {
         return item._id === data[0].productType;
@@ -56,12 +52,6 @@ const AdminEditProduct = () => {
     initialLoad();
   }, []);
 
-  const updateFieldChanged = (index, value) => {
-    let newArr = [...wholesalePrices];
-    newArr[index] = parseFloat(value);
-    setWholesalePrices(newArr);
-  };
-
   const submitForm = async () => {
     const response = await fetch("/api/product/", {
       method: "PATCH",
@@ -69,16 +59,15 @@ const AdminEditProduct = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        _id,
+        _id: id,
         productType,
         name,
         description,
-        sellPrice,
-        wholesalePrices,
         isActive,
       }),
     });
     alert(await response.text());
+    navigate("/admin-products");
   };
 
   return (
@@ -145,38 +134,6 @@ const AdminEditProduct = () => {
                 onChange={(e) => setDescription(e.target.value)}
               />
               <br />
-
-              <TextField
-                type="number"
-                variant="outlined"
-                label="Consumer Price"
-                name="sellPrice"
-                required
-                value={sellPrice}
-                onChange={(e) => setSellPrice(e.target.value)}
-              />
-              {productType != [] &&
-                productType.priceTierMin.map((priceTier, index) => (
-                  <React.Fragment key={"tier" + index}>
-                    <br />
-                    <TextField
-                      type="number"
-                      variant="outlined"
-                      value={wholesalePrices[index]}
-                      label={"Tier " + (index + 1) + " Price"}
-                      helperText={
-                        index + 1 === productType.priceTierMin.length
-                          ? priceTier + " or more"
-                          : "Up to " +
-                            (productType.priceTierMin[index + 1] -
-                              productType.caseSize)
-                      }
-                      onChange={(e) =>
-                        updateFieldChanged(index, e.target.value)
-                      }
-                    />
-                  </React.Fragment>
-                ))}
               <FormControlLabel
                 control={
                   <Checkbox

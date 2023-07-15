@@ -34,11 +34,9 @@ productTypeRouter.patch("/", isAuthenticated, async (req, res) => {
     }
     const productId = req.body._id;
     delete req.body._id;
-    const updateProductType = await ProductTypeModel.findByIdAndUpdate(
-      productId,
-      req.body
-    );
-    res.send(updateProductType);
+    await ProductTypeModel.findByIdAndUpdate(productId, req.body);
+    const updatedProductType = await ProductTypeModel.findById(productId);
+    res.send(updatedProductType);
   } catch (error) {
     console.log(error.message);
     res.status(500).send(error.message);

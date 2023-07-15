@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom";
 
 const theme = createTheme();
 
-const AdminProductType = () => {
+const AdminProductTypes = () => {
   const navigate = useNavigate();
 
   const [availableProductTypes, setAvailableProductTypes] = useState([]);
@@ -22,19 +22,13 @@ const AdminProductType = () => {
     const getProductTypes = async () => {
       const response = await fetch("/api/productType");
       const data = await response.json();
-
-      const formattedProductTypes = data.map((productType) => ({
-        id: productType._id,
-        ...productType,
-      }));
-
-      setAvailableProductTypes(formattedProductTypes);
+      setAvailableProductTypes(data);
     };
     getProductTypes();
   }, []);
 
   const columns = [
-    { field: "name", headerName: "Product Type", width: 150 },
+    { field: "name", headerName: "Product Type", width: 250 },
     {
       field: "caseSize",
       headerName: "Case Size",
@@ -102,6 +96,7 @@ const AdminProductType = () => {
                   </Typography>
                   <Box sx={{ height: 300, width: "100%" }}>
                     <DataGrid
+                      getRowId={(row) => row._id}
                       rows={availableProductTypes}
                       columns={columns}
                       pageSize={5}
@@ -125,4 +120,4 @@ const AdminProductType = () => {
   );
 };
 
-export default AdminProductType;
+export default AdminProductTypes;

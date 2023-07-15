@@ -35,11 +35,11 @@ ol {
 .step {
   display: flex;
   align-items: center;
-  margin-right: 20px;
+  margin-inline: 20px;
 }
 
 .step img {
-  margin-right: 10px;
+  /* margin-right: 10px; */
 }
 
 .icon {
