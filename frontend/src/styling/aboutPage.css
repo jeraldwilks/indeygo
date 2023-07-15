@@ -1,9 +1,9 @@
 .about {
   margin-top: 7%;
-  height: 55vh;
+  flex-wrap: wrap;
+  height: 145vh;
   font-family: "sans-serif";
-  margin-left: 20%;
-  margin-right: 20%;
+  margin-inline: 20%;
 }
 
 h3 {
@@ -22,36 +22,35 @@ p3 {
 @media (max-width: 1380px) {
   .about {
     margin-top: 13%;
-    height: 70vh;
+    height: 90vh;
     border-width: 3px;
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-inline: 5%;
+
   }
 }
 @media (max-width: 980px) {
   .about {
     margin-top: 13%;
-    height: 100vh;
+    height: 170vh;
     border-width: 3px;
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-inline: 5%;
+
   }
 }
 @media (max-width: 680px) {
   .about {
     margin-top: 13%;
-    height: 125vh;
+    height: 2105vh;
     border-width: 3px;
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-inline: 5%;
+
   }
 }
 @media (max-width: 500px) {
   .about {
     margin-top: 15%;
-    height: 135vh;
+    height: 245vh;
     border-width: 3px;
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-inline: 5%;
   }
 }
