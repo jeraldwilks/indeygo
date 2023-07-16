@@ -8,10 +8,7 @@ import Box from "@mui/material/Box";
 import CustomizedDialogs from "../components/CustomizedDialogs";
 import InfoContactUs from "../components/InfoContactUs";
 
-
-
 const HomePage = () => {
-
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -48,81 +45,37 @@ const HomePage = () => {
         <div>
           <p>Does your group need to raise some cash?</p>
           <p>With Indeygo, It's Easy!</p>
-          <CustomizedDialogs/>
-          
+          <CustomizedDialogs />
+
           <ol className="steps">
-            <div className="step" >
+            <div className="step">
+              {/* Step 1 Rendering */}
               <li>
                 <div style={{ marginBottom: "50px" }}>Step 1</div>
-                {/* <a href="/ContactUsInfo"> */}
-                  <Box
-                    sx={{
-                      border: "5px dotted #0b4d83",
-                      borderRadius: "25px",
-                      p: "8px",
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "center",
-                    }}
-                  >
-                    <img
-                      src="./images/step1.png"
-                      alt="Step 1"
-                      style={{ width: "150px", height: "150px" }}
-                    />
-                  </Box>
-                  <div style={{ marginTop: "50px" }}>
-                    {/* <Button
-                      className="listStyle"
-                      style={{ backgroundColor: "#0b4d83", color: "white" }} */}
 
-                      {/* // added
-                      // onClick={handleClickOpen} */}
-
-                    {/* > */}
-             
-                      {/* Contact Us */}
-                    {/* </Button> */}
-                    
-                    <InfoContactUs/>
-                    {/* <BootstrapDialog
-        onClose={handleClose}
-        aria-labelledby="customized-dialog-title"
-        open={open}
-      >
-        <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}>
-          Modal title
-        </BootstrapDialogTitle>
-        <DialogContent dividers>
-          <Typography gutterBottom>
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-            consectetur ac, vestibulum at eros.
-          </Typography>
-          <Typography gutterBottom>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-            Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-          </Typography>
-          <Typography gutterBottom>
-            Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus
-            magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec
-            ullamcorper nulla non metus auctor fringilla.
-          </Typography>
-        </DialogContent>
-        <DialogActions>
-          <Button autoFocus onClick={handleClose}>
-            Save changes
-          </Button>
-        </DialogActions>
-      </BootstrapDialog> */}
-
-                  </div>
-                {/* </a> */}
+                <Box
+                  sx={{
+                    border: "5px dotted #0b4d83",
+                    borderRadius: "25px",
+                    p: "8px",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                  }}
+                >
+                  <img
+                    src="./images/step1.png"
+                    alt="Step 1"
+                    style={{ width: "150px", height: "150px" }}
+                  />
+                </Box>
+                <div style={{ marginTop: "50px" }}>
+                  <InfoContactUs />
+                </div>
               </li>
             </div>
-        
-
             <div className="step">
+              {/* Step 2 Rendering */}
               <li>
                 <div style={{ marginBottom: "50px" }}>Step 2</div>
                 <a href="/FundRaiserInfo">
@@ -155,6 +108,7 @@ const HomePage = () => {
             </div>
 
             <div className="step">
+              {/* Step 3 Rendering */}
               <li>
                 <div style={{ marginBottom: "50px" }}>Step 3</div>
                 <a href="/ProductDeliveryInfo">
@@ -187,6 +141,7 @@ const HomePage = () => {
             </div>
 
             <div className="step">
+              {/* Step 4 Rendering */}
               <li>
                 <div style={{ marginBottom: "50px" }}>Step 4</div>
                 <a href="/CountCashInfo">

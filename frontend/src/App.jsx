@@ -52,9 +52,7 @@ function App() {
         <Route path="/ResetPassword/:token" element={<ResetPasswordPage />} />
         <Route path="/ForgotPassword" element={<ForgotPasswordPage />} />
 
-        {/* Routes to Information Components(Mui Dialog) */}
-        
-        
+        {/* Routes to Information Components(Mui Dialog) . I (Rini)may delete this later as I am rendering it as an mui dialog over a page*/}
 
         <Route path="/ContactUsInfo" element={<InfoContactUs />} />
         <Route path="/FundRaiserInfo" element={<InfoRunFundraiser />} />
