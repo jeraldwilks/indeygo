@@ -30,6 +30,7 @@ function App() {
   return (
     <div className="fullscreen">
       <ResponsiveAppBar />
+     
       <Routes>
         {/* Routes  to responsive app bar */}
         <Route path="/" element={<HomePage />} />
@@ -53,7 +54,7 @@ function App() {
 
         {/* Routes to Information Components(Mui Dialog) */}
         
-        <Route path="/ContactUsInfo" element={<InfoContactUs />} />
+        {/* <Route path="/ContactUsInfo" element={<InfoContactUs />} /> */}
         <Route path="/FundRaiserInfo" element={<InfoRunFundraiser />} />
         <Route path="/CoordinatorsChecklistInfo" element={<InfoCoordinatorsChecklist />} />
         <Route path="/ProductDeliveryInfo" element={<InfoProductDelivery />} />

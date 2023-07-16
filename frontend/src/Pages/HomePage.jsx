@@ -5,8 +5,21 @@ import ImageCarousel from "../components/ImageCarousel.jsx";
 import { FaCanadianMapleLeaf } from "react-icons/fa";
 import { Button } from "@mui/material";
 import Box from "@mui/material/Box";
+import CustomizedDialogs from "../components/CustomizedDialogs";
+import InfoContactUs from "../components/InfoContactUs";
+
+
 
 const HomePage = () => {
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
   return (
     <>
       <ImageCarousel />
@@ -35,11 +48,13 @@ const HomePage = () => {
         <div>
           <p>Does your group need to raise some cash?</p>
           <p>With Indeygo, It's Easy!</p>
+          <CustomizedDialogs/>
+          
           <ol className="steps">
             <div className="step" >
               <li>
                 <div style={{ marginBottom: "50px" }}>Step 1</div>
-                <a href="/ContactUsInfo">
+                {/* <a href="/ContactUsInfo"> */}
                   <Box
                     sx={{
                       border: "5px dotted #0b4d83",
@@ -57,16 +72,55 @@ const HomePage = () => {
                     />
                   </Box>
                   <div style={{ marginTop: "50px" }}>
-                    <Button
+                    {/* <Button
                       className="listStyle"
-                      style={{ backgroundColor: "#0b4d83", color: "white" }}
-                    >
-                      Contact Us
-                    </Button>
+                      style={{ backgroundColor: "#0b4d83", color: "white" }} */}
+
+                      {/* // added
+                      // onClick={handleClickOpen} */}
+
+                    {/* > */}
+             
+                      {/* Contact Us */}
+                    {/* </Button> */}
+                    
+                    <InfoContactUs/>
+                    {/* <BootstrapDialog
+        onClose={handleClose}
+        aria-labelledby="customized-dialog-title"
+        open={open}
+      >
+        <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}>
+          Modal title
+        </BootstrapDialogTitle>
+        <DialogContent dividers>
+          <Typography gutterBottom>
+            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
+            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
+            consectetur ac, vestibulum at eros.
+          </Typography>
+          <Typography gutterBottom>
+            Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+            Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+          </Typography>
+          <Typography gutterBottom>
+            Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus
+            magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec
+            ullamcorper nulla non metus auctor fringilla.
+          </Typography>
+        </DialogContent>
+        <DialogActions>
+          <Button autoFocus onClick={handleClose}>
+            Save changes
+          </Button>
+        </DialogActions>
+      </BootstrapDialog> */}
+
                   </div>
-                </a>
+                {/* </a> */}
               </li>
             </div>
+        
 
             <div className="step">
               <li>
