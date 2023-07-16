@@ -13,12 +13,20 @@ const productTypeSchema = mongoose.Schema({
     type: String,
     required: false,
   },
-  priceTierMin: [
+  wholesalePrices: [
     {
-      type: Number,
-      required: true,
+      tierMin: {
+        type: Number,
+      },
+      price: {
+        type: Number,
+      },
     },
   ],
+  sellPrice: {
+    type: Number,
+    required: true,
+  },
   isActive: {
     type: Boolean,
     default: true,

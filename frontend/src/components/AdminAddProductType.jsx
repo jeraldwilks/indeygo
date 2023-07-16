@@ -1,11 +1,5 @@
-
 import Avatar from "@mui/material/Avatar";
-import {
-  Button,
-  FormControl,
-  FormLabel,
-  TextField,
-} from "@mui/material";
+import { Button, FormControl, FormLabel, TextField } from "@mui/material";
 import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
@@ -17,28 +11,34 @@ import Typography from "@mui/material/Typography";
 const theme = createTheme();
 
 const AdminAddProductType = () => {
-
-
   const [name, setName] = useState("");
   const [quantityDesc, setQuantityDesc] = useState("");
   const [caseSize, setCaseSize] = useState();
-  const [priceTierMin, setPriceTierMin] = useState([1]);
+  const [wholesalePrices, setWholesalePrices] = useState([
+    {
+      tierMin: 1,
+      price: 0,
+    },
+  ]);
+  const [sellPrice, setSellPrice] = useState();
 
   const addTier = () => {
-    setPriceTierMin((prev) => [
-      ...prev,
-      priceTierMin[priceTierMin.length - 1] + 1,
-    ]);
+    setWholesalePrices((prev) => [...prev, { tierMin: 1, price: 0 }]);
   };
 
   const removeTier = (index) => {
-    setPriceTierMin((current) => current.filter((value, i) => index != i));
+    setWholesalePrices((current) => current.filter((value, i) => index != i));
   };
 
-  const updateFieldChanged = (index, value) => {
-    let newArr = [...priceTierMin];
-    newArr[index] = parseInt(value);
-    setPriceTierMin(newArr);
+  const updateTierQuantity = (index, value) => {
+    let newArray = [...wholesalePrices];
+    newArray[index].tierMin = parseInt(value);
+    setWholesalePrices(newArray);
+  };
+  const updateTierPrice = (index, value) => {
+    let newArray = [...wholesalePrices];
+    newArray[index].price = parseFloat(value);
+    setWholesalePrices(newArray);
   };
 
   const submitForm = async () => {
@@ -51,7 +51,8 @@ const AdminAddProductType = () => {
         name,
         quantityDesc,
         caseSize,
-        priceTierMin,
+        wholesalePrices,
+        sellPrice,
       }),
     });
     alert(await response.text());
@@ -94,7 +95,7 @@ const AdminAddProductType = () => {
               variant="outlined"
               label="Description of Consumer Sell Quantity"
               name="quantityDesc"
-              helperText="Example: Each box contains 5 items"
+              helperText="Example: Each tub makes 4-6 dozen cookies"
               required
               onChange={(e) => setQuantityDesc(e.target.value)}
             />
@@ -106,39 +107,42 @@ const AdminAddProductType = () => {
               required
               onChange={(e) => setCaseSize(e.target.value)}
             />
-
-            <FormLabel>Minimum Quantity Per Tiers:</FormLabel>
-            {priceTierMin.map((tier, index) => (
+            <br />
+            <TextField
+              type="number"
+              variant="outlined"
+              label="Consumer Sell Price"
+              name="sellPrice"
+              required
+              onChange={(e) => setSellPrice(e.target.value)}
+            />
+            <br />
+            <FormLabel>Wholesale Prices:</FormLabel>
+            {wholesalePrices.map((tier, index) => (
               <React.Fragment key={"PricingTier" + index}>
-                {index === 0 ? (
-                  <TextField
-                    disabled
-                    type="number"
-                    variant="outlined"
-                    label="Tier 1"
-                    name="priceTierMin"
-                    defaultValue={priceTierMin[index]}
-                    onChange={(e) => updateFieldChanged(index, e.target.value)}
-                    required
-                  />
-                ) : (
-                  <>
-                    <br />
-                    <TextField
-                      type="number"
-                      variant="outlined"
-                      label={"Tier " + (index + 1)}
-                      name="priceTierMin"
-                      defaultValue={priceTierMin[index]}
-                      onChange={(e) =>
-                        updateFieldChanged(index, e.target.value)
-                      }
-                      required
-                      helperText="Specify the minimum number of items sold to get this pricing tier"
-                    />
-                  </>
-                )}
-                {priceTierMin.length > 1 && index != 0 && (
+                <br />
+                <TextField
+                  type="number"
+                  variant="outlined"
+                  label={"Tier " + (index + 1) + " Minimum Quantity"}
+                  name="tierMin"
+                  defaultValue={wholesalePrices[index].tierMin}
+                  onChange={(e) => updateTierQuantity(index, e.target.value)}
+                  required
+                  helperText="Specify the minimum number of items sold to get this pricing tier"
+                />
+                <br />
+                <TextField
+                  type="number"
+                  variant="outlined"
+                  label={"Tier " + (index + 1) + " Price"}
+                  name="price"
+                  defaultValue={wholesalePrices[index].price}
+                  onChange={(e) => updateTierPrice(index, e.target.value)}
+                  required
+                  helperText="Wholesale price at this tier"
+                />
+                {wholesalePrices.length > 1 && index != 0 && (
                   <Button
                     onClick={() => removeTier(index)}
                     type="submit"

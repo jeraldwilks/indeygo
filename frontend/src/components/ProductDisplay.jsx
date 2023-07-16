@@ -13,57 +13,49 @@ const products = [
     id: 1,
     name: "Cookie Dough",
 
-    imageUrl:
-      "../images/productcookiedough.jpeg",
+    imageUrl: "../images/productcookiedough.jpeg",
   },
   {
     id: 2,
     name: "Muffin Dough",
 
-    imageUrl:
-    "../images/productmuffindough.jpeg",
+    imageUrl: "../images/productmuffindough.jpeg",
   },
   {
     id: 3,
     name: "Cinnamon & Sticky Bun",
 
-    imageUrl:
-    "../images/productcinnamonstickybun.jpeg",
+    imageUrl: "../images/productcinnamonstickybun.jpeg",
   },
   {
     id: 4,
     name: "Coffee & Tea",
 
-    imageUrl:
-    "../images/productcoffeetea.jpeg",
+    imageUrl: "../images/productcoffeetea.jpeg",
   },
   {
     id: 5,
     name: "Beef Jerky",
 
-    imageUrl:
-    "../images/productbeefjerky.jpeg",
+    imageUrl: "../images/productbeefjerky.jpeg",
   },
   {
     id: 6,
     name: "Harvest Bundle",
 
-    imageUrl:
-    "../images/productharvestbundle.jpeg",
+    imageUrl: "../images/productharvestbundle.jpeg",
   },
   {
     id: 7,
     name: "Spring Planters & Herbs",
 
-    imageUrl:
-    "../images/productspringplanter.jpeg",
+    imageUrl: "../images/productspringplanter.jpeg",
   },
   {
     id: 8,
     name: "Doggie Dough",
 
-    imageUrl:
-    "../images/productdoggiedough.jpeg",
+    imageUrl: "../images/productdoggiedough.jpeg",
   },
   // Add more products as needed
 ];
@@ -73,7 +65,7 @@ const ProductDisplay = () => {
     <Box
       sx={{
         flexGrow: 1,
-        fontFamily: "monospace",
+        fontFamily: "sans-serif",
         fontWeight: 700,
         letterSpacing: ".9rem",
         color: "inherit",

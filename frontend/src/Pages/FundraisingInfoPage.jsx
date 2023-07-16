@@ -1,11 +1,12 @@
 import React from "react";
+import FundraisingCalculator from "../components/FundraisingCalculator";
 
 const FundraisingInfoPage = () => {
   return (
-    <>
-      <div style={{ marginTop: "100px" }}></div>
-      <div>FundraisingInfo</div>
-    </>
+    <div>
+      {/* Any other content or components specific to the FundraisingInfoPage */}
+      <FundraisingCalculator />
+    </div>
   );
 };
 

@@ -14,16 +14,6 @@ const productSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  sellPrice: {
-    type: Number,
-    required: true,
-  },
-  wholesalePrices: [
-    {
-      type: Number,
-      required: true,
-    },
-  ],
   isActive: {
     type: Boolean,
     default: true,
