@@ -13,6 +13,7 @@ const DashboardContent = () => {
   const [fundraisers, setFundraisers] = useState([]);
   const [fundraiser, setFundraiser] = useState();
   const [sales, setSales] = useState([]);
+  const [productTypes, setProductTypes] = useState([]);
   const [topTenSales, setTopTenSales] = useState([]);
 
   useEffect(() => {
@@ -50,9 +51,20 @@ const DashboardContent = () => {
         newArray.push(salesData[i]);
       }
       setTopTenSales(newArray);
+
+      for (const sale of salesData) {
+        for (const product of sale.products) {
+        }
+      }
+    };
+    const getSummary = async () => {
+      const response = await fetch(
+        "/api/productType/summary-by-fundraiser?fundraiser=" + fundraiser._id
+      );
     };
     if (fundraiser) {
       getSales();
+      getSummary();
     }
   }, [fundraiser]);
 
@@ -90,7 +102,7 @@ const DashboardContent = () => {
           <ol>
             {topTenSales.map((sale, index) => (
               <li key={sale._id}>
-                {index + 1}. {sale.name} - ${sale.totalSales}
+                {index + 1}. {sale.name} - {sale.qty} items - ${sale.totalSales}
               </li>
             ))}
           </ol>
