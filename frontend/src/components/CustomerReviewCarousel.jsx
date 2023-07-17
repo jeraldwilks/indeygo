@@ -25,16 +25,16 @@ const CustomerReviewCarousel = () => {
     dots: true,
     infinite: true,
     speed: 300,
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 3,
     centerMode: true, // Center the active card
     centerPadding: "10px", // Space between cards
     nextArrow: <SampleNextArrow />,
     responsive: [
       {
-        breakpoint: 1450,
+        breakpoint: 1650,
         settings: {
-          slidesToShow: 2, // Display 1 card at a time on smaller screens
+          slidesToShow: 2.9, // Display 1 card at a time on smaller screens
           slidesToScroll: 3, // Display 1 card at a time on smaller screens
           infinite: true,
           dots: true,
