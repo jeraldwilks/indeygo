@@ -59,8 +59,10 @@ const DashboardContent = () => {
     };
     const getSummary = async () => {
       const response = await fetch(
-        "/api/productType/summary-by-fundraiser?fundraiser=" + fundraiser._id
+        "/api/sales/summary-by-fundraiser?fundraiser=" + fundraiser._id
       );
+      const data = await response.json();
+      console.log(data);
     };
     if (fundraiser) {
       getSales();
