@@ -7,6 +7,7 @@ import { Button } from "@mui/material";
 import Box from "@mui/material/Box";
 import CustomizedDialogs from "../components/CustomizedDialogs";
 import InfoContactUs from "../components/InfoContactUs";
+import InfoRunFundraiser from "../components/InfoRunFundraiser";
 
 const HomePage = () => {
   const [open, setOpen] = React.useState(false);
@@ -77,33 +78,11 @@ const HomePage = () => {
             <div className="step">
               {/* Step 2 Rendering */}
               <li>
-                <div style={{ marginBottom: "50px" }}>Step 2</div>
-                <a href="/FundRaiserInfo">
-                  <Box
-                    sx={{
-                      border: "5px dotted #0b4d83",
-                      borderRadius: "25px",
-                      p: "8px",
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "center",
-                    }}
-                  >
-                    <img
-                      src="./images/step2.png"
-                      alt="Step 2"
-                      style={{ width: "150px", height: "150px" }}
-                    />
-                  </Box>
-                  <div style={{ marginTop: "50px" }}>
-                    <Button
-                      className="listStyle"
-                      style={{ backgroundColor: "#0b4d83", color: "white" }}
-                    >
-                      Run Your Fundraiser
-                    </Button>
+             
+                  <div style={{ marginTop: "0px" }}>
+                    <InfoRunFundraiser />
                   </div>
-                </a>
+                
               </li>
             </div>
 
