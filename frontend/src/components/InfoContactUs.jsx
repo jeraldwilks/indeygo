@@ -64,6 +64,24 @@ export default function InfoContactUs() {
 
   return (
     <>
+     <div style={{ marginBottom: "50px" }}>Step 1</div>
+
+<Box
+  sx={{
+    border: "5px dotted #0b4d83",
+    borderRadius: "25px",
+    p: "8px",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  }}
+>
+  <img
+    src="./images/step1.png"
+    alt="Step 1"
+    style={{ width: "150px", height: "150px" }}
+  />
+</Box>
       <div>
         <Button variant="outlined" onClick={handleClickOpen}>
           Contact Us
@@ -81,44 +99,49 @@ export default function InfoContactUs() {
           </BootstrapDialogTitle>
           <DialogContent dividers>
             <Typography gutterBottom>
-              Contact Indeygo to request your order forms. Keep it simple –
-              choose one or two product types from our awesome lineup. Ask us
-              about free shipping to your area.
+            Contact Indeygo to request your order forms. Keep it simple – choose
+            one or two product types from our awesome lineup. Ask us about free
+            shipping to your area.
             </Typography>
             <Typography gutterBottom>
-              <p>
-                <LocalPhoneIcon style={{ verticalAlign: "middle" }} /> Phone:
-                1-877-463-3946
-              </p>
-              <p>
-                <EmailIcon style={{ verticalAlign: "middle" }} /> Email:
-                info@indeygo.com
-              </p>
-              <p>Fill out one of our online forms</p>
+            <p>
+            <LocalPhoneIcon style={{ verticalAlign: "middle" }} /> Phone:
+            1-877-463-3946
+          </p>
+          <p>
+            <EmailIcon style={{ verticalAlign: "middle" }} /> Email:
+            info@indeygo.com
+          </p>
+          <p>Fill out one of our online forms</p>
             </Typography>
+           
           </DialogContent>
           <DialogActions>
-            <div style={{ display: "flex", gap: "0px" }}>
-              <a href="/Contact">
-                <Button
-                  variant="contained"
-                  style={{ backgroundColor: "#0B4D83" }}
-                >
-                  I Need More Info
-                </Button>
-              </a>
-              <a href="/Contact">
-                <Button
-                  variant="contained"
-                  style={{ backgroundColor: "#0B4D83" }}
-                >
-                  I'm Ready To Book My Fundraiser
-                </Button>
-              </a>
-            </div>
+          <div style={{ display: "flex", gap: "0px" }}>
+            <a href="/Contact">
+              <Button
+                variant="contained"
+                style={{ backgroundColor: "#0B4D83" }}
+              >
+                I Need More Info
+              </Button>
+            </a>
+            <a href="/Contact">
+              <Button
+                variant="contained"
+                style={{ backgroundColor: "#0B4D83" }}
+              >
+                I'm Ready To Book My Fundraiser
+              </Button>
+            </a>
+          </div>
+
+
           </DialogActions>
         </BootstrapDialog>
       </div>
+
     </>
   );
 }
+

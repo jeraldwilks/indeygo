@@ -3,11 +3,11 @@ import "../styling/homePage.css";
 import CustomerReviewCarousel from "../components/CustomerReviewCarousel";
 import ImageCarousel from "../components/ImageCarousel.jsx";
 import { FaCanadianMapleLeaf } from "react-icons/fa";
-import { Button } from "@mui/material";
-import Box from "@mui/material/Box";
 import CustomizedDialogs from "../components/CustomizedDialogs";
 import InfoContactUs from "../components/InfoContactUs";
 import InfoRunFundraiser from "../components/InfoRunFundraiser";
+import InfoProductDelivery from "../components/InfoProductDelivery";
+import InfoCountCash from "../components/InfoCountCash";
 
 const HomePage = () => {
   const [open, setOpen] = React.useState(false);
@@ -52,103 +52,27 @@ const HomePage = () => {
             <div className="step">
               {/* Step 1 Rendering */}
               <li>
-                <div style={{ marginBottom: "50px" }}>Step 1</div>
-
-                <Box
-                  sx={{
-                    border: "5px dotted #0b4d83",
-                    borderRadius: "25px",
-                    p: "8px",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                  }}
-                >
-                  <img
-                    src="./images/step1.png"
-                    alt="Step 1"
-                    style={{ width: "150px", height: "150px" }}
-                  />
-                </Box>
-                <div style={{ marginTop: "50px" }}>
-                  <InfoContactUs />
-                </div>
+                <InfoContactUs />
               </li>
             </div>
             <div className="step">
               {/* Step 2 Rendering */}
               <li>
-             
-                  <div style={{ marginTop: "0px" }}>
-                    <InfoRunFundraiser />
-                  </div>
-                
+                <InfoRunFundraiser />
               </li>
             </div>
 
             <div className="step">
               {/* Step 3 Rendering */}
               <li>
-                <div style={{ marginBottom: "50px" }}>Step 3</div>
-                <a href="/ProductDeliveryInfo">
-                  <Box
-                    sx={{
-                      border: "5px dotted #0b4d83",
-                      borderRadius: "25px",
-                      p: "8px",
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "center",
-                    }}
-                  >
-                    <img
-                      src="./images/step3.png"
-                      alt="Step 3"
-                      style={{ width: "150px", height: "150px" }}
-                    />
-                  </Box>
-                  <div style={{ marginTop: "50px" }}>
-                    <Button
-                      className="listStyle"
-                      style={{ backgroundColor: "#0b4d83", color: "white" }}
-                    >
-                      Deliver Product
-                    </Button>
-                  </div>
-                </a>
+                <InfoProductDelivery />
               </li>
             </div>
 
             <div className="step">
               {/* Step 4 Rendering */}
               <li>
-                <div style={{ marginBottom: "50px" }}>Step 4</div>
-                <a href="/CountCashInfo">
-                  <Box
-                    sx={{
-                      border: "5px dotted #0b4d83",
-                      borderRadius: "25px",
-                      p: "8px",
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "center",
-                    }}
-                  >
-                    <img
-                      src="./images/step4.png"
-                      alt="Step 4"
-                      style={{ width: "150px", height: "150px" }}
-                    />
-                  </Box>
-                  <div style={{ marginTop: "50px" }}>
-                    <Button
-                      className="listStyle"
-                      style={{ backgroundColor: "#0b4d83", color: "white" }}
-                    >
-                      Count Your Cash
-                    </Button>
-                  </div>
-                </a>
+                <InfoCountCash />
               </li>
             </div>
           </ol>

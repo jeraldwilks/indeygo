@@ -85,12 +85,7 @@ export default function InfoRunFundraiser() {
                     />
                   </Box> 
       <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh",
-        }}
+      
       >
        
         <Button variant="outlined" onClick={handleClickOpen}>
