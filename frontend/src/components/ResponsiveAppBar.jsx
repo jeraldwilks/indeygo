@@ -14,15 +14,12 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import { Link } from "react-router-dom";
 import { NestedDropdown } from "mui-nested-menu";
-import { useAuth } from "../providers/AuthProvider";
 
 const pages = [
   {
     label: "About",
     menuItems: [
-      { label: "About 1", callback: () => console.log("About > Submenu 1") },
-      { label: "About 2", callback: () => console.log("About > Submenu 2") },
-      // Add more submenu items as needed
+      
     ],
   },
   {
@@ -61,8 +58,6 @@ const pages = [
         callback: () => console.log("Products > Doggie Dough"),
       },
       
-      
-      // Add more submenu items as needed
     ],
   },
   {
@@ -90,51 +85,33 @@ const pages = [
       },
       {
         label: "I am Ready to Submit my Final Group Bulk Order",
-        callback: () => console.log("FundraisingInfo > FundraisingInfo 2"),
       },
       {
         label: "I wish to Register for an Online Store",
-        callback: () => console.log("FundraisingInfo > FundraisingInfo 1"),
       },
       {
         label: "Fundraising Profit",
-        callback: () => console.log("FundraisingInfo > FundraisingInfo 2"),
       },
-      // Add more submenu items as needed
     ],
   },
   {
     label: "FAQ",
     menuItems: [
       { label: "Blog", callback: () => console.log("FundraisingInfo > Blog") },
-      {
-        label: "Submenu 2",
-        callback: () => console.log("FundraisingInfo > Submenu 2"),
-      },
-      // Add more submenu items as needed
     ],
   },
   {
     label: "Contact",
     menuItems: [
-      {
-        label: "Submenu 1",
-        callback: () => console.log("FundraisingInfo > Submenu 1"),
-      },
-      {
-        label: "Submenu 2",
-        callback: () => console.log("FundraisingInfo > Submenu 2"),
-      },
-      // Add more submenu items as needed
     ],
   },
 ];
 
 function ResponsiveAppBar() {
-  const { user } = useAuth();
-  const [anchorElNav, setAnchorElNav] = useState();
-  const [anchorElUser, setAnchorElUser] = useState();
-  const settings = user ? ["Dashboard", "Logout"] : ["Login", "Register"];
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+  const settings = isLoggedIn ? ["Dashboard", "Logout"] : ["Login", "Register"];
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -144,10 +121,14 @@ function ResponsiveAppBar() {
   };
 
   const handleLogout = () => {
+    // Logout Logic
+    setIsLoggedIn(false);
     handleCloseUserMenu();
   };
 
   const handleLogin = () => {
+    // Login Logic
+    setIsLoggedIn(true);
     handleCloseUserMenu();
   };
 
@@ -247,9 +228,9 @@ function ResponsiveAppBar() {
                           backgroundColor: "#F7E86A",
                         },
                       }}
-                    >
+                      >
+                      {page.label}
                       <Typography textAlign="center" sx={{ color: "#0b4d83" }}>
-                        {page.label}
                       </Typography>
                     </MenuItem>
                   </NestedDropdown>
@@ -284,7 +265,18 @@ function ResponsiveAppBar() {
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Link to={page.label} key={page.label}>
-                <NestedDropdown
+                
+                  <Button
+                    key={page.label}
+                    onClick={handleCloseNavMenu}
+                    sx={{
+                      my: 2,
+                      color: "white",
+                      display: "block",
+                      marginLeft: "8rem",
+                      marginRight: "0rem",
+                    }}
+                  ><NestedDropdown
                   key={page.label}
                   menuItemsData={{
                     label: page.label,
@@ -296,20 +288,11 @@ function ResponsiveAppBar() {
                   anchorEl={anchorElNav}
                   onClose={handleCloseNavMenu}
                 >
-                  <Button
-                    key={page.label}
-                    onClick={handleCloseNavMenu}
-                    sx={{
-                      my: 2,
-                      color: "white",
-                      display: "block",
-                      marginLeft: "8rem",
-                      marginRight: "0rem",
-                    }}
-                  >
-                    {page.label}
-                  </Button>
                 </NestedDropdown>
+                    <Typography textAlign="center" sx={{ color: "white" }}>
+                    {page.label}
+                      </Typography>
+                  </Button>
               </Link>
             ))}
           </Box>
