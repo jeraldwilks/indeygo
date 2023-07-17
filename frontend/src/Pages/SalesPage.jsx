@@ -48,6 +48,7 @@ const SalesPage = () => {
         let qty = 0;
         let totalSales = 0;
         for (const product of salesData[sale].products) {
+          console.log(product.quantity, product.price);
           qty += product.quantity;
           totalSales += product.quantity * product.price;
         }
