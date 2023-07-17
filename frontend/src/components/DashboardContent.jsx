@@ -13,7 +13,9 @@ const DashboardContent = () => {
   const [fundraisers, setFundraisers] = useState([]);
   const [fundraiser, setFundraiser] = useState();
   const [sales, setSales] = useState([]);
-  const [productTypes, setProductTypes] = useState([]);
+  const [salesByProduct, setSalesByProduct] = useState([]);
+  const [salesByProductType, setSalesByProductType] = useState([]);
+  const [totalProfit, setTotalProfit] = useState();
   const [topTenSales, setTopTenSales] = useState([]);
 
   useEffect(() => {
@@ -62,7 +64,13 @@ const DashboardContent = () => {
         "/api/sales/summary-by-fundraiser?fundraiser=" + fundraiser._id
       );
       const data = await response.json();
-      console.log(data);
+      setSalesByProduct(data.products);
+      setSalesByProductType(data.productTypes);
+      let profit = 0;
+      for (const each of data.productTypes) {
+        profit += each.totalWholesaleProfit;
+      }
+      setTotalProfit(profit);
     };
     if (fundraiser) {
       getSales();
@@ -108,6 +116,28 @@ const DashboardContent = () => {
               </li>
             ))}
           </ol>
+          <h3>Profit Summary</h3>
+          <ul>
+            {salesByProductType.map((pt) => (
+              <li key={pt.productType._id}>
+                {pt.productType.name} - Total Sold: {pt.totalSold} - Profit: $
+                {pt.totalWholesaleProfit}
+              </li>
+            ))}
+          </ul>
+          <p>
+            You've raised ${totalProfit} towards your goal of $
+            {fundraiser.fundraiserTarget}
+          </p>
+          <h3>Case Lots</h3>
+          <ul>
+            {salesByProduct.map((p) => (
+              <li key={p.product._id}>
+                {p.product.name} - Sold: {p.totalSold} - Full Cases:{" "}
+                {p.fullCases} - Partial Case: {p.caseRemainder}/{p.caseSize}
+              </li>
+            ))}
+          </ul>
         </>
       )}
     </div>
