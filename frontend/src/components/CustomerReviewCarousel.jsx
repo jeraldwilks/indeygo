@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../styling/CustomerReviewCarousel.css";
-// import "animate.css";
+import "animate.css";
 
 const CustomerReviewCarousel = () => {
   const [autoplay, setAutoplay] = React.useState(true);
