@@ -70,6 +70,7 @@ export default function InfoCountCash() {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
+          marginBottom: "30px",
         }}
       >
         <img
@@ -81,7 +82,7 @@ export default function InfoCountCash() {
 
       <div 
         >
-        <Button variant="outlined" onClick={handleClickOpen}>
+        <Button variant="outlined" style={{ width: "250px"}} onClick={handleClickOpen}>
           Count Your Cash
         </Button>
         <BootstrapDialog

@@ -74,6 +74,7 @@ export default function InfoProductDelivery() {
                       display: "flex",
                       flexDirection: "column",
                       alignItems: "center",
+                      marginBottom: "30px",
                     }}
                   >
                     
@@ -83,7 +84,7 @@ export default function InfoProductDelivery() {
                       style={{ width: "150px", height: "150px" }}
                     />
                   </Box>
-        <Button variant="outlined" onClick={handleClickOpen}>
+        <Button variant="outlined" style={{ width: "250px"}} onClick={handleClickOpen}>
           Deliver Product
         </Button>
         <BootstrapDialog

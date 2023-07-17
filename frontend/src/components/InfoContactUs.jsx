@@ -74,6 +74,7 @@ export default function InfoContactUs() {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    marginBottom: "30px",
   }}
 >
   <img
@@ -83,7 +84,7 @@ export default function InfoContactUs() {
   />
 </Box>
       <div>
-        <Button variant="outlined" onClick={handleClickOpen}>
+        <Button variant="outlined" style={{ width: "250px"}} onClick={handleClickOpen}>
           Contact Us
         </Button>
         <BootstrapDialog

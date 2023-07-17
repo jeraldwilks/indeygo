@@ -1,5 +1,4 @@
 import React from "react";
-
 import Button from "@mui/material/Button";
 
 // Below are the imports for open dialog box
@@ -63,50 +62,45 @@ export default function InfoRunFundraiser() {
 
   return (
     <>
-       <div style={{ marginBottom: "50px" }}>Step 2</div>
 
-      <Box
-                    sx={{
-                      border: "5px dotted #0b4d83",
-                      borderRadius: "25px",
-                      p: "8px",
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "center",
-                    }}
-                  >
-                    
-                    <img
-                      src="./images/step2.png"
-                      alt="Step 2"
-                      style={{ width: "150px", height: "150px" 
-                    
-                    }}
-                    />
-                  </Box> 
-      <div
-      
-      >
-       
-        <Button variant="outlined" onClick={handleClickOpen}>
+<div style={{ marginBottom: "50px" }}>Step 2</div>
+   
+   <Box
+     sx={{
+       border: "5px dotted #0b4d83",
+       borderRadius: "25px",
+       p: "8px",
+       display: "flex",
+       flexDirection: "column",
+       alignItems: "center",
+       marginBottom: "30px",
+     }}
+   >
+     <img
+       src="./images/step2.png"
+       alt="Step 4"
+       style={{ width: "150px", height: "150px" }}
+     />
+   </Box>
 
-
-
-          Run Your Fundraiser
-        </Button>
-        <BootstrapDialog
-          onClose={handleClose}
-          aria-labelledby="customized-dialog-title"
-          open={open}
-        >
-          <BootstrapDialogTitle
-            id="customized-dialog-title"
-            onClose={handleClose}
-          >
-            Run Your Fundraiser
-          </BootstrapDialogTitle>
-          <DialogContent dividers>
-            <Typography gutterBottom>
+   <div 
+     >
+     <Button variant="outlined" style={{ width: "250px"}} onClick={handleClickOpen}>
+       Run Your Fundraiser
+     </Button>
+     <BootstrapDialog
+       onClose={handleClose}
+       aria-labelledby="customized-dialog-title"
+       open={open}
+     >
+       <BootstrapDialogTitle
+         id="customized-dialog-title"
+         onClose={handleClose}
+       >
+         Run Your Fundraiser
+       </BootstrapDialogTitle>
+       <DialogContent dividers>
+       <Typography gutterBottom>
               Pick a start and end date – we suggest running your fundraiser
               over 10-14 days and include two weekends. Goal setting is
               important to help motivate your group. Clearly communicate your
@@ -133,21 +127,20 @@ export default function InfoRunFundraiser() {
                 section
               </p>
             </Typography>
-          </DialogContent>
-          <DialogActions>
-          <a href="/CoordinatorsChecklistInfo">
-                <Button
-                  variant="contained"
-                  style={{ backgroundColor: "#0B4D83" }}
-                >
-                  Coordinators Checklist
-                </Button>
-              </a>
-          
+       </DialogContent>
+       <DialogActions>
+            <a href="/CoordinatorsChecklistInfo">
+              <Button
+                variant="contained"
+                style={{ backgroundColor: "#0B4D83" }}
+              >
+                Coordinators Checklist
+              </Button>
+            </a>
           </DialogActions>
-        </BootstrapDialog>
-        
-      </div>
+     </BootstrapDialog>
+   </div>
+
     </>
   );
 }
