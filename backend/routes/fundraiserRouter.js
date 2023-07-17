@@ -8,7 +8,6 @@ fundraiserRouter.get("/", isAuthenticated, async (req, res) => {
   try {
     let searchQuery = req.query;
     searchQuery.user = req.user._id;
-    // console.log(req.query);
     const foundFundraisers = await FundraiserModel.find(req.query)
       .populate("productTypes")
       .populate("organization");
