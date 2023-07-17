@@ -28,13 +28,39 @@ const pages = [
     label: "Products",
     menuItems: [
       {
-        label: "Products 1",
-        callback: () => console.log("Products > Submenu 1"),
+        label: "Cookie Dough",
+        callback: () => console.log("Products > Cookie Dough"),
       },
       {
-        label: "Products 2",
-        callback: () => console.log("Products > Submenu 2"),
+        label: "Muffin Dough",
+        callback: () => console.log("Products > Muffin Dough"),
       },
+      {
+        label: "Cinnamon & Sticky Bun",
+        callback: () => console.log("Products > Cinnamon & Sticky Bun"),
+      },
+      {
+        label: "Coffee & tea",
+        callback: () => console.log("Products > Coffee & Tea"),
+      },
+      {
+        label: "Beef Jerky",
+        callback: () => console.log("Products > Beef Jerky"),
+      },
+      {
+        label: "Harvest Bundle",
+        callback: () => console.log("Products > Harvest Bundle"),
+      },
+      {
+        label: "Spring Planters & Herbs",
+        callback: () => console.log("Products > Spring Planters & Herbs"),
+      },
+      {
+        label: "Doggie Dough",
+        callback: () => console.log("Products > Doggie Dough"),
+      },
+      
+      
       // Add more submenu items as needed
     ],
   },
@@ -42,11 +68,35 @@ const pages = [
     label: "FundraisingInfo",
     menuItems: [
       {
-        label: "FundraisingInfo 1",
+        label: "Fundraising Guide",
         callback: () => console.log("FundraisingInfo > FundraisingInfo 1"),
       },
       {
-        label: "FundraisingInfo 2",
+        label: "How does a Fundraiser work",
+        callback: () => console.log("FundraisingInfo > FundraisingInfo 2"),
+      },
+      {
+        label: "Coordinators Checklist",
+        callback: () => console.log("FundraisingInfo > FundraisingInfo 1"),
+      },
+      {
+        label: "I Need More Info",
+        callback: () => console.log("FundraisingInfo > FundraisingInfo 2"),
+      },
+      {
+        label: "I am Ready to Book Ny fundraiser",
+        callback: () => console.log("FundraisingInfo > FundraisingInfo 1"),
+      },
+      {
+        label: "I am Ready to Submit my Final Group Bulk Order",
+        callback: () => console.log("FundraisingInfo > FundraisingInfo 2"),
+      },
+      {
+        label: "I wish to Register for an Online Store",
+        callback: () => console.log("FundraisingInfo > FundraisingInfo 1"),
+      },
+      {
+        label: "Fundraising Profit",
         callback: () => console.log("FundraisingInfo > FundraisingInfo 2"),
       },
       // Add more submenu items as needed
