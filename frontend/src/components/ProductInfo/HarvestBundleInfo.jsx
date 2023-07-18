@@ -2,7 +2,7 @@ import React from 'react'
 
 const HarvestBundleInfo = () => {
   return (
-    <div>HarvestBundleInfo</div>
+    <div style={{ marginTop: '200px' }}>HarvestBundleInfo</div>
   )
 }
 

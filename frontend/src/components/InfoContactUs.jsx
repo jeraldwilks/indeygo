@@ -1,53 +1,148 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import { Button } from "@mui/material";
-import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
-import EmailIcon from '@mui/icons-material/Email';
+import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
+import EmailIcon from "@mui/icons-material/Email";
 
-const InfoContactUs = () => {
+// Below are the imports for open dialog box
+import PropTypes from "prop-types";
+import { styled } from "@mui/material/styles";
+import Dialog from "@mui/material/Dialog";
+import DialogContent from "@mui/material/DialogContent";
+import DialogTitle from "@mui/material/DialogTitle";
+import DialogActions from "@mui/material/DialogActions";
+import IconButton from "@mui/material/IconButton";
+import CloseIcon from "@mui/icons-material/Close";
+import Typography from "@mui/material/Typography";
+
+const BootstrapDialog = styled(Dialog)(({ theme }) => ({
+  "& .MuiDialogContent-root": {
+    padding: theme.spacing(2),
+  },
+  "& .MuiDialogActions-root": {
+    padding: theme.spacing(1),
+  },
+}));
+
+function BootstrapDialogTitle(props) {
+  const { children, onClose, ...other } = props;
+
   return (
-    <>
-    <div
-    style={{
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      height: "100vh",
-    }}
-    >
-        <Box
+    <DialogTitle sx={{ m: 0, p: 2 }} {...other}>
+      {children}
+      {onClose ? (
+        <IconButton
+          aria-label="close"
+          onClick={onClose}
           sx={{
-            border: "1px solid #ccc",
-            borderRadius: "4px",
-            padding: "16px",
-            marginBottom: "16px",
-            marginTop: "50px",
-            maxWidth: "500Px",
-            alignItems: "center",
+            position: "absolute",
+            right: 8,
+            top: 8,
+            color: (theme) => theme.palette.grey[500],
           }}
         >
-    
-      <h2>Contact Us</h2>
-      <p>
-        Contact Indeygo to request your order forms. Keep it simple – choose one
-        or two product types from our awesome lineup. Ask us about free shipping
-        to your area.
-      </p>
-      <p><LocalPhoneIcon style={{ verticalAlign: "middle" }} />  Phone: 1-877-463-3946</p>
-      <p><EmailIcon style={{ verticalAlign: "middle" }} />  Email: info@indeygo.com</p>
-      <p>Fill out one of our online forms</p>
-      <div style={{ display: "flex", gap: "10px" }}>
-      <a href="/Contact">
-      <Button variant="contained" style={{ backgroundColor: "#0B4D83" }}>I Need More Info</Button>
-      </a>
-      <a href="/Contact">
-      <Button variant="contained" style={{ backgroundColor: "#0B4D83" }}>I'm Ready To Book My Fundraiser</Button>
-      </a>
-      </div>
-      </Box>
-    </div>
-    </>
+          <CloseIcon />
+        </IconButton>
+      ) : null}
+    </DialogTitle>
   );
+}
+
+BootstrapDialogTitle.propTypes = {
+  children: PropTypes.node,
+  onClose: PropTypes.func.isRequired,
 };
 
-export default InfoContactUs;
+export default function InfoContactUs() {
+  const [open, setOpen] = React.useState(false);
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  return (
+    <>
+     <div style={{ marginBottom: "50px" }}>Step 1</div>
+
+<Box
+  sx={{
+    border: "5px dotted #0b4d83",
+    borderRadius: "25px",
+    p: "8px",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    marginBottom: "30px",
+  }}
+>
+  <img
+    src="./images/step1.png"
+    alt="Step 1"
+    style={{ width: "150px", height: "150px" }}
+  />
+</Box>
+      <div>
+        <Button variant="outlined" style={{ width: "250px"}} onClick={handleClickOpen}>
+          Contact Us
+        </Button>
+        <BootstrapDialog
+          onClose={handleClose}
+          aria-labelledby="customized-dialog-title"
+          open={open}
+        >
+          <BootstrapDialogTitle
+            id="customized-dialog-title"
+            onClose={handleClose}
+          >
+            Contact Us
+          </BootstrapDialogTitle>
+          <DialogContent dividers>
+            <Typography gutterBottom>
+            Contact Indeygo to request your order forms. Keep it simple – choose
+            one or two product types from our awesome lineup. Ask us about free
+            shipping to your area.
+            </Typography>
+            <Typography gutterBottom>
+            <p>
+            <LocalPhoneIcon style={{ verticalAlign: "middle" }} /> Phone:
+            1-877-463-3946
+          </p>
+          <p>
+            <EmailIcon style={{ verticalAlign: "middle" }} /> Email:
+            info@indeygo.com
+          </p>
+          <p>Fill out one of our online forms</p>
+            </Typography>
+           
+          </DialogContent>
+          <DialogActions>
+          <div style={{ display: "flex", gap: "0px" }}>
+            <a href="/Contact">
+              <Button
+                variant="contained"
+                style={{ backgroundColor: "#0B4D83" }}
+              >
+                I Need More Info
+              </Button>
+            </a>
+            <a href="/Contact">
+              <Button
+                variant="contained"
+                style={{ backgroundColor: "#0B4D83" }}
+              >
+                I'm Ready To Book My Fundraiser
+              </Button>
+            </a>
+          </div>
+
+
+          </DialogActions>
+        </BootstrapDialog>
+      </div>
+
+    </>
+  );
+}
+
