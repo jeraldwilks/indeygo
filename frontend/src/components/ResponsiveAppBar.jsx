@@ -225,7 +225,7 @@ function ResponsiveAppBar() {
                         onClick={handleCloseNavMenu}
                         sx={{
                           display: "flex",
-                          justifyContent: "center",
+                          justifyContent: "left",
                           "&:hover": {
                             backgroundColor: "#F7E86A",
                           },
@@ -241,7 +241,7 @@ function ResponsiveAppBar() {
                       onClick={handleCloseNavMenu}
                       sx={{
                         display: "flex",
-                          justifyContent: "center",
+                          justifyContent: "left",
                         "&:hover": {
                           backgroundColor: "#F7E86A",
                         },
@@ -350,12 +350,12 @@ function ResponsiveAppBar() {
               anchorEl={anchorElUser}
               anchorOrigin={{
                 vertical: "top",
-                horizontal: "right",
+                horizontal: "left",
               }}
               keepMounted
               transformOrigin={{
                 vertical: "top",
-                horizontal: "right",
+                horizontal: "left",
               }}
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}

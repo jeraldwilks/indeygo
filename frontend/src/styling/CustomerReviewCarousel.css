@@ -1,8 +1,8 @@
 .carousel {
   margin-top: 100px;
   flex-wrap: wrap;
-  height: 70vh;
-  padding-block: 30px;
+  height: 55vh;
+  padding-block: 10px;
   padding-inline: 10px;
   
 }
