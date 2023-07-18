@@ -265,18 +265,7 @@ function ResponsiveAppBar() {
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Link to={page.label} key={page.label}>
-                
-                  <Button
-                    key={page.label}
-                    onClick={handleCloseNavMenu}
-                    sx={{
-                      my: 2,
-                      color: "white",
-                      display: "block",
-                      marginLeft: "8rem",
-                      marginRight: "0rem",
-                    }}
-                  ><NestedDropdown
+                <NestedDropdown
                   key={page.label}
                   menuItemsData={{
                     label: page.label,
@@ -288,11 +277,22 @@ function ResponsiveAppBar() {
                   anchorEl={anchorElNav}
                   onClose={handleCloseNavMenu}
                 >
-                </NestedDropdown>
-                    <Typography textAlign="center" sx={{ color: "white" }}>
+                  <Button
+                    key={page.label}
+                    onClick={handleCloseNavMenu}
+                    sx={{
+                      my: 2,
+                      color: "white",
+                      display: "block",
+                      marginLeft: "8rem",
+                      marginRight: "0rem",
+                    }}
+                  >
                     {page.label}
+                    <Typography textAlign="center" >
                       </Typography>
                   </Button>
+                </NestedDropdown>
               </Link>
             ))}
           </Box>
