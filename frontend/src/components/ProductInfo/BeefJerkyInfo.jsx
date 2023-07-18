@@ -4,6 +4,7 @@ import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
 import { styled } from "@mui/material/styles";
 import StarsIcon from "@mui/icons-material/Stars";
+import { Button } from "@mui/material";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -14,6 +15,14 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const BeefJerkyInfo = () => {
+
+  const handleDownloadPDF = () => {
+    const pdfPath = '../pdfs/BeefJerky2022.pdf';
+    window.open(pdfPath, '_blank');
+  };
+
+
+
   return (
     <>
       <div
@@ -76,6 +85,7 @@ const BeefJerkyInfo = () => {
             </Item>
           </Stack>
         </Box>
+        <Button onClick={handleDownloadPDF}>Download PDF</Button>
       </div>
     </>
   );

@@ -31,12 +31,14 @@ ol {
   list-style-type: none;
   gap: 50px;
   justify-content: center;
+  padding-bottom: 100px;
 }
 
 .step {
   display: flex;
   align-items: center;
   margin-inline: 20px;
+  margin-block: 20px;
 }
 
 .icon {
