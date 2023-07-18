@@ -237,14 +237,7 @@ function ResponsiveAppBar() {
                     <MenuItem
                       key={page.label}
                       onClick={handleCloseNavMenu}
-                      sx={{
-                        display: "flex",
-                        justifyContent: "left",
-                        color: "#0B4D83",
-                        "&:hover": {
-                          backgroundColor: "#F7E86A",
-                        },
-                      }}
+                      
                     >
                       {page.label}
                     </MenuItem>
