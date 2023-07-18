@@ -2,7 +2,7 @@ import React from 'react'
 
 const CookieDoughInfo = () => {
   return (
-    <div>CookieDoughInfo</div>
+    <div style={{ marginTop: '200px' }}>CookieDoughInfo</div>
   )
 }
 

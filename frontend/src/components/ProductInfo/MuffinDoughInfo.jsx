@@ -2,7 +2,7 @@ import React from 'react'
 
 const MuffinDoughInfo = () => {
   return (
-    <div>MuffinDoughInfo</div>
+    <div style={{ marginTop: '200px' }}>MuffinDoughInfo</div>
   )
 }
 

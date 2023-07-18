@@ -2,7 +2,7 @@ import React from 'react'
 
 const CinnamonAndStickyBunInfo = () => {
   return (
-    <div>CinnamonAndStickyBunInfo</div>
+    <div style={{ marginTop: '200px' }}>CinnamonAndStickyBunInfo</div>
   )
 }
 

@@ -26,6 +26,15 @@ import InfoProductDelivery from "./components/InfoProductDelivery";
 import InfoContactUs from "./components/InfoContactUs";
 import InfoCountCash from "./components/InfoCountCash";
 
+import CookieDoughInfo from "./components/ProductInfo/CookieDoughInfo.jsx";
+import BeefJerkyInfo from "./components/ProductInfo/BeefJerkyInfo.jsx";
+import CinnamonAndStickyBunInfo from "./components/ProductInfo/CinnamonAndStickyBunInfo.jsx";
+import CoffeeAndTeaInfo from "./components/ProductInfo/CoffeeAndTeaInfo.jsx";
+import DoggieDoughInfo from "./components/ProductInfo/DoggieDoughInfo.jsx";
+import HarvestBundleInfo from "./components/ProductInfo/HarvestBundleInfo.jsx";
+import MuffinDoughInfo from "./components/ProductInfo/MuffinDoughInfo.jsx";
+import SpringPlantersAndHerbsInfo from "./components/ProductInfo/SpringPlantersAndHerbsInfo.jsx";
+
 function App() {
   return (
     <div className="fullscreen">
@@ -54,14 +63,28 @@ function App() {
 
         {/* Routes to Information Components(Mui Dialog) . I (Rini)may delete this later as I am rendering it as an mui dialog over a page*/}
 
-        <Route path="/ContactUsInfo" element={<InfoContactUs />} />
-        <Route path="/FundRaiserInfo" element={<InfoRunFundraiser />} />
+        {/* <Route path="/ContactUsInfo" element={<InfoContactUs />} />
+        <Route path="/FundRaiserInfo" element={<InfoRunFundraiser />} /> */}
+
+
+        <Route path="/products/cd" element={<CookieDoughInfo />} />
+        <Route path="/products/md" element={<MuffinDoughInfo />} />
+        <Route path="/products/csb" element={<CinnamonAndStickyBunInfo />} />
+        <Route path="/products/ct" element={<CoffeeAndTeaInfo />} />
+        <Route path="/products/bj" element={<BeefJerkyInfo />} />
+        <Route path="/products/hb" element={<HarvestBundleInfo />} />
+        <Route path="/products/sph" element={<SpringPlantersAndHerbsInfo />} />
+        <Route path="/products/dd" element={<DoggieDoughInfo />} />
+
+        
         <Route
           path="/CoordinatorsChecklistInfo"
           element={<InfoCoordinatorsChecklist />}
         />
-        <Route path="/ProductDeliveryInfo" element={<InfoProductDelivery />} />
-        <Route path="/CountCashInfo" element={<InfoCountCash />} />
+        {/* <Route path="/ProductDeliveryInfo" element={<InfoProductDelivery />} />
+        <Route path="/CountCashInfo" element={<InfoCountCash />} /> */}
+
+
 
         <Route
           path="/Dashboard"
