@@ -1,4 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom"; 
+
+
 import {
   Box,
   Card,
@@ -8,51 +11,54 @@ import {
   Grid,
 } from "@mui/material";
 
+
+
+
 const products = [
   {
-    id: 1,
+    id: "cd",
     name: "Cookie Dough",
 
     imageUrl: "../images/productcookiedough.jpeg",
   },
   {
-    id: 2,
+    id: "md",
     name: "Muffin Dough",
 
     imageUrl: "../images/productmuffindough.jpeg",
   },
   {
-    id: 3,
+    id: "csb",
     name: "Cinnamon & Sticky Bun",
 
     imageUrl: "../images/productcinnamonstickybun.jpeg",
   },
   {
-    id: 4,
+    id: "ct",
     name: "Coffee & Tea",
 
     imageUrl: "../images/productcoffeetea.jpeg",
   },
   {
-    id: 5,
+    id: "bj",
     name: "Beef Jerky",
 
     imageUrl: "../images/productbeefjerky.jpeg",
   },
   {
-    id: 6,
+    id: "hb",
     name: "Harvest Bundle",
 
     imageUrl: "../images/productharvestbundle.jpeg",
   },
   {
-    id: 7,
+    id: "sph",
     name: "Spring Planters & Herbs",
 
     imageUrl: "../images/productspringplanter.jpeg",
   },
   {
-    id: 8,
+    id: "dd",
     name: "Doggie Dough",
 
     imageUrl: "../images/productdoggiedough.jpeg",
@@ -78,6 +84,7 @@ const ProductDisplay = () => {
       <Grid container spacing={2}>
         {products.map((product) => (
           <Grid item xs={12} sm={6} md={4} key={product.id}>
+            <Link to={`/products/${product.id}`}>
             <Card
               sx={{ display: "flex", flexDirection: "column", height: "100%" }}
             >
@@ -91,11 +98,9 @@ const ProductDisplay = () => {
                 <Typography variant="h6" component="div" gutterBottom>
                   {product.name}
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {product.description}
-                </Typography>
               </CardContent>
             </Card>
+            </Link>
           </Grid>
         ))}
       </Grid>

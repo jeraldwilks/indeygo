@@ -2,7 +2,7 @@ import React from 'react'
 
 const DoggieDoughInfo = () => {
   return (
-    <div>DoggieDoughInfo</div>
+    <div style={{ marginTop: '200px' }}>DoggieDoughInfo</div>
   )
 }
 
