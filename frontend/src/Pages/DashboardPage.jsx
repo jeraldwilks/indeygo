@@ -1,7 +1,7 @@
 import AddBusinessIcon from "@mui/icons-material/AddBusiness";
 import AdminDashboardPage from "./AdminDashboardPage";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReceiptIcon from "@mui/icons-material/Receipt";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { useAuth } from "../providers/AuthProvider";
@@ -22,6 +22,7 @@ import OrganizationsPage from "./OrganizationsPage";
 import AddOrganizationPage from "./AddOrganizationPage";
 import EditOrganization from "./EditOrganizationPage";
 import EditProfilePage from "./EditProfilePage";
+import DashboardContent from "../components/DashboardContent";
 
 const DashboardPage = ({ page }) => {
   const [collapsed, setCollapsed] = useState(false);
@@ -39,6 +40,7 @@ const DashboardPage = ({ page }) => {
   if (user?.isAdmin) {
     return <AdminDashboardPage page={page} />;
   }
+
   return (
     <>
       <div style={{ display: "flex", marginTop: 120 }}>
@@ -103,6 +105,7 @@ const DashboardPage = ({ page }) => {
           {page === "add-fundraiser" && <AddFundraiserPage />}
           {page === "edit-fundraiser/:id" && <EditFundraiserPage />}
           {page === "edit-profile" && <EditProfilePage />}
+          {page === "Dashboard" && <DashboardContent />}
         </div>
       </div>
     </>

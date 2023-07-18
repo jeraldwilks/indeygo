@@ -77,7 +77,7 @@ const EditSalePage = () => {
       setProducts(newArray);
     }
   };
-  
+
   return (
     availableProducts && (
       <ThemeProvider theme={theme}>
@@ -91,71 +91,71 @@ const EditSalePage = () => {
               flexDirection: "column",
               alignItems: "center",
             }}
-            >
+          >
             <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
               <ReceiptIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
               Edit Sale
             </Typography>
-              <Grid container spacing={2}>
-                <Grid item xs={18}>
-                  <TextField
-                    type="text"
-                    variant="outlined"
-                    label="Seller's Name"
-                    name="name"
-                    value={name}
-                    required
-                    fullWidth
-                    onChange={(e) => setName(e.target.value)}
-                    />
-                </Grid>{" "}
-                <Grid item xs={18}>
-                  <TextField
-                    type="text"
-                    variant="outlined"
-                    label="Seller's Phone Number"
-                    name="phoneNumber"
-                    value={phoneNumber}
-                    fullWidth
-                    required
-                    onChange={(e) => setPhoneNumber(e.target.value)}
-                    />{" "}
-                </Grid>
-                <br />
-                {availableProducts.map((product) => (
-                  <FormControl key={product._id} fullWidth>
-                    <Grid item xs={18}>
-                      {product.productType.name} - {product.name} -{" "}
-                      <TextField
-                        type="number"
-                        fullWidth
-                        variant="outlined"
-                        label="Quantity:"
-                        name="quantity"
-                        defaultValue={product.qty}
-                        onChange={(e) =>
-                          changeQuantity(
-                            product._id,
-                            e.target.value,
-                            product.sellPrice
-                          )
-                        }
-                      />
-                    </Grid>
-                  </FormControl>
-                ))}
-                <br />
-                <Button
-                  variant="contained"
+            <Grid container spacing={2}>
+              <Grid item xs={18}>
+                <TextField
+                  type="text"
+                  variant="outlined"
+                  label="Seller's Name"
+                  name="name"
+                  value={name}
+                  required
                   fullWidth
-                  sx={{ mt: 3, mb: 2 }}
-                  onClick={submitForm}
-                >
-                  Update Sale
-                </Button>
+                  onChange={(e) => setName(e.target.value)}
+                />
+              </Grid>{" "}
+              <Grid item xs={18}>
+                <TextField
+                  type="text"
+                  variant="outlined"
+                  label="Seller's Phone Number"
+                  name="phoneNumber"
+                  value={phoneNumber}
+                  fullWidth
+                  required
+                  onChange={(e) => setPhoneNumber(e.target.value)}
+                />{" "}
               </Grid>
+              <br />
+              {availableProducts.map((product) => (
+                <FormControl key={product._id} fullWidth>
+                  <Grid item xs={18}>
+                    {product.productType.name} - {product.name} -{" "}
+                    <TextField
+                      type="number"
+                      fullWidth
+                      variant="outlined"
+                      label="Quantity:"
+                      name="quantity"
+                      defaultValue={product.qty}
+                      onChange={(e) =>
+                        changeQuantity(
+                          product._id,
+                          e.target.value,
+                          product.productType.sellPrice
+                        )
+                      }
+                    />
+                  </Grid>
+                </FormControl>
+              ))}
+              <br />
+              <Button
+                variant="contained"
+                fullWidth
+                sx={{ mt: 3, mb: 2 }}
+                onClick={submitForm}
+              >
+                Update Sale
+              </Button>
+            </Grid>
           </Box>
         </Container>
       </ThemeProvider>

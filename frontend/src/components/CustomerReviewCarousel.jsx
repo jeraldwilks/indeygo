@@ -51,13 +51,7 @@ const CustomerReviewCarousel = () => {
   return (
     <div class="carousel">
       <div class="carousel-container">
-
-          <Slider
-            {...settings}
-            autoplay={autoplay}
-            autoplaySpeed={1500}
-          >
-
+        <Slider {...settings} autoplay={autoplay} autoplaySpeed={1500}>
           <div class="col-md-3">
             <div class="cardholder">
               <div class="card">
@@ -79,9 +73,8 @@ const CustomerReviewCarousel = () => {
               </div>
             </div>
           </div>
-
-          </Slider>
-        </div>
+        </Slider>
+      </div>
     </div>
   );
 };
