@@ -122,14 +122,10 @@ function ResponsiveAppBar() {
   };
 
   const handleLogout = () => {
-    // Logout Logic
-    setIsLoggedIn(false);
     handleCloseUserMenu();
   };
 
   const handleLogin = () => {
-    // Login Logic
-    setIsLoggedIn(true);
     handleCloseUserMenu();
   };
 
