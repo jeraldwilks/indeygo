@@ -1,13 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom"; // Import Link from React Router
-// import CookieDoughInfo from "./ProductInfo/CookieDoughInfo.jsx";
-// import BeefJerkyInfo from "./ProductInfo/CookieDoughInfo.jsx";
-// import CinnamonAndStickyBunInfo from "./ProductInfo/CookieDoughInfo.jsx";
-// import CoffeeAndTeaInfo from "./ProductInfo/CookieDoughInfo.jsx";
-// import DoggieDoughInfo from "./ProductInfo/CookieDoughInfo.jsx";
-// import HarvestBundleInfo from "./ProductInfo/CookieDoughInfo.jsx";
-// import MuffinDoughInfo from "./ProductInfo/CookieDoughInfo.jsx";
-// import SpringPlantersAndHerbsInfo from "./ProductInfo/CookieDoughInfo.jsx";
+import { Link } from "react-router-dom"; 
 
 
 import {
