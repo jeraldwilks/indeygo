@@ -3,7 +3,7 @@ import "../styling/homePage.css";
 import CustomerReviewCarousel from "../components/CustomerReviewCarousel";
 import ImageCarousel from "../components/ImageCarousel.jsx";
 import { FaCanadianMapleLeaf } from "react-icons/fa";
-import CustomizedDialogs from "../components/CustomizedDialogs";
+// import CustomizedDialogs from "../components/CustomizedDialogs";
 import InfoContactUs from "../components/InfoContactUs";
 import InfoRunFundraiser from "../components/InfoRunFundraiser";
 import InfoProductDelivery from "../components/InfoProductDelivery";
@@ -46,7 +46,7 @@ const HomePage = () => {
         <div>
           <p>Does your group need to raise some cash?</p>
           <p>With Indeygo, It's Easy!</p>
-          <CustomizedDialogs />
+          {/* <CustomizedDialogs /> */}
 
           <ol className="steps">
             <div className="step">
