@@ -19,12 +19,12 @@ import { useAuth } from "../providers/AuthProvider";
 const pages = [
   {
     label: "About",
-    menuItems: [
-      
-    ],
+    hasDropdown: false,
   },
   {
     label: "Products",
+    hasDropdown: true,
+
     menuItems: [
       {
         label: "Cookie Dough",
@@ -63,6 +63,7 @@ const pages = [
   },
   {
     label: "FundraisingInfo",
+    hasDropdown: true,
     menuItems: [
       {
         label: "Fundraising Guide",
@@ -97,14 +98,15 @@ const pages = [
   },
   {
     label: "FAQ",
+    // hasDropdown: true,
     menuItems: [
       { label: "Blog", callback: () => console.log("FundraisingInfo > Blog") },
     ],
   },
   {
     label: "Contact",
-    menuItems: [
-    ],
+    hasDropdown: false,
+
   },
 ];
 
@@ -190,12 +192,12 @@ function ResponsiveAppBar() {
               anchorEl={anchorElNav}
               anchorOrigin={{
                 vertical: "bottom",
-                horizontal: "left",
+                horizontal: "right",
               }}
               keepMounted
               transformOrigin={{
                 vertical: "top",
-                horizontal: "left",
+                horizontal: "right",
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
@@ -205,32 +207,49 @@ function ResponsiveAppBar() {
             >
               {pages.map((page) => (
                 <Link to={page.label} key={page.label}>
-                  <NestedDropdown
-                    key={page.label}
-                    menuItemsData={{
-                      label: page.label,
-                      items: page.menuItems.map((menuItem) => ({
-                        label: menuItem.label,
-                        callback: menuItem.callback,
-                      })),
-                    }}
-                    anchorEl={anchorElNav}
-                    onClose={handleCloseNavMenu}
-                  >
+                  {page.hasDropdown ? (
+                    <NestedDropdown
+                      key={page.label}
+                      menuItemsData={{
+                        label: page.label,
+                        items: page.menuItems.map((menuItem) => ({
+                          label: menuItem.label,
+                          callback: menuItem.callback,
+                        })),
+                      }}
+                      anchorEl={anchorElNav}
+                      onClose={handleCloseNavMenu}
+                    >
+                      <MenuItem
+                        key={page.label}
+                        onClick={handleCloseNavMenu}
+                        sx={{
+                          display: "flex",
+                          justifyContent: "center",
+                          "&:hover": {
+                            backgroundColor: "#F7E86A",
+                          },
+                        }}
+                      >
+                        {page.label}
+                      
+                      </MenuItem>
+                    </NestedDropdown>
+                  ) : (
                     <MenuItem
                       key={page.label}
                       onClick={handleCloseNavMenu}
                       sx={{
+                        display: "flex",
+                          justifyContent: "center",
                         "&:hover": {
                           backgroundColor: "#F7E86A",
                         },
                       }}
-                      >
+                    >
                       {page.label}
-                      <Typography textAlign="center" sx={{ color: "#0b4d83" }}>
-                      </Typography>
                     </MenuItem>
-                  </NestedDropdown>
+                  )}
                 </Link>
               ))}
             </Menu>
@@ -262,34 +281,57 @@ function ResponsiveAppBar() {
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Link to={page.label} key={page.label}>
-                <NestedDropdown
-                  key={page.label}
-                  menuItemsData={{
-                    label: page.label,
-                    items: page.menuItems.map((menuItem) => ({
-                      label: menuItem.label,
-                      callback: menuItem.callback,
-                    })),
-                  }}
-                  anchorEl={anchorElNav}
-                  onClose={handleCloseNavMenu}
-                >
+                {page.hasDropdown ? (
+                  <NestedDropdown
+                    key={page.label}
+                    menuItemsData={{
+                      label: page.label,
+                      items: page.menuItems.map((menuItem) => ({
+                        label: menuItem.label,
+                        callback: menuItem.callback,
+                      })),
+                    }}
+                    anchorEl={anchorElNav}
+                    onClose={handleCloseNavMenu}
+                  >
+                    <Button
+                      key={page.label}
+                      onClick={handleCloseNavMenu}
+                      sx={{
+                        my: 2,
+                        color: "white",
+                        display: "block",
+                        marginLeft: "8rem",
+                        marginRight: "0rem",
+                        "&:hover": {
+                          backgroundColor: "#F7E86A",
+                        },
+                      }}
+                    >
+                      {page.label}
+                    </Button>
+                  </NestedDropdown>
+                ) : (
                   <Button
                     key={page.label}
-                    onClick={handleCloseNavMenu}
+                    component={Link}
+                    to={page.label}
                     sx={{
                       my: 2,
                       color: "white",
                       display: "block",
                       marginLeft: "8rem",
                       marginRight: "0rem",
+                      "&:hover": {
+                        backgroundColor: "#F7E86A",
+                      },
                     }}
                   >
                     {page.label}
-                    <Typography textAlign="center" >
-                      </Typography>
+                    <Typography textAlign="center">
+                    </Typography>
                   </Button>
-                </NestedDropdown>
+                )}
               </Link>
             ))}
           </Box>
