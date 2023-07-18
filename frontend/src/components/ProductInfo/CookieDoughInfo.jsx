@@ -43,7 +43,7 @@ const CookieDoughInfo = () => {
                 fontSize: "32px",
                 fontWeight: "bold",
               }}>
-          CookieDoughInfo
+          Cookie Dough Fundraiser
           </div>
         </div>
         
