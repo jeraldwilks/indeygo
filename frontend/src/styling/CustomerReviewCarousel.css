@@ -4,9 +4,9 @@
   height: 70vh;
   padding-block: 30px;
   padding-inline: 10px;
-  background: radial-gradient(circle, #f2f2f2, #9a9a9a41, #0b4d83);
-  /* background-size: 200% 400%; */
-  /* animation: gradient 25s ease infinite; */
+  background: linear-gradient(-180deg, #f2f2f2, #9a9a9a41, #0b4d83);
+  background-size: 200% 400%;
+  animation: gradient 25s ease infinite;
 }
 
 @keyframes gradient {
