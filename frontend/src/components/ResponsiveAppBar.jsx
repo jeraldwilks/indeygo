@@ -143,8 +143,8 @@ function ResponsiveAppBar() {
       sx={{
         backgroundColor: "#0B4D83",
         marginBottom: "2rem",
-        height: 60,
-        paddingTop: ".3rem",
+        height: 68,
+        paddingTop: ".1rem",
       }}
     >
       <Container maxWidth="xl">
@@ -168,7 +168,7 @@ function ResponsiveAppBar() {
               <img
                 src="Logo.jpg"
                 alt="Logo"
-                style={{ height: 60, marginRight: 8 }} // Adjust the height and margin as needed
+                style={{ height: 66, marginRight: 350, marginLeft: 15 }} // Adjust the height and margin as needed
               />
             </Link>
           </Typography>
@@ -204,7 +204,11 @@ function ResponsiveAppBar() {
               }}
             >
               {pages.map((page) => (
-                <Link to={page.label} key={page.label}>
+                <Link
+                  to={page.label}
+                  key={page.label}
+                  style={{ height: 0, color: "#0b4d83",  }} // Adjust the height and margin as needed
+                >
                   {page.hasDropdown ? (
                     <NestedDropdown
                       key={page.label}
@@ -234,11 +238,7 @@ function ResponsiveAppBar() {
                       </MenuItem>
                     </NestedDropdown>
                   ) : (
-                    <MenuItem
-                      key={page.label}
-                      onClick={handleCloseNavMenu}
-                      
-                    >
+                    <MenuItem key={page.label} onClick={handleCloseNavMenu}>
                       {page.label}
                     </MenuItem>
                   )}
@@ -270,17 +270,12 @@ function ResponsiveAppBar() {
               />{" "}
             </Link>
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex", color: "white", } }}>
             {pages.map((page) => (
-              <Link to={page.label} key={page.label} >
+              <Link to={page.label} key={page.label}  style={{ textDecoration: "none"  }}>
                 {page.hasDropdown ? (
                   <NestedDropdown
                     key={page.label}
-                    sx={{
-                      color: "orange",
-                      marginLeft: "8rem",
-                      marginRight: "0rem",
-                    }}
                     menuItemsData={{
                       label: page.label,
                       items: page.menuItems.map((menuItem) => ({
@@ -310,12 +305,7 @@ function ResponsiveAppBar() {
                     </Button>
                   </NestedDropdown>
                 ) : (
-                  <Button
-                    key={page.label}
-                    component={Link}
-                    to={page.label}
-                    
-                  >
+                  <Button key={page.label} component={Link} to={page.label}>
                     {page.label}
                     <Typography textAlign="center"></Typography>
                   </Button>
@@ -326,7 +316,10 @@ function ResponsiveAppBar() {
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+              <IconButton
+                onClick={handleOpenUserMenu}
+                sx={{ p: 0, height: 50, marginRight: 9 }}
+              >
                 <Avatar alt="" src="" />
               </IconButton>
             </Tooltip>
