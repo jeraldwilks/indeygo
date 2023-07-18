@@ -14,6 +14,7 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import { Link } from "react-router-dom";
 import { NestedDropdown } from "mui-nested-menu";
+import { useAuth } from "../providers/AuthProvider";
 
 const pages = [
   {
@@ -108,10 +109,10 @@ const pages = [
 ];
 
 function ResponsiveAppBar() {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
-  const settings = isLoggedIn ? ["Dashboard", "Logout"] : ["Login", "Register"];
+  const { user } = useAuth();
+  const [anchorElNav, setAnchorElNav] = useState();
+  const [anchorElUser, setAnchorElUser] = useState();
+  const settings = user ? ["Dashboard", "Logout"] : ["Login", "Register"];
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -121,14 +122,10 @@ function ResponsiveAppBar() {
   };
 
   const handleLogout = () => {
-    // Logout Logic
-    setIsLoggedIn(false);
     handleCloseUserMenu();
   };
 
   const handleLogin = () => {
-    // Login Logic
-    setIsLoggedIn(true);
     handleCloseUserMenu();
   };
 
