@@ -18,7 +18,7 @@ const CustomerReviewCarousel = () => {
     dots: true,
     infinite: true,
     speed: 300,
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 3,
     centerMode: true, // Center the active card
     centerPadding: "10px", // Space between cards
@@ -54,12 +54,16 @@ const CustomerReviewCarousel = () => {
 
   return (
     <div class="carousel">
+      What our Customers Are Saying
       <div class="carousel-container">
         <Slider {...settings} autoplay={autoplay} autoplaySpeed={1500}>
           <div class="col-md-3">
             <div class="cardholder">
               <div class="card">
                 <h3 class="desc">Dawn</h3>
+                <p>
+                  Indeygo Fundraiser is a great company, they were very resourceful and helpful throughout our entire fundraising projects. 
+                </p>
               </div>
             </div>
           </div>
@@ -67,6 +71,9 @@ const CustomerReviewCarousel = () => {
             <div class="cardholder">
               <div class="card">
                 <h3 class="desc">Lorna</h3>
+                <p>
+                  Indeygo Fundraiser is a great company, they were very resourceful and helpful throughout our entire fundraising projects. 
+                </p>
               </div>
             </div>
           </div>
@@ -74,6 +81,9 @@ const CustomerReviewCarousel = () => {
             <div class="cardholder">
               <div class="card">
                 <h3 class="desc">Cassie</h3>
+                <p>
+                  Indeygo Fundraiser is a great company, they were very resourceful and helpful throughout our entire fundraising projects. 
+                </p>
               </div>
             </div>
           </div>
@@ -81,6 +91,9 @@ const CustomerReviewCarousel = () => {
             <div class="cardholder">
               <div class="card">
                 <h3 class="desc">Milos</h3>
+                <p>
+                  Indeygo Fundraiser is a great company, they were very resourceful and helpful throughout our entire fundraising projects. 
+                </p>
               </div>
             </div>
           </div>
@@ -88,6 +101,9 @@ const CustomerReviewCarousel = () => {
             <div class="cardholder">
               <div class="card">
                 <h3 class="desc">Marie</h3>
+                <p>
+                  Indeygo Fundraiser is a great company, they were very resourceful and helpful throughout our entire fundraising projects. 
+                </p>
               </div>
             </div>
           </div>

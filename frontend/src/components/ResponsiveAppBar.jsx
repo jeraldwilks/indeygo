@@ -58,7 +58,6 @@ const pages = [
         label: "Doggie Dough",
         callback: () => console.log("Products > Doggie Dough"),
       },
-      
     ],
   },
   {
@@ -106,7 +105,6 @@ const pages = [
   {
     label: "Contact",
     hasDropdown: false,
-
   },
 ];
 
@@ -225,27 +223,21 @@ function ResponsiveAppBar() {
                         onClick={handleCloseNavMenu}
                         sx={{
                           display: "flex",
-                          justifyContent: "center",
+                          justifyContent: "left",
                           "&:hover": {
                             backgroundColor: "#F7E86A",
+                            color: "#0B4D83",
                           },
                         }}
                       >
                         {page.label}
-                      
                       </MenuItem>
                     </NestedDropdown>
                   ) : (
                     <MenuItem
                       key={page.label}
                       onClick={handleCloseNavMenu}
-                      sx={{
-                        display: "flex",
-                          justifyContent: "center",
-                        "&:hover": {
-                          backgroundColor: "#F7E86A",
-                        },
-                      }}
+                      
                     >
                       {page.label}
                     </MenuItem>
@@ -280,10 +272,15 @@ function ResponsiveAppBar() {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
-              <Link to={page.label} key={page.label}>
+              <Link to={page.label} key={page.label} >
                 {page.hasDropdown ? (
                   <NestedDropdown
                     key={page.label}
+                    sx={{
+                      color: "orange",
+                      marginLeft: "8rem",
+                      marginRight: "0rem",
+                    }}
                     menuItemsData={{
                       label: page.label,
                       items: page.menuItems.map((menuItem) => ({
@@ -305,6 +302,7 @@ function ResponsiveAppBar() {
                         marginRight: "0rem",
                         "&:hover": {
                           backgroundColor: "#F7E86A",
+                          color: "#0B4D83",
                         },
                       }}
                     >
@@ -316,20 +314,10 @@ function ResponsiveAppBar() {
                     key={page.label}
                     component={Link}
                     to={page.label}
-                    sx={{
-                      my: 2,
-                      color: "white",
-                      display: "block",
-                      marginLeft: "8rem",
-                      marginRight: "0rem",
-                      "&:hover": {
-                        backgroundColor: "#F7E86A",
-                      },
-                    }}
+                    
                   >
                     {page.label}
-                    <Typography textAlign="center">
-                    </Typography>
+                    <Typography textAlign="center"></Typography>
                   </Button>
                 )}
               </Link>
@@ -350,12 +338,12 @@ function ResponsiveAppBar() {
               anchorEl={anchorElUser}
               anchorOrigin={{
                 vertical: "top",
-                horizontal: "right",
+                horizontal: "left",
               }}
               keepMounted
               transformOrigin={{
                 vertical: "top",
-                horizontal: "right",
+                horizontal: "left",
               }}
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
