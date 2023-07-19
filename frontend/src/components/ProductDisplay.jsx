@@ -6,7 +6,8 @@ import CinnamonAndStickyBunInfo from "./ProductInfo/CinnamonAndStickyBunInfo";
 
 import { Box, Card, CardContent, CardMedia, Typography, Grid } from "@mui/material";
 import CoffeeAndTeaInfo from "./ProductInfo/CoffeeAndTeaInfo";
-
+import BeefJerkyInfo from "./ProductInfo/BeefJerkyInfo";
+import HarvestBundleInfo from "./ProductInfo/HarvestBundleInfo";
 
 const ProductDisplay = () => {
   const [showCookieDoughInfo, setShowCookieDoughInfo] = useState(false);
@@ -54,10 +55,10 @@ const ProductDisplay = () => {
     <CoffeeAndTeaInfo/>
     </Grid>
   <Grid item>
-    <CookieDoughInfo/>
+    <BeefJerkyInfo/>
     </Grid>
   <Grid item>
-    <CookieDoughInfo/>
+    <HarvestBundleInfo/>
     </Grid>
   <Grid item>
     <CookieDoughInfo/>
