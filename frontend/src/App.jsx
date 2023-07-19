@@ -67,7 +67,7 @@ function App() {
         <Route path="/FundRaiserInfo" element={<InfoRunFundraiser />} /> */}
 
 
-        <Route path="/products/cd" element={<CookieDoughInfo />} />
+        {/* <Route path="/products/cd" element={<CookieDoughInfo />} /> */}
         <Route path="/products/md" element={<MuffinDoughInfo />} />
         <Route path="/products/csb" element={<CinnamonAndStickyBunInfo />} />
         <Route path="/products/ct" element={<CoffeeAndTeaInfo />} />
