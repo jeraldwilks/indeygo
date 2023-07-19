@@ -9,6 +9,7 @@ import CoffeeAndTeaInfo from "./ProductInfo/CoffeeAndTeaInfo";
 import BeefJerkyInfo from "./ProductInfo/BeefJerkyInfo";
 import HarvestBundleInfo from "./ProductInfo/HarvestBundleInfo";
 import SpringPlantersAndHerbsInfo from "./ProductInfo/SpringPlantersAndHerbsInfo";
+import DoggieDoughInfo from "./ProductInfo/DoggieDoughInfo";
 
 const ProductDisplay = () => {
   const [showCookieDoughInfo, setShowCookieDoughInfo] = useState(false);
@@ -65,7 +66,7 @@ const ProductDisplay = () => {
     <SpringPlantersAndHerbsInfo/>
     </Grid>
   <Grid item>
-    <CookieDoughInfo/>
+    <DoggieDoughInfo/>
     </Grid>
     </Grid>
 </Box>
