@@ -5,7 +5,6 @@ import Stack from "@mui/material/Stack";
 import { styled } from "@mui/material/styles";
 import StarsIcon from "@mui/icons-material/Stars";
 
-
 // Below are the imports for open dialog box
 import PropTypes from "prop-types";
 import Dialog from "@mui/material/Dialog";
@@ -16,6 +15,8 @@ import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
 import { Button } from "@mui/material";
+import DownloadForOfflineIcon from '@mui/icons-material/DownloadForOffline';
+
 
 
 //Dialog Box
@@ -57,16 +58,6 @@ BootstrapDialogTitle.propTypes = {
   onClose: PropTypes.func.isRequired,
 };
 
-//customizing theme for mui stack
-
-// const Item = styled(Paper)(({ theme }) => ({
-//   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-//   ...theme.typography.body2,
-//   padding: theme.spacing(1),
-//   textAlign: "left",
-//   color: theme.palette.text.secondary,
-// }));
-
 const Item = ({ children }) => (
   <Paper
     sx={{
@@ -75,15 +66,17 @@ const Item = ({ children }) => (
       padding: "8px", // Add some spacing around the item
     }}
   >
-    <StarsIcon sx={{ marginRight: "8px", color: "#0B4D83"  }} /> {/* Add margin to separate the icon */}
+    <StarsIcon sx={{ marginRight: "8px", color: "#0B4D83" }} />{" "}
+    {/* Add margin to separate the icon */}
     {children}
   </Paper>
 );
 
-
 // Custom styles for the download button
 const DownloadButton = styled(Button)({
-  border: "2px solid #0B4D83", // Replace #000 with your desired border color
+  display: "flex",
+  alignItems: "center",
+  border: "2px solid #0B4D83",
   padding: "10px 20px",
   fontSize: "16px",
   fontWeight: "bold",
@@ -91,17 +84,12 @@ const DownloadButton = styled(Button)({
   marginTop: "30px",
 });
 
-
-
-
 const CookieDoughInfo = () => {
-
-// download pdf logic here
-const handleDownloadPDF = () => {
-  const pdfPath = "../pdfs/BeefJerky2022.pdf";
-  window.open(pdfPath, "_blank");
-};
-
+  // download pdf logic here
+  const handleDownloadPDF = () => {
+    const pdfPath = "../pdfs/PrePortionedCookie2022.pdf";
+    window.open(pdfPath, "_blank");
+  };
 
   //opening and closing the open dialog box
   const [open, setOpen] = React.useState(false);
@@ -119,7 +107,7 @@ const handleDownloadPDF = () => {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          border: "0.5px solid #D3D3D3",
+          border: "1px solid #D3D3D3",
           borderRadius: "8px",
           padding: "8px",
         }}
@@ -127,7 +115,7 @@ const handleDownloadPDF = () => {
         <img
           src="./images/productcookiedough.jpeg"
           alt="Cookie DOugh Image"
-          style={{ width: "150px", height: "150px" }}
+          style={{ width: "250px", height: "250px" }}
         />
         <Button
           variant="outlined"
@@ -147,57 +135,62 @@ const handleDownloadPDF = () => {
           id="customized-dialog-title"
           onClose={handleClose}
         >
+          <img
+            src="../images/productcookiedough.jpeg"
+            alt="Beef Jerky Image"
+            style={{
+              width: "100%",
+              height: "250px", // Adjust the height as needed
+              objectFit: "cover",
+            }}
+          />
           Cookie Dough Fundraiser
         </BootstrapDialogTitle>
         <DialogContent dividers>
           <Typography gutterBottom>
             <Stack spacing={2}>
+              <Item>Typically make between 30% to 40% Profit</Item>
+              <Item>10 Awesome Classic Flavours. Click HERE for flavours</Item>
               <Item>
-                Typically make between 30% to 40% Profit
+                Choose either a 2.7 lb tub or a box of 48 pre-portioned cookies
               </Item>
               <Item>
-                 10 Awesome Classic Flavours. Click HERE for
-                flavours
+                Macaroon Cookie Dough Available-have a treat without the wheat!
+                * not certified gluten free- made without wheat
               </Item>
               <Item>
-                Choose either a 2.7 lb tub or a box of 48
-                pre-portioned cookies
+                Also available-our famous Doggie Dough! A healthy, nutritious
+                and tail wagging temptation for our loyal companions
               </Item>
               <Item>
-                Macaroon Cookie Dough Available-have a treat
-                without the wheat! * not certified gluten free- made without
-                wheat
+                Over 70% of the ingredients are sourced from Canadian farmers!
               </Item>
               <Item>
-                Also available-our famous Doggie Dough! A healthy,
-                nutritious and tail wagging temptation for our loyal companions
+                Dough stays fresh for months in the freezer can be thawed and
+                refrozen
               </Item>
               <Item>
-                 Over 70% of the ingredients are sourced from
-                Canadian farmers!
-              </Item>
-              <Item>
-                 Dough stays fresh for months in the freezer can be
-                thawed and refrozen
-              </Item>
-              <Item>
-              View our Ingredients List HERE *Indeygo reserves
-                the right to offer substitutions based on availability
+                View our Ingredients List HERE *Indeygo reserves the right to
+                offer substitutions based on availability
               </Item>
             </Stack>
           </Typography>
-          <Typography gutterBottom>
-            <p>Fill out one of our online forms</p>
-          </Typography>
         </DialogContent>
-        <DialogActions>
-          <div style={{ display: "flex", gap: "0px" }}>
-            <a href="/Contact">
-            <DownloadButton onClick={handleDownloadPDF}>
-            Download Brochure
-          </DownloadButton>
-            </a>
-          </div>
+        <DialogActions
+          style={{
+            height: "90px", // Adjust the height as needed
+            display: "flex",
+            justifyContent: "center", // Equal spacing on either side
+            marginBottom: "30 px",
+          }}
+        >
+     
+              <DownloadButton onClick={handleDownloadPDF}>
+              <DownloadForOfflineIcon sx={{ marginRight: "8px" }} />
+                Cookie Flavours
+              </DownloadButton>
+          
+          
         </DialogActions>
       </BootstrapDialog>
     </>
@@ -205,10 +198,6 @@ const handleDownloadPDF = () => {
 };
 
 export default CookieDoughInfo;
-
-
-
-
 
 
 

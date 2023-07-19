@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import CookieDoughInfo from "./ProductInfo/CookieDoughInfo";
+import MuffinDoughInfo from "./ProductInfo/MuffinDoughInfo";
 
 import { Box, Card, CardContent, CardMedia, Typography, Grid } from "@mui/material";
+
 
 const ProductDisplay = () => {
   const [showCookieDoughInfo, setShowCookieDoughInfo] = useState(false);
@@ -31,7 +33,7 @@ const ProductDisplay = () => {
         marginLeft: "3rem",
         display: "flex",
         alignItems: "center",
-        padding: "16px",
+        padding: "8px",
         maxWidth: "900px", // Set the maximum width here
         margin: "0 auto", // Center the container horizontally
       }}
@@ -41,7 +43,7 @@ const ProductDisplay = () => {
     <CookieDoughInfo/>
   </Grid>
   <Grid item>
-    <CookieDoughInfo/>
+    <MuffinDoughInfo/>
     </Grid>
   <Grid item>
     <CookieDoughInfo/>
