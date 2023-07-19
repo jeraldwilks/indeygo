@@ -145,6 +145,7 @@ function ResponsiveAppBar() {
         marginBottom: "2rem",
         height: 68,
         paddingTop: ".1rem",
+        color: "#0B4D83",
       }}
     >
       <Container maxWidth="xl">
