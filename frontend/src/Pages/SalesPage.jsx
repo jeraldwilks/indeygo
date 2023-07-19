@@ -18,6 +18,8 @@ import {
 } from "@mui/material";
 import InventorySharpIcon from "@mui/icons-material/InventorySharp";
 import { DataGrid } from "@mui/x-data-grid";
+import { PDFDownloadLink } from "@react-pdf/renderer";
+import DistributionReport from "../components/DistributionReport";
 
 const theme = createTheme();
 
@@ -152,6 +154,18 @@ const SalesPage = () => {
               <Button onClick={() => navigate("/add-sale")}>
                 Add New Sale
               </Button>
+              <PDFDownloadLink
+                document={<DistributionReport />}
+                fileName="DistributionReport"
+              >
+                {({ loading }) =>
+                  loading ? (
+                    <Button>Loading Report...</Button>
+                  ) : (
+                    <Button>Download Distribution Report</Button>
+                  )
+                }
+              </PDFDownloadLink>
             </FormControl>
           </Box>
         </Container>
