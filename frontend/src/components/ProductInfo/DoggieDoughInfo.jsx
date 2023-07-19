@@ -110,17 +110,26 @@ const DoggieDoughInfo = () => {
           padding: "8px",
         }}
       >
-        <img
-          src="./images/productdoggiedough.jpeg"
-          alt="Cinnamon & Sticky Bun"
-          style={{ width: "250px", height: "250px" }}
-        />
         <Button
           variant="outlined"
-          style={{ width: "250px" }}
+          style={{
+            width: "250px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            border: "none", // Remove the button border
+            padding: 0, // Remove the default padding
+          }}
           onClick={handleClickOpen}
         >
-          Doggie Dough
+          <div>
+            <img
+              src="./images/productdoggiedough.jpeg"
+              alt="Doggie Dough"
+              style={{ width: "250px", height: "250px" }}
+            />
+          </div>
+          <div>Doggie Dough</div>
         </Button>
       </div>
 
@@ -149,17 +158,18 @@ const DoggieDoughInfo = () => {
             <Stack spacing={2}>
               <Item>Make between 30% to 40% Profit per tub</Item>
               <Item>View the ingredient list HERE</Item>
+              <Item>2.7 lb tub</Item>
               <Item>
-              2.7 lb tub
+                Also available-our famous Doggie Dough! A healthy, nutritious
+                and tail wagging temptation for our loyal companions
               </Item>
               <Item>
-              Also available-our famous Doggie Dough! A healthy, nutritious and tail wagging temptation for our loyal companions
-
+                Over 70% of the ingredients are sourced from Canadian farmers!
               </Item>
               <Item>
-              Over 70% of the ingredients are sourced from Canadian farmers!
+                Dough stays fresh for months in the freezer can be thawed and
+                refrozen
               </Item>
-              <Item>Dough stays fresh for months in the freezer can be thawed and refrozen</Item>
             </Stack>
           </Typography>
         </DialogContent>

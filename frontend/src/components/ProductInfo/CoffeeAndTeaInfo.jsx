@@ -110,17 +110,26 @@ const CoffeeAndTeaInfo = () => {
           padding: "8px",
         }}
       >
-        <img
-          src="./images/productcoffeetea.jpeg"
-          alt="Cinnamon & Sticky Bun"
-          style={{ width: "250px", height: "250px" }}
-        />
         <Button
           variant="outlined"
-          style={{ width: "250px" }}
+          style={{
+            width: "250px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            border: "none", // Remove the button border
+            padding: 0, // Remove the default padding
+          }}
           onClick={handleClickOpen}
         >
-          Coffee & Tea
+          <div>
+            <img
+              src="./images/productcoffeetea.jpeg"
+              alt="Coffee & Tea"
+              style={{ width: "250px", height: "250px" }}
+            />
+          </div>
+          <div>Tea & Coffee</div>
         </Button>
       </div>
 

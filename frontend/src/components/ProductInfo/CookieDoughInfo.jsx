@@ -112,18 +112,28 @@ const CookieDoughInfo = () => {
           padding: "8px",
         }}
       >
-        <img
-          src="./images/productcookiedough.jpeg"
-          alt="Cookie DOugh Image"
-          style={{ width: "250px", height: "250px" }}
-        />
-        <Button
-          variant="outlined"
-          style={{ width: "250px" }}
-          onClick={handleClickOpen}
-        >
-          Cookie Dough
-        </Button>
+            <Button
+  variant="outlined"
+  style={{
+    width: "250px",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    border: "none", // Remove the button border
+    padding: 0, // Remove the default padding
+  }}
+  onClick={handleClickOpen}
+>
+  <div>
+    <img
+      src="./images/productcookiedough.jpeg"
+      alt="Cookie Dough"
+      style={{ width: "250px", height: "250px" }}
+    />
+  </div>
+  <div>Cookie Dough</div>
+</Button>
+
       </div>
 
       <BootstrapDialog

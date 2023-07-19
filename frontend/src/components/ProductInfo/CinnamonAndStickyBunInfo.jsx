@@ -110,18 +110,28 @@ const MuffinDoughInfo = () => {
           padding: "8px",
         }}
       >
-        <img
-          src="./images/productcinnamonstickybun.jpeg"
-          alt="Cinnamon & Sticky Bun"
-          style={{ width: "250px", height: "250px" }}
-        />
-        <Button
-          variant="outlined"
-          style={{ width: "250px" }}
-          onClick={handleClickOpen}
-        >
-          Cinnamon & Sticky Buns
-        </Button>
+          <Button
+  variant="outlined"
+  style={{
+    width: "250px",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    border: "none", // Remove the button border
+    padding: 0, // Remove the default padding
+  }}
+  onClick={handleClickOpen}
+>
+  <div>
+    <img
+      src="./images/productcinnamonstickybun.jpeg"
+      alt="Cinnamon & Sticky Bun"
+      style={{ width: "250px", height: "250px" }}
+    />
+  </div>
+  <div>Cinnamon & Sticky Bun</div>
+</Button>
+
       </div>
 
       <BootstrapDialog

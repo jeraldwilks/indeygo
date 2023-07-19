@@ -110,17 +110,26 @@ const SpringPlantersAndHerbsInfo = () => {
           padding: "8px",
         }}
       >
-        <img
-          src="./images/productspringplanter.jpeg"
-          alt="Spring Planter"
-          style={{ width: "250px", height: "250px" }}
-        />
         <Button
           variant="outlined"
-          style={{ width: "250px" }}
+          style={{
+            width: "250px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            border: "none", // Remove the button border
+            padding: 0, // Remove the default padding
+          }}
           onClick={handleClickOpen}
         >
-          Spring Planters & Herbs
+          <div>
+            <img
+              src="./images/productspringplanter.jpeg"
+              alt="Spring Planters & Herbs"
+              style={{ width: "250px", height: "250px" }}
+            />
+          </div>
+          <div>Spring Planters & Herbs</div>
         </Button>
       </div>
 
@@ -148,16 +157,15 @@ const SpringPlantersAndHerbsInfo = () => {
           <Typography gutterBottom>
             <Stack spacing={2}>
               <Item>Make 30% profit</Item>
-              <Item>Choose from Hanging Baskets, Patio Pots, Bedding Plants and Herb Mixes</Item>
               <Item>
-              Fundraiser runs in April with delivery early May
+                Choose from Hanging Baskets, Patio Pots, Bedding Plants and Herb
+                Mixes
               </Item>
+              <Item>Fundraiser runs in April with delivery early May</Item>
+              <Item>A perfect Mother’s Day Fundraiser!</Item>
               <Item>
-              A perfect Mother’s Day Fundraiser!
+                * Please note this program available in Calgary and Edmonton.
               </Item>
-              <Item>
-              * Please note this program available in Calgary and Edmonton.
-              </Item> 
             </Stack>
           </Typography>
         </DialogContent>
