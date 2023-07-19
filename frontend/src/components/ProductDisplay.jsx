@@ -8,6 +8,7 @@ import { Box, Card, CardContent, CardMedia, Typography, Grid } from "@mui/materi
 import CoffeeAndTeaInfo from "./ProductInfo/CoffeeAndTeaInfo";
 import BeefJerkyInfo from "./ProductInfo/BeefJerkyInfo";
 import HarvestBundleInfo from "./ProductInfo/HarvestBundleInfo";
+import SpringPlantersAndHerbsInfo from "./ProductInfo/SpringPlantersAndHerbsInfo";
 
 const ProductDisplay = () => {
   const [showCookieDoughInfo, setShowCookieDoughInfo] = useState(false);
@@ -61,7 +62,7 @@ const ProductDisplay = () => {
     <HarvestBundleInfo/>
     </Grid>
   <Grid item>
-    <CookieDoughInfo/>
+    <SpringPlantersAndHerbsInfo/>
     </Grid>
   <Grid item>
     <CookieDoughInfo/>
