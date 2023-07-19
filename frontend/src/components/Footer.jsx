@@ -12,6 +12,7 @@ export default function StickyFooter() {
   const footerStyle = {
     display: "flex",
     flexWrap: "wrap",
+    marginTop: "20px",
     justifyContent: "center",
     gap: "10px",
     backgroundColor: "#f2f2f2",

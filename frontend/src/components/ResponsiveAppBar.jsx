@@ -23,42 +23,7 @@ const pages = [
   },
   {
     label: "Products",
-    hasDropdown: true,
-
-    menuItems: [
-      {
-        label: "Cookie Dough",
-        callback: () => console.log("Products > Cookie Dough"),
-      },
-      {
-        label: "Muffin Dough",
-        callback: () => console.log("Products > Muffin Dough"),
-      },
-      {
-        label: "Cinnamon & Sticky Bun",
-        callback: () => console.log("Products > Cinnamon & Sticky Bun"),
-      },
-      {
-        label: "Coffee & tea",
-        callback: () => console.log("Products > Coffee & Tea"),
-      },
-      {
-        label: "Beef Jerky",
-        callback: () => console.log("Products > Beef Jerky"),
-      },
-      {
-        label: "Harvest Bundle",
-        callback: () => console.log("Products > Harvest Bundle"),
-      },
-      {
-        label: "Spring Planters & Herbs",
-        callback: () => console.log("Products > Spring Planters & Herbs"),
-      },
-      {
-        label: "Doggie Dough",
-        callback: () => console.log("Products > Doggie Dough"),
-      },
-    ],
+    hasDropdown: false,
   },
   {
     label: "FundraisingInfo",
@@ -272,9 +237,10 @@ function ResponsiveAppBar() {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex", color: "white", } }}>
             {pages.map((page) => (
-              <Link to={page.label} key={page.label}  style={{ textDecoration: "none"  }}>
+              <Button component={Link} to={page.label} key={page.label}  sx={{ textDecoration: "none", color: "white"  }}>
                 {page.hasDropdown ? (
                   <NestedDropdown
+                  ButtonProps={{variant: 'white'}}
                     key={page.label}
                     menuItemsData={{
                       label: page.label,
@@ -287,13 +253,14 @@ function ResponsiveAppBar() {
                     onClose={handleCloseNavMenu}
                   >
                     <Button
+                    
                       key={page.label}
                       onClick={handleCloseNavMenu}
                       sx={{
                         my: 2,
                         color: "white",
                         display: "block",
-                        marginLeft: "8rem",
+                        marginLeft: "1rem",
                         marginRight: "0rem",
                         "&:hover": {
                           backgroundColor: "#F7E86A",
@@ -305,12 +272,10 @@ function ResponsiveAppBar() {
                     </Button>
                   </NestedDropdown>
                 ) : (
-                  <Button key={page.label} component={Link} to={page.label}>
-                    {page.label}
-                    <Typography textAlign="center"></Typography>
-                  </Button>
+                    
+                    <Typography sx={{color:"white"}} textAlign="center">{page.label}</Typography>
                 )}
-              </Link>
+              </Button>
             ))}
           </Box>
 

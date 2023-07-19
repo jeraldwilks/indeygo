@@ -18,7 +18,7 @@ const CustomerReviewCarousel = () => {
     dots: true,
     infinite: true,
     speed: 300,
-    slidesToShow: 4,
+    slidesToShow: 3.8,
     slidesToScroll: 3,
     centerMode: true, // Center the active card
     centerPadding: "10px", // Space between cards
