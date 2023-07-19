@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import CookieDoughInfo from "./ProductInfo/CookieDoughInfo";
 import MuffinDoughInfo from "./ProductInfo/MuffinDoughInfo";
+import CinnamonAndStickyBunInfo from "./ProductInfo/CinnamonAndStickyBunInfo";
 
 import { Box, Card, CardContent, CardMedia, Typography, Grid } from "@mui/material";
+import CoffeeAndTeaInfo from "./ProductInfo/CoffeeAndTeaInfo";
 
 
 const ProductDisplay = () => {
@@ -46,10 +48,10 @@ const ProductDisplay = () => {
     <MuffinDoughInfo/>
     </Grid>
   <Grid item>
-    <CookieDoughInfo/>
+    <CinnamonAndStickyBunInfo/>
     </Grid>
   <Grid item>
-    <CookieDoughInfo/>
+    <CoffeeAndTeaInfo/>
     </Grid>
   <Grid item>
     <CookieDoughInfo/>

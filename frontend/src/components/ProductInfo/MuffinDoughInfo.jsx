@@ -112,7 +112,7 @@ const MuffinDoughInfo = () => {
       >
         <img
           src="./images/productmuffindough.jpeg"
-          alt="Cookie DOugh Image"
+          alt="Muffin dough Image"
           style={{ width: "250px", height: "250px" }}
         />
         <Button
