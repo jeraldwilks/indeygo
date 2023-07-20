@@ -169,9 +169,6 @@ const SalesPage = () => {
                     )
                   }
                 </PDFDownloadLink>
-                <Button onClick={() => console.log(fundraiser.name)}>
-                  Test
-                </Button>
               </FormControl>
             </Box>
           </Container>
