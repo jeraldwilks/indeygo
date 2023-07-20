@@ -76,6 +76,8 @@
 .raisedText {
   margin-top: 20px;
   color: green;
-  text-shadow: 2px 2px 4px #f7e86a;
+  font-weight:700;
+  font-size: 17px;
+  text-shadow: 1px 9px 20px ;
 
 }
