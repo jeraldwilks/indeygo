@@ -97,7 +97,7 @@ const SalesPage = () => {
     navigate("/edit-sale/" + sale.id);
   };
   return (
-    sales && (
+    fundraiser && (
       <div>
         <ThemeProvider theme={theme}>
           <Container component="main" sx={{ width: "75%" }}>
@@ -169,7 +169,9 @@ const SalesPage = () => {
                     )
                   }
                 </PDFDownloadLink>
-                <Button onClick={() => console.log(sales)}>Test</Button>
+                <Button onClick={() => console.log(fundraiser.name)}>
+                  Test
+                </Button>
               </FormControl>
             </Box>
           </Container>

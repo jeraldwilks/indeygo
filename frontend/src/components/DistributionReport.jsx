@@ -25,8 +25,8 @@ const DistributionReport = ({ sales, fundraiser }) => {
     <Document>
       <Page size="A4" style={styles.page}>
         <View>
-          {/* <Image src="Logo.jpg" /> */}
-          <Text>*Insert Fundraiser Name Here* - Distribution Report</Text>
+          {/* <Image src="/Logo.jpg" /> */}
+          <Text>{fundraiser.name} - Distribution Report</Text>
         </View>
         {sales.map((sale) => (
           <View key={sale._id} style={styles.section}>
