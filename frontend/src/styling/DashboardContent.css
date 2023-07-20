@@ -7,9 +7,9 @@
 }
 
 .h2-header {
-  font-size: 75px;
+  font-size: 85px;
   margin-bottom: 20px;
-  color: #0b4d83; /* Add your desired color */
+  color: #0b4d83; 
   text-shadow: 2px 2px 4px #f7e86a;
   text-decoration: double;
   animation: oscillate 9s ease-in-out infinite;
@@ -38,7 +38,7 @@
   50% {
     transform: translateX(
       10px
-    ); /* Adjust the value for desired oscillation effect */
+    ); 
   }
 }
 /* #f7e86a */
