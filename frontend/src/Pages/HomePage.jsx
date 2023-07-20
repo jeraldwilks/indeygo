@@ -44,8 +44,11 @@ const HomePage = () => {
           </h1>
         </div>
         <div>
-          <p>Does your group need to raise some cash?</p>
-          <p>With Indeygo, It's Easy!</p>
+          <br/>
+          Does your group need to raise some cash?
+          <br/>
+          <br/>
+          With Indeygo, It's Easy!
           {/* <CustomizedDialogs /> */}
 
           <ol className="steps">
