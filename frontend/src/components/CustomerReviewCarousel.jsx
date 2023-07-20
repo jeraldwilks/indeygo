@@ -27,7 +27,7 @@ const CustomerReviewCarousel = () => {
       {
         breakpoint: 950,
         settings: {
-          slidesToShow: 2, // Display 1 card at a time on smaller screens
+          slidesToShow: 1.65, // Display 1 card at a time on smaller screens
           slidesToScroll: 2, // Display 1 card at a time on smaller screens
           infinite: true,
           dots: true,
@@ -38,7 +38,7 @@ const CustomerReviewCarousel = () => {
       {
         breakpoint: 650,
         settings: {
-          slidesToShow: 1, // Display 1 card at a time on smaller screens
+          slidesToShow: .931, // Display 1 card at a time on smaller screens
           slidesToScroll: 1, // Display 1 card at a time on smaller screens
           infinite: true,
           dots: true,

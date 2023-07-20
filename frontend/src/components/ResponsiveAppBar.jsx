@@ -85,6 +85,7 @@ function ResponsiveAppBar() {
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
+const [isHovered, setIsHovered] = useState(false);
 
   const handleLogout = () => {
     handleCloseUserMenu();
@@ -134,7 +135,7 @@ function ResponsiveAppBar() {
               <img
                 src="Logo.jpg"
                 alt="Logo"
-                style={{ height: 66, marginRight: 350, marginLeft: 15 }} // Adjust the height and margin as needed
+                style={{ height: 66, marginRight: 300, marginLeft: 10 }} // Adjust the height and margin as needed
               />
             </Link>
           </Typography>
@@ -146,7 +147,7 @@ function ResponsiveAppBar() {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="inherit"
+              color="white"
             >
               <MenuIcon />
             </IconButton>
@@ -173,11 +174,14 @@ function ResponsiveAppBar() {
                 <Link
                   to={page.label}
                   key={page.label}
-                  style={{ height: 0, color: "#0b4d83",  }} // Adjust the height and margin as needed
+                  style={{ height: 0, color: "#0b4d83", backgroundColor: isHovered ? "#F7E86A" : "transparent",
+                  transition: "background-color 0.3s",  }} // Adjust the height and margin as needed
                 >
                   {page.hasDropdown ? (
                     <NestedDropdown
                       key={page.label}
+                  ButtonProps={{variant: 'white'}}
+
                       menuItemsData={{
                         label: page.label,
                         items: page.menuItems.map((menuItem) => ({
@@ -191,14 +195,6 @@ function ResponsiveAppBar() {
                       <MenuItem
                         key={page.label}
                         onClick={handleCloseNavMenu}
-                        sx={{
-                          display: "flex",
-                          justifyContent: "left",
-                          "&:hover": {
-                            backgroundColor: "#F7E86A",
-                            color: "#0B4D83",
-                          },
-                        }}
                       >
                         {page.label}
                       </MenuItem>
@@ -232,7 +228,7 @@ function ResponsiveAppBar() {
               <img
                 src="Logo.jpg"
                 alt="Logo"
-                style={{ height: 50, marginRight: 8 }}
+                style={{ height: 50, marginRight: 1 }}
               />{" "}
             </Link>
           </Typography>
@@ -284,7 +280,7 @@ function ResponsiveAppBar() {
             <Tooltip title="Open settings">
               <IconButton
                 onClick={handleOpenUserMenu}
-                sx={{ p: 0, height: 50, marginRight: 9 }}
+                sx={{ p: 0, height: 50, marginRight: 1 }}
               >
                 <Avatar alt="" src="" />
               </IconButton>
