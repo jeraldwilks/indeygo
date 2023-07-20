@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import GetStarted from "./GetStarted";
+import "../styling/DashboardContent.css";
 import {
   CssBaseline,
   FormControl,
@@ -7,6 +8,9 @@ import {
   InputLabel,
   MenuItem,
   Select,
+  Typography,
+  Paper,
+  Grid,
 } from "@mui/material";
 
 const DashboardContent = () => {
@@ -79,25 +83,24 @@ const DashboardContent = () => {
   }, [fundraiser]);
 
   return (
-    <div>
+    <div className="dashboard">
       {fundraiser === undefined && <GetStarted />}
       {fundraiser && (
         <>
           <CssBaseline />
-          <FormControl>
-            <FormGroup>
+          <FormControl sx={{ width: "70ch" }}>
               <InputLabel id="fundraiser-label">Fundraiser</InputLabel>
               {fundraisers.length > 0 && (
                 <Select
-                  labelId="fundraiser-label"
-                  id="Fundraiser"
+                labelId="fundraiser-label"
+                id="Fundraiser"
                   value={fundraiser}
                   label="Fundraiser"
                   onChange={(e) => {
                     setFundraiser(e.target.value);
                   }}
                   required
-                >
+                  >
                   {fundraisers.map((fundraiser) => (
                     <MenuItem key={fundraiser.name} value={fundraiser}>
                       {fundraiser.name}
@@ -105,39 +108,66 @@ const DashboardContent = () => {
                   ))}
                 </Select>
               )}
-            </FormGroup>
           </FormControl>
-          <h2>{fundraiser.organization.name}</h2>
-          <h3>Top Ten Sales</h3>
-          <ol>
-            {topTenSales.map((sale, index) => (
-              <li key={sale._id}>
-                {index + 1}. {sale.name} - {sale.qty} items - ${sale.totalSales}
-              </li>
-            ))}
-          </ol>
-          <h3>Profit Summary</h3>
-          <ul>
-            {salesByProductType.map((pt) => (
-              <li key={pt.productType._id}>
-                {pt.productType.name} - Total Sold: {pt.totalSold} - Profit: $
-                {pt.totalWholesaleProfit}
-              </li>
-            ))}
-          </ul>
-          <p>
-            You've raised ${totalProfit} towards your goal of $
-            {fundraiser.fundraiserTarget}
-          </p>
-          <h3>Case Lots</h3>
-          <ul>
-            {salesByProduct.map((p) => (
-              <li key={p.product._id}>
-                {p.product.name} - Sold: {p.totalSold} - Full Cases:{" "}
-                {p.fullCases} - Partial Case: {p.caseRemainder}/{p.caseSize}
-              </li>
-            ))}
-          </ul>
+              <br/>
+              <br/>
+          <Grid container spacing={3}>
+            <Grid item xs={12}>
+              <Typography variant="h2" className="h2-header">
+                {fundraiser.organization.name}
+              </Typography>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <Paper elevation={3} className="paper">
+                <Typography variant="h3" className="h3-header">
+                  Top Ten Sales
+                </Typography>
+                <ol>
+                  {topTenSales.map((sale, index) => (
+                    <li key={sale._id}>
+                      {index + 1}. {sale.name} - {sale.qty} items - $
+                      {sale.totalSales}
+                    </li>
+                  ))}
+                </ol>
+              </Paper>
+            </Grid>
+            <Grid item xs={6} md={6}>
+              <Paper elevation={3} className="paper">
+                <Typography variant="h3" className="h3-header">
+                  Profit Summary
+                </Typography>
+                <ul className="profitSummaryList">
+                  {salesByProductType.map((pt) => (
+                    <li key={pt.productType._id}>
+                      {pt.productType.name} - Total Sold: {pt.totalSold} -
+                      Profit: ${pt.totalWholesaleProfit}
+                    </li>
+                  ))}
+                </ul>
+                <Typography variant="body1" className="raisedText">
+                  You've raised ${totalProfit} towards your goal of $
+                  {fundraiser.fundraiserTarget}
+                </Typography>
+              </Paper>
+            </Grid>
+            <Grid item xs={6}>
+              <Paper elevation={3} className="paper">
+                <Typography variant="h3" className="h3-header">
+                  Case Lots
+                </Typography>
+                <ul className="profitSummaryList">
+                  {salesByProduct.map((p) => (
+                    <li key={p.product._id} className="profitListItem">
+                      {p.product.name} - Sold: {p.totalSold} - Full Cases:{" "}
+                      {p.fullCases} - Partial Case: {p.caseRemainder}/
+                      {p.caseSize}
+                    </li>
+                  ))}
+                </ul>
+              </Paper>
+            </Grid>
+          </Grid>
         </>
       )}
     </div>

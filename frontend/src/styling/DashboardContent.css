@@ -1,0 +1,81 @@
+.dashboard {
+  display: inline;
+  flex-wrap: wrap;
+}
+.container {
+  padding: 20px;
+}
+
+.h2-header {
+  font-size: 75px;
+  margin-bottom: 20px;
+  color: #0b4d83; /* Add your desired color */
+  /* text-shadow: 2px 2px 4px #f7e86a; */
+  text-decoration: double;
+  animation: oscillate 9s ease-in-out infinite;
+  text-shadow:     0 0px 0 #f7e86a,
+	                 1px 1px 1px #f7e86a,
+	                 2px 2px 2px #f7e86a,
+	                 3px 3px 3px #0b4d83,
+	                 4px 4px 4px  #141414,
+	                 5px 5px 5px #f7e86a,
+	                 6px 6px 6px #dedbc3,
+	                 7px 7px 7px #f7e86a,
+	
+	                 0 0 5px rgba(0, 0, 0, 0.05),
+	                0 1px 3px rgba(149, 15, 15, 0.2),
+	                0 3px 5px rgba(0,0,0,.2),
+	               0 5px 10px rgba(0,0,0,.2),
+	              0 10px 10px rgba(0,0,0,.2),
+	              0 20px 20px rgba(0,0,0,.3);
+}
+
+@keyframes oscillate {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(
+      10px
+    ); /* Adjust the value for desired oscillation effect */
+  }
+}
+/* #f7e86a */
+.h3-header {
+  font-size: 50px;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px pink;
+
+}
+
+.paper {
+  padding: 20px;
+  box-shadow: 0 2px 5px #0b4d83;
+  width: auto;
+  border-radius: 40px;
+}
+
+.topTenSalesList {
+  list-style: decimal;
+}
+
+.listItem {
+  margin-bottom: 10px;
+}
+
+.profitSummaryList {
+  list-style: none;
+  padding: 0;
+}
+
+.profitListItem {
+  margin-bottom: 10px;
+}
+
+.raisedText {
+  margin-top: 20px;
+  color: green;
+  text-shadow: 2px 2px 4px #f7e86a;
+
+}
