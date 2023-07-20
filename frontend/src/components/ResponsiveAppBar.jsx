@@ -85,7 +85,6 @@ function ResponsiveAppBar() {
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
-const [isHovered, setIsHovered] = useState(false);
 
   const handleLogout = () => {
     handleCloseUserMenu();
@@ -174,8 +173,7 @@ const [isHovered, setIsHovered] = useState(false);
                 <Link
                   to={page.label}
                   key={page.label}
-                  style={{ height: 0, color: "#0b4d83", backgroundColor: isHovered ? "#F7E86A" : "transparent",
-                  transition: "background-color 0.3s",  }} // Adjust the height and margin as needed
+                  style={{ height: 0, color: "#0b4d83",}} // Adjust the height and margin as needed
                 >
                   {page.hasDropdown ? (
                     <NestedDropdown
@@ -253,17 +251,7 @@ const [isHovered, setIsHovered] = useState(false);
                     
                       key={page.label}
                       onClick={handleCloseNavMenu}
-                      sx={{
-                        my: 2,
-                        color: "white",
-                        display: "block",
-                        marginLeft: "1rem",
-                        marginRight: "0rem",
-                        "&:hover": {
-                          backgroundColor: "#F7E86A",
-                          color: "#0B4D83",
-                        },
-                      }}
+                      
                     >
                       {page.label}
                     </Button>
