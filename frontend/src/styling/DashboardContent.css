@@ -10,16 +10,16 @@
   font-size: 75px;
   margin-bottom: 20px;
   color: #0b4d83; /* Add your desired color */
-  /* text-shadow: 2px 2px 4px #f7e86a; */
+  text-shadow: 2px 2px 4px #f7e86a;
   text-decoration: double;
   animation: oscillate 9s ease-in-out infinite;
   text-shadow:     0 0px 0 #f7e86a,
-	                 1px 1px 1px #f7e86a,
-	                 2px 2px 2px #f7e86a,
+	                 1px 1px 1px white,
+	                 2px 2px 2px white,
 	                 3px 3px 3px #0b4d83,
 	                 4px 4px 4px  #141414,
-	                 5px 5px 5px #f7e86a,
-	                 6px 6px 6px #dedbc3,
+	                 5px 5px 5px white,
+	                 6px 6px 6px white,
 	                 7px 7px 7px #f7e86a,
 	
 	                 0 0 5px rgba(0, 0, 0, 0.05),
