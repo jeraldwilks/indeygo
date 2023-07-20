@@ -50,11 +50,11 @@ const AdminProducts = () => {
   };
 
   const columns = [
-    { field: "name", headerName: "Name", width: 200 },
+    { field: "name", headerName: "Name", width: 240 },
     {
       field: "description",
       headerName: "Description",
-      width: 350,
+      width: 640,
     },
     {
       field: "Edit",
