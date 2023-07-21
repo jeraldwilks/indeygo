@@ -9,6 +9,28 @@ salesRouter.get("/", isAuthenticated, async (req, res) => {
     let query = req.query;
     query.user = req.user._id;
     const foundSales = await SalesModel.find(query);
+    // .populate({
+    //   path: "products",
+    //   populate: "product",
+    // })
+    // .populate({ path: "products.product", populate: "productType" });
+    res.send(foundSales);
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).send(error.message);
+  }
+});
+
+salesRouter.get("/expanded", isAuthenticated, async (req, res) => {
+  try {
+    let query = req.query;
+    query.user = req.user._id;
+    const foundSales = await SalesModel.find(query)
+      .populate({
+        path: "products",
+        populate: "product",
+      })
+      .populate({ path: "products.product", populate: "productType" });
     res.send(foundSales);
   } catch (error) {
     console.log(error.message);
