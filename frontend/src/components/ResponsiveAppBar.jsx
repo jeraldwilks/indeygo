@@ -26,34 +26,31 @@ const pages = [
     hasDropdown: false,
   },
   {
-    label: "FundraisingInfo",
+    label: "Fundraising Info",
     hasDropdown: true,
     menuItems: [
       {
-        label: "Fundraising Guide",
+        label: "Fundraising Calculator",
         callback: () => console.log("FundraisingInfo > FundraisingInfo 1"),
       },
       {
-        label: "How does a Fundraiser work",
+        label: "Fundraising Guide",
         callback: () => console.log("FundraisingInfo > FundraisingInfo 2"),
+      },
+      {
+        label: "How does a Fundraiser Work",
+        callback: () => console.log("FundraisingInfo > FundraisingInfo 1"),
       },
       {
         label: "Coordinators Checklist",
-        callback: () => console.log("FundraisingInfo > FundraisingInfo 1"),
-      },
-      {
-        label: "I Need More Info",
         callback: () => console.log("FundraisingInfo > FundraisingInfo 2"),
       },
       {
-        label: "I am Ready to Book Ny fundraiser",
+        label: "Need More Information",
         callback: () => console.log("FundraisingInfo > FundraisingInfo 1"),
       },
       {
-        label: "I am Ready to Submit my Final Group Bulk Order",
-      },
-      {
-        label: "I wish to Register for an Online Store",
+        label: "Register Online Store",
       },
       {
         label: "Fundraising Profit",
