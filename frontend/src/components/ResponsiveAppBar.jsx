@@ -250,12 +250,12 @@ function ResponsiveAppBar() {
                       onClick={handleCloseNavMenu}
                       
                     >
-                      {page.label}
+                     {/* <Typography sx={{color:"white", fontSize:"50px"}} textAlign="center">{page.label}</Typography> */}
                     </Button>
                   </NestedDropdown>
                 ) : (
                     
-                    <Typography sx={{color:"white"}} textAlign="center">{page.label}</Typography>
+                    <Typography sx={{color:"white", fontSize:"14px"}} textAlign="center">{page.label}</Typography>
                 )}
               </Button>
             ))}
