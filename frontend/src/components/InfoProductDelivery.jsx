@@ -84,7 +84,7 @@ export default function InfoProductDelivery() {
                       style={{ width: "150px", height: "150px" }}
                     />
                   </Box>
-        <Button variant="outlined" style={{ width: "250px"}} onClick={handleClickOpen}>
+        <Button variant="outlined" style={{ width: "250px" , fontFamily: "'Open Sans', sans-serif", textTransform: "none", fontSize: "16px" }} onClick={handleClickOpen}>
           Deliver Product
         </Button>
         <BootstrapDialog

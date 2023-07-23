@@ -85,7 +85,7 @@ export default function InfoRunFundraiser() {
 
    <div 
      >
-     <Button variant="outlined" style={{ width: "250px"}} onClick={handleClickOpen}>
+     <Button variant="outlined" style={{ width: "250px" , fontFamily: "'Open Sans', sans-serif", textTransform: "none", fontSize: "16px" }} onClick={handleClickOpen}>
        Run Your Fundraiser
      </Button>
      <BootstrapDialog

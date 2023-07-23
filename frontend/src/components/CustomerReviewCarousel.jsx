@@ -53,8 +53,8 @@ const CustomerReviewCarousel = () => {
   };
 
   return (
-    <div class="carousel">
-      What our Customers Are Saying
+    <div class="carousel" style={{ height: "425px", marginBottom: "30px" , fontFamily: "'Open Sans', sans-serif" }}>
+      <h2>What our Customers Are Saying</h2>
       <div class="carousel-container">
         <Slider {...settings} autoplay={autoplay} autoplaySpeed={1500}>
           <div class="col-md-3">

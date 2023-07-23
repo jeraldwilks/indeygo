@@ -84,7 +84,7 @@ export default function InfoContactUs() {
   />
 </Box>
       <div>
-        <Button variant="outlined" style={{ width: "250px"}} onClick={handleClickOpen}>
+        <Button variant="outlined" style={{ width: "250px", fontFamily: "'Open Sans', sans-serif", textTransform: "none", fontSize: "16px" }} onClick={handleClickOpen}>
           Contact Us
         </Button>
         <BootstrapDialog
@@ -118,7 +118,7 @@ export default function InfoContactUs() {
            
           </DialogContent>
           <DialogActions>
-          <div style={{ display: "flex", gap: "0px" }}>
+          <div style={{ display: "flex", gap: "50px" }}>
             <a href="/Contact">
               <Button
                 variant="contained"
@@ -127,6 +127,8 @@ export default function InfoContactUs() {
                 I Need More Info
               </Button>
             </a>
+
+            <div style={{ marginBottom: "20px" }} />
             <a href="/Contact">
               <Button
                 variant="contained"
