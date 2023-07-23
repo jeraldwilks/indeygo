@@ -52,7 +52,7 @@ function App() {
 
         <Route path="*" element={<ErrorPage />} />
 
-        {/* Routes to be configured */}
+        
         <Route path="/Wufooform" element={<Wufooform />} />
 
         {/* Routes  to dropdown menu */}

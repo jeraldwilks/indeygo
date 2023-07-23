@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../styling/homePage.css";
 import CustomerReviewCarousel from "../components/CustomerReviewCarousel";
 import ImageCarousel from "../components/ImageCarousel.jsx";
@@ -33,7 +34,9 @@ const HomePage = () => {
       </h1>
       <div className="home">
         <button className="learn-more-button">
-          <h4 className="text">Learn More</h4>
+        <Link to="/Wufooform" className="learn-more-button">
+      <h4 className="text">Learn More</h4>
+    </Link>
         </button>
 
         <p>Making It Easy For You To Reach Your Fundraising Goals</p>
