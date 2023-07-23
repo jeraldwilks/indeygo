@@ -70,3 +70,8 @@ h3 {
     width: 300px;
   }
 }
+
+.product-text {
+  font-family: 'Open Sans', sans-serif;
+  color: #0b4d83;
+}

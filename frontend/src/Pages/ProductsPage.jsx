@@ -4,14 +4,19 @@ import ProductDisplay from "../components/ProductDisplay";
 const ProductsPage = () => {
   return (
   <>
-  <div style={{ marginTop: "100px" }}></div>
-  <div>Our Products</div>
+  <div style={{ marginTop: "150px", fontFamily: "'Open Sans', sans-serif" }}>
+  <h3>Our Products</h3>
   <br/>
-  <p1>Check out our wide selection of products to choose from! </p1>
+  <h4 style={{
+          fontFamily: "'Open Sans', sans-serif",
+          color: "#0b4d83",
+          fontSize: "16px", // Set the desired font size here (example: 16px)
+          textTransform: "none", // Optionally, set text transform to none for normal case
+        }}>Check out our wide selection of products to choose from! </h4>
   <br/>
   <br/>
   <ProductDisplay></ProductDisplay>
-  
+  </div>
   </>
   );
 };

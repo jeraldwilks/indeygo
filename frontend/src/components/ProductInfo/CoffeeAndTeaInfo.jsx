@@ -129,7 +129,16 @@ const CoffeeAndTeaInfo = () => {
               style={{ width: "250px", height: "250px" }}
             />
           </div>
-          <div>Tea & Coffee</div>
+          <div
+            style={{
+              fontFamily: "'Open Sans', sans-serif",
+              color: "#0b4d83",
+              fontSize: "16px",
+              textTransform: "none", 
+            }}
+          >
+            Tea & Coffee
+          </div>
         </Button>
       </div>
 
@@ -149,6 +158,7 @@ const CoffeeAndTeaInfo = () => {
               width: "100%",
               height: "250px", // Adjust the height as needed
               objectFit: "cover",
+              
             }}
           />
           Coffee & Tea Fundraiser

@@ -111,31 +111,35 @@ const BeefJerkyInfo = () => {
         }}
       >
         <Button
-  variant="outlined"
-  style={{
-    width: "250px",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    border: "none", // Remove the button border
-    padding: 0, // Remove the default padding
-  }}
-  onClick={handleClickOpen}
->
-  <div>
-    <img
-      src="./images/productbeefjerky.jpeg"
-      alt="Cinnamon & Sticky Bun"
-      style={{ width: "250px", height: "250px" }}
-    />
-  </div>
-  <div>Beef Jerky</div>
-</Button>
-
-
-
-
-
+          variant="outlined"
+          style={{
+            width: "250px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            border: "none", // Remove the button border
+            padding: 0, // Remove the default padding
+          }}
+          onClick={handleClickOpen}
+        >
+          <div>
+            <img
+              src="./images/productbeefjerky.jpeg"
+              alt="Cinnamon & Sticky Bun"
+              style={{ width: "250px", height: "250px" }}
+            />
+          </div>
+          <div
+            style={{
+              fontFamily: "'Open Sans', sans-serif",
+              color: "#0b4d83",
+              fontSize: "16px",
+              textTransform: "none", 
+            }}
+          >
+            Beef Jerky
+          </div>
+        </Button>
       </div>
 
       <BootstrapDialog
@@ -199,12 +203,6 @@ const BeefJerkyInfo = () => {
 };
 
 export default BeefJerkyInfo;
-
-
-
-
-
-
 
 // The below code is to render product details by page : do not delete. may use it later
 

@@ -131,7 +131,12 @@ const CookieDoughInfo = () => {
       style={{ width: "250px", height: "250px" }}
     />
   </div>
-  <div>Cookie Dough</div>
+  <div  style={{
+              fontFamily: "'Open Sans', sans-serif",
+              color: "#0b4d83",
+              fontSize: "16px",
+              textTransform: "none", 
+            }}>Cookie Dough</div>
 </Button>
 
       </div>

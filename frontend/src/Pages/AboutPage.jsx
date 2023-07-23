@@ -12,10 +12,14 @@ const About = () => {
           display: "flex",
           justifyContent: "center", // Center the content horizontally
           margin: "0 75px", // Add margin on either side to leave space
+          marginTop: "50px",
+          fontFamily: "'Open Sans', sans-serif", // Apply Open Sans font to the entire component
+          fontWeight: "lighter"
         }}
+      
       >
         <Box>
-          <div class="about">
+          <div className="about">
             <h3>About Us</h3>
             <br />
             <p1>

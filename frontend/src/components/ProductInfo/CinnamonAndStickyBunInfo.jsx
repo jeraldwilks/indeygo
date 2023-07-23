@@ -129,7 +129,12 @@ const MuffinDoughInfo = () => {
       style={{ width: "250px", height: "250px" }}
     />
   </div>
-  <div>Cinnamon & Sticky Bun</div>
+  <div  style={{
+              fontFamily: "'Open Sans', sans-serif",
+              color: "#0b4d83",
+              fontSize: "16px",
+          textTransform: "none", 
+            }}>Cinnamon & Sticky Bun</div>
 </Button>
 
       </div>

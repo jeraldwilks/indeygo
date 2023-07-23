@@ -129,7 +129,12 @@ const HarvestBundleInfo = () => {
       style={{ width: "250px", height: "250px" }}
     />
   </div>
-  <div>Harvest Bundle</div>
+  <div  style={{
+              fontFamily: "'Open Sans', sans-serif",
+              color: "#0b4d83",
+              fontSize: "16px",
+              textTransform: "none", 
+            }}>Harvest Bundle</div>
 </Button>
 
       </div>
