@@ -26,8 +26,8 @@ const pages = [
     hasDropdown: false,
   },
   {
-    label: "Fundraising Info",
-    hasDropdown: true,
+    label: "Fundraising Calculator",
+    hasDropdown: false,
     menuItems: [
       {
         label: "Fundraising Calculator",
