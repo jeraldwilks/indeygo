@@ -110,28 +110,36 @@ const MuffinDoughInfo = () => {
           padding: "8px",
         }}
       >
-         <Button
-  variant="outlined"
-  style={{
-    width: "250px",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    border: "none", // Remove the button border
-    padding: 0, // Remove the default padding
-  }}
-  onClick={handleClickOpen}
->
-  <div>
-    <img
-      src="./images/productmuffindough.jpeg"
-      alt="Muffin Dough"
-      style={{ width: "250px", height: "250px" }}
-    />
-  </div>
-  <div>Muffin Dough</div>
-</Button>
-
+        <Button
+          variant="outlined"
+          style={{
+            width: "250px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            border: "none", // Remove the button border
+            padding: 0, // Remove the default padding
+          }}
+          onClick={handleClickOpen}
+        >
+          <div>
+            <img
+              src="./images/productmuffindough.jpeg"
+              alt="Muffin Dough"
+              style={{ width: "250px", height: "250px" }}
+            />
+          </div>
+          <div
+            style={{
+              fontFamily: "'Open Sans', sans-serif",
+              color: "#0b4d83",
+              fontSize: "16px",
+              textTransform: "none", 
+            }}
+          >
+            Muffin Dough
+          </div>
+        </Button>
       </div>
 
       <BootstrapDialog

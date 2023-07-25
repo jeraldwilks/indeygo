@@ -34,7 +34,9 @@ const WufooForm = () => {
   }, []);
 
   return (
-    <div>
+    <>
+    {/* Go to your wufoo form page----> select share form------->select iFrame----->copy the code and use */}
+    <div style={{ marginTop: "100px" , marginLeft: "200px", marginRight: "300px", display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
       <iframe
         height={1000}
         title="Embedded Wufoo Form"
@@ -46,6 +48,7 @@ const WufooForm = () => {
         src="https://testform123.wufoo.com/embed/z1c352v60vltnnj/"
       />
     </div>
+    </>
   );
 };
 

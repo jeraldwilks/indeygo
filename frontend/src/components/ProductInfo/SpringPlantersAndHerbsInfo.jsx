@@ -129,7 +129,16 @@ const SpringPlantersAndHerbsInfo = () => {
               style={{ width: "250px", height: "250px" }}
             />
           </div>
-          <div>Spring Planters & Herbs</div>
+          <div
+            style={{
+              fontFamily: "'Open Sans', sans-serif",
+              color: "#0b4d83",
+              fontSize: "16px",
+              textTransform: "none", 
+            }}
+          >
+            Spring Planters & Herbs
+          </div>
         </Button>
       </div>
 

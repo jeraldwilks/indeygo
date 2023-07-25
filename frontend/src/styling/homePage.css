@@ -1,17 +1,29 @@
 .home {
-  font-family: serif;
+  font-family: 'Open Sans', sans-serif;
   background-color: #c6e1f81d;
 }
 h1 {
+  font-family: 'Open Sans', sans-serif;
   color: #0b4d83;
+  
+}
+
+h2 {
+  color: #565555;
+  font-family: 'Open Sans', sans-serif;
+  font-size: "16px";
 }
 p {
   padding-inline: 10px;
   color: #565555;
+  font-family: 'Open Sans', sans-serif;
+  font-size: "14px";
+
 }
 ol {
   list-style: none;
   color: #0b4d83;
+  font-family: 'Open Sans', sans-serif;
 }
 .container {
   flex-wrap: wrap;
@@ -19,10 +31,13 @@ ol {
   height: 25vh;
   min-height: auto;
   background-color: #9a9a9a41;
+  font-family: 'Open Sans', sans-serif;
 }
+
 
 .listStyle {
   text-decoration: "none";
+  font-family: 'Open Sans', sans-serif;
 }
 
 .steps {
@@ -32,6 +47,7 @@ ol {
   gap: 50px;
   justify-content: center;
   padding-bottom: 100px;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .step {
@@ -39,6 +55,7 @@ ol {
   align-items: center;
   margin-inline: 20px;
   margin-block: 20px;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .icon {
@@ -63,10 +80,13 @@ ol {
   color: #f7e86a;
 }
 .learn-more-button {
-  height: 7vh;
+  height: 6vh;
   justify-content: center;
   background-color: #f7e86a;
   animation: pulse 9s infinite;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 50;
 }
 :hover.learn-more-button {
   background-color: #0b4d83;

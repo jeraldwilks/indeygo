@@ -82,7 +82,7 @@ export default function InfoCountCash() {
 
       <div 
         >
-        <Button variant="outlined" style={{ width: "250px"}} onClick={handleClickOpen}>
+        <Button variant="outlined" style={{ width: "250px" , fontFamily: "'Open Sans', sans-serif", textTransform: "none", fontSize: "16px" }} onClick={handleClickOpen}>
           Count Your Cash
         </Button>
         <BootstrapDialog
@@ -98,28 +98,28 @@ export default function InfoCountCash() {
           </BootstrapDialogTitle>
           <DialogContent dividers>
             <Typography gutterBottom>
-              <ul>Cookie Dough and Muffin Dough (tubs)</ul>
-              Make up to 36%or $7.75/tub
-              <ul>Cookie dough Pre-portioned</ul>
-              Make up to 25% or $5.75/box
-              <ul>Cinnamon and Sticky Buns </ul>
-              Make up to 30% or $4.25/pack
-              <ul>Coffee/Tea</ul>
-              Make up to 30% or $6/bag
-              <ul>Beef Jerky</ul>
-              Make up to 30% or $6/pack Spring
-              <ul>Planters and Herbs</ul>
-              Make up to 30% or $8/basket
-              <ul>
+              <p>Cookie Dough and Muffin Dough (tubs)</p>
+              <p>Make up to 36%or $7.75/tub</p>
+              <p>Cookie dough Pre-portioned</p>
+              <p>Make up to 25% or $5.75/box</p>
+              <p>Cinnamon and Sticky Buns</p> 
+              <p>Make up to 30% or $4.25/pack</p>
+              <p>Coffee/Tea</p>
+              <p>Make up to 30% or $6/bag</p>
+              <p>Beef Jerky</p>
+              <p>Make up to 30% or $6/pack Spring</p>
+              <p>Planters and Herbs</p>
+              <p>Make up to 30% or $8/basket</p>
+              <p>
                 * only available in Edmonton, Red Deer, Calgary and surrounding
                 areas
-              </ul>
-              <ul>Harvest Veggie</ul>
+                </p>
+              <p>Harvest Veggie</p>
               Bundles Make up to 30% or $6/bundle
-              <ul>
+              <p>
                 * only available in Edmonton, Red Deer, Calgary and surrounding
                 areas
-              </ul>
+              </p>
             </Typography>
           </DialogContent>
         </BootstrapDialog>

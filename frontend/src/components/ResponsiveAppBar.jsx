@@ -26,34 +26,31 @@ const pages = [
     hasDropdown: false,
   },
   {
-    label: "FundraisingInfo",
-    hasDropdown: true,
+    label: "Fundraising Calculator",
+    hasDropdown: false,
     menuItems: [
       {
-        label: "Fundraising Guide",
+        label: "Fundraising Calculator",
         callback: () => console.log("FundraisingInfo > FundraisingInfo 1"),
       },
       {
-        label: "How does a Fundraiser work",
+        label: "Fundraising Guide",
         callback: () => console.log("FundraisingInfo > FundraisingInfo 2"),
+      },
+      {
+        label: "How does a Fundraiser Work",
+        callback: () => console.log("FundraisingInfo > FundraisingInfo 1"),
       },
       {
         label: "Coordinators Checklist",
-        callback: () => console.log("FundraisingInfo > FundraisingInfo 1"),
-      },
-      {
-        label: "I Need More Info",
         callback: () => console.log("FundraisingInfo > FundraisingInfo 2"),
       },
       {
-        label: "I am Ready to Book Ny fundraiser",
+        label: "Need More Information",
         callback: () => console.log("FundraisingInfo > FundraisingInfo 1"),
       },
       {
-        label: "I am Ready to Submit my Final Group Bulk Order",
-      },
-      {
-        label: "I wish to Register for an Online Store",
+        label: "Register Online Store",
       },
       {
         label: "Fundraising Profit",
@@ -62,7 +59,6 @@ const pages = [
   },
   {
     label: "FAQ",
-    // hasDropdown: true,
     menuItems: [
       { label: "Blog", callback: () => console.log("FundraisingInfo > Blog") },
     ],
@@ -173,13 +169,12 @@ function ResponsiveAppBar() {
                 <Link
                   to={page.label}
                   key={page.label}
-                  style={{ height: 0, color: "#0b4d83",}} // Adjust the height and margin as needed
+                  style={{ height: 0, color: "#0b4d83" }} // Adjust the height and margin as needed
                 >
                   {page.hasDropdown ? (
                     <NestedDropdown
                       key={page.label}
-                  ButtonProps={{variant: 'white'}}
-
+                      ButtonProps={{ variant: "white" }}
                       menuItemsData={{
                         label: page.label,
                         items: page.menuItems.map((menuItem) => ({
@@ -190,10 +185,7 @@ function ResponsiveAppBar() {
                       anchorEl={anchorElNav}
                       onClose={handleCloseNavMenu}
                     >
-                      <MenuItem
-                        key={page.label}
-                        onClick={handleCloseNavMenu}
-                      >
+                      <MenuItem key={page.label} onClick={handleCloseNavMenu}>
                         {page.label}
                       </MenuItem>
                     </NestedDropdown>
@@ -230,12 +222,22 @@ function ResponsiveAppBar() {
               />{" "}
             </Link>
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex", color: "white", } }}>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: "none", md: "flex", color: "white" },
+            }}
+          >
             {pages.map((page) => (
-              <Button component={Link} to={page.label} key={page.label}  sx={{ textDecoration: "none", color: "white"  }}>
+              <Button
+                component={Link}
+                to={page.label}
+                key={page.label}
+                sx={{ textDecoration: "none", color: "white" }}
+              >
                 {page.hasDropdown ? (
                   <NestedDropdown
-                  ButtonProps={{variant: 'white'}}
+                    ButtonProps={{ variant: "white" }}
                     key={page.label}
                     menuItemsData={{
                       label: page.label,
@@ -247,18 +249,17 @@ function ResponsiveAppBar() {
                     anchorEl={anchorElNav}
                     onClose={handleCloseNavMenu}
                   >
-                    <Button
-                    
-                      key={page.label}
-                      onClick={handleCloseNavMenu}
-                      
-                    >
-                      {page.label}
+                    <Button key={page.label} onClick={handleCloseNavMenu}>
+                      {/* <Typography sx={{color:"white", fontSize:"50px"}} textAlign="center">{page.label}</Typography> */}
                     </Button>
                   </NestedDropdown>
                 ) : (
-                    
-                    <Typography sx={{color:"white"}} textAlign="center">{page.label}</Typography>
+                  <Typography
+                    sx={{ color: "white", fontSize: "14px" }}
+                    textAlign="center"
+                  >
+                    {page.label}
+                  </Typography>
                 )}
               </Button>
             ))}

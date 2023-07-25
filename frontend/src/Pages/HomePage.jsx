@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../styling/homePage.css";
 import CustomerReviewCarousel from "../components/CustomerReviewCarousel";
 import ImageCarousel from "../components/ImageCarousel.jsx";
@@ -21,10 +22,21 @@ const HomePage = () => {
   return (
     <>
       <ImageCarousel />
-      <h1>Welcome To Indeygo Fundraising</h1>
+      <h1
+        style={{
+          fontFamily: "'Open Sans', sans-serif",
+          fontSize: "48px", // Set the desired font size here (example: 24px)
+          color: "#0b4d83",
+          textTransform: "none",
+        }}
+      >
+        Welcome To Indeygo Fundraising
+      </h1>
       <div className="home">
         <button className="learn-more-button">
-          <h4 className="text">Learn More</h4>
+        <Link to="/Wufooform" className="learn-more-button">
+      <h4 className="text">Learn More</h4>
+    </Link>
         </button>
 
         <p>Making It Easy For You To Reach Your Fundraising Goals</p>
@@ -39,18 +51,17 @@ const HomePage = () => {
         </h2>
 
         <div className="container">
-          <h1>
+          <h1 style={{ textTransform: "none", textAlign: "center" }}>
             Our Healthy <br /> Fundraising Products
           </h1>
         </div>
         <div>
-          <br/>
-          Does your group need to raise some cash?
-          <br/>
-          <br/>
-          With Indeygo, It's Easy!
+          <br />
+          <h2>Does your group need to raise some cash?</h2>
+          <br />
+          <br />
+          <h2>With Indeygo, It's Easy!</h2>
           {/* <CustomizedDialogs /> */}
-
           <ol className="steps">
             <div className="step">
               {/* Step 1 Rendering */}
@@ -81,8 +92,13 @@ const HomePage = () => {
           </ol>
         </div>
       </div>
-
-      <CustomerReviewCarousel />
+        <CustomerReviewCarousel 
+          style={{
+            width: "100%", // Adjust the width as needed
+            margin: "20px 0", // Add margin as needed
+          }}
+        />
+      
     </>
   );
 };

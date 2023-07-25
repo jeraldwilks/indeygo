@@ -4,12 +4,20 @@ import CookieDoughInfo from "./ProductInfo/CookieDoughInfo";
 import MuffinDoughInfo from "./ProductInfo/MuffinDoughInfo";
 import CinnamonAndStickyBunInfo from "./ProductInfo/CinnamonAndStickyBunInfo";
 
-import { Box, Card, CardContent, CardMedia, Typography, Grid } from "@mui/material";
+import {
+  Box,
+  Card,
+  CardContent,
+  CardMedia,
+  Typography,
+  Grid,
+} from "@mui/material";
 import CoffeeAndTeaInfo from "./ProductInfo/CoffeeAndTeaInfo";
 import BeefJerkyInfo from "./ProductInfo/BeefJerkyInfo";
 import HarvestBundleInfo from "./ProductInfo/HarvestBundleInfo";
 import SpringPlantersAndHerbsInfo from "./ProductInfo/SpringPlantersAndHerbsInfo";
 import DoggieDoughInfo from "./ProductInfo/DoggieDoughInfo";
+import "../styling/aboutPage.css";
 
 const ProductDisplay = () => {
   const [showCookieDoughInfo, setShowCookieDoughInfo] = useState(false);
@@ -26,72 +34,57 @@ const ProductDisplay = () => {
   };
 
   return (
-<>
-<Box
-      sx={{
-        flexGrow: 1,
-        fontFamily: "sans-serif",
-        fontWeight: 700,
-        letterSpacing: ".9rem",
-        color: "inherit",
-        textDecoration: "none",
-        marginLeft: "3rem",
-        display: "flex",
-        alignItems: "center",
-        padding: "8px",
-        maxWidth: "900px", // Set the maximum width here
-        margin: "0 auto", // Center the container horizontally
-      }}
-    >
-<Grid container spacing={1} justifyContent="space-between">
-  <Grid item>
-    <CookieDoughInfo/>
-  </Grid>
-  <Grid item>
-    <MuffinDoughInfo/>
-    </Grid>
-  <Grid item>
-    <CinnamonAndStickyBunInfo/>
-    </Grid>
-  <Grid item>
-    <CoffeeAndTeaInfo/>
-    </Grid>
-  <Grid item>
-    <BeefJerkyInfo/>
-    </Grid>
-  <Grid item>
-    <HarvestBundleInfo/>
-    </Grid>
-  <Grid item>
-    <SpringPlantersAndHerbsInfo/>
-    </Grid>
-  <Grid item>
-    <DoggieDoughInfo/>
-    </Grid>
-    </Grid>
-</Box>
-
-  
+    <>
+      <Box
+        sx={{
+          flexGrow: 1,
+          fontFamily: "sans-serif",
+          fontWeight: 700,
+          letterSpacing: ".9rem",
+          color: "inherit",
+          textDecoration: "none",
+          marginLeft: "3rem",
+          display: "flex",
+          alignItems: "center",
+          padding: "8px",
+          maxWidth: "900px", // Set the maximum width here
+          margin: "0 auto", // Center the container horizontally
+        }}
+      >
+        <Grid container spacing={1} justifyContent="space-between">
+          <Grid item>
+            <CookieDoughInfo />
+          </Grid>
+          <Grid item>
+            <MuffinDoughInfo />
+          </Grid>
+          <Grid item>
+            <CinnamonAndStickyBunInfo />
+          </Grid>
+          <Grid item>
+            <CoffeeAndTeaInfo />
+          </Grid>
+          <Grid item>
+            <BeefJerkyInfo />
+          </Grid>
+          <Grid item>
+            <HarvestBundleInfo />
+          </Grid>
+          <Grid item>
+            <SpringPlantersAndHerbsInfo />
+          </Grid>
+          <Grid item>
+            <DoggieDoughInfo />
+          </Grid>
+        </Grid>
+      </Box>
     </>
   );
 };
 
 export default ProductDisplay;
 
-
-
-
-
-
-
-
-
-
-
 //I will delete this code later : Rini
-
-
-
 
 // import React from "react";
 // import { Link } from "react-router-dom";
@@ -182,7 +175,6 @@ export default ProductDisplay;
 //             </CardContent>
 //           </Card>
 
-      
 //         </Grid>
 //       </Box>
 //     </>
@@ -190,15 +182,6 @@ export default ProductDisplay;
 // };
 
 // export default ProductDisplay;
-
-
-
-
-
-
-
-
-
 
 // {products.map((product) => (
 //   <Grid item xs={12} sm={6} md={4} key={product.id}>
