@@ -25,19 +25,19 @@
     "react-icons": "^4.9.0",
     "react-material-ui-carousel": "^3.4.2",
     "react-pro-sidebar": "^1.1.0-alpha.1",
-    "react-router-dom": "^6.11.1",
+    "react-router-dom": "^7.18.5",
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
-    "@vitejs/plugin-react": "^4.0.0",
+    "@vitejs/plugin-react": "^6.3.0",
     "eslint": "^8.38.0",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.3.4",
-    "vite": "^4.3.2"
+    "vite": "^8.3.7"
   },
   "main": "vite.config.js",
   "author": "",
